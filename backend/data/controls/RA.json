@@ -1,0 +1,1053 @@
+[
+  {
+    "control_id": "ra-1",
+    "control_name": "Policy and Procedures",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control requires organizations to establish and maintain policies and procedures to manage risk and protect information systems.",
+    "example_implementation": "This script develop a comprehensive set of policies and procedures that outline roles, responsibilities, and guidelines for managing risk and protecting information systems, and regularly review and update them to ensure they remain effective.",
+    "non_technical_guidance": "This plan to comply with control RA-1 (Policy and Procedures) in NIST 800-53, the following non-technical implementation plan can be followed:\n\n1. Develop and document policies and procedures: Create a comprehensive set of policies and procedures that outline the organization's security requirements, guidelines, and expectations. These documents should cover areas such as access control, data protection, incident response, and security awareness training.\n\n2. Review and update policies regularly: Ensure that policies and procedures are reviewed and updated on a regular basis to reflect changes in technology, regulations, and business requirements. This can be done through periodic reviews by a designated security team or committee.\n\n3. Communicate policies to all stakeholders: Ensure that all employees, contractors, and third-party vendors are aware of the organization's policies and procedures. This can be achieved through training sessions, email communications, and regular reminders.\n\n4. Enforce compliance: Implement mechanisms to monitor and enforce compliance with policies and procedures. This may include regular audits, security assessments, and disciplinary actions for non-compliance.\n\n5. Continuously improve: Regularly assess the effectiveness of policies and procedures and make improvements as needed. This can be done through feedback mechanisms, incident response reviews, and lessons learned from security incidents.\n\nBy following these steps, organizations can establish a strong foundation for security governance and ensure compliance with control RA-1.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:58.808071+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ra-2",
+    "control_name": "Security Categorization",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Security categorization involves determining the impact level of information systems to ensure appropriate security controls are applied.",
+    "example_implementation": "This script conduct a thorough assessment of your information systems to accurately categorize them based on the potential impact of a security breach.",
+    "non_technical_guidance": "This plan the Security Categorization control requires organizations to categorize their information systems based on the potential impact of a security breach. To implement this control, follow these steps:\n\n1. Identify the information systems within your organization that need to be categorized.\n2. Determine the impact level (low, moderate, or high) of a security breach on each information system.\n3. Use the guidelines provided in NIST Special Publication 800-60 to help categorize the systems.\n4. Document the categorization of each information system in a security categorization report.\n5. Review and update the security categorization regularly to ensure it remains accurate and up to date.\n\nBy following these steps and maintaining accurate records of the security categorization of your information systems, you will be able to demonstrate compliance with Control RA-2.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ra-2.1",
+        "title": "Impact-level Prioritization",
+        "official_text": "Conduct an impact-level prioritization of organizational systems to obtain additional granularity on system impact levels."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:17:02.042941+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ra-2.1",
+    "control_name": "Impact-level Prioritization",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Conduct an impact-level prioritization of organizational systems to obtain additional granularity on system impact levels.",
+    "parent_control": "ra-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Conduct an impact-level prioritization of organizational systems to obtain additional granularity on system impact levels.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:03.646021+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-3",
+    "control_name": "Risk Assessment",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Conducting regular risk assessments helps organizations identify potential threats and vulnerabilities to their information systems.",
+    "example_implementation": "This script utilize risk assessment tools and methodologies to systematically analyze and prioritize risks, ensuring that resources are allocated effectively to mitigate the most critical threats.",
+    "non_technical_guidance": "This plan to comply with control RA-3 (Risk Assessment), you should establish and maintain an ongoing risk assessment process. This process should include identifying, assessing, and prioritizing risks to organizational operations, assets, individuals, other organizations, and the Nation resulting from the operation and use of information systems. \n\nHere is an actionable, non-technical implementation plan for compliance with RA-3:\n1. Identify and document the scope of the risk assessment process, including the information systems and assets to be assessed.\n2. Define the risk assessment methodology to be used, ensuring it aligns with organizational goals and objectives.\n3. Conduct regular risk assessments based on the defined methodology, considering internal and external threats, vulnerabilities, and potential impacts.\n4. Analyze the results of the risk assessments to prioritize risks and identify potential mitigation strategies.\n5. Develop a risk assessment report documenting the findings, recommendations, and any remediation plans.\n6. Review and update the risk assessment process regularly to adapt to changes in the organizational environment and emerging threats.\n7. Ensure that key stakeholders are involved in the risk assessment process and understand their roles and responsibilities.\n8. Communicate the results of the risk assessments to relevant parties, including senior management, to inform decision-making and resource allocation.\n\nBy following this implementation plan, your organization can effectively meet the requirements of control RA-3 and enhance its overall risk management practices.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ra-3.1",
+        "title": "Supply Chain Risk Assessment",
+        "official_text": ""
+      },
+      {
+        "id": "ra-3.2",
+        "title": "Use of All-source Intelligence",
+        "official_text": "Use all-source intelligence to assist in the analysis of risk."
+      },
+      {
+        "id": "ra-3.3",
+        "title": "Dynamic Threat Awareness",
+        "official_text": "Determine the current cyber threat environment on an ongoing basis using {{ insert: param, ra-03.03_odp }}."
+      },
+      {
+        "id": "ra-3.4",
+        "title": "Predictive Cyber Analytics",
+        "official_text": "Employ the following advanced automation and analytics capabilities to predict and identify risks to {{ insert: param, ra-03.04_odp.02 }}: {{ insert: param, ra-3.4_prm_2 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:17:05.253542+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ra-3.1",
+    "control_name": "Supply Chain Risk Assessment",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "parent_control": "ra-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:06.875582+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-3.2",
+    "control_name": "Use of All-source Intelligence",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Use all-source intelligence to assist in the analysis of risk.",
+    "parent_control": "ra-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use all-source intelligence to assist in the analysis of risk.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:08.475263+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-3.3",
+    "control_name": "Dynamic Threat Awareness",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Determine the current cyber threat environment on an ongoing basis using {{ insert: param, ra-03.03_odp }}.",
+    "parent_control": "ra-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Determine the current cyber threat environment on an ongoing basis using {{ insert: param, ra-03.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:10.089207+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-3.4",
+    "control_name": "Predictive Cyber Analytics",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Employ the following advanced automation and analytics capabilities to predict and identify risks to {{ insert: param, ra-03.04_odp.02 }}: {{ insert: param, ra-3.4_prm_2 }}.",
+    "parent_control": "ra-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following advanced automation and analytics capabilities to predict and identify risks to {{ insert: param, ra-03.04_odp.02 }}: {{ insert: param, ra-3.4_prm_2 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:11.711276+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-4",
+    "control_name": "Risk Assessment Update",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Regularly review and update risk assessments to identify and address new security risks.",
+    "example_implementation": "This script sets up a schedule to review and update risk assessments at least annually, or more frequently if there are significant changes in the IT environment. Make sure to involve key stakeholders in the process to ensure a comprehensive assessment.",
+    "non_technical_guidance": "This plan to ensure compliance with Control ID ra-4, the risk assessment document must be regularly updated to reflect any changes in the organization's risk profile. Assign a responsible individual or team to review and update the risk assessment document on a scheduled basis, such as quarterly or annually. This individual or team should gather information on new threats, vulnerabilities, and risks facing the organization and incorporate these updates into the risk assessment document. Once updated, the document should be distributed to relevant stakeholders for review and approval. Keeping the risk assessment document current is essential for effective risk management and compliance with NIST 800-53 requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:13.317183+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5",
+    "control_name": "Vulnerability Monitoring and Scanning",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Regularly scan and monitor for vulnerabilities in your IT systems to identify and address potential security weaknesses.",
+    "example_implementation": "This script implement automated vulnerability scanning tools and schedule regular scans to proactively identify and address security vulnerabilities in your IT environment.",
+    "non_technical_guidance": "This plan 1. Identify a suitable vulnerability scanning tool for your operating system.\n2. Install and configure the vulnerability scanning tool on all relevant systems.\n3. Schedule regular vulnerability scans to ensure continuous monitoring.\n4. Review scan results and prioritize remediation of identified vulnerabilities.\n5. Document the scanning process and results for audit purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ra-5.1",
+        "title": "Update Tool Capability",
+        "official_text": ""
+      },
+      {
+        "id": "ra-5.2",
+        "title": "Update Vulnerabilities to Be Scanned",
+        "official_text": "Update the system vulnerabilities to be scanned {{ insert: param, ra-05.02_odp.01 }}."
+      },
+      {
+        "id": "ra-5.3",
+        "title": "Breadth and Depth of Coverage",
+        "official_text": "Define the breadth and depth of vulnerability scanning coverage."
+      },
+      {
+        "id": "ra-5.4",
+        "title": "Discoverable Information",
+        "official_text": "Determine information about the system that is discoverable and take {{ insert: param, ra-05.04_odp }}."
+      },
+      {
+        "id": "ra-5.5",
+        "title": "Privileged Access",
+        "official_text": "Implement privileged access authorization to {{ insert: param, ra-05.05_odp.01 }} for {{ insert: param, ra-05.05_odp.02 }}."
+      },
+      {
+        "id": "ra-5.6",
+        "title": "Automated Trend Analyses",
+        "official_text": "Compare the results of multiple vulnerability scans using {{ insert: param, ra-05.06_odp }}."
+      },
+      {
+        "id": "ra-5.7",
+        "title": "Automated Detection and Notification of Unauthorized Components",
+        "official_text": ""
+      },
+      {
+        "id": "ra-5.8",
+        "title": "Review Historic Audit Logs",
+        "official_text": "Review historic audit logs to determine if a vulnerability identified in a {{ insert: param, ra-05.08_odp.01 }} has been previously exploited within an {{ insert: param, ra-05.08_odp.02 }}."
+      },
+      {
+        "id": "ra-5.9",
+        "title": "Penetration Testing and Analyses",
+        "official_text": ""
+      },
+      {
+        "id": "ra-5.10",
+        "title": "Correlate Scanning Information",
+        "official_text": "Correlate the output from vulnerability scanning tools to determine the presence of multi-vulnerability and multi-hop attack vectors."
+      },
+      {
+        "id": "ra-5.11",
+        "title": "Public Disclosure Program",
+        "official_text": "Establish a public reporting channel for receiving reports of vulnerabilities in organizational systems and system components."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:17:14.916363+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ra-5.1",
+    "control_name": "Update Tool Capability",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:16.524862+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.2",
+    "control_name": "Update Vulnerabilities to Be Scanned",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Update the system vulnerabilities to be scanned {{ insert: param, ra-05.02_odp.01 }}.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Update the system vulnerabilities to be scanned {{ insert: param, ra-05.02_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:21.302312+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.3",
+    "control_name": "Breadth and Depth of Coverage",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Define the breadth and depth of vulnerability scanning coverage.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Define the breadth and depth of vulnerability scanning coverage.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:22.844528+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.4",
+    "control_name": "Discoverable Information",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Determine information about the system that is discoverable and take {{ insert: param, ra-05.04_odp }}.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Determine information about the system that is discoverable and take {{ insert: param, ra-05.04_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:24.410761+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.5",
+    "control_name": "Privileged Access",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Implement privileged access authorization to {{ insert: param, ra-05.05_odp.01 }} for {{ insert: param, ra-05.05_odp.02 }}.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Implement privileged access authorization to {{ insert: param, ra-05.05_odp.01 }} for {{ insert: param, ra-05.05_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:26.009322+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.6",
+    "control_name": "Automated Trend Analyses",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Compare the results of multiple vulnerability scans using {{ insert: param, ra-05.06_odp }}.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Compare the results of multiple vulnerability scans using {{ insert: param, ra-05.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:27.619736+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.7",
+    "control_name": "Automated Detection and Notification of Unauthorized Components",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:29.248340+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.8",
+    "control_name": "Review Historic Audit Logs",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Review historic audit logs to determine if a vulnerability identified in a {{ insert: param, ra-05.08_odp.01 }} has been previously exploited within an {{ insert: param, ra-05.08_odp.02 }}.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Review historic audit logs to determine if a vulnerability identified in a {{ insert: param, ra-05.08_odp.01 }} has been previously exploited within an {{ insert: param, ra-05.08_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:30.851247+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.9",
+    "control_name": "Penetration Testing and Analyses",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:32.455697+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.10",
+    "control_name": "Correlate Scanning Information",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Correlate the output from vulnerability scanning tools to determine the presence of multi-vulnerability and multi-hop attack vectors.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Correlate the output from vulnerability scanning tools to determine the presence of multi-vulnerability and multi-hop attack vectors.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:18.175480+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-5.11",
+    "control_name": "Public Disclosure Program",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Establish a public reporting channel for receiving reports of vulnerabilities in organizational systems and system components.",
+    "parent_control": "ra-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Establish a public reporting channel for receiving reports of vulnerabilities in organizational systems and system components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:19.764866+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-6",
+    "control_name": "Technical Surveillance Countermeasures Survey",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Employ a technical surveillance countermeasures survey at {{ insert: param, ra-06_odp.01 }} {{ insert: param, ra-06_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Conduct a survey to check for any unauthorized surveillance devices in your IT environment.",
+    "example_implementation": "This script hire a professional firm to perform regular technical surveillance countermeasures surveys to ensure the security of your IT systems.",
+    "non_technical_guidance": "This plan to implement the Technical Surveillance Countermeasures Survey control (ra-6) non-technically, follow these steps:\n\n1. Identify a qualified third-party provider who specializes in technical surveillance countermeasures surveys.\n2. Request a comprehensive survey of the designated area(s) as specified in the control requirements.\n3. Ensure that the survey covers all relevant areas where technical surveillance could be conducted, such as conference rooms, offices, and data centers.\n4. Review the findings and recommendations provided by the third-party provider.\n5. Implement any recommended countermeasures to address identified vulnerabilities or risks.\n6. Regularly schedule follow-up surveys to ensure continued compliance with the control requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:34.059803+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-7",
+    "control_name": "Risk Response",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Respond to findings from security and privacy assessments, monitoring, and audits in accordance with organizational risk tolerance.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Respond appropriately to security and privacy assessments and audits based on how much risk your organization is willing to accept.",
+    "example_implementation": "This script develop a clear risk response plan that outlines specific actions to take based on assessment findings and organizational risk tolerance levels. Regularly review and update this plan to ensure it remains effective.",
+    "non_technical_guidance": "This plan to implement control ra-7, organizations should establish a clear process for responding to findings from security and privacy assessments, monitoring, and audits. This process should include the following steps:\n1. Designate a responsible individual or team to review and analyze findings from assessments, monitoring, and audits.\n2. Prioritize findings based on the level of risk they pose to the organization.\n3. Develop a response plan that outlines specific actions to address each finding, taking into account the organization's risk tolerance.\n4. Implement the response plan in a timely manner, ensuring that all necessary remediation actions are completed.\n5. Monitor the effectiveness of the response plan and make adjustments as needed to improve the organization's overall security posture.\nBy following these steps, organizations can effectively respond to security and privacy findings in accordance with their risk tolerance and improve their overall cybersecurity posture.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:17:35.652718+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ra-8",
+    "control_name": "Privacy Impact Assessments",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Conduct privacy impact assessments for systems, programs, or other activities before:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Before implementing new systems, programs, or activities, conduct assessments to understand and address any potential privacy impacts.",
+    "example_implementation": "This script creates a standardized template for conducting privacy impact assessments and ensure that all relevant stakeholders are involved in the process.",
+    "non_technical_guidance": "This plan to comply with control ra-8, organizations should establish a process for conducting privacy impact assessments (PIAs) for systems, programs, or activities that involve the collection, use, or dissemination of personally identifiable information (PII). This process should include the following steps:\n1. Identify the need for a PIA: Determine when a PIA is required based on the nature of the system, program, or activity and the potential privacy risks associated with it.\n2. Define the scope: Clearly define the scope of the PIA, including the specific PII being collected, the purposes for which it is being collected, and the potential privacy risks.\n3. Conduct the assessment: Gather information about the system, program, or activity, assess the privacy risks, and identify potential mitigation strategies.\n4. Document the results: Document the findings of the PIA, including any privacy risks identified and the steps taken to address them.\n5. Review and update: Regularly review and update PIAs as needed, especially when there are changes to the system, program, or activity that could impact privacy.\n\nBy following these steps, organizations can ensure that they are conducting PIAs in a systematic and consistent manner to protect the privacy of individuals' information.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:37.252032+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-9",
+    "control_name": "Criticality Analysis",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "Identify critical system components and functions by performing a criticality analysis for {{ insert: param, ra-09_odp.01 }} at {{ insert: param, ra-09_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Criticality analysis helps you identify the most important parts of your system so you can prioritize their protection.",
+    "example_implementation": "This script start by identifying the key functions and components of your system, then assess their criticality based on factors like impact on mission success and potential harm if compromised.",
+    "non_technical_guidance": "This plan to implement the Criticality Analysis control (ra-9), follow these steps:\n\n1. Define the scope: Determine the boundaries of the system or application that will be analyzed for criticality. This includes identifying all system components and functions that are essential for the system to operate effectively.\n\n2. Identify critical components and functions: Conduct a thorough analysis to identify the critical components and functions within the system. Consider factors such as the impact of a component failure on the system's overall performance, the potential risks associated with the failure of a particular component, and the dependencies between different components.\n\n3. Assess criticality levels: Assign criticality levels to each identified component or function based on the impact of their failure. This can be done using a scale (e.g., low, medium, high) to categorize the criticality of each component or function.\n\n4. Document the analysis: Document the results of the criticality analysis, including the identified critical components and functions, their assigned criticality levels, and the rationale behind the assignments. This documentation should be kept up-to-date and reviewed periodically to ensure its accuracy.\n\n5. Implement risk mitigation measures: Based on the criticality analysis results, develop and implement risk mitigation measures to reduce the impact of potential failures on critical components and functions. This may include implementing redundancy, backup systems, or additional security measures to protect critical assets.\n\n6. Review and update regularly: Regularly review and update the criticality analysis to reflect changes in the system, such as the addition of new components or functions, changes in dependencies, or updates to the risk landscape. This will ensure that the system remains resilient and able to withstand potential threats.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:38.843311+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ra-10",
+    "control_name": "Threat Hunting",
+    "family": "Risk Assessment",
+    "family_id": "ra",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Threat hunting involves actively searching for signs of potential security threats within an organization's network.",
+    "example_implementation": "This script implement automated threat hunting tools and regularly review logs and alerts to proactively identify and respond to potential security threats.",
+    "non_technical_guidance": "This plan to implement the Threat Hunting control, the organization should establish a proactive process for identifying and mitigating potential threats within their environment. This can be achieved by regularly conducting threat hunting exercises, which involve actively searching for indicators of compromise or suspicious activities that may indicate a security breach. \n\nKey steps in implementing threat hunting include:\n1. Define clear objectives and scope for threat hunting activities.\n2. Identify the tools and techniques that will be used for threat hunting.\n3. Allocate dedicated resources, such as skilled analysts and appropriate technology, for threat hunting activities.\n4. Establish a process for analyzing and responding to potential threats identified during threat hunting exercises.\n5. Regularly review and update threat hunting procedures to adapt to evolving threats and vulnerabilities.\n\nBy following these steps and regularly conducting threat hunting exercises, organizations can enhance their security posture and proactively identify and mitigate potential threats before they escalate into security incidents.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:17:00.412580+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

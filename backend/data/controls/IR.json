@@ -1,0 +1,1746 @@
+[
+  {
+    "control_id": "ir-1",
+    "control_name": "Policy and Procedures",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that policies and procedures are in place to guide incident response activities.",
+    "example_implementation": "This script creates a comprehensive incident response plan that outlines roles, responsibilities, and procedures for responding to security incidents. Regularly review and update the plan to ensure it remains effective.",
+    "non_technical_guidance": "This plan develop and implement policies and procedures that govern the incident response capability of the organization. These should include clear guidelines on how incidents are identified, reported, categorized, prioritized, analyzed, responded to, and communicated. Ensure that all relevant stakeholders are aware of these policies and procedures and receive appropriate training on them. Regularly review and update these policies and procedures to ensure they remain effective and aligned with the organization's incident response objectives.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:11:09.689633+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ir-2",
+    "control_name": "Incident Response Training",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "All employees should receive training on how to respond to cybersecurity incidents.",
+    "example_implementation": "This script conduct regular training sessions for employees on how to recognize and report security incidents, and provide resources for them to reference in case of an incident.",
+    "non_technical_guidance": "This plan ensure that all personnel involved in incident response activities receive training on their roles and responsibilities. This training should cover topics such as how to detect, report, and respond to security incidents, as well as the procedures for escalation and communication during an incident. Training should be provided regularly and updated to reflect new threats and technologies. Additionally, ensure that all personnel are aware of the organization's incident response policies and procedures. Regularly review and assess the effectiveness of the training program to ensure that personnel are adequately prepared to respond to security incidents.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-2.1",
+        "title": "Simulated Events",
+        "official_text": "Incorporate simulated events into incident response training to facilitate the required response by personnel in crisis situations."
+      },
+      {
+        "id": "ir-2.2",
+        "title": "Automated Training Environments",
+        "official_text": "Provide an incident response training environment using {{ insert: param, ir-02.02_odp }}."
+      },
+      {
+        "id": "ir-2.3",
+        "title": "Breach",
+        "official_text": "Provide incident response training on how to identify and respond to a breach, including the organization’s process for reporting a breach."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:11:12.885895+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ir-2.1",
+    "control_name": "Simulated Events",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Incorporate simulated events into incident response training to facilitate the required response by personnel in crisis situations.",
+    "parent_control": "ir-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Incorporate simulated events into incident response training to facilitate the required response by personnel in crisis situations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:14.636714+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-2.2",
+    "control_name": "Automated Training Environments",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Provide an incident response training environment using {{ insert: param, ir-02.02_odp }}.",
+    "parent_control": "ir-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Provide an incident response training environment using {{ insert: param, ir-02.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:16.195574+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-2.3",
+    "control_name": "Breach",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Provide incident response training on how to identify and respond to a breach, including the organization’s process for reporting a breach.",
+    "parent_control": "ir-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide incident response training on how to identify and respond to a breach, including the organization’s process for reporting a breach.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:17.792053+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-3",
+    "control_name": "Incident Response Testing",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Test the effectiveness of the incident response capability for the system {{ insert: param, ir-03_odp.01 }} using the following tests: {{ insert: param, ir-03_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure to regularly test how well your team can respond to security incidents for your system.",
+    "example_implementation": "This script conduct regular simulated security incident response drills to ensure your team is prepared and the response capability is effective.",
+    "non_technical_guidance": "This plan 1. Develop an incident response testing plan that includes various scenarios such as malware infection, data breach, denial of service attacks, etc.\n2. Conduct tabletop exercises with key stakeholders to simulate different incidents and evaluate the response procedures.\n3. Review and update the incident response plan based on lessons learned from the testing.\n4. Regularly schedule and conduct incident response testing to ensure the effectiveness of the response capability.\n5. Document the results of the testing, including any identified gaps or areas for improvement, and implement corrective actions as necessary.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-3.1",
+        "title": "Automated Testing",
+        "official_text": "Test the incident response capability using {{ insert: param, ir-03.01_odp }}."
+      },
+      {
+        "id": "ir-3.2",
+        "title": "Coordination with Related Plans",
+        "official_text": "Coordinate incident response testing with organizational elements responsible for related plans."
+      },
+      {
+        "id": "ir-3.3",
+        "title": "Continuous Improvement",
+        "official_text": "Use qualitative and quantitative data from testing to:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:11:19.371293+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ir-3.1",
+    "control_name": "Automated Testing",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Test the incident response capability using {{ insert: param, ir-03.01_odp }}.",
+    "parent_control": "ir-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Test the incident response capability using {{ insert: param, ir-03.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:20.996021+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-3.2",
+    "control_name": "Coordination with Related Plans",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Coordinate incident response testing with organizational elements responsible for related plans.",
+    "parent_control": "ir-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Coordinate incident response testing with organizational elements responsible for related plans.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:22.628463+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-3.3",
+    "control_name": "Continuous Improvement",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Use qualitative and quantitative data from testing to:",
+    "parent_control": "ir-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use qualitative and quantitative data from testing to:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:24.260457+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4",
+    "control_name": "Incident Handling",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Incident Handling is the process of detecting, reporting, and responding to security incidents in a timely manner.",
+    "example_implementation": "This script ensure that your organization has a clear incident response plan in place, with designated roles and responsibilities for handling security incidents. Conduct regular training and drills to ensure all staff are prepared to respond effectively.",
+    "non_technical_guidance": "This plan to implement control IR-4 for Incident Handling, follow these steps:\n1. Develop an incident response plan that outlines the procedures to be followed in the event of a security incident.\n2. Designate a team responsible for responding to security incidents and ensure they are trained on the incident response plan.\n3. Establish communication channels for reporting and escalating security incidents.\n4. Conduct regular incident response drills and exercises to test the effectiveness of the plan and the response team.\n5. Document all security incidents, including the response taken and lessons learned for future improvements.\n6. Review and update the incident response plan regularly to incorporate new threats and technologies.\n7. Ensure all employees are aware of the incident response plan and their roles and responsibilities in the event of a security incident.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-4.1",
+        "title": "Automated Incident Handling Processes",
+        "official_text": "Support the incident handling process using {{ insert: param, ir-04.01_odp }}."
+      },
+      {
+        "id": "ir-4.2",
+        "title": "Dynamic Reconfiguration",
+        "official_text": "Include the following types of dynamic reconfiguration for {{ insert: param, ir-04.02_odp.02 }} as part of the incident response capability: {{ insert: param, ir-04.02_odp.01 }}."
+      },
+      {
+        "id": "ir-4.3",
+        "title": "Continuity of Operations",
+        "official_text": "Identify {{ insert: param, ir-04.03_odp.01 }} and take the following actions in response to those incidents to ensure continuation of organizational mission and business functions: {{ insert: param, ir-04.03_odp.02 }}."
+      },
+      {
+        "id": "ir-4.4",
+        "title": "Information Correlation",
+        "official_text": "Correlate incident information and individual incident responses to achieve an organization-wide perspective on incident awareness and response."
+      },
+      {
+        "id": "ir-4.5",
+        "title": "Automatic Disabling of System",
+        "official_text": "Implement a configurable capability to automatically disable the system if {{ insert: param, ir-04.05_odp }} are detected."
+      },
+      {
+        "id": "ir-4.6",
+        "title": "Insider Threats",
+        "official_text": "Implement an incident handling capability for incidents involving insider threats."
+      },
+      {
+        "id": "ir-4.7",
+        "title": "Insider Threats — Intra-organization Coordination",
+        "official_text": "Coordinate an incident handling capability for insider threats that includes the following organizational entities {{ insert: param, ir-04.07_odp }}."
+      },
+      {
+        "id": "ir-4.8",
+        "title": "Correlation with External Organizations",
+        "official_text": "Coordinate with {{ insert: param, ir-04.08_odp.01 }} to correlate and share {{ insert: param, ir-04.08_odp.02 }} to achieve a cross-organization perspective on incident awareness and more effective incident responses."
+      },
+      {
+        "id": "ir-4.9",
+        "title": "Dynamic Response Capability",
+        "official_text": "Employ {{ insert: param, ir-04.09_odp }} to respond to incidents."
+      },
+      {
+        "id": "ir-4.10",
+        "title": "Supply Chain Coordination",
+        "official_text": "Coordinate incident handling activities involving supply chain events with other organizations involved in the supply chain."
+      },
+      {
+        "id": "ir-4.11",
+        "title": "Integrated Incident Response Team",
+        "official_text": "Establish and maintain an integrated incident response team that can be deployed to any location identified by the organization in {{ insert: param, ir-04.11_odp }}."
+      },
+      {
+        "id": "ir-4.12",
+        "title": "Malicious Code and Forensic Analysis",
+        "official_text": "Analyze malicious code and/or other residual artifacts remaining in the system after the incident."
+      },
+      {
+        "id": "ir-4.13",
+        "title": "Behavior Analysis",
+        "official_text": "Analyze anomalous or suspected adversarial behavior in or related to {{ insert: param, ir-04.13_odp }}."
+      },
+      {
+        "id": "ir-4.14",
+        "title": "Security Operations Center",
+        "official_text": "Establish and maintain a security operations center."
+      },
+      {
+        "id": "ir-4.15",
+        "title": "Public Relations and Reputation Repair",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:11:25.887236+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ir-4.1",
+    "control_name": "Automated Incident Handling Processes",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Support the incident handling process using {{ insert: param, ir-04.01_odp }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Support the incident handling process using {{ insert: param, ir-04.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:27.505553+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.2",
+    "control_name": "Dynamic Reconfiguration",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Include the following types of dynamic reconfiguration for {{ insert: param, ir-04.02_odp.02 }} as part of the incident response capability: {{ insert: param, ir-04.02_odp.01 }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Include the following types of dynamic reconfiguration for {{ insert: param, ir-04.02_odp.02 }} as part of the incident response capability: {{ insert: param, ir-04.02_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:38.893635+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.3",
+    "control_name": "Continuity of Operations",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Identify {{ insert: param, ir-04.03_odp.01 }} and take the following actions in response to those incidents to ensure continuation of organizational mission and business functions: {{ insert: param, ir-04.03_odp.02 }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Identify {{ insert: param, ir-04.03_odp.01 }} and take the following actions in response to those incidents to ensure continuation of organizational mission and business functions: {{ insert: param, ir-04.03_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:40.463267+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.4",
+    "control_name": "Information Correlation",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Correlate incident information and individual incident responses to achieve an organization-wide perspective on incident awareness and response.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Correlate incident information and individual incident responses to achieve an organization-wide perspective on incident awareness and response.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:42.002809+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.5",
+    "control_name": "Automatic Disabling of System",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Implement a configurable capability to automatically disable the system if {{ insert: param, ir-04.05_odp }} are detected.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement a configurable capability to automatically disable the system if {{ insert: param, ir-04.05_odp }} are detected.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:43.623701+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.6",
+    "control_name": "Insider Threats",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Implement an incident handling capability for incidents involving insider threats.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement an incident handling capability for incidents involving insider threats.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:45.264859+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.7",
+    "control_name": "Insider Threats — Intra-organization Coordination",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Coordinate an incident handling capability for insider threats that includes the following organizational entities {{ insert: param, ir-04.07_odp }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Coordinate an incident handling capability for insider threats that includes the following organizational entities {{ insert: param, ir-04.07_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:46.896599+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.8",
+    "control_name": "Correlation with External Organizations",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Coordinate with {{ insert: param, ir-04.08_odp.01 }} to correlate and share {{ insert: param, ir-04.08_odp.02 }} to achieve a cross-organization perspective on incident awareness and more effective incident responses.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Coordinate with {{ insert: param, ir-04.08_odp.01 }} to correlate and share {{ insert: param, ir-04.08_odp.02 }} to achieve a cross-organization perspective on incident awareness and more effective incident responses.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:48.518263+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.9",
+    "control_name": "Dynamic Response Capability",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Employ {{ insert: param, ir-04.09_odp }} to respond to incidents.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ {{ insert: param, ir-04.09_odp }} to respond to incidents.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:50.076740+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.10",
+    "control_name": "Supply Chain Coordination",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Coordinate incident handling activities involving supply chain events with other organizations involved in the supply chain.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Coordinate incident handling activities involving supply chain events with other organizations involved in the supply chain.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:29.224441+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.11",
+    "control_name": "Integrated Incident Response Team",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Establish and maintain an integrated incident response team that can be deployed to any location identified by the organization in {{ insert: param, ir-04.11_odp }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Establish and maintain an integrated incident response team that can be deployed to any location identified by the organization in {{ insert: param, ir-04.11_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:30.834892+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.12",
+    "control_name": "Malicious Code and Forensic Analysis",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Analyze malicious code and/or other residual artifacts remaining in the system after the incident.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Analyze malicious code and/or other residual artifacts remaining in the system after the incident.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:32.439144+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.13",
+    "control_name": "Behavior Analysis",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Analyze anomalous or suspected adversarial behavior in or related to {{ insert: param, ir-04.13_odp }}.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Analyze anomalous or suspected adversarial behavior in or related to {{ insert: param, ir-04.13_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:34.060005+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.14",
+    "control_name": "Security Operations Center",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Establish and maintain a security operations center.",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Establish and maintain a security operations center.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:35.725508+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-4.15",
+    "control_name": "Public Relations and Reputation Repair",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "parent_control": "ir-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:37.365354+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-5",
+    "control_name": "Incident Monitoring",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Track and document incidents.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Incident Monitoring requires tracking and documenting any security incidents that occur.",
+    "example_implementation": "This script sets up a centralized incident tracking system that logs all security incidents, including details such as date, time, type of incident, and resolution steps taken. Regularly review and analyze incident data to identify trends and improve incident response processes.",
+    "non_technical_guidance": "This plan to ensure compliance with control IR-5 (Incident Monitoring), the following non-technical implementation plan should be followed:\n\n1. Establish a clear incident tracking and documentation process within your organization.\n2. Develop incident response procedures that outline how incidents will be monitored, tracked, and documented.\n3. Train personnel on how to recognize, report, and document incidents effectively.\n4. Regularly review and update incident documentation to ensure accuracy and completeness.\n5. Conduct periodic audits to verify that incident monitoring is being effectively implemented and documented.\n6. Document any incidents promptly and thoroughly, including the nature of the incident, impact, response actions taken, and lessons learned.\n7. Retain incident documentation for the required retention period as per organizational policies and regulatory requirements.\n8. Continuously improve incident monitoring processes based on lessons learned from past incidents.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-5.1",
+        "title": "Automated Tracking, Data Collection, and Analysis",
+        "official_text": "Track incidents and collect and analyze incident information using {{ insert: param, ir-5.1_prm_1 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:51.628037+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-5.1",
+    "control_name": "Automated Tracking, Data Collection, and Analysis",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Track incidents and collect and analyze incident information using {{ insert: param, ir-5.1_prm_1 }}.",
+    "parent_control": "ir-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Track incidents and collect and analyze incident information using {{ insert: param, ir-5.1_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:53.230557+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-6",
+    "control_name": "Incident Reporting",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Incident Reporting requires organizations to promptly report security incidents to the appropriate personnel or authorities.",
+    "example_implementation": "This script implement a clear incident reporting process that includes designated contact points, communication channels, and escalation procedures to ensure incidents are reported and addressed promptly.",
+    "non_technical_guidance": "This plan 1. Establish a clear incident reporting process within your organization, including who should be notified, what information should be included in the report, and how quickly incidents should be reported.\n2. Train all employees on the incident reporting process to ensure timely and accurate reporting.\n3. Regularly review and update the incident reporting process to incorporate lessons learned from past incidents and stay compliant with regulations.\n4. Conduct regular drills or simulations to test the effectiveness of the incident reporting process and identify any areas for improvement.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-6.1",
+        "title": "Automated Reporting",
+        "official_text": "Report incidents using {{ insert: param, ir-06.01_odp }}."
+      },
+      {
+        "id": "ir-6.2",
+        "title": "Vulnerabilities Related to Incidents",
+        "official_text": "Report system vulnerabilities associated with reported incidents to {{ insert: param, ir-06.02_odp }}."
+      },
+      {
+        "id": "ir-6.3",
+        "title": "Supply Chain Coordination",
+        "official_text": "Provide incident information to the provider of the product or service and other organizations involved in the supply chain or supply chain governance for systems or system components related to the incident."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:54.840015+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-6.1",
+    "control_name": "Automated Reporting",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Report incidents using {{ insert: param, ir-06.01_odp }}.",
+    "parent_control": "ir-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Report incidents using {{ insert: param, ir-06.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:56.483023+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-6.2",
+    "control_name": "Vulnerabilities Related to Incidents",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Report system vulnerabilities associated with reported incidents to {{ insert: param, ir-06.02_odp }}.",
+    "parent_control": "ir-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Report system vulnerabilities associated with reported incidents to {{ insert: param, ir-06.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:58.105221+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-6.3",
+    "control_name": "Supply Chain Coordination",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Provide incident information to the provider of the product or service and other organizations involved in the supply chain or supply chain governance for systems or system components related to the incident.",
+    "parent_control": "ir-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Provide incident information to the provider of the product or service and other organizations involved in the supply chain or supply chain governance for systems or system components related to the incident.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:59.708929+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-7",
+    "control_name": "Incident Response Assistance",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Provide an incident response support resource, integral to the organizational incident response capability, that offers advice and assistance to users of the system for the handling and reporting of incidents.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Have a designated resource available to help users with handling and reporting security incidents.",
+    "example_implementation": "This script train a team of IT staff to serve as incident response support, and ensure they are easily accessible to all users in case of a security incident.",
+    "non_technical_guidance": "This plan to comply with Control ID ir-7, you should establish an incident response support resource within your organization that is readily available to users of the system. This resource should provide guidance and assistance on how to handle and report incidents effectively. \n\nTo implement this control effectively, consider the following steps:\n1. Designate knowledgeable individuals within your organization to serve as incident response support personnel.\n2. Ensure that these individuals are trained on incident response procedures, communication protocols, and reporting requirements.\n3. Establish clear guidelines on how users can access the incident response support resource, such as a dedicated email address or phone number.\n4. Regularly communicate the availability of this resource to all system users and provide training on how to effectively engage with the incident response support team.\n5. Continuously monitor and evaluate the effectiveness of the incident response support resource to ensure it meets the needs of users and aligns with organizational incident response capabilities.\n\nBy following these steps, you can ensure that your organization is prepared to effectively respond to and mitigate security incidents as they occur.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-7.1",
+        "title": "Automation Support for Availability of Information and Support",
+        "official_text": "Increase the availability of incident response information and support using {{ insert: param, ir-07.01_odp }}."
+      },
+      {
+        "id": "ir-7.2",
+        "title": "Coordination with External Providers",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:01.329783+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-7.1",
+    "control_name": "Automation Support for Availability of Information and Support",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Increase the availability of incident response information and support using {{ insert: param, ir-07.01_odp }}.",
+    "parent_control": "ir-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Increase the availability of incident response information and support using {{ insert: param, ir-07.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:02.929806+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-7.2",
+    "control_name": "Coordination with External Providers",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "parent_control": "ir-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:04.536288+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-8",
+    "control_name": "Incident Response Plan",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Have a plan in place to respond to security incidents and breaches.",
+    "example_implementation": "This script regularly review and update your incident response plan to ensure it is effective and aligns with current threats and technologies.",
+    "non_technical_guidance": "This plan develop an Incident Response Plan that outlines the procedures to be followed in the event of a security incident. The plan should include roles and responsibilities of team members, communication protocols, steps for identifying and containing incidents, as well as procedures for reporting and documenting incidents. Regularly review and update the plan to ensure it remains effective and relevant to the organization's needs. Train all relevant personnel on the plan and conduct regular drills and exercises to test its effectiveness.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-8.1",
+        "title": "Breaches",
+        "official_text": "Include the following in the Incident Response Plan for breaches involving personally identifiable information:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:06.193730+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ir-8.1",
+    "control_name": "Breaches",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Include the following in the Incident Response Plan for breaches involving personally identifiable information:",
+    "parent_control": "ir-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Include the following in the Incident Response Plan for breaches involving personally identifiable information:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:07.758950+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-9",
+    "control_name": "Information Spillage Response",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Respond to information spills by:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Responding to information spills means taking action when sensitive information is accidentally disclosed or leaked.",
+    "example_implementation": "This script develop a clear and detailed incident response plan that outlines the steps to take in the event of an information spill, including containment, notification, and remediation procedures.",
+    "non_technical_guidance": "This plan 1. Develop a clear incident response plan specifically for information spills. This plan should outline the steps to be taken in the event of a spillage, including who should be notified, how the spillage should be contained, and how the affected information should be handled.\n2. Train all personnel on the incident response plan and ensure they understand their roles and responsibilities in the event of an information spill.\n3. Regularly test the incident response plan through tabletop exercises or simulations to ensure that all personnel are prepared to respond effectively to an information spill.\n4. Document all incidents of information spillage, including the cause, response actions taken, and any follow-up actions to prevent future spills.\n5. Review and update the incident response plan regularly to incorporate lessons learned from past incidents and to address any changes in technology or procedures.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ir-9.1",
+        "title": "Responsible Personnel",
+        "official_text": ""
+      },
+      {
+        "id": "ir-9.2",
+        "title": "Training",
+        "official_text": "Provide information spillage response training {{ insert: param, ir-09.02_odp }}."
+      },
+      {
+        "id": "ir-9.3",
+        "title": "Post-spill Operations",
+        "official_text": "Implement the following procedures to ensure that organizational personnel impacted by information spills can continue to carry out assigned tasks while contaminated systems are undergoing corrective actions: {{ insert: param, ir-09.03_odp }}."
+      },
+      {
+        "id": "ir-9.4",
+        "title": "Exposure to Unauthorized Personnel",
+        "official_text": "Employ the following controls for personnel exposed to information not within assigned access authorizations: {{ insert: param, ir-09.04_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:09.296105+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-9.1",
+    "control_name": "Responsible Personnel",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "parent_control": "ir-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:10.842013+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-9.2",
+    "control_name": "Training",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Provide information spillage response training {{ insert: param, ir-09.02_odp }}.",
+    "parent_control": "ir-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide information spillage response training {{ insert: param, ir-09.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:12.392469+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-9.3",
+    "control_name": "Post-spill Operations",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Implement the following procedures to ensure that organizational personnel impacted by information spills can continue to carry out assigned tasks while contaminated systems are undergoing corrective actions: {{ insert: param, ir-09.03_odp }}.",
+    "parent_control": "ir-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement the following procedures to ensure that organizational personnel impacted by information spills can continue to carry out assigned tasks while contaminated systems are undergoing corrective actions: {{ insert: param, ir-09.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:13.999563+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-9.4",
+    "control_name": "Exposure to Unauthorized Personnel",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "Employ the following controls for personnel exposed to information not within assigned access authorizations: {{ insert: param, ir-09.04_odp }}.",
+    "parent_control": "ir-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following controls for personnel exposed to information not within assigned access authorizations: {{ insert: param, ir-09.04_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:15.645935+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ir-10",
+    "control_name": "Integrated Information Security Analysis Team",
+    "family": "Incident Response",
+    "family_id": "ir",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "An Integrated Information Security Analysis Team is a group of people who work together to analyze and respond to security incidents.",
+    "example_implementation": "This script creates a dedicated team within your organization that includes members from different departments, such as IT, security, legal, and compliance, to ensure a comprehensive and coordinated approach to analyzing and responding to security incidents.",
+    "non_technical_guidance": "This plan to implement the Integrated Information Security Analysis Team control, follow these steps:\n1. Establish a dedicated team responsible for analyzing and responding to security incidents.\n2. Define roles and responsibilities within the team, including incident response lead, technical analysts, communication coordinator, etc.\n3. Ensure team members receive appropriate training on incident response procedures and tools.\n4. Develop and maintain incident response plans and playbooks for different types of security incidents.\n5. Conduct regular exercises and drills to test the team's readiness and effectiveness in responding to incidents.\n6. Coordinate with other teams within the organization, such as IT, legal, and management, to ensure a coordinated response to security incidents.\n7. Continuously review and improve incident response processes based on lessons learned from past incidents.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:11:11.305270+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

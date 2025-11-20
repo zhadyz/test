@@ -1,0 +1,691 @@
+[
+  {
+    "control_id": "at-1",
+    "control_name": "Policy and Procedures",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that policies and procedures are in place to guide the organization's IT security practices.",
+    "example_implementation": "This script regularly review and update policies and procedures to align with changes in technology and security threats. Involve key stakeholders in the development and implementation process.",
+    "non_technical_guidance": "This plan to comply with Control ID at-1 (Policy and Procedures), the following non-technical implementation plan should be followed:\n\n1. Develop and document policies and procedures that align with NIST 800-53 guidelines.\n2. Ensure that all employees are aware of and trained on the policies and procedures.\n3. Regularly review and update the policies and procedures to reflect changes in technology, regulations, or business processes.\n4. Establish a process for enforcing compliance with the policies and procedures, including consequences for non-compliance.\n5. Conduct regular audits or assessments to verify compliance with the policies and procedures.\n6. Document any exceptions or deviations from the policies and procedures and justify them appropriately.\n7. Ensure that all relevant stakeholders are involved in the development, implementation, and enforcement of the policies and procedures.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:05:24.609143+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "at-2",
+    "control_name": "Literacy Training and Awareness",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Employees should receive training on how to recognize and respond to cybersecurity threats.",
+    "example_implementation": "This script conduct regular cybersecurity awareness training sessions for all employees, covering topics such as phishing scams, password security, and safe browsing practices.",
+    "non_technical_guidance": "This plan to comply with Control ID at-2, Literacy Training and Awareness, the following non-technical implementation plan can be followed:\n\n1. Develop a comprehensive literacy training program for all employees within the organization. This program should cover topics such as information security best practices, data protection guidelines, and how to recognize and respond to security incidents.\n\n2. Ensure that all employees receive regular training sessions on literacy and awareness topics. This can be done through in-person training sessions, online courses, or a combination of both.\n\n3. Implement a system to track and monitor employee participation in literacy training programs. This can include maintaining records of training completion, conducting assessments to measure knowledge retention, and providing refresher courses as needed.\n\n4. Encourage a culture of security awareness within the organization by promoting the importance of literacy training and providing resources for employees to stay informed on current security threats and best practices.\n\n5. Regularly review and update the literacy training program to ensure it remains relevant and effective in addressing the organization's security needs.\n\nBy following these steps, organizations can effectively meet the requirements of Control ID at-2 and promote a culture of security awareness among employees.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "at-2.1",
+        "title": "Practical Exercises",
+        "official_text": "Provide practical exercises in literacy training that simulate events and incidents."
+      },
+      {
+        "id": "at-2.2",
+        "title": "Insider Threat",
+        "official_text": "Provide literacy training on recognizing and reporting potential indicators of insider threat."
+      },
+      {
+        "id": "at-2.3",
+        "title": "Social Engineering and Mining",
+        "official_text": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining."
+      },
+      {
+        "id": "at-2.4",
+        "title": "Suspicious Communications and Anomalous System Behavior",
+        "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}."
+      },
+      {
+        "id": "at-2.5",
+        "title": "Advanced Persistent Threat",
+        "official_text": "Provide literacy training on the advanced persistent threat."
+      },
+      {
+        "id": "at-2.6",
+        "title": "Cyber Threat Environment",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:05:26.204186+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "at-2.1",
+    "control_name": "Practical Exercises",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide practical exercises in literacy training that simulate events and incidents.",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide practical exercises in literacy training that simulate events and incidents.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:27.809490+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-2.2",
+    "control_name": "Insider Threat",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide literacy training on recognizing and reporting potential indicators of insider threat.",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Provide literacy training on recognizing and reporting potential indicators of insider threat.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:29.412762+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-2.3",
+    "control_name": "Social Engineering and Mining",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining.",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:31.030427+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-2.4",
+    "control_name": "Suspicious Communications and Anomalous System Behavior",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}.",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:32.630359+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-2.5",
+    "control_name": "Advanced Persistent Threat",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide literacy training on the advanced persistent threat.",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide literacy training on the advanced persistent threat.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:34.235000+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-2.6",
+    "control_name": "Cyber Threat Environment",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "parent_control": "at-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:35.838228+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-3",
+    "control_name": "Role-based Training",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Role-based training ensures that individuals receive training specific to their job responsibilities and security roles.",
+    "example_implementation": "This script develop tailored training programs for different roles within your organization to ensure that employees receive the necessary knowledge and skills to perform their security duties effectively.",
+    "non_technical_guidance": "This plan role-based Training is a critical control for ensuring that individuals within an organization are trained and knowledgeable about their specific roles and responsibilities related to security. To implement this control effectively, follow these non-technical steps:\n\n1. Identify the different roles within your organization that have access to sensitive information or systems.\n2. Develop training materials specific to each role, outlining the security best practices, policies, and procedures they need to follow.\n3. Schedule regular training sessions for each role to ensure that all individuals are up to date on the latest security requirements.\n4. Monitor and track attendance and completion of training sessions to ensure compliance.\n5. Continuously review and update training materials to reflect any changes in security policies or technologies.\n6. Consider incorporating role-based training as part of the onboarding process for new employees in relevant roles.\n\nBy following these steps, you can ensure that individuals in your organization are well-equipped to fulfill their security responsibilities effectively.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "at-3.1",
+        "title": "Environmental Controls",
+        "official_text": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls."
+      },
+      {
+        "id": "at-3.2",
+        "title": "Physical Security Controls",
+        "official_text": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls."
+      },
+      {
+        "id": "at-3.3",
+        "title": "Practical Exercises",
+        "official_text": "Provide practical exercises in security and privacy training that reinforce training objectives."
+      },
+      {
+        "id": "at-3.4",
+        "title": "Suspicious Communications and Anomalous System Behavior",
+        "official_text": ""
+      },
+      {
+        "id": "at-3.5",
+        "title": "Processing Personally Identifiable Information",
+        "official_text": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:05:37.591776+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "at-3.1",
+    "control_name": "Environmental Controls",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls.",
+    "parent_control": "at-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:39.253193+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-3.2",
+    "control_name": "Physical Security Controls",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls.",
+    "parent_control": "at-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:40.885568+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-3.3",
+    "control_name": "Practical Exercises",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide practical exercises in security and privacy training that reinforce training objectives.",
+    "parent_control": "at-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide practical exercises in security and privacy training that reinforce training objectives.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:42.564175+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-3.4",
+    "control_name": "Suspicious Communications and Anomalous System Behavior",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "parent_control": "at-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:44.195478+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-3.5",
+    "control_name": "Processing Personally Identifiable Information",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls.",
+    "parent_control": "at-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:45.816968+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-4",
+    "control_name": "Training Records",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that training records are maintained for all individuals who have access to the organization's information systems.",
+    "example_implementation": "This script implement a centralized system for tracking and storing training records, including dates of completion and types of training received. Regularly review and update these records to ensure compliance with NIST 800-53 requirements.",
+    "non_technical_guidance": "This plan to ensure compliance with Control ID at-4 regarding Training Records, the following non-technical implementation plan can be followed:\n\n1. Establish a centralized system or database to maintain training records for all employees.\n2. Create a standardized template for recording training completion dates, topics covered, and any certifications obtained.\n3. Assign responsibility to a designated individual or team to regularly update and maintain the training records.\n4. Implement a process for employees to submit proof of completed training for verification and recording.\n5. Conduct periodic audits to ensure all employees' training records are up to date and accurate.\n6. Provide training to employees on the importance of maintaining accurate training records and the consequences of non-compliance.\n7. Document any exceptions or deviations from the standard training record-keeping process.\n8. Retain training records for the required retention period as per organizational policies or regulatory requirements.\n9. Review and update the training records management process periodically to ensure it remains effective and compliant with applicable standards.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:05:47.443218+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "at-5",
+    "control_name": "Contacts with Security Groups and Associations",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control ensures that any communication or interaction with security groups or associations is properly managed and documented.",
+    "example_implementation": "This script keep a record of all interactions with security groups and associations, including any decisions made or actions taken during these interactions. This documentation can help ensure accountability and compliance with this control.",
+    "non_technical_guidance": "This plan to comply with this control, ensure that all contacts within the organization are associated with appropriate security groups and associations. This can be achieved by regularly reviewing and updating the access rights and permissions of each contact to ensure they align with the security groups they belong to. Regular audits should be conducted to verify that contacts are correctly associated with the necessary security groups and that any changes are promptly documented. Training and awareness programs should also be implemented to educate employees on the importance of proper security group associations.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:49.146800+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "at-6",
+    "control_name": "Training Feedback",
+    "family": "Awareness and Training",
+    "family_id": "at",
+    "official_text": "Provide feedback on organizational training results to the following personnel {{ insert: param, at-06_odp.01 }}: {{ insert: param, at-06_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure to give feedback on how well training programs are working to the appropriate people.",
+    "example_implementation": "This script sets up a system to regularly collect and share feedback from employees who have completed training programs to ensure continuous improvement.",
+    "non_technical_guidance": "This plan to comply with Control ID at-6 (Training Feedback), you should establish a process for providing feedback on organizational training results to the specified personnel. This feedback could include summaries of training outcomes, areas for improvement, and suggestions for future training initiatives. \n\nCreate a feedback mechanism such as surveys, feedback forms, or regular meetings where training results are discussed. Ensure that the feedback is constructive, actionable, and timely. Document the feedback provided and any actions taken as a result. Regularly review and update the feedback process to ensure its effectiveness in improving training outcomes.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:50.760723+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

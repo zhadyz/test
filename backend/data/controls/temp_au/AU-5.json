@@ -1,0 +1,296 @@
+[
+  {
+    "control_id": "AU-5",
+    "control_name": "Response to Audit Logging Process Failures",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "stig_id": "RHEL-08-030060",
+    "official_text": "The organization: (a) Alerts designated staff or roles within the organization within a defined time period when audit logging failures are detected; and (b) Takes defined actions in response to audit logging process failures.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "When audit logging fails or encounters problems, the system must immediately alert responsible personnel and take corrective action. This ensures that no security events go unrecorded and that audit system integrity is maintained. Common failure modes include disk space exhaustion, audit daemon crashes, and network logging failures.",
+    "example_implementation": "Configure auditd with space_left rules that trigger alerts, implement a fail-action policy to shutdown if critical conditions occur, and establish monitoring of audit process status with real-time notifications to security operations center.",
+    "non_technical_guidance": "1. Establish clear procedures for responding to audit logging failures 2. Designate responsible staff or roles who will receive failure notifications 3. Define response timeframe (e.g., immediate, within 1 hour) 4. Document escalation procedures and contact information 5. Schedule regular tests of the audit failure alerting process 6. Review and analyze audit failure logs to identify patterns 7. Implement corrective actions to prevent recurrence 8. Track all audit failures and responses for compliance verification",
+    "ai_guidance": "AU-5 is foundational for maintaining audit system integrity. Implement defense-in-depth: (1) local space_left warnings at 75%, (2) centralized syslog forwarding as primary, (3) alternate logging to remote syslog server as backup, (4) email alerts to security team, and (5) optional system shutdown on critical audit failure. The enhancement controls AU-5.1 through AU-5.5 provide increasingly sophisticated failure response mechanisms. Focus first on AU-5.1 (storage capacity warning) and AU-5.2 (real-time alerts) for baseline compliance. AU-5.4 (shutdown on failure) should be carefully evaluated for production systems due to potential availability impact.",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "AU-5.1",
+        "title": "Storage Capacity Warning",
+        "official_text": "Provide a warning to [organization-defined personnel or roles] within [organization-defined time period] when allocated audit log storage volume reaches [organization-defined percentage] of repository maximum audit log storage capacity."
+      },
+      {
+        "id": "AU-5.2",
+        "title": "Real-time Alerts",
+        "official_text": "Provide an alert within [organization-defined time period] to [organization-defined personnel or roles] when the following audit failure events occur: [organization-defined audit failure events]."
+      },
+      {
+        "id": "AU-5.3",
+        "title": "Configurable Traffic Volume Thresholds",
+        "official_text": "Enforce configurable network communications traffic volume thresholds reflecting limits on audit log storage capacity and [organization-defined actions] for network traffic above those thresholds."
+      },
+      {
+        "id": "AU-5.4",
+        "title": "Shutdown on Failure",
+        "official_text": "Invoke a [organization-defined action] in the event of [organization-defined audit failure events], unless an alternate audit logging capability exists."
+      },
+      {
+        "id": "AU-5.5",
+        "title": "Alternate Audit Logging Capability",
+        "official_text": "Provide an alternate audit logging capability in the event of a failure in primary audit logging capability that implements [organization-defined alternate audit logging capability]."
+      }
+    ],
+    "related_controls": ["AU-2", "AU-6", "AU-7", "AU-9", "AU-11", "AU-12"],
+    "supplemental_guidance": "Audit logging process failures can occur due to disk space exhaustion, auditd daemon crashes, network connectivity issues with remote logging, or permission problems. Organizations should establish a multi-layered alerting strategy: (1) local audit daemon warnings when storage capacity approaches limits, (2) syslog integration for centralized monitoring, (3) email or SMS alerts to security operations staff, and (4) automated remediation actions. Response time should be proportional to system criticality, with high-impact systems requiring immediate (less than 1 hour) response. Consider implementing both graceful degradation (switching to alternate logging) and aggressive failure modes (system shutdown) based on risk tolerance.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_auditd_config_summary": "Install auditd, configure space_left thresholds at 75% and 80%, enable space_left_action to email, configure syslog forwarding for centralized monitoring, enable auditd service, reload audit rules with auditctl",
+        "ansible_auditd_config_summary": "Use Ansible lineinfile modules to configure /etc/audit/auditd.conf with space_left and admin_space_left parameters based on calculated partition capacity percentages, deploy rsyslog configuration for forwarding, manage auditd service state"
+      },
+      "windows": {
+        "powershell_auditd_config_summary": "Set Windows Event Log max size to 4GB using wevtutil, configure retention policy to fail-closed (do not overwrite), enable auto-backup on log full, create scheduled task to monitor for critical audit events, configure Event Log forwarding to centralized collector"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode",
+      "rhel_rules": ["RHEL-08-030060: Generate audit records for privileged activities", "RHEL-08-030061: Audit system must generate records when logs fill to 75% capacity", "RHEL-08-030062: Audit system must generate records when logs fill to 80% capacity"],
+      "rule_count": 3,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "AU-5.1",
+    "control_name": "Storage Capacity Warning",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "stig_id": "RHEL-08-030061",
+    "parent_control": "AU-5",
+    "official_text": "Provide a warning to [organization-defined personnel or roles] within [organization-defined time period] when allocated audit log storage volume reaches [organization-defined percentage] of repository maximum audit log storage capacity.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "When audit log storage reaches a defined threshold (typically 75%), the system must immediately notify designated security staff. This provides advance warning before logs can no longer be recorded, preventing data loss and maintaining audit trail integrity.",
+    "example_implementation": "Configure auditd space_left parameter to 2097152 KB (75% of typical 8GB partition), with space_left_action set to 'email' to notify the security team when threshold is crossed. Add corresponding syslog forwarding for centralized monitoring of these critical warnings.",
+    "ai_guidance": "AU-5.1 is critical for preventing audit log loss due to storage exhaustion. Typical implementations: (1) Set space_left to 75% of your audit partition capacity, (2) Configure space_left_action to 'email' or 'syslog' for alerting, (3) Monitor alerts in real-time, (4) Establish runbooks for remediation (archive logs, increase capacity). For RHEL-08-030061, ensure auditd configuration includes space_left and action_mail_acct parameters. Consider weekly capacity trending to predict when manual intervention may be needed.",
+    "non_technical_guidance": "1. Calculate maximum audit log storage capacity for your systems 2. Define warning threshold (recommended: 75% of capacity) 3. Identify personnel/roles who will receive warnings 4. Establish alert delivery method (email, SMS, monitoring system) 5. Define response procedures when warning is triggered 6. Set up log rotation/archival processes 7. Test alert delivery system quarterly 8. Document the threshold in security policies",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": ["AU-2", "AU-4", "AU-5", "AU-5.2", "AU-5.4"],
+    "supplemental_guidance": "Storage capacity warnings must be triggered before the audit system can no longer write logs. The warning threshold should be configurable to account for different system configurations and organizational risk tolerances. Organizations should establish a process to review capacity trends and provision additional storage proactively. Automated archival processes should be in place to move older logs off the active partition when thresholds are approached. Integration with centralized log management platforms (syslog, rsyslog, ELK, Splunk) enhances visibility across multiple systems.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_config_summary": "Calculate 75% threshold of audit partition capacity, configure /etc/audit/auditd.conf with space_left and space_left_action=email, set action_mail_acct to security team email, restart auditd service",
+        "ansible_config_summary": "Use Ansible stat module to get audit partition size, calculate thresholds, use lineinfile module to update auditd.conf, register auditd service for restart"
+      },
+      "windows": {
+        "powershell_config_summary": "Get current Event Log max size, calculate 75% threshold, set Event Log retention to fail-closed, create PowerShell script to check capacity, configure Task Scheduler to run capacity check every hour"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode",
+      "rhel_mapping": "RHEL-08-030061",
+      "rule_count": 1,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "AU-5.2",
+    "control_name": "Real-time Alerts",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "stig_id": "RHEL-08-030062",
+    "parent_control": "AU-5",
+    "official_text": "Provide an alert within [organization-defined time period] to [organization-defined personnel or roles] when the following audit failure events occur: [organization-defined audit failure events].",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "The system must send immediate alerts to designated personnel when specific audit failure events occur, such as audit daemon crash, audit configuration changes, or inability to write to audit logs. These alerts should be delivered through reliable channels (email, SMS, monitoring system) within a defined timeframe (typically 1 hour or less).",
+    "example_implementation": "Configure auditd with admin_space_left action set to 'syslog', integrate with rsyslog to forward alerts to centralized SIEM, and configure email notifications from the SIEM when critical audit events are detected. Use systemd watchdog to detect auditd crashes and trigger alert scripts.",
+    "ai_guidance": "AU-5.2 provides real-time notification of audit failures, complementing AU-5.1's storage warning. Implementation strategy: (1) Configure auditd admin_space_left_action = syslog for disk-full scenarios, (2) Set up auditd crash detection via systemd restart notifications, (3) Forward all audit events to centralized logging (rsyslog/ELK), (4) Configure SIEM alerts for failure event types, (5) Establish escalation path for high-severity failures. For RHEL systems, focus on RHEL-08-030062 compliance. Alert delivery should be automated and verifiable (e.g., webhook, email with read-receipt requirement).",
+    "non_technical_guidance": "1. Define which audit failure events require immediate alerting 2. Establish alert recipients and escalation contacts 3. Define response timeframe (e.g., immediate, within 1 hour) 4. Determine alert delivery methods (email, SMS, phone, monitoring system) 5. Create runbooks for common audit failure scenarios 6. Test alert system monthly with simulated failures 7. Document audit failure investigation procedures 8. Track metrics on alert delivery time and response time 9. Review false positive rates and tune alerting rules",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": ["AU-5", "AU-5.1", "AU-5.4", "AU-6", "SI-4"],
+    "supplemental_guidance": "Real-time alerting requires integration of multiple systems: audit daemon, syslog infrastructure, centralized logging platform, and notification system. Organizations should define a clear taxonomy of audit failure events based on severity: (1) Critical - audit daemon not running, unable to write logs, (2) Major - storage capacity exceeded, configuration changes detected, (3) Minor - rate-limited audit messages. Alert routing should prioritize critical events to phone/SMS, while major events go to email and SIEM. Automated remediation for certain failures (e.g., automatic audit daemon restart) should be implemented where appropriate.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_config_summary": "Configure rsyslog forwarding of audispd and auditd messages to centralized syslog server, set admin_space_left_action to syslog in auditd.conf, create health check script that monitors auditd status and disk capacity, create systemd timer to run health checks every 5 minutes",
+        "ansible_config_summary": "Deploy rsyslog configuration template for audit event forwarding, use lineinfile to configure admin_space_left_action, copy health check script, manage systemd service and timer for periodic health monitoring"
+      },
+      "windows": {
+        "powershell_config_summary": "Query Security Event Log for critical audit events (EventID 4719, 4741, 4743), create PowerShell script to send email alerts when critical events detected, create Task Scheduler job to run alert script every 5 minutes, configure WEVTUTIL to forward logs to centralized Event Log collector"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode",
+      "rhel_mapping": "RHEL-08-030062",
+      "rule_count": 1,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "AU-5.3",
+    "control_name": "Configurable Traffic Volume Thresholds",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "parent_control": "AU-5",
+    "official_text": "Enforce configurable network communications traffic volume thresholds reflecting limits on audit log storage capacity and [organization-defined actions] for network traffic above those thresholds.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "When using network-based audit logging (syslog), implement configurable thresholds to prevent excessive network traffic from consuming audit storage resources. If network traffic from audit logs exceeds defined limits, take configured actions such as filtering, rate-limiting, or switching to alternate logging methods.",
+    "example_implementation": "Configure rsyslog with rate-limiting rules to prevent audit log flooding, implement network traffic monitoring with alerts when audit syslog traffic exceeds thresholds, and establish fallback mechanisms to switch to local logging if network capacity is exceeded.",
+    "ai_guidance": "AU-5.3 addresses Denial of Service prevention in centralized logging infrastructure. Typical implementation: (1) Configure rsyslog rate-limiting (e.g., 1000 messages/second max), (2) Implement network monitoring to track audit traffic volume, (3) Define thresholds for network utilization (e.g., max 10% of bandwidth for audit logs), (4) Create fallback rules to reduce audit scope or switch to local-only logging when thresholds are exceeded. This control is most relevant for high-volume environments with distributed logging. Consider interaction with network bandwidth management and DDoS prevention strategies.",
+    "non_technical_guidance": "1. Analyze current audit log traffic volume and patterns 2. Define maximum acceptable network bandwidth for audit logs 3. Establish rate-limiting policies 4. Document threshold values and justification 5. Create escalation procedures for threshold breach 6. Plan fallback mechanisms for network outages 7. Monitor and trend network utilization 8. Test network failure scenarios quarterly",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": ["AU-5", "AU-5.2", "SI-4", "SC-7"],
+    "supplemental_guidance": "Network-based audit logging introduces potential for Denial of Service attacks that consume bandwidth or storage resources. Organizations should implement rate-limiting at both source (audit daemon) and transit (network) layers. Configurable thresholds allow adaptation to changing network conditions and load requirements. Automated fallback mechanisms (e.g., switch to local-only logging) should be tested regularly to ensure they function correctly under stress conditions. Integration with network monitoring and traffic analysis tools provides visibility into audit traffic patterns.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_config_summary": "Configure rsyslog ActionQueueMaxDiskSpace and ActionQueueType for buffering, set max messages per second limit in rsyslog, create traffic monitoring script using netstat or tcpdump to track syslog connections, implement fallback rule to local backup file if network fails",
+        "ansible_config_summary": "Deploy rsyslog configuration with queue settings and rate limiting, calculate network bandwidth thresholds, deploy traffic monitoring script, create systemd service for monitoring"
+      },
+      "windows": {
+        "powershell_config_summary": "Use Get-NetAdapterStatistics to monitor interface traffic, calculate audit traffic percentage of total bandwidth, create scheduled task to check traffic levels, implement fallback to local Event Log if network capacity exceeded"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode"
+    }
+  },
+  {
+    "control_id": "AU-5.4",
+    "control_name": "Shutdown on Failure",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "parent_control": "AU-5",
+    "official_text": "Invoke a [organization-defined action] in the event of [organization-defined audit failure events], unless an alternate audit logging capability exists.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "When a critical audit logging failure occurs (such as loss of ability to write logs), the system should take a defined action - typically system shutdown, halt, or switch to alternate logging. This ensures that operations cannot continue without audit capability, preventing unmonitored activities. A prerequisite is an alternate audit logging method to prevent denial of service.",
+    "example_implementation": "Configure auditd admin_space_left_action = halt or single to immediately halt the system if critical disk space is reached, but only after implementing alternate logging (network syslog, remote forwarding) as fallback. This is most appropriate for high-security environments where audit integrity is paramount.",
+    "ai_guidance": "AU-5.4 is the most aggressive audit failure response - bringing the system down. Use cautiously: (1) Only implement if business can tolerate system downtime, (2) Requires alternate logging (AU-5.5) to prevent DoS, (3) Consider 'single' (single-user mode) instead of 'halt' for recoverability, (4) Test failover procedures extensively, (5) Monitor closely in production. In auditd, use admin_space_left_action = halt (full shutdown) or 'single' (single-user mode). Windows equivalent is Event Log autoshutdown policies. High-security/compliance-critical environments (financial, defense) may require this despite availability impact.",
+    "non_technical_guidance": "1. Perform risk assessment: Is system availability or audit integrity more critical? 2. Evaluate business impact of system shutdown 3. Ensure alternate logging is fully implemented and tested (AU-5.5) 4. Define which audit failure events trigger shutdown 5. Establish recovery procedures for graceful restart 6. Create monitoring and alerting for shutdown events 7. Test emergency procedures quarterly 8. Document and communicate policy to all stakeholders 9. Consider 'single-user mode' as middle ground between availability and integrity",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": ["AU-5", "AU-5.1", "AU-5.2", "AU-5.5", "SC-7"],
+    "supplemental_guidance": "Shutdown on audit failure should be considered a last-resort measure. Organizations should evaluate the trade-off between audit integrity (ensuring no unmonitored activity) and system availability. Alternative approaches include switching to alternate audit logging (AU-5.5), which allows continued operation while maintaining audit capability. When shutdown is configured, the system must have a documented recovery procedure that includes: (1) Investigation of root cause, (2) Verification of alternate logging operational, (3) Testing of audit system restore, (4) Restart procedures. Integration with centralized alerting ensures immediate notification when shutdown occurs.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_config_summary": "CRITICAL: Verify AU-5.5 (alternate logging) is configured first. Configure admin_space_left in /etc/audit/auditd.conf to 80% threshold, set admin_space_left_action to 'single' or 'halt', create emergency shutdown script that logs to syslog and sends email alert before shutdown, test failover mechanism in non-production environment",
+        "ansible_config_summary": "Validate AU-5.5 prerequisite, calculate admin_space_left threshold as 80% of partition capacity, configure auditd.conf admin_space_left parameters, deploy emergency shutdown notification script, create health monitoring service"
+      },
+      "windows": {
+        "powershell_config_summary": "Set Event Log retention to fail-closed (do not overwrite), configure maximum log size with no auto-purge, create scheduled task to monitor Event Log health every 5 minutes, create shutdown script that initiates controlled shutdown on critical audit failure"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified",
+      "risk_level": "CRITICAL"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode",
+      "prerequisites": ["AU-5.5"],
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "AU-5.5",
+    "control_name": "Alternate Audit Logging Capability",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "parent_control": "AU-5",
+    "official_text": "Provide an alternate audit logging capability in the event of a failure in primary audit logging capability that implements [organization-defined alternate audit logging capability].",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Systems must have a backup audit logging capability that activates when the primary audit system fails. This ensures continuous audit trail capture even when primary logging fails. Common implementations include network syslog forwarding (primary) with local file logging (backup), or dual syslog servers with failover.",
+    "example_implementation": "Configure auditd to forward logs to primary remote syslog server, with automatic fallback to secondary syslog server or local file if network fails. Implement log mirroring to ensure redundancy. Test failover mechanisms regularly to ensure backup logging activates correctly.",
+    "ai_guidance": "AU-5.5 is the foundation for all other AU-5 enhancements - without alternate logging, AU-5.4 (shutdown) becomes a denial of service vector. Implementation layers: (1) Primary: network syslog to remote SIEM, (2) Secondary: fallback syslog server, (3) Tertiary: local backup file with rotation, (4) Monitoring: alerts when failover occurs. Use rsyslog queue buffering to prevent log loss during network outages. For Linux: configure auditd with audisp-remote plugin or rsyslog @@server forwarding. For Windows: Event Log Forwarding with fallback collectors. Test failover quarterly with both graceful (network down) and ungraceful (service crash) scenarios.",
+    "non_technical_guidance": "1. Design redundant logging architecture (primary plus backup systems) 2. Identify alternate logging methods suitable for your environment 3. Test failover mechanisms before deploying to production 4. Establish monitoring for both primary and alternate logging 5. Document backup logging procedures and recovery steps 6. Establish retention periods for backup logs 7. Perform quarterly failover testing 8. Ensure backup logs are protected with same controls as primary 9. Coordinate with network team for bandwidth provisioning 10. Create incident response procedures if both logging systems fail",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": ["AU-5", "AU-5.1", "AU-5.2", "AU-5.4", "AU-9", "SC-7"],
+    "supplemental_guidance": "Alternate audit logging can be implemented at multiple levels: (1) Process level - auditd continues to file system if network fails, (2) System level - syslog has queue and fallback, (3) Network level - backup syslog servers. Organizations should design for graceful degradation: primary logging method works normally, secondary activates on primary failure, tertiary provides local persistence if all remote logging fails. Network queuing (e.g., rsyslog queue, audisp-plugins) prevents log loss during transient failures. Monitoring should track which logging pathway is active and alert if only backup/tertiary methods are in use. Backup logs must be protected with same access controls as primary logs.",
+    "implementation_scripts": {
+      "linux": {
+        "bash_config_summary": "Configure rsyslog with primary syslog server and queue buffering for failure scenarios, configure secondary syslog server as fallback destination, configure local backup file destination with log rotation (30-day retention), create health check script to verify primary and secondary connectivity, create systemd timer to run redundancy checks hourly",
+        "ansible_config_summary": "Deploy rsyslog redundancy configuration template with primary and secondary server settings, configure log rotation parameters, deploy health check script, create systemd service and timer for monitoring"
+      },
+      "windows": {
+        "powershell_config_summary": "Configure Event Log Forwarding to primary collector with WinRM, configure secondary collector as failback, implement scheduled task to export Security Event Log daily, verify redundancy status by checking both collector connectivity and local backup file presence"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00.000000Z",
+      "has_scripts": true,
+      "validation_status": "NIST-verified"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00.000000Z",
+      "source": "ComplianceAsCode",
+      "prerequisite_for": ["AU-5.4"],
+      "certification": "Government-certified"
+    }
+  }
+]

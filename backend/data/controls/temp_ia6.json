@@ -1,0 +1,39 @@
+[
+  {
+    "control_id": "ia-6",
+    "control_name": "Authentication Feedback",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Obscure feedback of authentication information during the authentication process to protect the information from possible exploitation and use by unauthorized individuals.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Authentication feedback should be obscured to prevent unauthorized individuals from exploiting sensitive information during the authentication process.",
+    "example_implementation": "This script implement a system that provides generic feedback messages, such as \"incorrect username or password,\" without providing specific details that could be used by attackers.",
+    "non_technical_guidance": "This plan to comply with Control ID ia-6, Authentication Feedback, you can implement the following non-technical measures:\n1. Ensure that authentication systems do not provide detailed error messages that could potentially expose sensitive information to unauthorized individuals.\n2. Limit the amount of feedback provided during the authentication process to only essential information necessary for the user to successfully authenticate.\n3. Regularly review and update authentication mechanisms to ensure that feedback is appropriately obscured and does not inadvertently disclose sensitive information.\n4. Train users and administrators on the importance of not sharing authentication feedback or sensitive information with unauthorized individuals.\n5. Conduct periodic audits and assessments to verify that authentication feedback is appropriately obscured and protected from exploitation by unauthorized individuals.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:10:50.462183+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

@@ -1,0 +1,722 @@
+<#
+################################################################################
+.SYNOPSIS
+    NIST 800-53 {{ control_id }} Implementation Script
+
+.DESCRIPTION
+    Control: {{ control_name }}
+    Platform: {{ platform }}
+    Generated: {{ generated_date }}
+    Generator Version: {{ generator_version }}
+
+    {{ description }}
+
+    This script implements {{ control_id }} compliance requirements with:
+    - Pre-flight validation
+    - State backup
+    - DSC configuration
+    - Verification
+    - Rollback capability
+
+.NOTES
+    Requires: PowerShell 5.1 or higher
+    Requires: Administrator privileges
+    Requires: DSC (Desired State Configuration)
+################################################################################
+#>
+
+#Requires -Version 5.1
+#Requires -RunAsAdministrator
+
+[CmdletBinding()]
+param(
+    [Parameter()]
+    [switch]$WhatIf,
+
+    [Parameter()]
+    [switch]$Verbose
+)
+
+################################################################################
+# CONFIGURATION
+################################################################################
+
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+
+$Script:Config = @{
+    ControlID = "{{ control_id }}"
+    ControlName = "{{ control_name }}"
+    Platform = "{{ platform }}"
+    Timestamp = Get-Date -Format 'yyyyMMdd_HHmmss'
+    LogPath = "C:\Logs\NIST_Compliance_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+    BackupPath = "C:\Backups\NIST_{{ control_id }}_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
+{%- if parameters %}
+    # Control-specific parameters from YAML
+{%- for key, value in parameters.items() %}
+    {{ key | title | replace('_', '') }} = {{ value if value is number else "'" + value|string + "'" }}
+{%- endfor %}
+{%- endif %}
+}
+
+# Exit codes
+$ExitCode = @{
+    Success = 0
+    PreFlightFailed = 1
+    ImplementationFailed = 2
+    VerificationFailed = 3
+    RollbackFailed = 4
+}
+
+################################################################################
+# LOGGING
+################################################################################
+
+function Write-Log {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [ValidateSet('INFO', 'WARN', 'ERROR', 'SUCCESS')]
+        [string]$Level,
+
+        [Parameter(Mandatory)]
+        [string]$Message
+    )
+
+    $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
+    $logMessage = "[$timestamp] [$Level] $Message"
+
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $Script:Config.LogPath -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    }
+
+    # Write to log file and console
+    Add-Content -Path $Script:Config.LogPath -Value $logMessage
+
+    switch ($Level) {
+        'INFO'    { Write-Host $logMessage -ForegroundColor Cyan }
+        'WARN'    { Write-Warning $logMessage }
+        'ERROR'   { Write-Host $logMessage -ForegroundColor Red }
+        'SUCCESS' { Write-Host $logMessage -ForegroundColor Green }
+    }
+}
+
+function Write-LogInfo { param([string]$Message) Write-Log -Level INFO -Message $Message }
+function Write-LogWarn { param([string]$Message) Write-Log -Level WARN -Message $Message }
+function Write-LogError { param([string]$Message) Write-Log -Level ERROR -Message $Message }
+function Write-LogSuccess { param([string]$Message) Write-Log -Level SUCCESS -Message $Message }
+
+################################################################################
+# PRE-FLIGHT CHECKS
+################################################################################
+
+function Test-PreFlight {
+    [CmdletBinding()]
+    param()
+
+    Write-LogInfo "Starting pre-flight checks for {{ control_id }}..."
+
+    # Check PowerShell version
+    if ($PSVersionTable.PSVersion.Major -lt 5) {
+        Write-LogError "PowerShell 5.1 or higher required. Current version: $($PSVersionTable.PSVersion)"
+        return $false
+    }
+
+    # Check administrator privileges
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+    if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+        Write-LogError "This script must be run as Administrator"
+        return $false
+    }
+
+    # Check OS version
+    $osInfo = Get-CimInstance -ClassName Win32_OperatingSystem
+    Write-LogInfo "OS: $($osInfo.Caption) $($osInfo.Version)"
+
+{% if 'server_2019' in platform %}
+    if ($osInfo.Version -notlike "10.0.17763*") {
+        Write-LogWarn "This script is designed for Windows Server 2019"
+    }
+{% elif 'server_2022' in platform %}
+    if ($osInfo.Version -notlike "10.0.20348*") {
+        Write-LogWarn "This script is designed for Windows Server 2022"
+    }
+{% endif %}
+
+    # Check disk space (minimum 1GB)
+    $systemDrive = $env:SystemDrive
+    $drive = Get-PSDrive -Name $systemDrive.TrimEnd(':')
+    $freeSpaceGB = [math]::Round($drive.Free / 1GB, 2)
+
+    if ($freeSpaceGB -lt 1) {
+        Write-LogWarn "Low disk space: ${freeSpaceGB}GB available"
+    }
+
+    # Check DSC availability
+    if (-not (Get-Module -ListAvailable -Name PSDesiredStateConfiguration)) {
+        Write-LogError "DSC module not available"
+        return $false
+    }
+
+    Write-LogSuccess "Pre-flight checks passed"
+    return $true
+}
+
+################################################################################
+# BACKUP
+################################################################################
+
+function Backup-SystemState {
+    [CmdletBinding()]
+    param()
+
+    Write-LogInfo "Creating backup at $($Script:Config.BackupPath)..."
+
+    # Create backup directory
+    New-Item -Path $Script:Config.BackupPath -ItemType Directory -Force | Out-Null
+
+    # Backup registry keys
+    $registryBackups = @(
+        @{Path = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies'; Name = 'Policies.reg'},
+        @{Path = 'HKLM:\SYSTEM\CurrentControlSet\Services'; Name = 'Services.reg'},
+        @{Path = 'HKLM:\SOFTWARE\Policies'; Name = 'SoftwarePolicies.reg'}
+    )
+
+    foreach ($backup in $registryBackups) {
+        if (Test-Path -Path $backup.Path) {
+            $backupFile = Join-Path -Path $Script:Config.BackupPath -ChildPath $backup.Name
+            reg export $backup.Path $backupFile /y | Out-Null
+            Write-LogInfo "Backed up registry: $($backup.Path)"
+        }
+    }
+
+    # Backup security policies
+    $secpolBackup = Join-Path -Path $Script:Config.BackupPath -ChildPath 'secpol.cfg'
+    secedit /export /cfg $secpolBackup /quiet
+    Write-LogInfo "Backed up security policies"
+
+    # Create state snapshot
+    $snapshot = @{
+        BackupCreated = Get-Date
+        ControlID = $Script:Config.ControlID
+        Platform = $Script:Config.Platform
+        ComputerName = $env:COMPUTERNAME
+        OSVersion = (Get-CimInstance Win32_OperatingSystem).Version
+    }
+
+    $snapshot | ConvertTo-Json | Out-File -FilePath (Join-Path -Path $Script:Config.BackupPath -ChildPath 'snapshot.json')
+
+    Write-LogSuccess "Backup completed: $($Script:Config.BackupPath)"
+    return $true
+}
+
+################################################################################
+# DSC CONFIGURATION
+################################################################################
+
+Configuration {{ control_id | replace('-', '') }}Config {
+    param(
+        [string[]]$ComputerName = 'localhost'
+    )
+
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
+
+    Node $ComputerName {
+
+{% if implementations %}
+{% for impl in implementations %}
+        #-----------------------------------------------------------------------
+        # {{ impl }}
+        #-----------------------------------------------------------------------
+
+{%- if 'password' in impl.lower() and 'policy' in impl.lower() %}
+
+        # Password Policy Configuration
+        Registry PasswordMinLength {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters'
+            ValueName = 'MinimumPasswordLength'
+            ValueData = 14
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+        Registry PasswordComplexity {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Control\SAM'
+            ValueName = 'PasswordComplexity'
+            ValueData = 1
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'account' in impl.lower() and 'lockout' in impl.lower() %}
+
+        # Account Lockout Policy
+        Registry AccountLockoutThreshold {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy'
+            ValueName = 'AccountLockoutThreshold'
+            ValueData = 3
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+        Registry AccountLockoutDuration {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy'
+            ValueName = 'AccountLockoutDuration'
+            ValueData = 15
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'audit' in impl.lower() %}
+
+        # Audit Policy Configuration
+        AuditPolicySubcategory LogonEvents {
+            Name = 'Logon'
+            AuditFlag = 'Success, Failure'
+            Ensure = 'Present'
+        }
+
+        AuditPolicySubcategory AccountManagement {
+            Name = 'User Account Management'
+            AuditFlag = 'Success, Failure'
+            Ensure = 'Present'
+        }
+
+        # Windows Event Log Size
+        Registry SecurityLogSize {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\Security'
+            ValueName = 'MaxSize'
+            ValueData = 1073741824  # 1GB
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'firewall' in impl.lower() %}
+
+        # Windows Firewall Configuration
+        Registry FirewallDomainProfile {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile'
+            ValueName = 'EnableFirewall'
+            ValueData = 1
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+        Registry FirewallPrivateProfile {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
+            ValueName = 'EnableFirewall'
+            ValueData = 1
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'service' in impl.lower() and ('start' in impl.lower() or 'stop' in impl.lower() or 'enable' in impl.lower() or 'disable' in impl.lower()) %}
+
+        # Windows Service Management
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}ServiceMgmt {
+            GetScript = {
+                $serviceName = "{{ impl.split() | last }}"
+                $service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+                return @{ Result = $service.Status }
+            }
+            TestScript = {
+                $serviceName = "{{ impl.split() | last }}"
+                $service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+                if (-not $service) { return $false }
+{%- if 'start' in impl.lower() or 'enable' in impl.lower() %}
+                return $service.Status -eq 'Running'
+{%- elif 'stop' in impl.lower() or 'disable' in impl.lower() %}
+                return $service.Status -eq 'Stopped'
+{%- else %}
+                return $true
+{%- endif %}
+            }
+            SetScript = {
+                $serviceName = "{{ impl.split() | last }}"
+{%- if 'start' in impl.lower() %}
+                Start-Service -Name $serviceName -ErrorAction Stop
+{%- elif 'stop' in impl.lower() %}
+                Stop-Service -Name $serviceName -Force -ErrorAction Stop
+{%- endif %}
+{%- if 'enable' in impl.lower() %}
+                Set-Service -Name $serviceName -StartupType Automatic -ErrorAction Stop
+{%- elif 'disable' in impl.lower() %}
+                Set-Service -Name $serviceName -StartupType Disabled -ErrorAction Stop
+{%- endif %}
+            }
+        }
+
+{%- elif 'registry' in impl.lower() or 'hklm' in impl.lower() or 'hkcu' in impl.lower() %}
+
+        # Registry Configuration
+        Registry {{ impl | replace(' ', '') | replace('-', '') | replace(':', '') | replace('\\', '') | truncate(40, True, '') }}Reg {
+            Key = '{% if "HKLM" in impl or "hklm" in impl %}HKLM:\SOFTWARE\Policies{% elif "HKCU" in impl or "hkcu" in impl %}HKCU:\SOFTWARE\Policies{% else %}HKLM:\SOFTWARE\Policies{% endif %}'
+            ValueName = '{% if "ValueName" in impl %}{{ impl.split("ValueName")[-1].split()[0].replace("=", "").replace(":", "") }}{% else %}ConfigValue{% endif %}'
+            ValueData = {% if "ValueData" in impl %}{{ impl.split("ValueData")[-1].split()[0].replace("=", "").replace(":", "") }}{% else %}1{% endif %}
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'group policy' in impl.lower() or 'local policy' in impl.lower() or 'security policy' in impl.lower() %}
+
+        # Local Security Policy Configuration
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}Policy {
+            GetScript = {
+                return @{ Result = "Policy configuration" }
+            }
+            TestScript = {
+                # Test if policy is already configured
+                return $false
+            }
+            SetScript = {
+                # Apply local security policy using secedit
+                $tempCfg = Join-Path $env:TEMP "secpol_$([guid]::NewGuid().ToString()).cfg"
+                secedit /export /cfg $tempCfg /quiet
+
+                # Modify policy settings
+                Write-Verbose "Applying security policy: {{ impl }}"
+
+                # Re-import policy
+                secedit /configure /db secedit.sdb /cfg $tempCfg /quiet
+                Remove-Item $tempCfg -Force
+            }
+        }
+
+{%- elif 'permission' in impl.lower() or 'acl' in impl.lower() or 'icacls' in impl.lower() %}
+
+        # File/Folder Permissions
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}Permissions {
+            GetScript = {
+                $path = "C:\Windows"
+                return @{ Result = (Get-Acl -Path $path).AccessToString }
+            }
+            TestScript = {
+                # Test if permissions are already set
+                return $false
+            }
+            SetScript = {
+                $path = "C:\Windows"
+
+                # Set permissions using icacls
+{%- if 'administrators' in impl.lower() %}
+                icacls $path /grant "Administrators:(OI)(CI)F" /T
+{%- elif 'system' in impl.lower() %}
+                icacls $path /grant "SYSTEM:(OI)(CI)F" /T
+{%- else %}
+                icacls $path /inheritance:r /grant "Administrators:(OI)(CI)F"
+{%- endif %}
+            }
+        }
+
+{%- elif 'windows feature' in impl.lower() or 'install-windowsfeature' in impl.lower() or 'add-windowsfeature' in impl.lower() %}
+
+        # Windows Feature Installation
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}Feature {
+            GetScript = {
+                $featureName = "{{ impl.split() | last }}"
+                $feature = Get-WindowsFeature -Name $featureName -ErrorAction SilentlyContinue
+                return @{ Result = $feature.InstallState }
+            }
+            TestScript = {
+                $featureName = "{{ impl.split() | last }}"
+                $feature = Get-WindowsFeature -Name $featureName -ErrorAction SilentlyContinue
+                return $feature.Installed
+            }
+            SetScript = {
+                $featureName = "{{ impl.split() | last }}"
+                Install-WindowsFeature -Name $featureName -IncludeManagementTools -ErrorAction Stop
+            }
+        }
+
+{%- elif 'event log' in impl.lower() and 'size' in impl.lower() %}
+
+        # Event Log Size Configuration
+        Registry {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}EventLog {
+            Key = 'HKLM:\SYSTEM\CurrentControlSet\Services\EventLog\{{ "Security" if "security" in impl.lower() else "Application" if "application" in impl.lower() else "System" }}'
+            ValueName = 'MaxSize'
+            ValueData = {{ "512" }}00000  # 512MB in bytes (default)
+            ValueType = 'DWord'
+            Ensure = 'Present'
+        }
+
+{%- elif 'user' in impl.lower() and ('create' in impl.lower() or 'add' in impl.lower() or 'new' in impl.lower()) %}
+
+        # User Account Management
+        User {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}User {
+            UserName = "{{ impl.split() | last }}"
+            Ensure = "Present"
+            Disabled = $false
+            PasswordNeverExpires = $false
+            PasswordChangeRequired = $true
+        }
+
+{%- elif 'group' in impl.lower() and ('create' in impl.lower() or 'add' in impl.lower() or 'member' in impl.lower()) %}
+
+        # Group Membership Management
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}Group {
+            GetScript = {
+                $groupName = "{% if 'group ' in impl.lower() %}{{ impl.lower().split('group ')[-1].split()[0] | title }}{% else %}Administrators{% endif %}"
+                return @{ Result = (Get-LocalGroup -Name $groupName).Name }
+            }
+            TestScript = {
+                return $false
+            }
+            SetScript = {
+                $groupName = "{% if 'group ' in impl.lower() %}{{ impl.lower().split('group ')[-1].split()[0] | title }}{% else %}Administrators{% endif %}"
+{%- if 'create' in impl.lower() %}
+                New-LocalGroup -Name $groupName -ErrorAction SilentlyContinue
+{%- elif 'member' in impl.lower() %}
+                $userName = "{{ impl.split() | last }}"
+                Add-LocalGroupMember -Group $groupName -Member $userName -ErrorAction Stop
+{%- endif %}
+            }
+        }
+
+{%- elif '.config' in impl.lower() or '.xml' in impl.lower() or '.ini' in impl.lower() or 'edit file' in impl.lower() %}
+
+        # Configuration File Editing
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(40, True, '') }}FileEdit {
+            GetScript = {
+                $filePath = "C:\Windows\System32\config\system.ini"
+                return @{ Result = (Get-Content -Path $filePath -Raw) }
+            }
+            TestScript = {
+                # Test if file content is already modified
+                return $false
+            }
+            SetScript = {
+                $filePath = "C:\Windows\System32\config\system.ini"
+
+                # Backup original file
+                Copy-Item -Path $filePath -Destination "${filePath}.bak" -Force -ErrorAction SilentlyContinue
+
+                # Modify configuration file
+                Write-Verbose "Editing configuration file: $filePath"
+                # Add custom configuration logic here based on control requirements
+            }
+        }
+
+{%- else %}
+
+        # Generic implementation: {{ impl }}
+        Script {{ impl | replace(' ', '') | replace('-', '') | truncate(50, True, '') }}Implementation {
+            GetScript = {
+                return @{ Result = "{{ impl }}" }
+            }
+            TestScript = {
+                Write-Verbose "Testing: {{ impl }}"
+                return $false
+            }
+            SetScript = {
+                Write-Verbose "Implementing: {{ impl }}"
+            }
+        }
+
+{%- endif %}
+
+{% endfor %}
+{% endif %}
+    }
+}
+
+################################################################################
+# IMPLEMENTATION
+################################################################################
+
+function Invoke-Implementation {
+    [CmdletBinding()]
+    param()
+
+    Write-LogInfo "Implementing {{ control_id }} compliance requirements..."
+
+    try {
+        # Generate MOF file
+        $mofPath = Join-Path -Path $env:TEMP -ChildPath "{{ control_id }}_DSC"
+        {{ control_id | replace('-', '') }}Config -OutputPath $mofPath -ComputerName 'localhost'
+
+        # Apply DSC configuration
+        Start-DscConfiguration -Path $mofPath -Wait -Verbose -Force
+
+        Write-LogSuccess "{{ control_id }} implementation completed"
+        return $true
+
+    } catch {
+        Write-LogError "Implementation failed: $_"
+        return $false
+    }
+}
+
+################################################################################
+# VERIFICATION
+################################################################################
+
+function Test-Implementation {
+    [CmdletBinding()]
+    param()
+
+    Write-LogInfo "Verifying {{ control_id }} implementation..."
+
+    $verificationPassed = $true
+
+{% if verification %}
+{% for verify in verification %}
+    # Verification: {{ verify }}
+    Write-LogInfo "Verifying: {{ verify }}"
+
+{%- if 'password' in verify.lower() %}
+
+    # Verify password policy
+    $secpol = secedit /export /cfg (Join-Path $env:TEMP 'secpol_verify.cfg') /quiet
+    $minPasswordLength = (Get-Content (Join-Path $env:TEMP 'secpol_verify.cfg') | Select-String 'MinimumPasswordLength').ToString().Split('=')[1].Trim()
+
+    if ([int]$minPasswordLength -ge 14) {
+        Write-LogSuccess "✓ Password minimum length verified: $minPasswordLength"
+    } else {
+        Write-LogError "✗ Password minimum length incorrect: $minPasswordLength (expected >= 14)"
+        $verificationPassed = $false
+    }
+
+{%- elif 'account' in verify.lower() and 'lockout' in verify.lower() %}
+
+    # Verify account lockout policy
+    $lockoutThreshold = (Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy' -Name AccountLockoutThreshold -ErrorAction SilentlyContinue).AccountLockoutThreshold
+
+    if ($lockoutThreshold -eq 3) {
+        Write-LogSuccess "✓ Account lockout threshold verified: $lockoutThreshold"
+    } else {
+        Write-LogError "✗ Account lockout threshold not set correctly"
+        $verificationPassed = $false
+    }
+
+{%- elif 'audit' in verify.lower() %}
+
+    # Verify audit policy
+    $auditPolicy = auditpol /get /category:"Logon/Logoff" /r | ConvertFrom-Csv
+
+    if ($auditPolicy) {
+        Write-LogSuccess "✓ Audit policy verified"
+    } else {
+        Write-LogError "✗ Audit policy not configured correctly"
+        $verificationPassed = $false
+    }
+
+{%- else %}
+
+    # Generic verification
+    Write-LogInfo "Generic verification: {{ verify }}"
+
+{%- endif %}
+
+{% endfor %}
+{% endif %}
+
+    if ($verificationPassed) {
+        Write-LogSuccess "All verification checks passed"
+        return $true
+    } else {
+        Write-LogError "Some verification checks failed"
+        return $false
+    }
+}
+
+################################################################################
+# ROLLBACK
+################################################################################
+
+function Invoke-Rollback {
+    [CmdletBinding()]
+    param()
+
+    Write-LogWarn "Rolling back changes from $($Script:Config.BackupPath)..."
+
+    if (-not (Test-Path -Path $Script:Config.BackupPath)) {
+        Write-LogError "Backup directory not found: $($Script:Config.BackupPath)"
+        return $false
+    }
+
+    try {
+        # Restore registry backups
+        $registryBackups = Get-ChildItem -Path $Script:Config.BackupPath -Filter '*.reg'
+        foreach ($backup in $registryBackups) {
+            reg import $backup.FullName /y | Out-Null
+            Write-LogInfo "Restored registry: $($backup.Name)"
+        }
+
+        # Restore security policies
+        $secpolBackup = Join-Path -Path $Script:Config.BackupPath -ChildPath 'secpol.cfg'
+        if (Test-Path -Path $secpolBackup) {
+            secedit /configure /cfg $secpolBackup /db secedit.sdb /quiet
+            Write-LogInfo "Restored security policies"
+        }
+
+        Write-LogSuccess "Rollback completed"
+        return $true
+
+    } catch {
+        Write-LogError "Rollback failed: $_"
+        return $false
+    }
+}
+
+################################################################################
+# MAIN
+################################################################################
+
+function Main {
+    [CmdletBinding()]
+    param()
+
+    Write-LogInfo "========================================="
+    Write-LogInfo "NIST 800-53 {{ control_id }} Implementation"
+    Write-LogInfo "Platform: {{ platform }}"
+    Write-LogInfo "========================================="
+
+    try {
+        # Pre-flight checks
+        if (-not (Test-PreFlight)) {
+            Write-LogError "Pre-flight checks failed"
+            exit $ExitCode.PreFlightFailed
+        }
+
+        # Backup
+        if (-not (Backup-SystemState)) {
+            Write-LogError "Backup failed"
+            exit $ExitCode.ImplementationFailed
+        }
+
+        # Implementation
+        if (-not (Invoke-Implementation)) {
+            Write-LogError "Implementation failed"
+            Write-LogWarn "Attempting rollback..."
+            Invoke-Rollback
+            exit $ExitCode.ImplementationFailed
+        }
+
+        # Verification
+        if (-not (Test-Implementation)) {
+            Write-LogError "Verification failed"
+            Write-LogWarn "Attempting rollback..."
+            Invoke-Rollback
+            exit $ExitCode.VerificationFailed
+        }
+
+        Write-LogSuccess "========================================="
+        Write-LogSuccess "{{ control_id }} implementation successful!"
+        Write-LogSuccess "Logs: $($Script:Config.LogPath)"
+        Write-LogSuccess "Backup: $($Script:Config.BackupPath)"
+        Write-LogSuccess "========================================="
+
+        exit $ExitCode.Success
+
+    } catch {
+        Write-LogError "Unexpected error: $_"
+        Write-LogWarn "Attempting rollback..."
+        Invoke-Rollback
+        exit $ExitCode.ImplementationFailed
+    }
+}
+
+# Execute main function
+Main

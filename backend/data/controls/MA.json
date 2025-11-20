@@ -1,0 +1,1243 @@
+[
+  {
+    "control_id": "ma-1",
+    "control_name": "Policy and Procedures",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control requires organizations to establish and maintain policies and procedures to manage their security program.",
+    "example_implementation": "This script develop a comprehensive set of policies and procedures that outline roles, responsibilities, and processes for managing security within your organization. Regularly review and update these documents to ensure they remain current and effective.",
+    "non_technical_guidance": "This plan develop and maintain policies and procedures that are aligned with organizational goals and objectives. Ensure that these policies and procedures are regularly reviewed, updated, and communicated to all relevant stakeholders. Assign responsibility for policy compliance to specific individuals or teams within the organization. Implement a process for monitoring and enforcing compliance with policies and procedures, including regular audits and assessments. Provide training and awareness programs to ensure that all employees are aware of and understand the policies and procedures. Regularly assess the effectiveness of policies and procedures in achieving their intended objectives and make adjustments as necessary.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:12:17.263410+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ma-2",
+    "control_name": "Controlled Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Controlled Maintenance ensures that all changes to an IT system are authorized and documented to prevent unauthorized modifications.",
+    "example_implementation": "This script keep a detailed record of all maintenance activities, including who performed the maintenance, when it was done, and what changes were made. Regularly review and audit these records to ensure compliance with the control.",
+    "non_technical_guidance": "This plan to ensure Controlled Maintenance, the following non-technical steps should be taken:\n1. Establish a formalized process for scheduling and performing maintenance activities.\n2. Document maintenance procedures and ensure they are followed consistently.\n3. Implement change management processes to track and authorize maintenance activities.\n4. Conduct regular audits to verify compliance with maintenance procedures.\n5. Provide training to personnel involved in maintenance activities to ensure they understand and adhere to the established process.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ma-2.1",
+        "title": "Record Content",
+        "official_text": ""
+      },
+      {
+        "id": "ma-2.2",
+        "title": "Automated Maintenance Activities",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:18.895662+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ma-2.1",
+    "control_name": "Record Content",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:20.424605+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-2.2",
+    "control_name": "Automated Maintenance Activities",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:21.956902+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3",
+    "control_name": "Maintenance Tools",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that maintenance tools used on IT systems are properly authorized and controlled to prevent unauthorized access or changes.",
+    "example_implementation": "This script keep a detailed inventory of all maintenance tools used on your systems, regularly review and update the list, and restrict access to these tools to authorized personnel only.",
+    "non_technical_guidance": "This plan ensure that maintenance tools are restricted to authorized personnel only. Implement access controls such as role-based access control (RBAC) to limit access to maintenance tools. Regularly review and update the list of authorized personnel who can access maintenance tools. Train personnel on the proper and secure use of maintenance tools to prevent misuse or unauthorized access. Conduct periodic audits to ensure compliance with access controls and training requirements.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ma-3.1",
+        "title": "Inspect Tools",
+        "official_text": "Inspect the maintenance tools used by maintenance personnel for improper or unauthorized modifications."
+      },
+      {
+        "id": "ma-3.2",
+        "title": "Inspect Media",
+        "official_text": "Check media containing diagnostic and test programs for malicious code before the media are used in the system."
+      },
+      {
+        "id": "ma-3.3",
+        "title": "Prevent Unauthorized Removal",
+        "official_text": "Prevent the removal of maintenance equipment containing organizational information by:"
+      },
+      {
+        "id": "ma-3.4",
+        "title": "Restricted Tool Use",
+        "official_text": "Restrict the use of maintenance tools to authorized personnel only."
+      },
+      {
+        "id": "ma-3.5",
+        "title": "Execution with Privilege",
+        "official_text": "Monitor the use of maintenance tools that execute with increased privilege."
+      },
+      {
+        "id": "ma-3.6",
+        "title": "Software Updates and Patches",
+        "official_text": "Inspect maintenance tools to ensure the latest software updates and patches are installed."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:23.502382+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ma-3.1",
+    "control_name": "Inspect Tools",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Inspect the maintenance tools used by maintenance personnel for improper or unauthorized modifications.",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Inspect the maintenance tools used by maintenance personnel for improper or unauthorized modifications.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:25.114691+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3.2",
+    "control_name": "Inspect Media",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Check media containing diagnostic and test programs for malicious code before the media are used in the system.",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Check media containing diagnostic and test programs for malicious code before the media are used in the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:26.731283+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3.3",
+    "control_name": "Prevent Unauthorized Removal",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Prevent the removal of maintenance equipment containing organizational information by:",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Prevent the removal of maintenance equipment containing organizational information by:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:28.326936+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3.4",
+    "control_name": "Restricted Tool Use",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Restrict the use of maintenance tools to authorized personnel only.",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Restrict the use of maintenance tools to authorized personnel only.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:29.942023+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3.5",
+    "control_name": "Execution with Privilege",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Monitor the use of maintenance tools that execute with increased privilege.",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Monitor the use of maintenance tools that execute with increased privilege.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:31.549454+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-3.6",
+    "control_name": "Software Updates and Patches",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Inspect maintenance tools to ensure the latest software updates and patches are installed.",
+    "parent_control": "ma-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Inspect maintenance tools to ensure the latest software updates and patches are installed.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:33.168070+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4",
+    "control_name": "Nonlocal Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Nonlocal Maintenance ensures that maintenance activities on information systems are performed remotely to reduce the risk of unauthorized access.",
+    "example_implementation": "This script implement secure remote access protocols and tools for maintenance activities, such as VPNs and multi-factor authentication, to ensure that only authorized personnel can perform maintenance tasks from remote locations.",
+    "non_technical_guidance": "This plan to comply with the Nonlocal Maintenance control (ma-4), the following non-technical implementation plan can be followed:\n\n1. Establish a formal policy that outlines the procedures for conducting maintenance activities on systems from non-local locations.\n2. Ensure that all maintenance activities conducted remotely are authorized and logged for auditing purposes.\n3. Implement multi-factor authentication for all remote maintenance activities to ensure only authorized personnel can access the systems.\n4. Regularly review and update the list of personnel authorized to perform maintenance activities from non-local locations.\n5. Conduct regular training and awareness programs for personnel to educate them on the importance of following the nonlocal maintenance procedures.\n6. Periodically review and assess the effectiveness of the nonlocal maintenance procedures to identify any gaps or areas for improvement.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ma-4.1",
+        "title": "Logging and Review",
+        "official_text": ""
+      },
+      {
+        "id": "ma-4.2",
+        "title": "Document Nonlocal Maintenance",
+        "official_text": ""
+      },
+      {
+        "id": "ma-4.3",
+        "title": "Comparable Security and Sanitization",
+        "official_text": ""
+      },
+      {
+        "id": "ma-4.4",
+        "title": "Authentication and Separation of Maintenance Sessions",
+        "official_text": "Protect nonlocal maintenance sessions by:"
+      },
+      {
+        "id": "ma-4.5",
+        "title": "Approvals and Notifications",
+        "official_text": ""
+      },
+      {
+        "id": "ma-4.6",
+        "title": "Cryptographic Protection",
+        "official_text": "Implement the following cryptographic mechanisms to protect the integrity and confidentiality of nonlocal maintenance and diagnostic communications: {{ insert: param, ma-04.06_odp }}."
+      },
+      {
+        "id": "ma-4.7",
+        "title": "Disconnect Verification",
+        "official_text": "Verify session and network connection termination after the completion of nonlocal maintenance and diagnostic sessions."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:34.783698+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ma-4.1",
+    "control_name": "Logging and Review",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:36.411782+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.2",
+    "control_name": "Document Nonlocal Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:38.009747+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.3",
+    "control_name": "Comparable Security and Sanitization",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:39.628330+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.4",
+    "control_name": "Authentication and Separation of Maintenance Sessions",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Protect nonlocal maintenance sessions by:",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Protect nonlocal maintenance sessions by:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:41.252331+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.5",
+    "control_name": "Approvals and Notifications",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:42.877559+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.6",
+    "control_name": "Cryptographic Protection",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Implement the following cryptographic mechanisms to protect the integrity and confidentiality of nonlocal maintenance and diagnostic communications: {{ insert: param, ma-04.06_odp }}.",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement the following cryptographic mechanisms to protect the integrity and confidentiality of nonlocal maintenance and diagnostic communications: {{ insert: param, ma-04.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:44.485754+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-4.7",
+    "control_name": "Disconnect Verification",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Verify session and network connection termination after the completion of nonlocal maintenance and diagnostic sessions.",
+    "parent_control": "ma-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify session and network connection termination after the completion of nonlocal maintenance and diagnostic sessions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:46.139025+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-5",
+    "control_name": "Maintenance Personnel",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that only authorized personnel can access and perform maintenance on IT systems.",
+    "example_implementation": "This script implement strict access controls and regularly review and update the list of authorized maintenance personnel to prevent unauthorized access to IT systems.",
+    "non_technical_guidance": "This plan to comply with control MA-5 (Maintenance Personnel), the following non-technical implementation plan can be followed:\n\n1. Develop and maintain a list of authorized maintenance personnel who are allowed access to the information system for maintenance purposes.\n2. Ensure that only authorized maintenance personnel have access to the system and that their access is monitored and controlled.\n3. Implement a process for granting and revoking access to maintenance personnel as needed, ensuring that access is only granted when necessary.\n4. Provide training to maintenance personnel on security policies and procedures to ensure they understand their responsibilities in maintaining the security of the system.\n5. Regularly review and update the list of authorized maintenance personnel to ensure that only necessary individuals have access to the system.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ma-5.1",
+        "title": "Individuals Without Appropriate Access",
+        "official_text": ""
+      },
+      {
+        "id": "ma-5.2",
+        "title": "Security Clearances for Classified Systems",
+        "official_text": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information possess security clearances and formal access approvals for at least the highest classification level and for compartments of information on the system."
+      },
+      {
+        "id": "ma-5.3",
+        "title": "Citizenship Requirements for Classified Systems",
+        "official_text": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information are U.S. citizens."
+      },
+      {
+        "id": "ma-5.4",
+        "title": "Foreign Nationals",
+        "official_text": "Ensure that:"
+      },
+      {
+        "id": "ma-5.5",
+        "title": "Non-system Maintenance",
+        "official_text": "Ensure that non-escorted personnel performing maintenance activities not directly associated with the system but in the physical proximity of the system, have required access authorizations."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:47.792675+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ma-5.1",
+    "control_name": "Individuals Without Appropriate Access",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "",
+    "parent_control": "ma-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:49.414111+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-5.2",
+    "control_name": "Security Clearances for Classified Systems",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information possess security clearances and formal access approvals for at least the highest classification level and for compartments of information on the system.",
+    "parent_control": "ma-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information possess security clearances and formal access approvals for at least the highest classification level and for compartments of information on the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:51.042499+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-5.3",
+    "control_name": "Citizenship Requirements for Classified Systems",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information are U.S. citizens.",
+    "parent_control": "ma-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that personnel performing maintenance and diagnostic activities on a system processing, storing, or transmitting classified information are U.S. citizens.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:52.644804+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-5.4",
+    "control_name": "Foreign Nationals",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Ensure that:",
+    "parent_control": "ma-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:54.297756+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-5.5",
+    "control_name": "Non-system Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Ensure that non-escorted personnel performing maintenance activities not directly associated with the system but in the physical proximity of the system, have required access authorizations.",
+    "parent_control": "ma-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that non-escorted personnel performing maintenance activities not directly associated with the system but in the physical proximity of the system, have required access authorizations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:55.921671+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-6",
+    "control_name": "Timely Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Obtain maintenance support and/or spare parts for {{ insert: param, ma-06_odp.01 }} within {{ insert: param, ma-06_odp.02 }} of failure.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure to promptly get maintenance support or spare parts when something breaks.",
+    "example_implementation": "This script establish a process for quickly obtaining maintenance support or spare parts within the required timeframe to minimize downtime in your IT environment.",
+    "non_technical_guidance": "This plan to ensure timely maintenance for the system component identified in parameter ma-06_odp.01, follow these steps:\n1. Identify critical system components that require maintenance support and/or spare parts.\n2. Establish relationships with vendors or service providers who can provide maintenance support and spare parts for these components.\n3. Maintain a list of critical components along with contact information for vendors/service providers.\n4. Implement a process for quickly obtaining maintenance support and spare parts within the timeframe specified in parameter ma-06_odp.02.\n5. Regularly review and update the list of critical components and vendor/service provider contacts to ensure timely maintenance support when needed.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ma-6.1",
+        "title": "Preventive Maintenance",
+        "official_text": "Perform preventive maintenance on {{ insert: param, ma-06.01_odp.01 }} at {{ insert: param, ma-06.01_odp.02 }}."
+      },
+      {
+        "id": "ma-6.2",
+        "title": "Predictive Maintenance",
+        "official_text": "Perform predictive maintenance on {{ insert: param, ma-06.02_odp.01 }} at {{ insert: param, ma-06.02_odp.02 }}."
+      },
+      {
+        "id": "ma-6.3",
+        "title": "Automated Support for Predictive Maintenance",
+        "official_text": "Transfer predictive maintenance data to a maintenance management system using {{ insert: param, ma-06.03_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:12:57.514365+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "ma-6.1",
+    "control_name": "Preventive Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Perform preventive maintenance on {{ insert: param, ma-06.01_odp.01 }} at {{ insert: param, ma-06.01_odp.02 }}.",
+    "parent_control": "ma-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Perform preventive maintenance on {{ insert: param, ma-06.01_odp.01 }} at {{ insert: param, ma-06.01_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:12:59.109194+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-6.2",
+    "control_name": "Predictive Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Perform predictive maintenance on {{ insert: param, ma-06.02_odp.01 }} at {{ insert: param, ma-06.02_odp.02 }}.",
+    "parent_control": "ma-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Perform predictive maintenance on {{ insert: param, ma-06.02_odp.01 }} at {{ insert: param, ma-06.02_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:00.741833+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-6.3",
+    "control_name": "Automated Support for Predictive Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Transfer predictive maintenance data to a maintenance management system using {{ insert: param, ma-06.03_odp }}.",
+    "parent_control": "ma-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Transfer predictive maintenance data to a maintenance management system using {{ insert: param, ma-06.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:02.337956+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ma-7",
+    "control_name": "Field Maintenance",
+    "family": "Maintenance",
+    "family_id": "ma",
+    "official_text": "Restrict or prohibit field maintenance on {{ insert: param, ma-07_odp.01 }} to {{ insert: param, ma-07_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Limit or prevent maintenance work done in the field on certain equipment.",
+    "example_implementation": "This script creates a clear policy outlining when field maintenance is allowed and provide training to employees on proper procedures to follow. Additionally, consider implementing remote monitoring tools to reduce the need for on-site maintenance.",
+    "non_technical_guidance": "This plan to comply with control MA-7 \"Field Maintenance,\" the following non-technical implementation plan can be followed:\n\n1. Identify the systems or devices that fall under the scope of field maintenance restrictions.\n2. Define the specific restrictions or prohibitions that need to be enforced on these systems or devices.\n3. Communicate the restrictions clearly to all personnel involved in field maintenance activities.\n4. Implement physical controls, such as locks or access control measures, to restrict or prohibit unauthorized field maintenance.\n5. Regularly review and update the field maintenance restrictions as needed to ensure compliance with the control.\n6. Document all field maintenance activities and any exceptions granted for audit purposes.\n7. Conduct periodic assessments to verify compliance with the field maintenance restrictions.\n\nBy following this implementation plan, organizations can effectively restrict or prohibit field maintenance on the specified systems or devices as required by control MA-7.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:03.919113+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

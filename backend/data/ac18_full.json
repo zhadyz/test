@@ -1,0 +1,283 @@
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that wireless access to the network is secure and monitored.",
+    "example_implementation": "This script implement strong encryption protocols like WPA2 for wireless access points and regularly monitor wireless network traffic for any unauthorized devices.",
+    "non_technical_guidance": "This plan to comply with control AC-18 regarding Wireless Access, the following non-technical implementation plan can be followed:\n\n1. Implement a policy that prohibits the use of unauthorized wireless access points within the organization.\n2. Regularly scan the premises for unauthorized wireless networks and take immediate action to disable them.\n3. Ensure that all authorized wireless access points are securely configured with strong encryption and authentication mechanisms.\n4. Enforce the use of strong passwords for accessing wireless networks and regularly update these passwords.\n5. Educate employees on the risks associated with connecting to unsecured wireless networks and the importance of following the organization's wireless access policies.\n6. Monitor network traffic for any suspicious activity related to wireless access and investigate any anomalies promptly.\n7. Conduct regular security audits and assessments to ensure compliance with wireless access control measures.",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "ac-18.1",
+        "title": "Authentication and Encryption",
+        "official_text": "Protect wireless access to the system using authentication of [authentication mechanism] and encryption.",
+        "metadata": {
+          "stig_id": "RHEL-08-040171"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Authentication and Encryption."
+      },
+      {
+        "id": "ac-18.2",
+        "title": "Monitoring Unauthorized Connections",
+        "official_text": "",
+        "rationale": "Continuous monitoring for unauthorized wireless signals identifies rogue access points or ad-hoc networks that could bypass perimeter defenses.",
+        "metadata": {
+          "stig_id": "RHEL-08-040172"
+        },
+        "ai_guidance": "Scan for rogue Wi-Fi access points that employees might have plugged in without permission."
+      },
+      {
+        "id": "ac-18.3",
+        "title": "Disable Wireless Networking",
+        "official_text": "Disable, when not intended for use, wireless networking capabilities embedded within system components prior to issuance and deployment.",
+        "rationale": "Disabling wireless hardware on servers and sensitive endpoints prevents accidental or unauthorized bridging of air gaps.",
+        "metadata": {
+          "stig_id": "RHEL-08-040173"
+        },
+        "ai_guidance": "If a server doesn't need Wi-Fi, turn the Wi-Fi chip off completely."
+      },
+      {
+        "id": "ac-18.4",
+        "title": "Restrict Configurations by Users",
+        "official_text": "Identify and explicitly authorize users allowed to independently configure wireless networking capabilities.",
+        "rationale": "Restricting who can configure wireless settings prevents users from accidentally connecting to insecure networks or creating rogue access points.",
+        "metadata": {
+          "stig_id": "RHEL-08-040174"
+        },
+        "ai_guidance": "Don't let regular users change Wi-Fi settings. Lock that configuration down."
+      },
+      {
+        "id": "ac-18.5",
+        "title": "Antennas and Transmission Power Levels",
+        "official_text": "Select radio antennas and calibrate transmission power levels to reduce the probability that signals from wireless access points can be received outside of organization-controlled boundaries.",
+        "metadata": {
+          "stig_id": "RHEL-08-040175"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Antennas and Transmission Power Levels."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {
+        "bash": "# platform = multi_platform_rhel,multi_platform_fedora,multi_platform_ol,multi_platform_almalinux,multi_platform_rhv,multi_platform_ubuntu,multi_platform_sle,multi_platform_slmicro,multi_platform_debian\n# reboot = true\n# strategy = disable\n# complexity = low\n# disruption = medium\nif LC_ALL=C grep -q -m 1 \"^install \" /etc/modprobe.d/.conf ; then\n\t{}\n\tsed -i 's#^install .*#install  /bin/false#g' /etc/modprobe.d/.conf\nelse\n\techo -e \"\\n# Disable per security requirements\" >> /etc/modprobe.d/.conf\n\techo \"install  /bin/false\" >> /etc/modprobe.d/.conf\nfi\n\nif ! LC_ALL=C grep -q -m 1 \"^blacklist $\" /etc/modprobe.d/.conf ; then\n\techo \"blacklist \" >> /etc/modprobe.d/.conf\nfi\n",
+        "ansible": "---\n# Source: ComplianceAsCode/content\n# Generated from CAC template\n\n# platform = multi_platform_rhel,multi_platform_fedora,multi_platform_ol,multi_platform_almalinux,multi_platform_rhv,multi_platform_ubuntu,multi_platform_sle,multi_platform_slmicro\n# reboot = true\n# strategy = disable\n# complexity = low\n# disruption = medium\n- name: Ensure kernel module '' is disabled\n  ansible.builtin.lineinfile:\n    create: yes\n    dest: \"/etc/modprobe.d/.conf\"\n    regexp: 'install\\s+'\n    line: \"install  /bin/false\"\n\n- name: Ensure kernel module '' is blacklisted\n  ansible.builtin.lineinfile:\n    create: yes\n    dest: \"/etc/modprobe.d/.conf\"\n    regexp: '^blacklist $'\n    line: \"blacklist \"\n"
+      },
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-10T21:48:54.740139",
+      "has_scripts": true,
+      "migration_source": "CAC_AC18_series_migration",
+      "stig_id": "RHEL-08-040170"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T09:37:28.984728+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T09:37:29.034959+00:00",
+      "platform": "rhcos4",
+      "rule_count": 1,
+      "certification": "Government-certified"
+    },
+    "ai_guidance": "Secure your Wi-Fi. Don't use weak passwords or old encryption."
+  },
+  {
+    "control_id": "ac-18.1",
+    "control_name": "Authentication and Encryption",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Protect wireless access to the system using authentication of [authentication mechanism] and encryption.",
+    "parent_control": "ac-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Protect wireless access to the system using authentication of [authentication mechanism] and encryption.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.140851+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-040171"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:37:30.577406+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Authentication and Encryption according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-18.2",
+    "control_name": "Monitoring Unauthorized Connections",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "",
+    "parent_control": "ac-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.140865+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-040172"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:37:32.130007+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Continuous monitoring for unauthorized wireless signals identifies rogue access points or ad-hoc networks that could bypass perimeter defenses.",
+    "ai_guidance": "Scan for rogue Wi-Fi access points that employees might have plugged in without permission."
+  },
+  {
+    "control_id": "ac-18.3",
+    "control_name": "Disable Wireless Networking",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Disable, when not intended for use, wireless networking capabilities embedded within system components prior to issuance and deployment.",
+    "parent_control": "ac-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Disable, when not intended for use, wireless networking capabilities embedded within system components prior to issuance and deployment.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {
+        "bash": "#!/bin/bash\n# AC-18(3) Disable Wireless Networking\n# Description: Disable wireless interfaces using rfkill or nmcli.\n\necho \"Checking for wireless interfaces...\"\n\nif command -v rfkill &> /dev/null; then\n    echo \"Blocking wireless devices via rfkill...\"\n    rfkill block wifi\n    rfkill list\nelif command -v nmcli &> /dev/null; then\n    echo \"Disabling wifi via NetworkManager...\"\n    nmcli radio wifi off\n    nmcli radio\nelse\n    echo \"No wireless management tools found. Checking ip link...\"\n    ip link show | grep -i wlan\n    echo \"Manual disabling required if interfaces exist.\"\nfi\n",
+        "ansible": "---\n- name: AC-18(3) Disable Wireless Networking\n  hosts: all\n  tasks:\n    - name: Block wireless via rfkill\n      command: rfkill block wifi\n      ignore_errors: yes\n\n    - name: Disable wireless via NetworkManager\n      command: nmcli radio wifi off\n      ignore_errors: yes\n      when: \"'NetworkManager' in ansible_facts.packages\"\n"
+      },
+      "_note": "Replaced generic audit dump with targeted wireless disable scripts.",
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-10T23:15:56.906718",
+      "has_scripts": true,
+      "migration_source": "CAC_AC18_enhancements_migration",
+      "stig_id": "RHEL-08-040173"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:37:33.673054+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Disabling wireless hardware on servers and sensitive endpoints prevents accidental or unauthorized bridging of air gaps.",
+    "ai_guidance": "If a server doesn't need Wi-Fi, turn the Wi-Fi chip off completely."
+  },
+  {
+    "control_id": "ac-18.4",
+    "control_name": "Restrict Configurations by Users",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Identify and explicitly authorize users allowed to independently configure wireless networking capabilities.",
+    "parent_control": "ac-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Identify and explicitly authorize users allowed to independently configure wireless networking capabilities.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {
+        "bash": "#!/bin/bash\n# AC-18(4) Restrict Configurations by Users\n# Description: Verify that standard users cannot modify network settings.\n\necho \"Checking PolicyKit rules for NetworkManager...\"\n\n# Look for \"yes\" permissions for general users in Polkit\nif grep -r \"org.freedesktop.NetworkManager\" /usr/share/polkit-1/actions/ | grep \"yes\"; then\n    echo \"WARNING: Found permissive NetworkManager policies. Review Polkit configuration.\"\nelse\n    echo \"Standard Polkit restrictions appear to be in place.\"\nfi\n",
+        "ansible": "---\n- name: AC-18(4) Restrict Wireless Configuration\n  hosts: all\n  tasks:\n    - name: Verify NetworkManager Polkit restrictions\n      command: grep \"org.freedesktop.NetworkManager\" /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy\n      register: polkit_check\n      changed_when: false\n      ignore_errors: yes\n"
+      },
+      "_note": "Replaced generic audit dump with configuration restriction checks.",
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-10T23:15:56.906751",
+      "has_scripts": true,
+      "migration_source": "CAC_AC18_enhancements_migration",
+      "stig_id": "RHEL-08-040174"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:37:35.232203+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Restricting who can configure wireless settings prevents users from accidentally connecting to insecure networks or creating rogue access points.",
+    "ai_guidance": "Don't let regular users change Wi-Fi settings. Lock that configuration down."
+  },
+  {
+    "control_id": "ac-18.5",
+    "control_name": "Antennas and Transmission Power Levels",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Select radio antennas and calibrate transmission power levels to reduce the probability that signals from wireless access points can be received outside of organization-controlled boundaries.",
+    "parent_control": "ac-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Select radio antennas and calibrate transmission power levels to reduce the probability that signals from wireless access points can be received outside of organization-controlled boundaries.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },

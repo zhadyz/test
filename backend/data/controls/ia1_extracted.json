@@ -1,0 +1,571 @@
+[
+  {
+    "control_id": "ia-1",
+    "control_name": "Policy and Procedures",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that policies and procedures are in place to guide the organization's information security program.",
+    "example_implementation": "This script regularly review and update policies and procedures to ensure they reflect the current state of the organization's information security practices.",
+    "non_technical_guidance": "This plan to comply with control IA-1 (Policy and Procedures), follow these steps:\n1. Develop and document policies and procedures that address information security requirements, roles and responsibilities, and compliance with relevant laws and regulations.\n2. Ensure that policies and procedures are reviewed and approved by appropriate management personnel.\n3. Distribute and communicate policies and procedures to all relevant employees, contractors, and third-party users.\n4. Provide training on policies and procedures to ensure understanding and compliance.\n5. Regularly review and update policies and procedures to reflect changes in the organization's environment, technology, and regulations.\n6. Conduct periodic audits or assessments to verify compliance with policies and procedures.\n7. Document and address any deviations or non-compliance identified during audits or assessments.\n8. Continuously monitor and improve the effectiveness of policies and procedures to ensure ongoing compliance with information security requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.462964+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:09:09.125348+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ia-10",
+    "control_name": "Adaptive Authentication",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require individuals accessing the system to employ {{ insert: param, ia-10_odp.01 }} under specific {{ insert: param, ia-10_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Adaptive authentication means that users may be required to use additional verification methods, such as a one-time code sent to their phone, based on specific circumstances.",
+    "example_implementation": "This script implement multi-factor authentication for users accessing sensitive systems, requiring them to verify their identity using more than just a password.",
+    "non_technical_guidance": "This plan to implement adaptive authentication for individuals accessing the system, follow these steps:\n1. Define specific criteria for when adaptive authentication should be required, such as based on user roles, access levels, or location.\n2. Implement a multi-factor authentication solution that can adapt the authentication requirements based on the defined criteria.\n3. Communicate the adaptive authentication policy to all system users and provide training on how to comply with the requirements.\n4. Regularly review and update the adaptive authentication policy to ensure it remains effective and aligned with the organization's security needs.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:10.728357+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-11",
+    "control_name": "Re-authentication",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require users to re-authenticate when {{ insert: param, ia-11_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Users must re-authenticate (log in again) under certain circumstances.",
+    "example_implementation": "This script implement a timeout feature that automatically logs users out after a certain period of inactivity to enforce re-authentication.",
+    "non_technical_guidance": "This plan to comply with the re-authentication control, ensure that users are prompted to re-authenticate after a certain period of inactivity or when attempting to access sensitive information or perform privileged actions. This can be achieved by configuring the system's authentication settings to require users to re-enter their credentials at specified intervals or when accessing certain resources. Additionally, consider implementing multi-factor authentication to enhance security measures. Regularly review and update the re-authentication requirements based on the organization's security policies and risk assessments.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:09:12.319808+00:00",
+      "source": "ComplianceAsCode"
+    }
+  },
+  {
+    "control_id": "ia-12",
+    "control_name": "Identity Proofing",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identity proofing ensures that individuals are who they claim to be before granting them access to sensitive information or systems.",
+    "example_implementation": "This script implement a multi-factor authentication process, such as requiring a combination of something the user knows (password), something they have (smart card), and something they are (biometric data), to verify the identity of users before granting access.",
+    "non_technical_guidance": "This plan identity proofing is a process of verifying the identity of individuals requesting access to systems or information. To implement this control, follow these steps:\n\n1. Establish identity proofing procedures: Define the processes and requirements for verifying the identity of users before granting access to sensitive information.\n2. Verify identity documents: Require users to provide official identification documents such as driver's license, passport, or ID card for verification.\n3. Conduct in-person verification: If possible, conduct in-person verification of individuals to ensure they are who they claim to be.\n4. Use biometric verification: Implement biometric verification methods such as fingerprint scanning or facial recognition to enhance identity proofing.\n5. Regularly review and update identity proofing procedures: Periodically review and update identity proofing procedures to adapt to changing security requirements and technologies.\n\nBy following these steps, you can ensure compliance with the Identity Proofing control (ia-12) in NIST 800-53.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ia-12.1",
+        "title": "Supervisor Authorization",
+        "official_text": "Require that the registration process to receive an account for logical access includes supervisor or sponsor authorization."
+      },
+      {
+        "id": "ia-12.2",
+        "title": "Identity Evidence",
+        "official_text": "Require evidence of individual identification be presented to the registration authority."
+      },
+      {
+        "id": "ia-12.3",
+        "title": "Identity Evidence Validation and Verification",
+        "official_text": "Require that the presented identity evidence be validated and verified through {{ insert: param, ia-12.03_odp }}."
+      },
+      {
+        "id": "ia-12.4",
+        "title": "In-person Validation and Verification",
+        "official_text": "Require that the validation and verification of identity evidence be conducted in person before a designated registration authority."
+      },
+      {
+        "id": "ia-12.5",
+        "title": "Address Confirmation",
+        "official_text": "Require that a {{ insert: param, ia-12.05_odp }} be delivered through an out-of-band channel to verify the users address (physical or digital) of record."
+      },
+      {
+        "id": "ia-12.6",
+        "title": "Accept Externally-proofed Identities",
+        "official_text": "Accept externally-proofed identities at {{ insert: param, ia-12.06_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:13.946353+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.1",
+    "control_name": "Supervisor Authorization",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require that the registration process to receive an account for logical access includes supervisor or sponsor authorization.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Require that the registration process to receive an account for logical access includes supervisor or sponsor authorization.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:15.554366+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.2",
+    "control_name": "Identity Evidence",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require evidence of individual identification be presented to the registration authority.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Require evidence of individual identification be presented to the registration authority.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:17.155117+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.3",
+    "control_name": "Identity Evidence Validation and Verification",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require that the presented identity evidence be validated and verified through {{ insert: param, ia-12.03_odp }}.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Require that the presented identity evidence be validated and verified through {{ insert: param, ia-12.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:18.778408+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.4",
+    "control_name": "In-person Validation and Verification",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require that the validation and verification of identity evidence be conducted in person before a designated registration authority.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Require that the validation and verification of identity evidence be conducted in person before a designated registration authority.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:20.312028+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.5",
+    "control_name": "Address Confirmation",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Require that a {{ insert: param, ia-12.05_odp }} be delivered through an out-of-band channel to verify the users address (physical or digital) of record.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Require that a {{ insert: param, ia-12.05_odp }} be delivered through an out-of-band channel to verify the users address (physical or digital) of record.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:21.838539+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-12.6",
+    "control_name": "Accept Externally-proofed Identities",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Accept externally-proofed identities at {{ insert: param, ia-12.06_odp }}.",
+    "parent_control": "ia-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Accept externally-proofed identities at {{ insert: param, ia-12.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:23.405389+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13",
+    "control_name": "Identity Providers and Authorization Servers",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Employ identity providers and authorization servers to manage user, device, and non-person entity (NPE) identities, attributes, and access rights supporting authentication and authorization decisions in accordance with {{ insert: param, ia-13_odp.01 }} using {{ insert: param, ia-13_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use identity providers and authorization servers to manage user identities, attributes, and access rights for authentication and authorization decisions.",
+    "example_implementation": "This script implement a centralized identity provider and authorization server to streamline user access management and ensure security compliance.",
+    "non_technical_guidance": "This plan to comply with control IA-13, you should implement identity providers and authorization servers to manage user, device, and non-person entity (NPE) identities, attributes, and access rights. This involves utilizing a centralized system to authenticate and authorize users, devices, and entities within your organization. \n\nHere is an implementation plan for compliance:\n1. Identify the identity providers and authorization servers that are suitable for your organization's needs.\n2. Integrate these systems with your existing infrastructure to ensure seamless authentication and authorization processes.\n3. Configure the identity providers and authorization servers to enforce access controls based on user roles, attributes, and policies.\n4. Regularly review and update the configurations to ensure they align with your organization's security requirements and compliance standards.\n5. Train your employees on how to use the identity providers and authorization servers effectively to prevent unauthorized access to sensitive information.\n6. Conduct regular audits and assessments to verify that the identity providers and authorization servers are functioning as intended and are compliant with relevant regulations.\n\nBy following these steps, you can effectively implement identity providers and authorization servers to meet the requirements of control IA-13.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ia-13.1",
+        "title": "Protection of Cryptographic Keys",
+        "official_text": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse."
+      },
+      {
+        "id": "ia-13.2",
+        "title": "Verification of Identity Assertions and Access Tokens",
+        "official_text": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources."
+      },
+      {
+        "id": "ia-13.3",
+        "title": "Token Management",
+        "official_text": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:24.999753+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.1",
+    "control_name": "Protection of Cryptographic Keys",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse.",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:26.589123+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.2",
+    "control_name": "Verification of Identity Assertions and Access Tokens",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources.",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:28.187019+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.3",
+    "control_name": "Token Management",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:29.792703+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

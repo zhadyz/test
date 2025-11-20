@@ -1,0 +1,1084 @@
+[
+  {
+    "control_id": "sr-1",
+    "control_name": "Policy and Procedures",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that there are clear policies and procedures in place for managing and protecting sensitive information.",
+    "example_implementation": "This script creates a comprehensive set of policies and procedures that outline how sensitive information should be handled, stored, and accessed within your organization. Regularly review and update these documents to ensure they remain current and effective.",
+    "non_technical_guidance": "This plan to implement Control ID sr-1 (Policy and Procedures), follow these non-technical steps:\n1. Develop a comprehensive set of policies and procedures that address security requirements, roles and responsibilities, incident response, access control, and other relevant areas.\n2. Ensure that all employees are trained on these policies and procedures and understand their roles in maintaining compliance.\n3. Regularly review and update policies and procedures to reflect changes in technology, regulations, or business practices.\n4. Conduct periodic audits to ensure that policies and procedures are being followed and make any necessary adjustments.\n5. Document all policy and procedure updates and changes for future reference and compliance verification.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:29:12.523874+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "sr-2",
+    "control_name": "Supply Chain Risk Management Plan",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "A Supply Chain Risk Management Plan helps organizations identify and mitigate potential risks from their suppliers and vendors.",
+    "example_implementation": "This script develop a thorough plan that includes assessing supplier security practices, setting clear expectations for security requirements, and regularly monitoring and evaluating supplier compliance.",
+    "non_technical_guidance": "This plan to implement the Supply Chain Risk Management Plan control, follow these steps:\n1. Develop a comprehensive supply chain risk management plan that outlines the processes and procedures for identifying, assessing, and mitigating risks associated with the supply chain.\n2. Ensure that the plan includes a mechanism for monitoring and evaluating the effectiveness of risk mitigation strategies.\n3. Establish clear roles and responsibilities for implementing the supply chain risk management plan within the organization.\n4. Regularly review and update the plan to address new and emerging risks in the supply chain.\n5. Provide training and awareness programs for employees involved in the supply chain to ensure they understand their roles in managing supply chain risks.\n6. Conduct regular audits and assessments to verify compliance with the supply chain risk management plan.\n7. Document all activities related to the supply chain risk management plan for audit and reporting purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-2.1",
+        "title": "Establish SCRM Team",
+        "official_text": "Establish a supply chain risk management team consisting of {{ insert: param, sr-02.01_odp.01 }} to lead and support the following SCRM activities: {{ insert: param, sr-02.01_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:23.793782+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-2.1",
+    "control_name": "Establish SCRM Team",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Establish a supply chain risk management team consisting of {{ insert: param, sr-02.01_odp.01 }} to lead and support the following SCRM activities: {{ insert: param, sr-02.01_odp.02 }}.",
+    "parent_control": "sr-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Establish a supply chain risk management team consisting of {{ insert: param, sr-02.01_odp.01 }} to lead and support the following SCRM activities: {{ insert: param, sr-02.01_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:25.379784+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-3",
+    "control_name": "Supply Chain Controls and Processes",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that all components and products in your supply chain are securely managed to prevent any security risks.",
+    "example_implementation": "This script regularly assess and monitor your suppliers and vendors to ensure they meet your security requirements and standards. Conduct thorough due diligence before onboarding any new suppliers.",
+    "non_technical_guidance": "This plan establish and maintain supply chain controls and processes to ensure the security and integrity of the software and hardware components acquired, developed, and maintained by the organization. This includes vetting suppliers, conducting security assessments, implementing secure coding practices, and monitoring the supply chain for potential vulnerabilities. Regularly review and update supply chain policies and procedures to address emerging threats and vulnerabilities. Collaborate with stakeholders across the organization to ensure awareness and compliance with supply chain controls and processes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-3.1",
+        "title": "Diverse Supply Base",
+        "official_text": "Employ a diverse set of sources for the following system components and services: {{ insert: param, sr-3.1_prm_1 }}."
+      },
+      {
+        "id": "sr-3.2",
+        "title": "Limitation of Harm",
+        "official_text": "Employ the following controls to limit harm from potential adversaries identifying and targeting the organizational supply chain: {{ insert: param, sr-03.02_odp }}."
+      },
+      {
+        "id": "sr-3.3",
+        "title": "Sub-tier Flow Down",
+        "official_text": "Ensure that the controls included in the contracts of prime contractors are also included in the contracts of subcontractors."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:26.988457+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-3.1",
+    "control_name": "Diverse Supply Base",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ a diverse set of sources for the following system components and services: {{ insert: param, sr-3.1_prm_1 }}.",
+    "parent_control": "sr-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ a diverse set of sources for the following system components and services: {{ insert: param, sr-3.1_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:28.642429+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-3.2",
+    "control_name": "Limitation of Harm",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ the following controls to limit harm from potential adversaries identifying and targeting the organizational supply chain: {{ insert: param, sr-03.02_odp }}.",
+    "parent_control": "sr-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following controls to limit harm from potential adversaries identifying and targeting the organizational supply chain: {{ insert: param, sr-03.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:30.248590+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-3.3",
+    "control_name": "Sub-tier Flow Down",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Ensure that the controls included in the contracts of prime contractors are also included in the contracts of subcontractors.",
+    "parent_control": "sr-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that the controls included in the contracts of prime contractors are also included in the contracts of subcontractors.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:31.860404+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-4",
+    "control_name": "Provenance",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Document, monitor, and maintain valid provenance of the following systems, system components, and associated data: {{ insert: param, sr-04_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Keep track of where your systems, components, and data come from.",
+    "example_implementation": "This script use version control systems to track changes and updates to your systems, components, and data, ensuring that you always have a valid record of their provenance.",
+    "non_technical_guidance": "This plan to comply with the Provenance control, you should establish a process for documenting, monitoring, and maintaining valid provenance of systems, system components, and associated data. This process should include:\n\n1. Documenting the origin, ownership, and history of systems, system components, and associated data.\n2. Implementing a system for tracking changes made to systems and data, including who made the changes and when.\n3. Regularly reviewing and updating the documented provenance information to ensure accuracy and completeness.\n4. Implementing access controls to ensure that only authorized individuals can make changes to systems and data.\n5. Training staff on the importance of maintaining valid provenance and the procedures for documenting and monitoring it.\n\nBy following these steps, you can ensure that you are in compliance with the Provenance control as outlined in NIST 800-53.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-4.1",
+        "title": "Identity",
+        "official_text": "Establish and maintain unique identification of the following supply chain elements, processes, and personnel associated with the identified system and critical system components: {{ insert: param, sr-04.01_odp }}."
+      },
+      {
+        "id": "sr-4.2",
+        "title": "Track and Trace",
+        "official_text": "Establish and maintain unique identification of the following systems and critical system components for tracking through the supply chain: {{ insert: param, sr-04.02_odp }}."
+      },
+      {
+        "id": "sr-4.3",
+        "title": "Validate as Genuine and Not Altered",
+        "official_text": "Employ the following controls to validate that the system or system component received is genuine and has not been altered: {{ insert: param, sr-4.3_prm_1 }}."
+      },
+      {
+        "id": "sr-4.4",
+        "title": "Supply Chain Integrity — Pedigree",
+        "official_text": "Employ {{ insert: param, sr-04.04_odp.01 }} and conduct {{ insert: param, sr-04.04_odp.02 }} to ensure the integrity of the system and system components by validating the internal composition and provenance of critical or mission-essential technologies, products, and services."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:33.451485+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-4.1",
+    "control_name": "Identity",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Establish and maintain unique identification of the following supply chain elements, processes, and personnel associated with the identified system and critical system components: {{ insert: param, sr-04.01_odp }}.",
+    "parent_control": "sr-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Establish and maintain unique identification of the following supply chain elements, processes, and personnel associated with the identified system and critical system components: {{ insert: param, sr-04.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:35.059302+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-4.2",
+    "control_name": "Track and Trace",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Establish and maintain unique identification of the following systems and critical system components for tracking through the supply chain: {{ insert: param, sr-04.02_odp }}.",
+    "parent_control": "sr-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Establish and maintain unique identification of the following systems and critical system components for tracking through the supply chain: {{ insert: param, sr-04.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:36.648713+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-4.3",
+    "control_name": "Validate as Genuine and Not Altered",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ the following controls to validate that the system or system component received is genuine and has not been altered: {{ insert: param, sr-4.3_prm_1 }}.",
+    "parent_control": "sr-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following controls to validate that the system or system component received is genuine and has not been altered: {{ insert: param, sr-4.3_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:38.259566+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-4.4",
+    "control_name": "Supply Chain Integrity — Pedigree",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ {{ insert: param, sr-04.04_odp.01 }} and conduct {{ insert: param, sr-04.04_odp.02 }} to ensure the integrity of the system and system components by validating the internal composition and provenance of critical or mission-essential technologies, products, and services.",
+    "parent_control": "sr-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ {{ insert: param, sr-04.04_odp.01 }} and conduct {{ insert: param, sr-04.04_odp.02 }} to ensure the integrity of the system and system components by validating the internal composition and provenance of critical or mission-essential technologies, products, and services.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:39.844583+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-5",
+    "control_name": "Acquisition Strategies, Tools, and Methods",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ the following acquisition strategies, contract tools, and procurement methods to protect against, identify, and mitigate supply chain risks: {{ insert: param, sr-05_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "When acquiring new technology or services, use specific strategies, tools, and methods to protect against and address potential risks in the supply chain.",
+    "example_implementation": "This script when working on procurement contracts, ensure that supply chain risk management is a key consideration and incorporate clauses that address potential risks and mitigation strategies.",
+    "non_technical_guidance": "This plan to comply with Control ID sr-5 \"Acquisition Strategies, Tools, and Methods,\" organizations should implement the following non-technical actions:\n\n1. Conduct thorough background checks on suppliers and vendors to ensure they have a good reputation and adhere to security best practices.\n2. Implement a vendor risk management program to assess and monitor the security posture of third-party suppliers.\n3. Include security requirements in procurement contracts to ensure suppliers meet specific security standards.\n4. Regularly review and update acquisition strategies to adapt to evolving supply chain risks.\n5. Provide security awareness training to employees involved in the procurement process to educate them on identifying and mitigating supply chain risks.\n\nBy following these steps, organizations can strengthen their acquisition strategies and protect against potential supply chain risks.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-5.1",
+        "title": "Adequate Supply",
+        "official_text": "Employ the following controls to ensure an adequate supply of {{ insert: param, sr-05.01_odp.02 }}: {{ insert: param, sr-05.01_odp.01 }}."
+      },
+      {
+        "id": "sr-5.2",
+        "title": "Assessments Prior to Selection, Acceptance, Modification, or Update",
+        "official_text": "Assess the system, system component, or system service prior to selection, acceptance, modification, or update."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:41.449302+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-5.1",
+    "control_name": "Adequate Supply",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ the following controls to ensure an adequate supply of {{ insert: param, sr-05.01_odp.02 }}: {{ insert: param, sr-05.01_odp.01 }}.",
+    "parent_control": "sr-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following controls to ensure an adequate supply of {{ insert: param, sr-05.01_odp.02 }}: {{ insert: param, sr-05.01_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:43.087680+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-5.2",
+    "control_name": "Assessments Prior to Selection, Acceptance, Modification, or Update",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Assess the system, system component, or system service prior to selection, acceptance, modification, or update.",
+    "parent_control": "sr-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Assess the system, system component, or system service prior to selection, acceptance, modification, or update.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:44.689961+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-6",
+    "control_name": "Supplier Assessments and Reviews",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Assess and review the supply chain-related risks associated with suppliers or contractors and the system, system component, or system service they provide {{ insert: param, sr-06_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Before using products or services from suppliers or contractors, it is important to assess and review the risks associated with them.",
+    "example_implementation": "This script creates a checklist or questionnaire to evaluate suppliers and contractors based on their security practices, data protection measures, and overall reliability before entering into agreements with them.",
+    "non_technical_guidance": "This plan to implement Control ID sr-6, Supplier Assessments and Reviews, the following non-technical steps can be taken:\n\n1. Identify all suppliers and contractors involved in the supply chain related to the system, system component, or system service.\n2. Develop a risk assessment framework to evaluate the potential risks associated with each supplier or contractor. This framework should include factors such as the criticality of the product or service provided, the level of access to sensitive data or systems, and the geographical location of the supplier.\n3. Conduct regular assessments and reviews of each supplier or contractor based on the established risk assessment framework. This can include on-site visits, security questionnaires, and performance evaluations.\n4. Establish clear contractual requirements for suppliers and contractors regarding security controls, data protection, and incident response procedures.\n5. Monitor and track supplier compliance with security requirements and conduct periodic reviews to ensure ongoing compliance.\n6. Maintain documentation of supplier assessments and reviews for audit and compliance purposes.\n\nBy following these steps, organizations can effectively assess and review the risks associated with suppliers and contractors in the supply chain, helping to mitigate potential security vulnerabilities and ensure the overall security of the system.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-6.1",
+        "title": "Testing and Analysis",
+        "official_text": "Employ {{ insert: param, sr-06.01_odp.01 }} of the following supply chain elements, processes, and actors associated with the system, system component, or system service: {{ insert: param, sr-06.01_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:46.441813+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-6.1",
+    "control_name": "Testing and Analysis",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ {{ insert: param, sr-06.01_odp.01 }} of the following supply chain elements, processes, and actors associated with the system, system component, or system service: {{ insert: param, sr-06.01_odp.02 }}.",
+    "parent_control": "sr-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ {{ insert: param, sr-06.01_odp.01 }} of the following supply chain elements, processes, and actors associated with the system, system component, or system service: {{ insert: param, sr-06.01_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:48.196613+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-7",
+    "control_name": "Supply Chain Operations Security",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ the following Operations Security (OPSEC) controls to protect supply chain-related information for the system, system component, or system service: {{ insert: param, sr-07_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure to use Operations Security controls to protect supply chain information for your system.",
+    "example_implementation": "This script conduct regular audits and assessments of your supply chain operations to ensure that security controls are being effectively implemented and maintained.",
+    "non_technical_guidance": "This plan to comply with Control ID sr-7 (Supply Chain Operations Security), you should implement the following Operations Security (OPSEC) controls to protect supply chain-related information for the system, system component, or system service. This may include:\n\n1. Conducting thorough background checks on suppliers and vendors before engaging in business with them.\n2. Implementing a secure process for receiving, storing, and transmitting supply chain-related information.\n3. Establishing clear policies and procedures for handling supply chain data, including access control and data encryption.\n4. Regularly monitoring and auditing supply chain operations to detect any unauthorized access or data breaches.\n5. Providing training to employees on supply chain security best practices and procedures.\n\nBy following these guidelines, you can ensure that your organization's supply chain operations are secure and compliant with NIST 800-53 requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:49.825435+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-8",
+    "control_name": "Notification Agreements",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Establish agreements and procedures with entities involved in the supply chain for the system, system component, or system service for the {{ insert: param, sr-08_odp.01 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure to have agreements in place with all parties involved in the supply chain for your system.",
+    "example_implementation": "This script creates a template agreement that outlines the responsibilities and expectations for each party in the supply chain, and ensure that all parties sign and adhere to it before starting any work.",
+    "non_technical_guidance": "This plan to comply with Control ID sr-8, Notification Agreements, you should establish agreements and procedures with entities involved in the supply chain for the system, system component, or system service. This involves creating formal agreements that outline communication protocols, notification requirements, and responsibilities in the event of security incidents or breaches. \n\nTo implement this control effectively, follow these steps:\n1. Identify all entities involved in the supply chain for the system, including vendors, contractors, and third-party service providers.\n2. Develop a standard notification agreement template that clearly defines expectations for communication and incident response.\n3. Negotiate and finalize notification agreements with each entity, ensuring that all parties understand and agree to the terms.\n4. Regularly review and update notification agreements to reflect changes in the supply chain or security requirements.\n5. Train relevant personnel on the notification agreements and procedures to ensure compliance and readiness in case of an incident.\n\nBy establishing clear notification agreements with entities in the supply chain, you can improve communication, coordination, and incident response capabilities to enhance the overall security posture of the system.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:29:51.447988+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "sr-9",
+    "control_name": "Tamper Resistance and Detection",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Implement a tamper protection program for the system, system component, or system service.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Protect your system from unauthorized tampering by implementing a tamper protection program.",
+    "example_implementation": "This script use physical security measures such as locks, seals, and alarms to prevent and detect tampering with your system components. Regularly monitor and inspect for any signs of tampering.",
+    "non_technical_guidance": "This plan to implement a tamper protection program for the system, system component, or system service, follow these steps:\n1. Identify critical components and services that need tamper protection.\n2. Implement physical security measures such as locks, seals, and tamper-evident packaging to prevent unauthorized access.\n3. Implement monitoring and logging mechanisms to detect any tampering attempts.\n4. Regularly review and update the tamper protection program to address any new threats or vulnerabilities.\n5. Train staff on the importance of tamper resistance and detection and how to report any suspicious activities.\n6. Conduct regular audits and assessments to ensure compliance with the tamper protection program.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-9.1",
+        "title": "Multiple Stages of System Development Life Cycle",
+        "official_text": "Employ anti-tamper technologies, tools, and techniques throughout the system development life cycle."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:53.049050+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-9.1",
+    "control_name": "Multiple Stages of System Development Life Cycle",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Employ anti-tamper technologies, tools, and techniques throughout the system development life cycle.",
+    "parent_control": "sr-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Employ anti-tamper technologies, tools, and techniques throughout the system development life cycle.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:54.646560+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-10",
+    "control_name": "Inspection of Systems or Components",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Inspect the following systems or system components {{ insert: param, sr-10_odp.02 }} to detect tampering: {{ insert: param, sr-10_odp.01 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Regularly check systems or components for signs of tampering.",
+    "example_implementation": "This script implement automated monitoring tools to regularly inspect systems for any unauthorized changes or modifications.",
+    "non_technical_guidance": "This plan to comply with Control ID sr-10, Inspection of Systems or Components, the following non-technical implementation plan can be followed:\n\n1. Designate responsible personnel: Assign specific individuals or teams the responsibility of regularly inspecting the designated systems or components for any signs of tampering.\n2. Establish inspection frequency: Determine how often the inspections need to be conducted based on the criticality of the systems or components.\n3. Develop inspection procedures: Create a detailed checklist or procedure for conducting the inspections, including what to look for and how to document any findings.\n4. Document inspection results: Keep thorough records of each inspection, noting any anomalies or potential signs of tampering.\n5. Implement corrective actions: If any tampering is detected during an inspection, define and implement a process for addressing and mitigating the issue.\n6. Review and update procedures: Regularly review and update the inspection procedures to ensure they remain effective and aligned with any changes in the systems or components being inspected.\n\nBy following this implementation plan, organizations can ensure compliance with the Inspection of Systems or Components control under NIST 800-53.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:14.119516+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-11",
+    "control_name": "Component Authenticity",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Component Authenticity ensures that all hardware and software components in your system are genuine and not counterfeit.",
+    "example_implementation": "This script implement a secure supply chain process to verify the authenticity of all components before integrating them into your system.",
+    "non_technical_guidance": "This plan to ensure component authenticity, follow these steps:\n1. Only use software components and libraries from trusted sources.\n2. Verify the authenticity of the components by checking digital signatures or hashes provided by the vendor.\n3. Implement a process for regularly updating and verifying the authenticity of components used in your systems.\n4. Train employees on the importance of component authenticity and the risks associated with using unverified components.\n5. Keep a record of all components used in your systems and their authenticity verification status.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "sr-11.1",
+        "title": "Anti-counterfeit Training",
+        "official_text": "Train {{ insert: param, sr-11.01_odp }} to detect counterfeit system components (including hardware, software, and firmware)."
+      },
+      {
+        "id": "sr-11.2",
+        "title": "Configuration Control for Component Service and Repair",
+        "official_text": "Maintain configuration control over the following system components awaiting service or repair and serviced or repaired components awaiting return to service: {{ insert: param, sr-11.02_odp }}."
+      },
+      {
+        "id": "sr-11.3",
+        "title": "Anti-counterfeit Scanning",
+        "official_text": "Scan for counterfeit system components {{ insert: param, sr-11.03_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:15.724747+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-11.1",
+    "control_name": "Anti-counterfeit Training",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Train {{ insert: param, sr-11.01_odp }} to detect counterfeit system components (including hardware, software, and firmware).",
+    "parent_control": "sr-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Train {{ insert: param, sr-11.01_odp }} to detect counterfeit system components (including hardware, software, and firmware).",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:17.364512+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-11.2",
+    "control_name": "Configuration Control for Component Service and Repair",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Maintain configuration control over the following system components awaiting service or repair and serviced or repaired components awaiting return to service: {{ insert: param, sr-11.02_odp }}.",
+    "parent_control": "sr-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Maintain configuration control over the following system components awaiting service or repair and serviced or repaired components awaiting return to service: {{ insert: param, sr-11.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:18.996465+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-11.3",
+    "control_name": "Anti-counterfeit Scanning",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Scan for counterfeit system components {{ insert: param, sr-11.03_odp }}.",
+    "parent_control": "sr-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Scan for counterfeit system components {{ insert: param, sr-11.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:20.589415+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "sr-12",
+    "control_name": "Component Disposal",
+    "family": "Supply Chain Risk Management",
+    "family_id": "sr",
+    "official_text": "Dispose of {{ insert: param, sr-12_odp.01 }} using the following techniques and methods: {{ insert: param, sr-12_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure to properly dispose of old IT components using approved techniques and methods.",
+    "example_implementation": "This script creates a process for securely disposing of old IT components, such as shredding hard drives or using certified electronics recyclers, to ensure sensitive data is properly destroyed.",
+    "non_technical_guidance": "This plan 1. Identify all components that need to be disposed of in accordance with the organization's policies and procedures.\n2. Ensure that sensitive information is properly removed or destroyed from the components before disposal.\n3. Use approved methods such as physical destruction, degaussing, or secure wiping to dispose of the components.\n4. Document the disposal process including the methods used and any relevant information for auditing purposes.\n5. Regularly review and update the disposal procedures to ensure compliance with the organization's policies and any regulatory requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:29:22.184748+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

@@ -1,0 +1,2322 @@
+[
+  {
+    "control_id": "cp-1",
+    "control_name": "Policy and Procedures",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control requires organizations to establish and maintain policies and procedures to guide their security practices.",
+    "example_implementation": "This script develop a comprehensive set of security policies and procedures that are regularly reviewed and updated to ensure they align with current best practices and regulatory requirements.",
+    "non_technical_guidance": "This plan to comply with control cp-1 (Policy and Procedures), follow these steps:\n1. Develop a comprehensive set of policies and procedures that outline the organization's security objectives, responsibilities, and processes.\n2. Ensure that the policies and procedures are regularly reviewed and updated to reflect changes in the organization's environment and security requirements.\n3. Communicate the policies and procedures to all relevant stakeholders within the organization and provide training on their implementation.\n4. Establish a process for monitoring and enforcing compliance with the policies and procedures, including regular audits and reviews.\n5. Document any exceptions or deviations from the policies and procedures and ensure that they are approved by appropriate management personnel.\n6. Continuously improve the policies and procedures based on feedback, lessons learned, and changes in the threat landscape.\nBy following these steps, the organization can demonstrate compliance with control cp-1 and ensure that its security policies and procedures are effective in protecting its assets and data.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:07:38.688572+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "cp-2",
+    "control_name": "Contingency Plan",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Have a plan in place to ensure your organization can continue operating in the event of a disruption.",
+    "example_implementation": "This script regularly review and update your contingency plan to account for changes in your IT environment and potential threats.",
+    "non_technical_guidance": "This plan develop a contingency plan that outlines procedures to ensure the availability of critical information resources during unexpected events. This plan should include steps for data backup, disaster recovery, and system restoration. Identify key personnel responsible for implementing the plan and ensure regular testing and updating of the plan to maintain effectiveness. Additionally, establish communication protocols for notifying relevant stakeholders in the event of a contingency. Regularly review and update the plan to reflect changes in the environment and technology.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-2.1",
+        "title": "Coordinate with Related Plans",
+        "official_text": "Coordinate contingency plan development with organizational elements responsible for related plans."
+      },
+      {
+        "id": "cp-2.2",
+        "title": "Capacity Planning",
+        "official_text": "Conduct capacity planning so that necessary capacity for information processing, telecommunications, and environmental support exists during contingency operations."
+      },
+      {
+        "id": "cp-2.3",
+        "title": "Resume Mission and Business Functions",
+        "official_text": "Plan for the resumption of {{ insert: param, cp-02.03_odp.01 }} mission and business functions within {{ insert: param, cp-02.03_odp.02 }} of contingency plan activation."
+      },
+      {
+        "id": "cp-2.4",
+        "title": "Resume All Mission and Business Functions",
+        "official_text": ""
+      },
+      {
+        "id": "cp-2.5",
+        "title": "Continue Mission and Business Functions",
+        "official_text": "Plan for the continuance of {{ insert: param, cp-02.05_odp }} mission and business functions with minimal or no loss of operational continuity and sustains that continuity until full system restoration at primary processing and/or storage sites."
+      },
+      {
+        "id": "cp-2.6",
+        "title": "Alternate Processing and Storage Sites",
+        "official_text": "Plan for the transfer of {{ insert: param, cp-02.06_odp }} mission and business functions to alternate processing and/or storage sites with minimal or no loss of operational continuity and sustain that continuity through system restoration to primary processing and/or storage sites."
+      },
+      {
+        "id": "cp-2.7",
+        "title": "Coordinate with External Service Providers",
+        "official_text": "Coordinate the contingency plan with the contingency plans of external service providers to ensure that contingency requirements can be satisfied."
+      },
+      {
+        "id": "cp-2.8",
+        "title": "Identify Critical Assets",
+        "official_text": "Identify critical system assets supporting {{ insert: param, cp-02.08_odp }} mission and business functions."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:07:56.502052+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-2.1",
+    "control_name": "Coordinate with Related Plans",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Coordinate contingency plan development with organizational elements responsible for related plans.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Coordinate contingency plan development with organizational elements responsible for related plans.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:58.094061+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.2",
+    "control_name": "Capacity Planning",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Conduct capacity planning so that necessary capacity for information processing, telecommunications, and environmental support exists during contingency operations.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Conduct capacity planning so that necessary capacity for information processing, telecommunications, and environmental support exists during contingency operations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:59.694244+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.3",
+    "control_name": "Resume Mission and Business Functions",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Plan for the resumption of {{ insert: param, cp-02.03_odp.01 }} mission and business functions within {{ insert: param, cp-02.03_odp.02 }} of contingency plan activation.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Plan for the resumption of {{ insert: param, cp-02.03_odp.01 }} mission and business functions within {{ insert: param, cp-02.03_odp.02 }} of contingency plan activation.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:01.307494+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.4",
+    "control_name": "Resume All Mission and Business Functions",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:02.938205+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.5",
+    "control_name": "Continue Mission and Business Functions",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Plan for the continuance of {{ insert: param, cp-02.05_odp }} mission and business functions with minimal or no loss of operational continuity and sustains that continuity until full system restoration at primary processing and/or storage sites.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Plan for the continuance of {{ insert: param, cp-02.05_odp }} mission and business functions with minimal or no loss of operational continuity and sustains that continuity until full system restoration at primary processing and/or storage sites.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:04.548415+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.6",
+    "control_name": "Alternate Processing and Storage Sites",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Plan for the transfer of {{ insert: param, cp-02.06_odp }} mission and business functions to alternate processing and/or storage sites with minimal or no loss of operational continuity and sustain that continuity through system restoration to primary processing and/or storage sites.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Plan for the transfer of {{ insert: param, cp-02.06_odp }} mission and business functions to alternate processing and/or storage sites with minimal or no loss of operational continuity and sustain that continuity through system restoration to primary processing and/or storage sites.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:06.145169+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.7",
+    "control_name": "Coordinate with External Service Providers",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Coordinate the contingency plan with the contingency plans of external service providers to ensure that contingency requirements can be satisfied.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Coordinate the contingency plan with the contingency plans of external service providers to ensure that contingency requirements can be satisfied.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:07.751439+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-2.8",
+    "control_name": "Identify Critical Assets",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Identify critical system assets supporting {{ insert: param, cp-02.08_odp }} mission and business functions.",
+    "parent_control": "cp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identify critical system assets supporting {{ insert: param, cp-02.08_odp }} mission and business functions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:09.496228+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-3",
+    "control_name": "Contingency Training",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Employees must be trained on how to respond to system disruptions and failures to ensure continuity of operations.",
+    "example_implementation": "This script conduct regular training sessions for employees on contingency plans and response procedures to ensure they are prepared to handle system disruptions effectively.",
+    "non_technical_guidance": "This plan to comply with the Contingency Training control (cp-3), you should implement the following non-technical steps:\n\n1. Develop a contingency training program: Create a training program that covers contingency planning, response, and recovery procedures. This program should include training materials, schedules, and methods for evaluating the effectiveness of the training.\n\n2. Identify training requirements: Determine the training needs of personnel based on their roles and responsibilities in the contingency planning process. Ensure that all personnel receive appropriate training to fulfill their roles effectively.\n\n3. Conduct regular training sessions: Schedule and conduct regular training sessions to ensure that personnel are familiar with contingency plans, procedures, and their roles during a contingency event. Training should be interactive and include scenarios to test personnel's knowledge and readiness.\n\n4. Document training activities: Maintain records of all training sessions, including attendance, topics covered, and any feedback or evaluations received. This documentation will demonstrate compliance with the contingency training control and provide a record of personnel readiness.\n\n5. Review and update training program: Periodically review and update the contingency training program to reflect changes in technology, personnel, or procedures. Ensure that training remains relevant and effective in preparing personnel for contingency events.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-3.1",
+        "title": "Simulated Events",
+        "official_text": "Incorporate simulated events into contingency training to facilitate effective response by personnel in crisis situations."
+      },
+      {
+        "id": "cp-3.2",
+        "title": "Mechanisms Used in Training Environments",
+        "official_text": "Employ mechanisms used in operations to provide a more thorough and realistic contingency training environment."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:11.363387+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-3.1",
+    "control_name": "Simulated Events",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Incorporate simulated events into contingency training to facilitate effective response by personnel in crisis situations.",
+    "parent_control": "cp-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Incorporate simulated events into contingency training to facilitate effective response by personnel in crisis situations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:12.988149+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-3.2",
+    "control_name": "Mechanisms Used in Training Environments",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Employ mechanisms used in operations to provide a more thorough and realistic contingency training environment.",
+    "parent_control": "cp-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ mechanisms used in operations to provide a more thorough and realistic contingency training environment.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:14.586144+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-4",
+    "control_name": "Contingency Plan Testing",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Contingency Plan Testing ensures that backup plans for IT systems are regularly tested to ensure they work in case of a disaster.",
+    "example_implementation": "This script schedule regular tests of your contingency plans, including simulating different disaster scenarios to ensure your systems can recover effectively.",
+    "non_technical_guidance": "This plan to comply with control cp-4 (Contingency Plan Testing), the following non-technical implementation plan can be followed:\n1. Develop a contingency plan testing script that outlines the steps to be taken in case of a system failure or disaster.\n2. Schedule regular testing of the contingency plan to ensure its effectiveness.\n3. Document the results of the testing and any issues encountered.\n4. Review and update the contingency plan based on the testing results and lessons learned.\n5. Ensure that all relevant personnel are trained on the contingency plan and their roles in case of an emergency.\n6. Regularly review and update the contingency plan to reflect changes in the system environment or business operations.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-4.1",
+        "title": "Coordinate with Related Plans",
+        "official_text": "Coordinate contingency plan testing with organizational elements responsible for related plans."
+      },
+      {
+        "id": "cp-4.2",
+        "title": "Alternate Processing Site",
+        "official_text": "Test the contingency plan at the alternate processing site:"
+      },
+      {
+        "id": "cp-4.3",
+        "title": "Automated Testing",
+        "official_text": "Test the contingency plan using {{ insert: param, cp-04.03_odp }}."
+      },
+      {
+        "id": "cp-4.4",
+        "title": "Full Recovery and Reconstitution",
+        "official_text": "Include a full recovery and reconstitution of the system to a known state as part of contingency plan testing."
+      },
+      {
+        "id": "cp-4.5",
+        "title": "Self-challenge",
+        "official_text": "Employ {{ insert: param, cp-04.05_odp.01 }} to {{ insert: param, cp-04.05_odp.02 }} to disrupt and adversely affect the system or system component."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:16.185348+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-4.1",
+    "control_name": "Coordinate with Related Plans",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Coordinate contingency plan testing with organizational elements responsible for related plans.",
+    "parent_control": "cp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Coordinate contingency plan testing with organizational elements responsible for related plans.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:17.815256+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-4.2",
+    "control_name": "Alternate Processing Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Test the contingency plan at the alternate processing site:",
+    "parent_control": "cp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Test the contingency plan at the alternate processing site:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:19.375226+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-4.3",
+    "control_name": "Automated Testing",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Test the contingency plan using {{ insert: param, cp-04.03_odp }}.",
+    "parent_control": "cp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Test the contingency plan using {{ insert: param, cp-04.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:20.904503+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-4.4",
+    "control_name": "Full Recovery and Reconstitution",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Include a full recovery and reconstitution of the system to a known state as part of contingency plan testing.",
+    "parent_control": "cp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Include a full recovery and reconstitution of the system to a known state as part of contingency plan testing.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:22.440385+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-4.5",
+    "control_name": "Self-challenge",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Employ {{ insert: param, cp-04.05_odp.01 }} to {{ insert: param, cp-04.05_odp.02 }} to disrupt and adversely affect the system or system component.",
+    "parent_control": "cp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ {{ insert: param, cp-04.05_odp.01 }} to {{ insert: param, cp-04.05_odp.02 }} to disrupt and adversely affect the system or system component.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:24.022761+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-5",
+    "control_name": "Contingency Plan Update",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that contingency plans are regularly reviewed and updated to address changes in the IT environment.",
+    "example_implementation": "This script schedule regular reviews of contingency plans, such as annually or after major system changes, to ensure they remain effective and up-to-date.",
+    "non_technical_guidance": "This plan to ensure compliance with the Contingency Plan Update control, the following steps should be taken:\n1. Regularly review and update the contingency plan document to reflect any changes in the organization's IT environment, systems, or procedures.\n2. Store the updated contingency plan document in a secure location accessible to authorized personnel.\n3. Communicate the updated contingency plan to relevant stakeholders and ensure they are aware of any changes.\n4. Test the contingency plan periodically to ensure it remains effective and up-to-date.\n5. Document any updates and revisions made to the contingency plan for audit and compliance purposes.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:25.625484+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-6",
+    "control_name": "Alternate Storage Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that critical information is backed up and stored at an alternate location to protect against potential data loss in the event of a disaster.",
+    "example_implementation": "This script regularly test the backup and recovery process to ensure that data can be successfully restored from the alternate storage site in case of an emergency.",
+    "non_technical_guidance": "This plan to comply with Control ID cp-6 (Alternate Storage Site), the organization should establish and maintain an alternate storage site that is physically separated from the primary storage site. The alternate storage site should be located in a geographically diverse area to ensure that data backups and critical information are protected in the event of a disaster or disruption at the primary site. \n\nThe implementation plan for compliance includes:\n1. Conduct a risk assessment to identify the potential threats and vulnerabilities that could impact the primary storage site.\n2. Identify and secure a suitable alternate storage site that meets the organization's requirements for data protection and availability.\n3. Develop and document a comprehensive storage site failover plan that outlines the procedures for transitioning operations to the alternate site in the event of a disaster.\n4. Regularly test the failover plan to ensure that data can be successfully restored and operations can be resumed at the alternate site.\n5. Update and maintain the failover plan as needed to reflect changes in the organization's infrastructure and storage requirements. \n\nBy following these steps and maintaining an alternate storage site, the organization can ensure continuity of operations and protect critical data in the event of a disaster or disruption at the primary site.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-6.1",
+        "title": "Separation from Primary Site",
+        "official_text": "Identify an alternate storage site that is sufficiently separated from the primary storage site to reduce susceptibility to the same threats."
+      },
+      {
+        "id": "cp-6.2",
+        "title": "Recovery Time and Recovery Point Objectives",
+        "official_text": "Configure the alternate storage site to facilitate recovery operations in accordance with recovery time and recovery point objectives."
+      },
+      {
+        "id": "cp-6.3",
+        "title": "Accessibility",
+        "official_text": "Identify potential accessibility problems to the alternate storage site in the event of an area-wide disruption or disaster and outline explicit mitigation actions."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:27.213841+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-6.1",
+    "control_name": "Separation from Primary Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Identify an alternate storage site that is sufficiently separated from the primary storage site to reduce susceptibility to the same threats.",
+    "parent_control": "cp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identify an alternate storage site that is sufficiently separated from the primary storage site to reduce susceptibility to the same threats.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:28.810229+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-6.2",
+    "control_name": "Recovery Time and Recovery Point Objectives",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Configure the alternate storage site to facilitate recovery operations in accordance with recovery time and recovery point objectives.",
+    "parent_control": "cp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Configure the alternate storage site to facilitate recovery operations in accordance with recovery time and recovery point objectives.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:30.411177+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-6.3",
+    "control_name": "Accessibility",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Identify potential accessibility problems to the alternate storage site in the event of an area-wide disruption or disaster and outline explicit mitigation actions.",
+    "parent_control": "cp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identify potential accessibility problems to the alternate storage site in the event of an area-wide disruption or disaster and outline explicit mitigation actions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:32.019150+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7",
+    "control_name": "Alternate Processing Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Have a backup location where critical IT systems and data can be operated in case of a disaster at the primary site.",
+    "example_implementation": "This script regularly test the alternate processing site to ensure it can effectively support critical operations in the event of a disaster.",
+    "non_technical_guidance": "This plan to comply with the Alternate Processing Site control (cp-7), you should establish and maintain an alternate processing site that can take over essential functions in case the primary site becomes unavailable. This site should have the necessary infrastructure, resources, and capabilities to continue critical operations in a timely manner. \n\nTo implement this control effectively, you should:\n1. Identify and designate an alternate processing site that is geographically separate from the primary site to reduce the risk of simultaneous disruption.\n2. Ensure that the alternate site is equipped with the necessary hardware, software, data, and personnel to support critical functions.\n3. Develop and regularly test a continuity of operations plan (COOP) that outlines the procedures for transitioning operations to the alternate site.\n4. Train personnel on their roles and responsibilities during a transition to the alternate site.\n5. Conduct regular drills and exercises to ensure that the alternate site can effectively take over operations in case of an emergency.\n\nBy following these steps, you can ensure that your organization is prepared to maintain essential functions even in the event of a disruption at the primary processing site.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-7.1",
+        "title": "Separation from Primary Site",
+        "official_text": "Identify an alternate processing site that is sufficiently separated from the primary processing site to reduce susceptibility to the same threats."
+      },
+      {
+        "id": "cp-7.2",
+        "title": "Accessibility",
+        "official_text": "Identify potential accessibility problems to alternate processing sites in the event of an area-wide disruption or disaster and outlines explicit mitigation actions."
+      },
+      {
+        "id": "cp-7.3",
+        "title": "Priority of Service",
+        "official_text": "Develop alternate processing site agreements that contain priority-of-service provisions in accordance with availability requirements (including recovery time objectives)."
+      },
+      {
+        "id": "cp-7.4",
+        "title": "Preparation for Use",
+        "official_text": "Prepare the alternate processing site so that the site can serve as the operational site supporting essential mission and business functions."
+      },
+      {
+        "id": "cp-7.5",
+        "title": "Equivalent Information Security Safeguards",
+        "official_text": ""
+      },
+      {
+        "id": "cp-7.6",
+        "title": "Inability to Return to Primary Site",
+        "official_text": "Plan and prepare for circumstances that preclude returning to the primary processing site."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:33.645133+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-7.1",
+    "control_name": "Separation from Primary Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Identify an alternate processing site that is sufficiently separated from the primary processing site to reduce susceptibility to the same threats.",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identify an alternate processing site that is sufficiently separated from the primary processing site to reduce susceptibility to the same threats.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:35.241821+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7.2",
+    "control_name": "Accessibility",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Identify potential accessibility problems to alternate processing sites in the event of an area-wide disruption or disaster and outlines explicit mitigation actions.",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Identify potential accessibility problems to alternate processing sites in the event of an area-wide disruption or disaster and outlines explicit mitigation actions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:36.841266+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7.3",
+    "control_name": "Priority of Service",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Develop alternate processing site agreements that contain priority-of-service provisions in accordance with availability requirements (including recovery time objectives).",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Develop alternate processing site agreements that contain priority-of-service provisions in accordance with availability requirements (including recovery time objectives).",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:38.450974+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7.4",
+    "control_name": "Preparation for Use",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Prepare the alternate processing site so that the site can serve as the operational site supporting essential mission and business functions.",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Prepare the alternate processing site so that the site can serve as the operational site supporting essential mission and business functions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:40.056873+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7.5",
+    "control_name": "Equivalent Information Security Safeguards",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:41.664673+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-7.6",
+    "control_name": "Inability to Return to Primary Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Plan and prepare for circumstances that preclude returning to the primary processing site.",
+    "parent_control": "cp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Plan and prepare for circumstances that preclude returning to the primary processing site.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:43.280053+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-8",
+    "control_name": "Telecommunications Services",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Establish alternate telecommunications services, including necessary agreements to permit the resumption of {{ insert: param, cp-08_odp.01 }} for essential mission and business functions within {{ insert: param, cp-08_odp.02 }} when the primary telecommunications capabilities are unavailable at either the primary or alternate processing or storage sites.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure you have backup telecommunications services in place to keep your essential functions running in case your primary services go down.",
+    "example_implementation": "This script sets up agreements with alternate telecommunications providers to ensure continuity of operations in case of primary service failure.",
+    "non_technical_guidance": "This plan to comply with this control, you should establish agreements with alternate telecommunications service providers to ensure that essential mission and business functions can be resumed in the event that primary telecommunications capabilities are unavailable at either the primary or alternate processing or storage sites. This may involve identifying and contracting with backup telecommunications providers, setting up redundant communication channels, and regularly testing the failover process to ensure seamless transition in case of an outage. Additionally, you should document these agreements and procedures in your organization's business continuity and disaster recovery plans. Regularly review and update these plans to ensure they remain effective and up-to-date.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-8.1",
+        "title": "Priority of Service Provisions",
+        "official_text": ""
+      },
+      {
+        "id": "cp-8.2",
+        "title": "Single Points of Failure",
+        "official_text": "Obtain alternate telecommunications services to reduce the likelihood of sharing a single point of failure with primary telecommunications services."
+      },
+      {
+        "id": "cp-8.3",
+        "title": "Separation of Primary and Alternate Providers",
+        "official_text": "Obtain alternate telecommunications services from providers that are separated from primary service providers to reduce susceptibility to the same threats."
+      },
+      {
+        "id": "cp-8.4",
+        "title": "Provider Contingency Plan",
+        "official_text": ""
+      },
+      {
+        "id": "cp-8.5",
+        "title": "Alternate Telecommunication Service Testing",
+        "official_text": "Test alternate telecommunication services {{ insert: param, cp-08.05_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:44.894469+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-8.1",
+    "control_name": "Priority of Service Provisions",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:46.562508+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-8.2",
+    "control_name": "Single Points of Failure",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Obtain alternate telecommunications services to reduce the likelihood of sharing a single point of failure with primary telecommunications services.",
+    "parent_control": "cp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Obtain alternate telecommunications services to reduce the likelihood of sharing a single point of failure with primary telecommunications services.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:48.241764+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-8.3",
+    "control_name": "Separation of Primary and Alternate Providers",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Obtain alternate telecommunications services from providers that are separated from primary service providers to reduce susceptibility to the same threats.",
+    "parent_control": "cp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Obtain alternate telecommunications services from providers that are separated from primary service providers to reduce susceptibility to the same threats.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:49.854084+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-8.4",
+    "control_name": "Provider Contingency Plan",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:51.464558+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-8.5",
+    "control_name": "Alternate Telecommunication Service Testing",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Test alternate telecommunication services {{ insert: param, cp-08.05_odp }}.",
+    "parent_control": "cp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Test alternate telecommunication services {{ insert: param, cp-08.05_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:53.119593+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9",
+    "control_name": "System Backup",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "System Backup control requires organizations to regularly back up all system data to prevent data loss in case of a system failure or cyber attack.",
+    "example_implementation": "This script implement automated backup processes to ensure that system data is consistently backed up on a regular basis without relying on manual intervention.",
+    "non_technical_guidance": "This plan 1. Identify critical data and systems that need to be backed up regularly.\n2. Determine the frequency of backups based on the criticality of the data and systems.\n3. Implement a backup solution that meets the organization's needs, whether it's cloud-based, on-premises, or a combination of both.\n4. Regularly test the backup process to ensure that data can be restored successfully in case of a disaster.\n5. Document the backup procedures and regularly review and update them as needed.\n6. Ensure that backups are stored securely and offsite to protect against data loss due to physical damage or theft.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-9.1",
+        "title": "Testing for Reliability and Integrity",
+        "official_text": "Test backup information {{ insert: param, cp-9.1_prm_1 }} to verify media reliability and information integrity."
+      },
+      {
+        "id": "cp-9.2",
+        "title": "Test Restoration Using Sampling",
+        "official_text": "Use a sample of backup information in the restoration of selected system functions as part of contingency plan testing."
+      },
+      {
+        "id": "cp-9.3",
+        "title": "Separate Storage for Critical Information",
+        "official_text": "Store backup copies of {{ insert: param, cp-09.03_odp }} in a separate facility or in a fire rated container that is not collocated with the operational system."
+      },
+      {
+        "id": "cp-9.4",
+        "title": "Protection from Unauthorized Modification",
+        "official_text": ""
+      },
+      {
+        "id": "cp-9.5",
+        "title": "Transfer to Alternate Storage Site",
+        "official_text": "Transfer system backup information to the alternate storage site {{ insert: param, cp-9.5_prm_1 }}."
+      },
+      {
+        "id": "cp-9.6",
+        "title": "Redundant Secondary System",
+        "official_text": "Conduct system backup by maintaining a redundant secondary system that is not collocated with the primary system and that can be activated without loss of information or disruption to operations."
+      },
+      {
+        "id": "cp-9.7",
+        "title": "Dual Authorization for Deletion or Destruction",
+        "official_text": "Enforce dual authorization for the deletion or destruction of {{ insert: param, cp-09.07_odp }}."
+      },
+      {
+        "id": "cp-9.8",
+        "title": "Cryptographic Protection",
+        "official_text": "Implement cryptographic mechanisms to prevent unauthorized disclosure and modification of {{ insert: param, cp-09.08_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:08:54.720105+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-9.1",
+    "control_name": "Testing for Reliability and Integrity",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Test backup information {{ insert: param, cp-9.1_prm_1 }} to verify media reliability and information integrity.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Test backup information {{ insert: param, cp-9.1_prm_1 }} to verify media reliability and information integrity.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:56.319024+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.2",
+    "control_name": "Test Restoration Using Sampling",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Use a sample of backup information in the restoration of selected system functions as part of contingency plan testing.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Use a sample of backup information in the restoration of selected system functions as part of contingency plan testing.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:57.914293+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.3",
+    "control_name": "Separate Storage for Critical Information",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Store backup copies of {{ insert: param, cp-09.03_odp }} in a separate facility or in a fire rated container that is not collocated with the operational system.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Store backup copies of {{ insert: param, cp-09.03_odp }} in a separate facility or in a fire rated container that is not collocated with the operational system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:08:59.509825+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.4",
+    "control_name": "Protection from Unauthorized Modification",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:01.131349+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.5",
+    "control_name": "Transfer to Alternate Storage Site",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Transfer system backup information to the alternate storage site {{ insert: param, cp-9.5_prm_1 }}.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Transfer system backup information to the alternate storage site {{ insert: param, cp-9.5_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:02.732886+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.6",
+    "control_name": "Redundant Secondary System",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Conduct system backup by maintaining a redundant secondary system that is not collocated with the primary system and that can be activated without loss of information or disruption to operations.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Conduct system backup by maintaining a redundant secondary system that is not collocated with the primary system and that can be activated without loss of information or disruption to operations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:04.346658+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.7",
+    "control_name": "Dual Authorization for Deletion or Destruction",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Enforce dual authorization for the deletion or destruction of {{ insert: param, cp-09.07_odp }}.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce dual authorization for the deletion or destruction of {{ insert: param, cp-09.07_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:05.940240+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-9.8",
+    "control_name": "Cryptographic Protection",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Implement cryptographic mechanisms to prevent unauthorized disclosure and modification of {{ insert: param, cp-09.08_odp }}.",
+    "parent_control": "cp-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Implement cryptographic mechanisms to prevent unauthorized disclosure and modification of {{ insert: param, cp-09.08_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:07.528213+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10",
+    "control_name": "System Recovery and Reconstitution",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Provide for the recovery and reconstitution of the system to a known state within {{ insert: param, cp-10_prm_1 }} after a disruption, compromise, or failure.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure you have a plan in place to restore your system to a known state after something goes wrong.",
+    "example_implementation": "This script regularly test your system recovery plan to ensure it works effectively and efficiently in the event of a disruption.",
+    "non_technical_guidance": "This plan to implement this control, you should establish a documented system recovery and reconstitution plan that outlines the steps to be taken in the event of a disruption, compromise, or failure. This plan should include procedures for restoring the system to a known state within the specified time frame. Regular testing of the recovery plan should also be conducted to ensure its effectiveness. Additionally, ensure that appropriate personnel are trained on the recovery procedures and have access to necessary resources to carry out the recovery process.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cp-10.1",
+        "title": "Contingency Plan Testing",
+        "official_text": ""
+      },
+      {
+        "id": "cp-10.2",
+        "title": "Transaction Recovery",
+        "official_text": "Implement transaction recovery for systems that are transaction-based."
+      },
+      {
+        "id": "cp-10.3",
+        "title": "Compensating Security Controls",
+        "official_text": "Addressed through tailoring."
+      },
+      {
+        "id": "cp-10.4",
+        "title": "Restore Within Time Period",
+        "official_text": "Provide the capability to restore system components within {{ insert: param, cp-10.04_odp }} from configuration-controlled and integrity-protected information representing a known, operational state for the components."
+      },
+      {
+        "id": "cp-10.5",
+        "title": "Failover Capability",
+        "official_text": ""
+      },
+      {
+        "id": "cp-10.6",
+        "title": "Component Protection",
+        "official_text": "Protect system components used for recovery and reconstitution."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:07:40.328045+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "cp-10.1",
+    "control_name": "Contingency Plan Testing",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:41.932890+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10.2",
+    "control_name": "Transaction Recovery",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Implement transaction recovery for systems that are transaction-based.",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Implement transaction recovery for systems that are transaction-based.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:43.565675+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10.3",
+    "control_name": "Compensating Security Controls",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Addressed through tailoring.",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Addressed through tailoring.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:45.160308+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10.4",
+    "control_name": "Restore Within Time Period",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Provide the capability to restore system components within {{ insert: param, cp-10.04_odp }} from configuration-controlled and integrity-protected information representing a known, operational state for the components.",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Provide the capability to restore system components within {{ insert: param, cp-10.04_odp }} from configuration-controlled and integrity-protected information representing a known, operational state for the components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:46.809303+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10.5",
+    "control_name": "Failover Capability",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:48.467588+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-10.6",
+    "control_name": "Component Protection",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Protect system components used for recovery and reconstitution.",
+    "parent_control": "cp-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Protect system components used for recovery and reconstitution.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:50.072357+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-11",
+    "control_name": "Alternate Communications Protocols",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Provide the capability to employ {{ insert: param, cp-11_odp }} in support of maintaining continuity of operations.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure you have backup communication protocols in place to keep operations running smoothly in case of an emergency.",
+    "example_implementation": "This script have a backup communication system, such as satellite phones or radio communication, ready to use in case your primary system fails. Regularly test and train employees on how to use these alternate protocols.",
+    "non_technical_guidance": "This plan to comply with this control, you should ensure that your organization has the capability to use alternate communications protocols in case the primary ones are unavailable. This could include having backup communication systems in place, training personnel on how to use them, and regularly testing the functionality of these alternate protocols. Additionally, you should document the procedures and protocols to be followed in case alternate communications need to be employed to maintain continuity of operations.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:51.686375+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-12",
+    "control_name": "Safe Mode",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "When {{ insert: param, cp-12_odp.02 }} are detected, enter a safe mode of operation with {{ insert: param, cp-12_odp.01 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Safe Mode is a feature that activates when certain issues are detected, allowing the system to operate safely.",
+    "example_implementation": "This script ensure that your systems are configured to automatically enter safe mode when critical issues are detected, to protect sensitive data and prevent further damage.",
+    "non_technical_guidance": "This plan to implement the Safe Mode control, follow these steps:\n1. Define the specific parameters that will trigger the safe mode of operation (e.g., suspicious network traffic, unauthorized access attempts).\n2. Develop a clear procedure for entering safe mode when these parameters are detected. This procedure should include steps for isolating the system, limiting access, and ensuring critical functions remain operational.\n3. Train all relevant personnel on how to recognize the conditions that warrant entering safe mode and how to properly execute the safe mode procedure.\n4. Regularly test the safe mode procedure to ensure it functions as intended and that all personnel are familiar with their roles during a safe mode event.\n5. Document the safe mode procedure in your organization's security policies and procedures documentation for future reference.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:53.309101+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cp-13",
+    "control_name": "Alternative Security Mechanisms",
+    "family": "Contingency Planning",
+    "family_id": "cp",
+    "official_text": "Employ {{ insert: param, cp-13_odp.01 }} for satisfying {{ insert: param, cp-13_odp.02 }} when the primary means of implementing the security function is unavailable or compromised.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use backup security measures when the main security system is not working or is at risk.",
+    "example_implementation": "This script regularly test and update alternative security mechanisms to ensure they are effective in case of an emergency.",
+    "non_technical_guidance": "This plan 1. Identify critical security functions in your environment.\n2. Develop a list of alternative security mechanisms that can be used if the primary security function is unavailable.\n3. Train personnel on how to implement and use these alternative security mechanisms in case of emergencies.\n4. Regularly test the availability and effectiveness of both primary and alternative security mechanisms.\n5. Update documentation and incident response plans to include the use of alternative security mechanisms when needed.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:54.902607+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

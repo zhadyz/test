@@ -1,0 +1,39 @@
+[
+  {
+    "control_id": "ia-7",
+    "control_name": "Cryptographic Module Authentication",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Implement mechanisms for authentication to a cryptographic module that meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines for such authentication.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure that the cryptographic module used for encryption and decryption is authenticated according to relevant laws and regulations.",
+    "example_implementation": "This script regularly review and update the authentication mechanisms for the cryptographic module to ensure compliance with current laws and regulations.",
+    "non_technical_guidance": "This plan to implement mechanisms for authentication to a cryptographic module that meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines for such authentication, follow these steps:\n\n1. Identify the specific requirements for cryptographic module authentication based on the applicable laws, executive orders, directives, policies, regulations, standards, and guidelines.\n2. Determine the authentication mechanisms that need to be implemented to meet these requirements.\n3. Develop a plan for implementing the authentication mechanisms, including any necessary policies, procedures, and controls.\n4. Train relevant personnel on the proper use of the authentication mechanisms.\n5. Regularly review and update the authentication mechanisms to ensure compliance with any changes in requirements.\n6. Conduct periodic audits or assessments to verify that the authentication mechanisms are effectively implemented and meeting the requirements.",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:10:52.014117+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

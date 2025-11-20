@@ -1,0 +1,211 @@
+---
+################################################################################
+# NIST 800-53 AC-12 Implementation Playbook
+# Control: Session Termination
+# Platform: RHEL 8
+# Generated: 2025-01-08
+# Generator Version: 1.0.0
+#
+# Description:
+# Implements NIST 800-53 Rev 5 AC-12 by automatically terminating user sessions
+# after a defined period of inactivity. Prevents unauthorized access through
+# abandoned sessions.
+#
+# This playbook implements AC-12 compliance requirements with:
+# - Pre-flight validation
+# - State backup
+# - TMOUT configuration for shells
+# - SSH idle timeout
+# - Verification
+# - Rollback capability
+################################################################################
+
+- name: "NIST 800-53 AC-12 - Session Termination Implementation"
+  hosts: all
+  become: true
+
+  vars:
+    control_id: "AC-12"
+    control_name: "Session Termination"
+    platform: "RHEL 8"
+    timestamp: "{{ ansible_date_time.date }}_{{ ansible_date_time.time | replace(':', '') }}"
+    backup_dir: "/var/backups/nist_ac12_{{ timestamp }}"
+    log_file: "/var/log/nist_compliance_{{ timestamp }}.log"
+
+    # Control-specific configuration
+    session_timeout: 900  # 15 minutes in seconds
+    ssh_client_alive_interval: 300  # 5 minutes
+    ssh_client_alive_count_max: 0
+
+    profile_file: "/etc/profile"
+    sshd_config: "/etc/ssh/sshd_config"
+    bashrc: "/etc/bashrc"
+
+  pre_tasks:
+    - name: "AC-12 | Log playbook start"
+      shell: |
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] Starting AC-12 Session Termination implementation" | tee -a {{ log_file }}
+      changed_when: false
+
+    - name: "AC-12 | Verify OS compatibility"
+      fail:
+        msg: "This playbook is designed for RHEL-based systems"
+      when: ansible_os_family != "RedHat"
+
+    - name: "AC-12 | Check required files exist"
+      stat:
+        path: "{{ item }}"
+      register: required_files
+      failed_when: not required_files.stat.exists
+      loop:
+        - "{{ profile_file }}"
+        - "{{ sshd_config }}"
+        - "{{ bashrc }}"
+
+    - name: "AC-12 | Create backup directory"
+      file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: "AC-12 | Backup configuration files"
+      copy:
+        src: "{{ item }}"
+        dest: "{{ backup_dir }}/{{ item | basename }}.backup"
+        remote_src: true
+      loop:
+        - "{{ profile_file }}"
+        - "{{ sshd_config }}"
+        - "{{ bashrc }}"
+
+    - name: "AC-12 | Create state snapshot"
+      copy:
+        content: |
+          Backup created: {{ ansible_date_time.iso8601 }}
+          Control ID: {{ control_id }}
+          Platform: {{ platform }}
+          Hostname: {{ ansible_hostname }}
+          Session timeout: {{ session_timeout }} seconds
+          SSH ClientAliveInterval: {{ ssh_client_alive_interval }}
+        dest: "{{ backup_dir }}/state_snapshot.txt"
+
+  tasks:
+    - name: "AC-12 | Remove existing TMOUT entries from /etc/profile"
+      lineinfile:
+        path: "{{ profile_file }}"
+        regexp: '^[[:space:]]*(export[[:space:]]*)?TMOUT='
+        state: absent
+
+    - name: "AC-12 | Configure TMOUT in /etc/profile"
+      blockinfile:
+        path: "{{ profile_file }}"
+        marker: "# {mark} NIST 800-53 AC-12: Session Termination"
+        block: |
+          # Automatically terminate inactive sessions after {{ session_timeout }} seconds
+          # Applied: {{ ansible_date_time.iso8601 }}
+          export TMOUT={{ session_timeout }}
+          readonly TMOUT
+      notify: Log profile update
+
+    - name: "AC-12 | Remove existing TMOUT entries from /etc/bashrc"
+      lineinfile:
+        path: "{{ bashrc }}"
+        regexp: '^[[:space:]]*(export[[:space:]]*)?TMOUT='
+        state: absent
+
+    - name: "AC-12 | Configure TMOUT in /etc/bashrc"
+      blockinfile:
+        path: "{{ bashrc }}"
+        marker: "# {mark} NIST 800-53 AC-12: Session Termination"
+        block: |
+          export TMOUT={{ session_timeout }}
+          readonly TMOUT
+      notify: Log bashrc update
+
+    - name: "AC-12 | Check if sshd is installed"
+      command: which sshd
+      register: sshd_check
+      failed_when: false
+      changed_when: false
+
+    - name: "AC-12 | Remove existing SSH ClientAlive settings"
+      lineinfile:
+        path: "{{ sshd_config }}"
+        regexp: '^[[:space:]]*ClientAlive(Interval|CountMax)'
+        state: absent
+      when: sshd_check.rc == 0
+
+    - name: "AC-12 | Configure SSH idle timeout"
+      blockinfile:
+        path: "{{ sshd_config }}"
+        marker: "# {mark} NIST 800-53 AC-12: SSH Session Termination"
+        block: |
+          # ClientAliveInterval: Server sends keepalive every {{ ssh_client_alive_interval }} seconds
+          # ClientAliveCountMax: Disconnect if no response (0 = immediate)
+          ClientAliveInterval {{ ssh_client_alive_interval }}
+          ClientAliveCountMax {{ ssh_client_alive_count_max }}
+      when: sshd_check.rc == 0
+      notify:
+        - Test sshd configuration
+        - Restart sshd
+
+  post_tasks:
+    - name: "AC-12 | Verify TMOUT in /etc/profile"
+      shell: grep -q "^export TMOUT={{ session_timeout }}" {{ profile_file }}
+      register: verify_profile
+      failed_when: verify_profile.rc != 0
+      changed_when: false
+
+    - name: "AC-12 | Verify TMOUT in /etc/bashrc"
+      shell: grep -q "^export TMOUT={{ session_timeout }}" {{ bashrc }}
+      register: verify_bashrc
+      failed_when: verify_bashrc.rc != 0
+      changed_when: false
+
+    - name: "AC-12 | Verify SSH ClientAliveInterval"
+      shell: grep -q "^ClientAliveInterval {{ ssh_client_alive_interval }}" {{ sshd_config }}
+      register: verify_ssh_interval
+      failed_when: verify_ssh_interval.rc != 0
+      changed_when: false
+      when: sshd_check.rc == 0
+
+    - name: "AC-12 | Verify SSH ClientAliveCountMax"
+      shell: grep -q "^ClientAliveCountMax {{ ssh_client_alive_count_max }}" {{ sshd_config }}
+      register: verify_ssh_count
+      failed_when: verify_ssh_count.rc != 0
+      changed_when: false
+      when: sshd_check.rc == 0
+
+    - name: "AC-12 | Verify sshd service status"
+      service:
+        name: sshd
+        state: started
+      register: sshd_status
+      when: sshd_check.rc == 0
+
+    - name: "AC-12 | Log successful implementation"
+      shell: |
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [SUCCESS] AC-12 implementation completed successfully" | tee -a {{ log_file }}
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] Logs: {{ log_file }}" | tee -a {{ log_file }}
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] Backup: {{ backup_dir }}" | tee -a {{ log_file }}
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] IMPORTANT: Session timeout applies to NEW sessions only" | tee -a {{ log_file }}
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] Users must log out and log back in for changes to take effect" | tee -a {{ log_file }}
+      changed_when: false
+
+  handlers:
+    - name: Log profile update
+      shell: echo "[$(date '+%Y-%m-%d %H:%M:%S')] [SUCCESS] TMOUT configured in {{ profile_file }}" | tee -a {{ log_file }}
+      changed_when: false
+
+    - name: Log bashrc update
+      shell: echo "[$(date '+%Y-%m-%d %H:%M:%S')] [SUCCESS] TMOUT configured in {{ bashrc }}" | tee -a {{ log_file }}
+      changed_when: false
+
+    - name: Test sshd configuration
+      command: sshd -t
+      changed_when: false
+
+    - name: Restart sshd
+      service:
+        name: sshd
+        state: restarted

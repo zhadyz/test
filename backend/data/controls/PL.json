@@ -1,0 +1,658 @@
+[
+  {
+    "control_id": "pl-1",
+    "control_name": "Policy and Procedures",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control requires organizations to establish and maintain policies and procedures to guide their security practices.",
+    "example_implementation": "This script creates a centralized repository for all policies and procedures, regularly review and update them, and ensure all employees are trained on them.",
+    "non_technical_guidance": "This plan to comply with control pl-1, the organization should establish and maintain policies and procedures that govern the management and operation of their IT systems. This includes documenting roles and responsibilities, defining security controls, outlining incident response procedures, and ensuring compliance with relevant regulations and standards. \n\nThe implementation plan should include the following steps:\n1. Conduct a thorough review of existing policies and procedures to identify any gaps or inconsistencies.\n2. Develop a comprehensive set of policies and procedures that address all aspects of IT system management and security.\n3. Ensure that all employees are trained on the policies and procedures and understand their roles and responsibilities.\n4. Regularly review and update the policies and procedures to reflect changes in the organization's IT environment and evolving threats.\n5. Establish a process for monitoring and enforcing compliance with the policies and procedures, including conducting regular audits and assessments.\n\nBy following this implementation plan, the organization can demonstrate compliance with control pl-1 and effectively manage their IT systems in accordance with best practices and regulatory requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:28.557225+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-2",
+    "control_name": "System Security and Privacy Plans",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Organizations must develop and maintain security and privacy plans for their systems to protect sensitive information.",
+    "example_implementation": "This script creates a detailed security and privacy plan that outlines the specific measures and procedures to protect information in your IT systems, regularly review and update the plan to address new threats and vulnerabilities.",
+    "non_technical_guidance": "This plan 1. Identify stakeholders responsible for creating and maintaining the System Security and Privacy Plan.\n2. Develop a comprehensive document outlining security and privacy measures for the system.\n3. Ensure the plan is regularly reviewed, updated, and communicated to relevant personnel.\n4. Implement necessary controls and procedures based on the plan to enhance system security and privacy.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pl-2.1",
+        "title": "Concept of Operations",
+        "official_text": ""
+      },
+      {
+        "id": "pl-2.2",
+        "title": "Functional Architecture",
+        "official_text": ""
+      },
+      {
+        "id": "pl-2.3",
+        "title": "Plan and Coordinate with Other Organizational Entities",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:33.350979+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-2.1",
+    "control_name": "Concept of Operations",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "parent_control": "pl-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:35.018886+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-2.2",
+    "control_name": "Functional Architecture",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "parent_control": "pl-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:36.624576+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-2.3",
+    "control_name": "Plan and Coordinate with Other Organizational Entities",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "parent_control": "pl-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:38.252127+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-3",
+    "control_name": "System Security Plan Update",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Keep your system security plan up to date to ensure that it accurately reflects the current security measures in place.",
+    "example_implementation": "This script regularly review and update your system security plan to include any changes in technology, threats, or organizational structure. Involve key stakeholders in the process to ensure all areas are covered.",
+    "non_technical_guidance": "This plan to ensure compliance with control pl-3, the System Security Plan should be regularly updated to reflect any changes in the organization's IT environment, security policies, or procedures. The updated plan should be reviewed and approved by relevant stakeholders before being implemented. A schedule should be established for regular reviews and updates to the System Security Plan to ensure it remains current and effective in addressing security risks.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:39.854132+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-4",
+    "control_name": "Rules of Behavior",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Rules of Behavior are guidelines that outline the expected behavior of individuals accessing an organization's information systems.",
+    "example_implementation": "This script develop and communicate clear and concise rules of behavior to all employees, contractors, and third-party users who have access to the organization's information systems. Regularly review and update these rules to ensure they are relevant and effective.",
+    "non_technical_guidance": "This plan to ensure compliance with Control ID pl-4 (Rules of Behavior), the following non-technical implementation plan can be followed:\n\n1. Develop and document clear rules of behavior for all users accessing the system.\n2. Communicate the rules of behavior to all users and ensure they understand their responsibilities.\n3. Require all users to sign an agreement acknowledging their understanding and acceptance of the rules of behavior.\n4. Regularly review and update the rules of behavior as needed to address any changes in the system or organization.\n5. Enforce consequences for violations of the rules of behavior to promote accountability and compliance.\n6. Provide training and awareness programs to educate users on the importance of following the rules of behavior.\n7. Conduct periodic audits and monitoring to ensure adherence to the rules of behavior and address any non-compliance issues promptly.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pl-4.1",
+        "title": "Social Media and External Site/Application Usage Restrictions",
+        "official_text": "Include in the rules of behavior, restrictions on:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:41.465742+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-4.1",
+    "control_name": "Social Media and External Site/Application Usage Restrictions",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Include in the rules of behavior, restrictions on:",
+    "parent_control": "pl-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Include in the rules of behavior, restrictions on:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:43.069707+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-5",
+    "control_name": "Privacy Impact Assessment",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Privacy Impact Assessment involves evaluating the privacy risks associated with a system or project.",
+    "example_implementation": "This script conduct a Privacy Impact Assessment before implementing any new system or project to identify and address potential privacy risks early on.",
+    "non_technical_guidance": "This plan to comply with Control ID pl-5 (Privacy Impact Assessment), follow these steps:\n\n1. Identify the need for a Privacy Impact Assessment (PIA) based on the nature of the system or application being developed or operated.\n2. Determine the scope of the PIA, including the data being collected, processed, stored, and transmitted.\n3. Conduct the PIA in accordance with organizational policies and procedures, ensuring that all privacy risks are identified and mitigated.\n4. Document the results of the PIA, including any privacy risks identified and the actions taken to address them.\n5. Review and update the PIA as needed, especially when there are significant changes to the system or application.\n6. Ensure that relevant stakeholders are informed and involved in the PIA process.\n7. Regularly monitor and review privacy controls to ensure ongoing compliance with privacy requirements.\n\nBy following these steps, organizations can effectively implement and maintain Privacy Impact Assessments to comply with pl-5 control requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:44.666276+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-6",
+    "control_name": "Security-related Activity Planning",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Security-related Activity Planning involves creating a plan for security activities to protect the organization's information and systems.",
+    "example_implementation": "This script develop a comprehensive security plan that outlines all security activities, responsibilities, timelines, and resources needed to ensure effective protection of information and systems. Regularly review and update the plan to address any changes in the organization's environment.",
+    "non_technical_guidance": "This plan when it comes to implementing the Security-related Activity Planning control (pl-6) as per NIST 800-53, the following non-technical steps can be taken:\n\n1. Develop a comprehensive security plan: Create a detailed security plan that outlines all security-related activities that need to be planned and executed within your organization.\n\n2. Identify security requirements: Clearly define the security requirements for each activity, including timelines, resources, responsible parties, and any dependencies.\n\n3. Conduct risk assessments: Perform risk assessments for each security-related activity to identify potential threats, vulnerabilities, and impacts on the organization.\n\n4. Implement security controls: Put in place appropriate security controls to mitigate identified risks and ensure the security of the planned activities.\n\n5. Monitor and review: Continuously monitor and review the security-related activities to ensure compliance with the security plan and make any necessary adjustments.\n\nBy following these steps, you can effectively plan and execute security-related activities in alignment with the pl-6 control requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:46.422531+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-7",
+    "control_name": "Concept of Operations",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The Concept of Operations control ensures that there is a clear plan in place for how a system will be used and maintained.",
+    "example_implementation": "This script develop a detailed Concept of Operations document that outlines roles and responsibilities, system functions, and operational procedures to ensure smooth operation of the system.",
+    "non_technical_guidance": "This plan develop and maintain a Concept of Operations (CONOPS) document that describes the technical, operational, and management processes and procedures for the system. The CONOPS should outline the system's purpose, scope, roles and responsibilities, system architecture, interfaces, and operational concept. Regularly review and update the CONOPS to ensure it accurately reflects the system's current state and operations. Share the CONOPS with relevant stakeholders and ensure that it is readily accessible to all personnel involved in the system's operation. Conduct training sessions to familiarize personnel with the CONOPS and ensure compliance with the documented processes and procedures.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:48.197847+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-8",
+    "control_name": "Security and Privacy Architectures",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Security and Privacy Architectures ensure that systems are designed with security and privacy in mind from the start.",
+    "example_implementation": "This script when designing new systems or applications, involve security and privacy experts early in the process to ensure that appropriate controls are built-in from the beginning.",
+    "non_technical_guidance": "This plan security and Privacy Architectures are not directly implementable through automation. To comply with this control, organizations should establish a security and privacy architecture framework that includes:\n\n1. Identifying and documenting security and privacy requirements for systems and applications.\n2. Designing and implementing security and privacy controls based on best practices and standards.\n3. Conducting regular security and privacy architecture reviews to ensure alignment with organizational goals and compliance requirements.\n4. Integrating security and privacy considerations into the software development lifecycle.\n5. Providing training and awareness programs for staff on security and privacy architecture principles.\n\nBy following these steps, organizations can ensure that their systems and applications are built with security and privacy in mind, reducing the risk of data breaches and compliance violations.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pl-8.1",
+        "title": "Defense in Depth",
+        "official_text": "Design the security and privacy architectures for the system using a defense-in-depth approach that:"
+      },
+      {
+        "id": "pl-8.2",
+        "title": "Supplier Diversity",
+        "official_text": "Require that {{ insert: param, pl-08.02_odp.01 }} allocated to {{ insert: param, pl-08.02_odp.02 }} are obtained from different suppliers."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:49.800858+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-8.1",
+    "control_name": "Defense in Depth",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Design the security and privacy architectures for the system using a defense-in-depth approach that:",
+    "parent_control": "pl-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Design the security and privacy architectures for the system using a defense-in-depth approach that:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:51.425620+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-8.2",
+    "control_name": "Supplier Diversity",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Require that {{ insert: param, pl-08.02_odp.01 }} allocated to {{ insert: param, pl-08.02_odp.02 }} are obtained from different suppliers.",
+    "parent_control": "pl-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Require that {{ insert: param, pl-08.02_odp.01 }} allocated to {{ insert: param, pl-08.02_odp.02 }} are obtained from different suppliers.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:53.029963+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-9",
+    "control_name": "Central Management",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Centrally manage {{ insert: param, pl-09_odp }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Central Management requires all organizational data to be managed centrally.",
+    "example_implementation": "This script implement a centralized data management system to ensure all data is stored and managed in one central location, making it easier to monitor and control access.",
+    "non_technical_guidance": "This plan to ensure compliance with the Central Management control, you should establish a centralized system for managing the configuration and settings of all relevant systems. This can be achieved by implementing a configuration management tool such as Puppet, Chef, or Ansible to centrally manage configurations, updates, and settings across your environment. Regularly review and update the centralized management system to ensure it is effectively managing the systems under its control. Additionally, establish processes and procedures for monitoring and auditing the central management system to ensure it remains secure and compliant with organizational policies.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:54.638639+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pl-10",
+    "control_name": "Baseline Selection",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Select a control baseline for the system.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Choose a set of security controls for your system.",
+    "example_implementation": "This script review NIST 800-53 control baselines and select the one that aligns best with your system's security needs and requirements.",
+    "non_technical_guidance": "This plan to implement this control, follow these steps:\n1. Review the available control baselines provided by NIST 800-53 or other relevant sources.\n2. Select the control baseline that best aligns with the security requirements of the system.\n3. Document the selected control baseline in the system security plan or relevant documentation.\n4. Ensure that all security controls within the selected baseline are implemented and maintained throughout the system's lifecycle.\n5. Regularly review and update the control baseline as needed to address changes in the system or security requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:30.161995+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pl-11",
+    "control_name": "Baseline Tailoring",
+    "family": "Planning",
+    "family_id": "pl",
+    "official_text": "Tailor the selected control baseline by applying specified tailoring actions.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Baseline tailoring involves customizing the security controls to fit the specific needs and requirements of an organization.",
+    "example_implementation": "This script when tailoring the control baseline, make sure to carefully review and assess the organization's unique risks and vulnerabilities to determine which controls are necessary and which can be modified or removed.",
+    "non_technical_guidance": "This plan to implement the Baseline Tailoring control (pl-11), follow these steps:\n1. Review the control baseline provided by NIST 800-53 and identify the specific security controls that are relevant to your organization's environment.\n2. Determine if any controls need to be modified or tailored based on your organization's unique requirements, risk tolerance, and operational needs.\n3. Document the tailoring actions taken, including the rationale for each modification, and obtain approval from relevant stakeholders.\n4. Implement the tailored controls in accordance with the documented specifications.\n5. Regularly review and update the tailored controls as needed to ensure they remain effective and aligned with your organization's security objectives.\nBy following this implementation plan, you can ensure compliance with the Baseline Tailoring control and customize the security controls to best fit your organization's needs.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:31.759842+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

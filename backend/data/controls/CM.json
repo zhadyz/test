@@ -1,0 +1,2767 @@
+[
+  {
+    "control_id": "cm-1",
+    "control_name": "Policy and Procedures",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that organizations have documented policies and procedures in place to guide their cybersecurity practices.",
+    "example_implementation": "This script develop a comprehensive set of cybersecurity policies and procedures that cover key areas such as access control, incident response, and data protection, and regularly review and update them as needed.",
+    "non_technical_guidance": "This plan to comply with Control ID cm-1, Policy and Procedures, the following non-technical implementation plan can be followed:\n1. Develop a comprehensive set of policies and procedures that outline the organization's security requirements, guidelines, and best practices.\n2. Ensure that all employees are trained on these policies and procedures regularly.\n3. Establish a process for reviewing and updating policies and procedures as needed to reflect changes in technology, regulations, or business practices.\n4. Designate a responsible individual or team to oversee the implementation and enforcement of these policies and procedures.\n5. Conduct regular audits and assessments to ensure compliance with the established policies and procedures.\n6. Document any deviations from the policies and procedures and implement corrective actions as necessary.\nBy following these steps, the organization can demonstrate compliance with Control ID cm-1.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460157+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:05:52.406640+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "cm-2",
+    "control_name": "Baseline Configuration",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Baseline Configuration ensures that all IT systems are set up with a standard configuration to reduce security risks.",
+    "example_implementation": "This script use automated tools to regularly scan and compare system configurations against a predefined baseline to quickly identify any deviations that may pose security risks.",
+    "non_technical_guidance": "This plan to ensure compliance with the baseline configuration control (cm-2), follow these steps:\n1. Identify the required baseline configuration settings for your operating system.\n2. Document the specific configurations that need to be in place, such as password policies, firewall settings, and software configurations.\n3. Implement the baseline configurations manually on each system following the documented settings.\n4. Regularly review and update the baseline configuration to ensure ongoing compliance with the control requirements.\n5. Document any deviations from the baseline configuration and implement corrective actions as needed.\n6. Periodically audit systems to verify compliance with the baseline configuration and address any discrepancies promptly.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-2.1",
+        "title": "Reviews and Updates",
+        "official_text": ""
+      },
+      {
+        "id": "cm-2.2",
+        "title": "Automation Support for Accuracy and Currency",
+        "official_text": "Maintain the currency, completeness, accuracy, and availability of the baseline configuration of the system using {{ insert: param, cm-02.02_odp }}."
+      },
+      {
+        "id": "cm-2.3",
+        "title": "Retention of Previous Configurations",
+        "official_text": "Retain {{ insert: param, cm-02.03_odp }} of previous versions of baseline configurations of the system to support rollback."
+      },
+      {
+        "id": "cm-2.4",
+        "title": "Unauthorized Software",
+        "official_text": ""
+      },
+      {
+        "id": "cm-2.5",
+        "title": "Authorized Software",
+        "official_text": ""
+      },
+      {
+        "id": "cm-2.6",
+        "title": "Development and Test Environments",
+        "official_text": "Maintain a baseline configuration for system development and test environments that is managed separately from the operational baseline configuration."
+      },
+      {
+        "id": "cm-2.7",
+        "title": "Configure Systems and Components for High-risk Areas",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460606+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:10.071235+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.1",
+    "control_name": "Reviews and Updates",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:11.693206+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.2",
+    "control_name": "Automation Support for Accuracy and Currency",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Maintain the currency, completeness, accuracy, and availability of the baseline configuration of the system using {{ insert: param, cm-02.02_odp }}.",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Maintain the currency, completeness, accuracy, and availability of the baseline configuration of the system using {{ insert: param, cm-02.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:13.307701+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.3",
+    "control_name": "Retention of Previous Configurations",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Retain {{ insert: param, cm-02.03_odp }} of previous versions of baseline configurations of the system to support rollback.",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Retain {{ insert: param, cm-02.03_odp }} of previous versions of baseline configurations of the system to support rollback.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:14.904348+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.4",
+    "control_name": "Unauthorized Software",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:16.502077+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.5",
+    "control_name": "Authorized Software",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:18.135788+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.6",
+    "control_name": "Development and Test Environments",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Maintain a baseline configuration for system development and test environments that is managed separately from the operational baseline configuration.",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Maintain a baseline configuration for system development and test environments that is managed separately from the operational baseline configuration.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:19.751237+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-2.7",
+    "control_name": "Configure Systems and Components for High-risk Areas",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:21.313918+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3",
+    "control_name": "Configuration Change Control",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Configuration Change Control ensures that changes to the IT system are managed and approved to prevent unauthorized alterations.",
+    "example_implementation": "This script implement a formal change management process that includes documenting proposed changes, obtaining approval from stakeholders, and testing changes before deployment.",
+    "non_technical_guidance": "This plan to ensure compliance with Configuration Change Control (CM-3), implement a process for documenting and controlling changes to configuration settings on systems. This process should include:\n1. Establishing a configuration change log to record details of each change made, including the date, time, and nature of the change.\n2. Implementing a review and approval process for proposed configuration changes before they are implemented.\n3. Maintaining documentation of configuration settings and changes for auditing purposes.\n4. Training staff on the importance of adhering to the configuration change control process.\n5. Regularly reviewing and updating the configuration change control process to ensure its effectiveness and relevance.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-3.1",
+        "title": "Automated Documentation, Notification, and Prohibition of Changes",
+        "official_text": "Use {{ insert: param, cm-03.01_odp.01 }} to:"
+      },
+      {
+        "id": "cm-3.2",
+        "title": "Testing, Validation, and Documentation of Changes",
+        "official_text": "Test, validate, and document changes to the system before finalizing the implementation of the changes."
+      },
+      {
+        "id": "cm-3.3",
+        "title": "Automated Change Implementation",
+        "official_text": "Implement changes to the current system baseline and deploy the updated baseline across the installed base using {{ insert: param, cm-03.03_odp }}."
+      },
+      {
+        "id": "cm-3.4",
+        "title": "Security and Privacy Representatives",
+        "official_text": "Require {{ insert: param, cm-3.4_prm_1 }} to be members of the {{ insert: param, cm-03.04_odp.03 }}."
+      },
+      {
+        "id": "cm-3.5",
+        "title": "Automated Security Response",
+        "official_text": "Implement the following security responses automatically if baseline configurations are changed in an unauthorized manner: {{ insert: param, cm-03.05_odp }}."
+      },
+      {
+        "id": "cm-3.6",
+        "title": "Cryptography Management",
+        "official_text": "Ensure that cryptographic mechanisms used to provide the following controls are under configuration management: {{ insert: param, cm-03.06_odp }}."
+      },
+      {
+        "id": "cm-3.7",
+        "title": "Review System Changes",
+        "official_text": "Review changes to the system {{ insert: param, cm-03.07_odp.01 }} or when {{ insert: param, cm-03.07_odp.02 }} to determine whether unauthorized changes have occurred."
+      },
+      {
+        "id": "cm-3.8",
+        "title": "Prevent or Restrict Configuration Changes",
+        "official_text": "Prevent or restrict changes to the configuration of the system under the following circumstances: {{ insert: param, cm-03.08_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460940+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:06:22.859626+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T10:06:22.866215+00:00",
+      "platform": "rhcos4",
+      "rule_count": 3,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "cm-3.1",
+    "control_name": "Automated Documentation, Notification, and Prohibition of Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Use {{ insert: param, cm-03.01_odp.01 }} to:",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Use {{ insert: param, cm-03.01_odp.01 }} to:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:24.424120+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.2",
+    "control_name": "Testing, Validation, and Documentation of Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Test, validate, and document changes to the system before finalizing the implementation of the changes.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Test, validate, and document changes to the system before finalizing the implementation of the changes.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:26.019424+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.3",
+    "control_name": "Automated Change Implementation",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Implement changes to the current system baseline and deploy the updated baseline across the installed base using {{ insert: param, cm-03.03_odp }}.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement changes to the current system baseline and deploy the updated baseline across the installed base using {{ insert: param, cm-03.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:27.609070+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.4",
+    "control_name": "Security and Privacy Representatives",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Require {{ insert: param, cm-3.4_prm_1 }} to be members of the {{ insert: param, cm-03.04_odp.03 }}.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Require {{ insert: param, cm-3.4_prm_1 }} to be members of the {{ insert: param, cm-03.04_odp.03 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:29.208421+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.5",
+    "control_name": "Automated Security Response",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Implement the following security responses automatically if baseline configurations are changed in an unauthorized manner: {{ insert: param, cm-03.05_odp }}.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement the following security responses automatically if baseline configurations are changed in an unauthorized manner: {{ insert: param, cm-03.05_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:30.807120+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.6",
+    "control_name": "Cryptography Management",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Ensure that cryptographic mechanisms used to provide the following controls are under configuration management: {{ insert: param, cm-03.06_odp }}.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that cryptographic mechanisms used to provide the following controls are under configuration management: {{ insert: param, cm-03.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:32.435626+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.7",
+    "control_name": "Review System Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Review changes to the system {{ insert: param, cm-03.07_odp.01 }} or when {{ insert: param, cm-03.07_odp.02 }} to determine whether unauthorized changes have occurred.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Review changes to the system {{ insert: param, cm-03.07_odp.01 }} or when {{ insert: param, cm-03.07_odp.02 }} to determine whether unauthorized changes have occurred.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:34.039417+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-3.8",
+    "control_name": "Prevent or Restrict Configuration Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Prevent or restrict changes to the configuration of the system under the following circumstances: {{ insert: param, cm-03.08_odp }}.",
+    "parent_control": "cm-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Prevent or restrict changes to the configuration of the system under the following circumstances: {{ insert: param, cm-03.08_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:35.656969+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-4",
+    "control_name": "Impact Analyses",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Analyze changes to the system to determine potential security and privacy impacts prior to change implementation.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Before making any changes to the system, it's important to analyze how those changes could affect security and privacy.",
+    "example_implementation": "This script creates a checklist or template to use for conducting impact analyses before implementing any changes to the system. This will ensure that all potential security and privacy impacts are considered and addressed.",
+    "non_technical_guidance": "This plan to implement this control, create a process within your organization that requires conducting impact analyses before making any changes to the system. This process should involve identifying potential security and privacy impacts of proposed changes, evaluating the risks associated with these impacts, and determining appropriate mitigation strategies. Additionally, ensure that all stakeholders are involved in the impact analysis process to provide a comprehensive assessment of the potential impacts. Regularly review and update this process to adapt to changing security requirements and technologies.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-4.1",
+        "title": "Separate Test Environments",
+        "official_text": "Analyze changes to the system in a separate test environment before implementation in an operational environment, looking for security and privacy impacts due to flaws, weaknesses, incompatibility, or intentional malice."
+      },
+      {
+        "id": "cm-4.2",
+        "title": "Verification of Controls",
+        "official_text": "After system changes, verify that the impacted controls are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security and privacy requirements for the system."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.461331+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:37.264260+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-4.1",
+    "control_name": "Separate Test Environments",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Analyze changes to the system in a separate test environment before implementation in an operational environment, looking for security and privacy impacts due to flaws, weaknesses, incompatibility, or intentional malice.",
+    "parent_control": "cm-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Analyze changes to the system in a separate test environment before implementation in an operational environment, looking for security and privacy impacts due to flaws, weaknesses, incompatibility, or intentional malice.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:38.861315+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-4.2",
+    "control_name": "Verification of Controls",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "After system changes, verify that the impacted controls are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security and privacy requirements for the system.",
+    "parent_control": "cm-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "After system changes, verify that the impacted controls are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security and privacy requirements for the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:40.456207+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5",
+    "control_name": "Access Restrictions for Change",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Define, document, approve, and enforce physical and logical access restrictions associated with changes to the system.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure only authorized personnel can make changes to the system.",
+    "example_implementation": "This script utilize role-based access control to restrict access to change functions based on job responsibilities. Regularly review and update access permissions to ensure only necessary personnel have the ability to make changes.",
+    "non_technical_guidance": "This plan 1. Define and document access restrictions for changes to the system:\n   - Clearly outline who is authorized to make changes to the system.\n   - Document the process for requesting and approving changes.\n   - Define the roles and responsibilities of individuals involved in the change process.\n\n2. Enforce physical and logical access restrictions:\n   - Implement role-based access control to restrict access to system components based on job function.\n   - Utilize multi-factor authentication to ensure only authorized individuals can make changes.\n   - Regularly review and update access controls to reflect changes in personnel or responsibilities.\n\n3. Regularly review and enforce access restrictions:\n   - Conduct periodic audits to ensure that access restrictions are being followed.\n   - Implement automated alerts for unauthorized access attempts.\n   - Enforce disciplinary actions for individuals who violate access restrictions.\n\nBy following these guidelines, you can ensure that access restrictions for changes to the system are defined, documented, approved, and enforced effectively.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-5.1",
+        "title": "Automated Access Enforcement and Audit Records",
+        "official_text": ""
+      },
+      {
+        "id": "cm-5.2",
+        "title": "Review System Changes",
+        "official_text": ""
+      },
+      {
+        "id": "cm-5.3",
+        "title": "Signed Components",
+        "official_text": ""
+      },
+      {
+        "id": "cm-5.4",
+        "title": "Dual Authorization",
+        "official_text": "Enforce dual authorization for implementing changes to {{ insert: param, cm-5.4_prm_1 }}."
+      },
+      {
+        "id": "cm-5.5",
+        "title": "Privilege Limitation for Production and Operation",
+        "official_text": ""
+      },
+      {
+        "id": "cm-5.6",
+        "title": "Limit Library Privileges",
+        "official_text": "Limit privileges to change software resident within software libraries."
+      },
+      {
+        "id": "cm-5.7",
+        "title": "Automatic Implementation of Security Safeguards",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.461436+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:06:42.089955+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T10:06:42.091903+00:00",
+      "platform": "rhcos4",
+      "rule_count": 1,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "cm-5.1",
+    "control_name": "Automated Access Enforcement and Audit Records",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:43.687679+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.2",
+    "control_name": "Review System Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:45.275982+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.3",
+    "control_name": "Signed Components",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:46.893953+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.4",
+    "control_name": "Dual Authorization",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Enforce dual authorization for implementing changes to {{ insert: param, cm-5.4_prm_1 }}.",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce dual authorization for implementing changes to {{ insert: param, cm-5.4_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:48.566470+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.5",
+    "control_name": "Privilege Limitation for Production and Operation",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:50.178712+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.6",
+    "control_name": "Limit Library Privileges",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Limit privileges to change software resident within software libraries.",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Limit privileges to change software resident within software libraries.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:51.810088+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-5.7",
+    "control_name": "Automatic Implementation of Security Safeguards",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:53.456985+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-6",
+    "control_name": "Configuration Settings",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Configuration settings must be established and maintained for information systems to ensure their security and functionality.",
+    "example_implementation": "This script regularly review and update configuration settings for all devices and systems to prevent security vulnerabilities and ensure optimal performance.",
+    "non_technical_guidance": "This plan to ensure compliance with control CM-6 (Configuration Settings), follow these steps:\n1. Review the organization's security policies and standards to determine the required configuration settings.\n2. Document the configuration settings that need to be applied to systems.\n3. Develop a process for regularly reviewing and updating configuration settings as needed.\n4. Implement a configuration management tool to automate the enforcement of configuration settings across systems.\n5. Conduct regular audits and assessments to verify that configuration settings are being properly applied and maintained.\n6. Document any exceptions or deviations from the standard configuration settings and obtain approval from the appropriate stakeholders.\n7. Continuously monitor and track changes to configuration settings to ensure ongoing compliance.\n8. Provide training and awareness to system administrators and users on the importance of maintaining secure configuration settings.\n```",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "cm-6.1",
+        "title": "Automated Management, Application, and Verification",
+        "official_text": "Manage, apply, and verify configuration settings for {{ insert: param, cm-06.01_odp.01 }} using {{ insert: param, cm-6.1_prm_2 }}."
+      },
+      {
+        "id": "cm-6.2",
+        "title": "Respond to Unauthorized Changes",
+        "official_text": "Take the following actions in response to unauthorized changes to {{ insert: param, cm-06.02_odp.02 }}: {{ insert: param, cm-06.02_odp.01 }}."
+      },
+      {
+        "id": "cm-6.3",
+        "title": "Unauthorized Change Detection",
+        "official_text": ""
+      },
+      {
+        "id": "cm-6.4",
+        "title": "Conformance Demonstration",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.461770+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:06:55.068886+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T10:06:55.294146+00:00",
+      "platform": "rhcos4",
+      "rule_count": 76,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "cm-6.1",
+    "control_name": "Automated Management, Application, and Verification",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Manage, apply, and verify configuration settings for {{ insert: param, cm-06.01_odp.01 }} using {{ insert: param, cm-6.1_prm_2 }}.",
+    "parent_control": "cm-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Manage, apply, and verify configuration settings for {{ insert: param, cm-06.01_odp.01 }} using {{ insert: param, cm-6.1_prm_2 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:56.890862+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-6.2",
+    "control_name": "Respond to Unauthorized Changes",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Take the following actions in response to unauthorized changes to {{ insert: param, cm-06.02_odp.02 }}: {{ insert: param, cm-06.02_odp.01 }}.",
+    "parent_control": "cm-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Take the following actions in response to unauthorized changes to {{ insert: param, cm-06.02_odp.02 }}: {{ insert: param, cm-06.02_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:58.495363+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-6.3",
+    "control_name": "Unauthorized Change Detection",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:00.115215+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-6.4",
+    "control_name": "Conformance Demonstration",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:01.743133+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7",
+    "control_name": "Least Functionality",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Limiting the functions and capabilities of your IT systems to only what is necessary for them to perform their intended tasks.",
+    "example_implementation": "This script conduct regular reviews of your IT systems to identify and remove any unnecessary functions or features that could potentially introduce security risks.",
+    "non_technical_guidance": "This plan to ensure compliance with the Least Functionality control (cm-7), follow these steps:\n1. Identify all services running on the system.\n2. Determine which services are not necessary for the system to function properly.\n3. Disable and stop any unnecessary services.\n4. Set the startup type of these services to disabled to prevent them from starting automatically.\n5. Regularly review and update the list of necessary services to maintain least functionality.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-7.1",
+        "title": "Periodic Review",
+        "official_text": ""
+      },
+      {
+        "id": "cm-7.2",
+        "title": "Prevent Program Execution",
+        "official_text": "Prevent program execution in accordance with {{ insert: param, cm-07.02_odp.01 }}."
+      },
+      {
+        "id": "cm-7.3",
+        "title": "Registration Compliance",
+        "official_text": "Ensure compliance with {{ insert: param, cm-07.03_odp }}."
+      },
+      {
+        "id": "cm-7.4",
+        "title": "Unauthorized Software — Deny-by-exception",
+        "official_text": ""
+      },
+      {
+        "id": "cm-7.5",
+        "title": "Authorized Software — Allow-by-exception",
+        "official_text": ""
+      },
+      {
+        "id": "cm-7.6",
+        "title": "Confined Environments with Limited Privileges",
+        "official_text": "Require that the following user-installed software execute in a confined physical or virtual machine environment with limited privileges: {{ insert: param, cm-07.06_odp }}."
+      },
+      {
+        "id": "cm-7.7",
+        "title": "Code Execution in Protected Environments",
+        "official_text": "Allow execution of binary or machine-executable code only in confined physical or virtual machine environments and with the explicit approval of {{ insert: param, cm-07.07_odp }} when such code is:"
+      },
+      {
+        "id": "cm-7.8",
+        "title": "Binary or Machine Executable Code",
+        "official_text": ""
+      },
+      {
+        "id": "cm-7.9",
+        "title": "Prohibiting The Use of Unauthorized Hardware",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.461968+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:07:03.347624+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T10:07:03.497155+00:00",
+      "platform": "rhcos4",
+      "rule_count": 45,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "cm-7.1",
+    "control_name": "Periodic Review",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:05.112347+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.2",
+    "control_name": "Prevent Program Execution",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Prevent program execution in accordance with {{ insert: param, cm-07.02_odp.01 }}.",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Prevent program execution in accordance with {{ insert: param, cm-07.02_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:06.718550+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.3",
+    "control_name": "Registration Compliance",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Ensure compliance with {{ insert: param, cm-07.03_odp }}.",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure compliance with {{ insert: param, cm-07.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:08.322992+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.4",
+    "control_name": "Unauthorized Software — Deny-by-exception",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:09.917480+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.5",
+    "control_name": "Authorized Software — Allow-by-exception",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:11.511855+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.6",
+    "control_name": "Confined Environments with Limited Privileges",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Require that the following user-installed software execute in a confined physical or virtual machine environment with limited privileges: {{ insert: param, cm-07.06_odp }}.",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Require that the following user-installed software execute in a confined physical or virtual machine environment with limited privileges: {{ insert: param, cm-07.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:13.141484+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.7",
+    "control_name": "Code Execution in Protected Environments",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Allow execution of binary or machine-executable code only in confined physical or virtual machine environments and with the explicit approval of {{ insert: param, cm-07.07_odp }} when such code is:",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Allow execution of binary or machine-executable code only in confined physical or virtual machine environments and with the explicit approval of {{ insert: param, cm-07.07_odp }} when such code is:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:14.784158+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.8",
+    "control_name": "Binary or Machine Executable Code",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:16.383539+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-7.9",
+    "control_name": "Prohibiting The Use of Unauthorized Hardware",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:18.003434+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8",
+    "control_name": "System Component Inventory",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Keep track of all the hardware and software components in your system.",
+    "example_implementation": "This script regularly update and maintain a detailed inventory of all system components, including servers, routers, switches, applications, and databases. This will help you stay organized and ensure you are aware of all potential vulnerabilities.",
+    "non_technical_guidance": "This plan to comply with this control, a manual inventory of all system components (software, hardware, firmware) must be maintained. This inventory should include detailed information such as version numbers, patch levels, and any relevant configuration settings. Regular audits should be conducted to ensure the inventory is up-to-date and accurate. This information is crucial for tracking vulnerabilities, ensuring proper configuration management, and facilitating incident response efforts.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-8.1",
+        "title": "Updates During Installation and Removal",
+        "official_text": "Update the inventory of system components as part of component installations, removals, and system updates."
+      },
+      {
+        "id": "cm-8.2",
+        "title": "Automated Maintenance",
+        "official_text": "Maintain the currency, completeness, accuracy, and availability of the inventory of system components using {{ insert: param, cm-8.2_prm_1 }}."
+      },
+      {
+        "id": "cm-8.3",
+        "title": "Automated Unauthorized Component Detection",
+        "official_text": ""
+      },
+      {
+        "id": "cm-8.4",
+        "title": "Accountability Information",
+        "official_text": "Include in the system component inventory information, a means for identifying by {{ insert: param, cm-08.04_odp }} , individuals responsible and accountable for administering those components."
+      },
+      {
+        "id": "cm-8.5",
+        "title": "No Duplicate Accounting of Components",
+        "official_text": ""
+      },
+      {
+        "id": "cm-8.6",
+        "title": "Assessed Configurations and Approved Deviations",
+        "official_text": "Include assessed component configurations and any approved deviations to current deployed configurations in the system component inventory."
+      },
+      {
+        "id": "cm-8.7",
+        "title": "Centralized Repository",
+        "official_text": "Provide a centralized repository for the inventory of system components."
+      },
+      {
+        "id": "cm-8.8",
+        "title": "Automated Location Tracking",
+        "official_text": "Support the tracking of system components by geographic location using {{ insert: param, cm-08.08_odp }}."
+      },
+      {
+        "id": "cm-8.9",
+        "title": "Assignment of Components to Systems",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.462438+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:07:19.545783+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T10:07:19.550017+00:00",
+      "platform": "rhcos4",
+      "rule_count": 2,
+      "certification": "Government-certified"
+    }
+  },
+  {
+    "control_id": "cm-8.1",
+    "control_name": "Updates During Installation and Removal",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Update the inventory of system components as part of component installations, removals, and system updates.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Update the inventory of system components as part of component installations, removals, and system updates.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:21.091260+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.2",
+    "control_name": "Automated Maintenance",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Maintain the currency, completeness, accuracy, and availability of the inventory of system components using {{ insert: param, cm-8.2_prm_1 }}.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Maintain the currency, completeness, accuracy, and availability of the inventory of system components using {{ insert: param, cm-8.2_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:22.652965+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.3",
+    "control_name": "Automated Unauthorized Component Detection",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:24.222508+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.4",
+    "control_name": "Accountability Information",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Include in the system component inventory information, a means for identifying by {{ insert: param, cm-08.04_odp }} , individuals responsible and accountable for administering those components.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Include in the system component inventory information, a means for identifying by {{ insert: param, cm-08.04_odp }} , individuals responsible and accountable for administering those components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:25.817508+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.5",
+    "control_name": "No Duplicate Accounting of Components",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:27.413336+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.6",
+    "control_name": "Assessed Configurations and Approved Deviations",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Include assessed component configurations and any approved deviations to current deployed configurations in the system component inventory.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Include assessed component configurations and any approved deviations to current deployed configurations in the system component inventory.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:29.008934+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.7",
+    "control_name": "Centralized Repository",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Provide a centralized repository for the inventory of system components.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide a centralized repository for the inventory of system components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:30.601915+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.8",
+    "control_name": "Automated Location Tracking",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Support the tracking of system components by geographic location using {{ insert: param, cm-08.08_odp }}.",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Support the tracking of system components by geographic location using {{ insert: param, cm-08.08_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:32.225892+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-8.9",
+    "control_name": "Assignment of Components to Systems",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:33.828698+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-9",
+    "control_name": "Configuration Management Plan",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Develop, document, and implement a configuration management plan for the system that:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Develop a plan for managing changes to the system.",
+    "example_implementation": "This script creates a detailed document outlining how changes to the system will be tracked, approved, and implemented, including roles and responsibilities of team members involved in the process.",
+    "non_technical_guidance": "This plan 1. Identify key stakeholders who will be involved in the development and implementation of the configuration management plan.\n2. Define the scope of the plan, including which systems and components will be covered.\n3. Establish configuration baselines for different system components.\n4. Define the process for making changes to configurations, including approval and testing procedures.\n5. Document the configuration management plan and make it accessible to all relevant personnel.\n6. Regularly review and update the configuration management plan to ensure it remains effective and relevant.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-9.1",
+        "title": "Assignment of Responsibility",
+        "official_text": "Assign responsibility for developing the configuration management process to organizational personnel that are not directly involved in system development."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.462902+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:35.492857+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-9.1",
+    "control_name": "Assignment of Responsibility",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Assign responsibility for developing the configuration management process to organizational personnel that are not directly involved in system development.",
+    "parent_control": "cm-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Assign responsibility for developing the configuration management process to organizational personnel that are not directly involved in system development.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:07:37.087035+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-10",
+    "control_name": "Software Usage Restrictions",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Software Usage Restrictions control ensures that only authorized software is used on organizational systems to prevent security risks.",
+    "example_implementation": "This script implement a software inventory system to track all authorized software installations and regularly audit systems to ensure compliance with usage restrictions.",
+    "non_technical_guidance": "This plan to implement software usage restrictions, organizations should establish a software usage policy that clearly defines what software is approved for use on company devices. This policy should be communicated to all employees and enforced through training and regular audits. IT administrators should regularly monitor installed software on devices to ensure compliance with the policy and promptly remove any unauthorized software. Additionally, implementing application control solutions can help prevent the installation of unauthorized software on company devices.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-10.1",
+        "title": "Open-source Software",
+        "official_text": "Establish the following restrictions on the use of open-source software: {{ insert: param, cm-10.01_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460170+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:54.036533+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-10.1",
+    "control_name": "Open-source Software",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Establish the following restrictions on the use of open-source software: {{ insert: param, cm-10.01_odp }}.",
+    "parent_control": "cm-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Establish the following restrictions on the use of open-source software: {{ insert: param, cm-10.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:55.629736+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-11",
+    "control_name": "User-installed Software",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that only authorized software is installed on company computers to prevent security risks.",
+    "example_implementation": "This script implement a software whitelisting program to restrict users from installing unauthorized software on company devices. Regularly review and update the whitelist to ensure it aligns with company policies and security requirements.",
+    "non_technical_guidance": "This plan to comply with this control, organizations should establish a policy that prohibits users from installing unauthorized software on their systems. This policy should be communicated clearly to all employees and enforced through regular monitoring and audits. IT administrators should periodically scan systems for unauthorized software and promptly remove any instances found. Additionally, organizations can leverage endpoint protection solutions to automatically block the installation of unauthorized software. Regular training and awareness programs for employees on the risks associated with installing unauthorized software can also help in maintaining compliance with this control.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-11.1",
+        "title": "Alerts for Unauthorized Installations",
+        "official_text": ""
+      },
+      {
+        "id": "cm-11.2",
+        "title": "Software Installation with Privileged Status",
+        "official_text": "Allow user installation of software only with explicit privileged status."
+      },
+      {
+        "id": "cm-11.3",
+        "title": "Automated Enforcement and Monitoring",
+        "official_text": "Enforce and monitor compliance with software installation policies using {{ insert: param, cm-11.3_prm_1 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460232+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T10:05:57.235276+00:00",
+      "source": "ComplianceAsCode"
+    }
+  },
+  {
+    "control_id": "cm-11.1",
+    "control_name": "Alerts for Unauthorized Installations",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "parent_control": "cm-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:05:58.836485+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-11.2",
+    "control_name": "Software Installation with Privileged Status",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Allow user installation of software only with explicit privileged status.",
+    "parent_control": "cm-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Allow user installation of software only with explicit privileged status.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:00.448823+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-11.3",
+    "control_name": "Automated Enforcement and Monitoring",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Enforce and monitor compliance with software installation policies using {{ insert: param, cm-11.3_prm_1 }}.",
+    "parent_control": "cm-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce and monitor compliance with software installation policies using {{ insert: param, cm-11.3_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:02.068849+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-12",
+    "control_name": "Information Location",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that information is stored in the appropriate location to prevent unauthorized access or disclosure.",
+    "example_implementation": "This script use access controls and encryption to protect sensitive information stored on servers or in the cloud. Regularly review and update access permissions to ensure only authorized users can access the information.",
+    "non_technical_guidance": "This plan to ensure compliance with control cm-12 (Information Location), follow these steps:\n1. Identify all the approved locations where information can be stored.\n2. Clearly communicate these approved locations to all relevant personnel.\n3. Implement a policy or procedure that prohibits storing information in any location not on the approved list.\n4. Regularly audit and monitor information storage practices to ensure compliance.\n5. Provide training to employees on the importance of storing information in approved locations and the potential consequences of non-compliance.\n6. Document all steps taken to enforce this control for auditing purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "cm-12.1",
+        "title": "Automated Tools to Support Information Location",
+        "official_text": "Use automated tools to identify {{ insert: param, cm-12.01_odp.01 }} on {{ insert: param, cm-12.01_odp.02 }} to ensure controls are in place to protect organizational information and individual privacy."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460383+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:03.665945+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-12.1",
+    "control_name": "Automated Tools to Support Information Location",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Use automated tools to identify {{ insert: param, cm-12.01_odp.01 }} on {{ insert: param, cm-12.01_odp.02 }} to ensure controls are in place to protect organizational information and individual privacy.",
+    "parent_control": "cm-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Use automated tools to identify {{ insert: param, cm-12.01_odp.01 }} on {{ insert: param, cm-12.01_odp.02 }} to ensure controls are in place to protect organizational information and individual privacy.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:05.262829+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-13",
+    "control_name": "Data Action Mapping",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Develop and document a map of system data actions.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Data Action Mapping requires creating a map that shows how data is used within a system.",
+    "example_implementation": "This script use tools like data flow diagrams or data flow mapping software to visually represent how data moves through your system and document the actions taken on the data.",
+    "non_technical_guidance": "This plan to comply with Control ID cm-13, Data Action Mapping, you should follow these steps:\n1. Identify all the data actions that can be performed within your system, such as read, write, delete, modify, etc.\n2. Document these data actions in a clear and organized manner, specifying which users or roles are authorized to perform each action.\n3. Create a map or matrix that visually represents the relationships between the data actions and the users/roles.\n4. Regularly review and update this data action map as changes occur in the system or access permissions are modified.\n5. Ensure that all stakeholders are aware of and have access to this data action map to maintain transparency and accountability within the organization.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460442+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:06.860509+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "cm-14",
+    "control_name": "Signed Components",
+    "family": "Configuration Management",
+    "family_id": "cm",
+    "official_text": "Prevent the installation of {{ insert: param, cm-14_prm_1 }} without verification that the component has been digitally signed using a certificate that is recognized and approved by the organization.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure all software components are digitally signed by a trusted certificate before installing them.",
+    "example_implementation": "This script implement a software inventory system that automatically checks for digital signatures on all components before allowing installation.",
+    "non_technical_guidance": "This plan to ensure compliance with Control CM-14, the organization should establish a policy that only allows the installation of components that have been digitally signed using a certificate recognized and approved by the organization. This policy should be communicated to all relevant personnel and enforced through training and regular audits.\n\nAdditionally, the organization should implement controls to verify the digital signature of components before installation. This can be achieved by using tools or scripts that check the signature status of components before allowing them to be installed on the system.\n\nRegular monitoring and review of installed components should also be conducted to ensure ongoing compliance with this control. Any unauthorized or unsigned components should be promptly identified and removed from the system to mitigate security risks.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-09T21:34:53.460500+00:00",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:06:08.479720+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

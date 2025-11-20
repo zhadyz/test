@@ -1,0 +1,1110 @@
+[
+  {
+    "control_id": "pm-1",
+    "control_name": "Information Security Program Plan",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "An Information Security Program Plan outlines how an organization will protect and secure its information and systems.",
+    "example_implementation": "This script ensure that your Information Security Program Plan is regularly updated and includes clear roles and responsibilities for all employees involved in information security.",
+    "non_technical_guidance": "This plan to comply with Control ID pm-1 (Information Security Program Plan), follow these steps:\n\n1. Develop an Information Security Program Plan that outlines the organization's approach to managing information security.\n2. Ensure the plan is aligned with relevant laws, regulations, and industry standards.\n3. Define the scope of the plan, including the assets and systems it covers.\n4. Assign roles and responsibilities for implementing and maintaining the plan.\n5. Establish procedures for monitoring, evaluating, and updating the plan on a regular basis.\n6. Communicate the plan to all relevant stakeholders and ensure their understanding and compliance.\n7. Regularly review and assess the effectiveness of the plan to identify areas for improvement.\n8. Document all aspects of the plan and keep records of any changes or updates made.\n9. Ensure that the plan is accessible to all employees who need to reference it for their roles.\n10. Conduct regular training and awareness programs to educate employees on the importance of the plan and their responsibilities in maintaining information security.\n\nBy following these steps, your organization can establish a comprehensive Information Security Program Plan that meets the requirements of Control ID pm-1.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-2",
+    "control_name": "Information Security Program Leadership Role",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Appoint a senior agency information security officer with the mission and resources to coordinate, develop, implement, and maintain an organization-wide information security program.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Assign a senior leader to oversee and manage the organization's information security program.",
+    "example_implementation": "This script ensure the senior information security officer has the necessary resources and authority to effectively lead and coordinate the security program across the organization.",
+    "non_technical_guidance": "This plan to comply with Control ID pm-2, the organization should appoint a senior agency information security officer who is responsible for leading and overseeing the organization-wide information security program. This individual should have the authority, resources, and support needed to effectively coordinate, develop, implement, and maintain the program.\n\nThe appointed senior agency information security officer should have a clear understanding of the organization's information security needs and be able to communicate effectively with senior leadership, IT staff, and other stakeholders. They should also have the necessary expertise and experience in information security to effectively carry out their responsibilities.\n\nRegular communication and collaboration with other departments within the organization are essential to ensure that the information security program is aligned with the organization's overall goals and objectives. The senior agency information security officer should also stay informed about the latest developments in the field of information security and continuously assess and improve the organization's security posture.\n\nBy appointing a senior agency information security officer with the necessary leadership skills and expertise, the organization can ensure that its information security program is effectively managed and maintained to protect against potential threats and vulnerabilities.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-3",
+    "control_name": "Information Security and Privacy Resources",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that information security and privacy resources are provided to employees to support their roles in protecting sensitive data.",
+    "example_implementation": "This script creates a centralized repository or webpage with easy access to security policies, procedures, and training materials for all employees to reference.",
+    "non_technical_guidance": "This plan ensure that all personnel have access to relevant information security and privacy resources such as policies, procedures, guidelines, and training materials. This can be achieved by creating a centralized repository or intranet site where these resources are easily accessible. Regularly communicate updates and changes to these resources to all personnel. Conduct periodic training sessions to ensure that all employees are aware of and have access to the necessary resources for information security and privacy compliance.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-4",
+    "control_name": "Plan of Action and Milestones Process",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "A Plan of Action and Milestones (POA&M) process helps organizations identify and address security weaknesses and track progress towards compliance with security standards.",
+    "example_implementation": "This script regularly review and update your POA&M to ensure that security weaknesses are being addressed in a timely manner and progress is being made towards compliance goals.",
+    "non_technical_guidance": "This plan to comply with Control ID pm-4 (Plan of Action and Milestones Process), you should establish a formal process for identifying, assessing, prioritizing, and monitoring the progress of security-related activities. This process should include creating a Plan of Action and Milestones (POA&M) document that outlines the steps to address any weaknesses or deficiencies identified during security assessments or audits.\n\nHere are the steps to implement this control:\n1. Designate a responsible individual or team to oversee the POA&M process.\n2. Conduct regular security assessments to identify weaknesses and deficiencies in the organization's security posture.\n3. Prioritize the identified weaknesses based on risk and potential impact to the organization.\n4. Develop a detailed plan for addressing each weakness, including specific milestones and deadlines for completion.\n5. Monitor the progress of POA&M activities regularly and update the document as needed.\n6. Report on the status of POA&M activities to senior management and stakeholders on a regular basis.\n\nBy following these steps and maintaining a comprehensive POA&M process, your organization can effectively address security vulnerabilities and improve its overall security posture in alignment with NIST 800-53 compliance requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-5",
+    "control_name": "System Inventory",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop and update {{ insert: param, pm-05_odp }} an inventory of organizational systems.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Keep track of all the systems your organization uses.",
+    "example_implementation": "This script use automated tools to regularly scan your network and update your inventory to ensure accuracy.",
+    "non_technical_guidance": "This plan to comply with the System Inventory control, you should establish a process for documenting and maintaining an inventory of all organizational systems. This inventory should include information such as system names, IP addresses, hardware specifications, software installed, and any other relevant details. Regularly update this inventory as new systems are added or removed from the environment. Consider using a spreadsheet, database, or specialized inventory management tool to keep track of this information. Make sure the inventory is easily accessible to relevant personnel and regularly review and validate its accuracy.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pm-5.1",
+        "title": "Inventory of Personally Identifiable Information",
+        "official_text": "Establish, maintain, and update {{ insert: param, pm-05.01_odp }} an inventory of all systems, applications, and projects that process personally identifiable information."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-5.1",
+    "control_name": "Inventory of Personally Identifiable Information",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Establish, maintain, and update {{ insert: param, pm-05.01_odp }} an inventory of all systems, applications, and projects that process personally identifiable information.",
+    "parent_control": "pm-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Establish, maintain, and update {{ insert: param, pm-05.01_odp }} an inventory of all systems, applications, and projects that process personally identifiable information.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-6",
+    "control_name": "Measures of Performance",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop, monitor, and report on the results of information security and privacy measures of performance.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control requires you to track and report on how well your security measures are working.",
+    "example_implementation": "This script sets up regular monitoring and reporting processes to track the effectiveness of your security measures, and use this data to make improvements to your security program.",
+    "non_technical_guidance": "This plan 1. Identify key performance indicators (KPIs) related to information security and privacy.\n2. Develop a monitoring plan to regularly collect data on these KPIs.\n3. Implement a reporting mechanism to track and analyze the results of the measures of performance.\n4. Ensure that the results are communicated to relevant stakeholders for decision-making and improvement purposes.\n5. Regularly review and update the measures of performance based on changing security requirements and organizational priorities.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-7",
+    "control_name": "Enterprise Architecture",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop and maintain an enterprise architecture with consideration for information security, privacy, and the resulting risk to organizational operations and assets, individuals, other organizations, and the Nation.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Develop and keep up-to-date a plan for how your company's IT systems work together, while also considering security and privacy risks.",
+    "example_implementation": "This script work with key stakeholders in your organization to create a comprehensive enterprise architecture that includes security and privacy considerations from the start. Regularly review and update the architecture to ensure it aligns with changing business needs and security threats.",
+    "non_technical_guidance": "This plan to comply with Control ID pm-7, organizations should establish and maintain an enterprise architecture that considers information security, privacy, and the associated risks to the organization, individuals, other organizations, and the nation. This can be achieved by following these steps:\n\n1. Define the scope of the enterprise architecture, including the systems, applications, data, and infrastructure that need to be protected.\n2. Identify and document the security requirements and constraints that need to be incorporated into the architecture.\n3. Ensure that the enterprise architecture aligns with relevant security frameworks, standards, and best practices.\n4. Conduct regular reviews and updates of the enterprise architecture to ensure that it remains current and effective in addressing security risks.\n5. Communicate the enterprise architecture to relevant stakeholders, including senior management, IT teams, and security personnel.\n6. Monitor and assess the effectiveness of the enterprise architecture in mitigating security risks and make adjustments as necessary.\n\nBy following these steps, organizations can develop and maintain an enterprise architecture that enhances information security, privacy, and risk management efforts.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pm-7.1",
+        "title": "Offloading",
+        "official_text": "Offload {{ insert: param, pm-07.01_odp }} to other systems, system components, or an external provider."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-7.1",
+    "control_name": "Offloading",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Offload {{ insert: param, pm-07.01_odp }} to other systems, system components, or an external provider.",
+    "parent_control": "pm-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Offload {{ insert: param, pm-07.01_odp }} to other systems, system components, or an external provider.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-8",
+    "control_name": "Critical Infrastructure Plan",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Address information security and privacy issues in the development, documentation, and updating of a critical infrastructure and key resources protection plan.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that information security and privacy concerns are considered when creating and updating plans to protect critical infrastructure and key resources.",
+    "example_implementation": "This script involve IT security professionals in the development and review of critical infrastructure protection plans to address any potential security vulnerabilities or privacy concerns.",
+    "non_technical_guidance": "This plan to address information security and privacy issues in the development, documentation, and updating of a critical infrastructure and key resources protection plan, follow these steps:\n\n1. Identify critical infrastructure and key resources: Begin by identifying the critical infrastructure and key resources that need to be protected. This could include physical facilities, IT systems, data centers, and other assets essential to your organization's operations.\n\n2. Conduct a risk assessment: Perform a thorough risk assessment to identify potential threats and vulnerabilities to your critical infrastructure and key resources. This will help prioritize security measures and controls.\n\n3. Develop a protection plan: Create a comprehensive plan that outlines the security measures and controls needed to protect your critical infrastructure and key resources. This plan should address information security and privacy issues, including access controls, encryption, monitoring, incident response, and disaster recovery.\n\n4. Document the plan: Document the protection plan in detail, including policies, procedures, and guidelines for implementation. Make sure all stakeholders are aware of their roles and responsibilities in protecting critical infrastructure and key resources.\n\n5. Regularly update the plan: Keep the protection plan up to date by reviewing and updating it regularly to address new threats, vulnerabilities, and changes in the organization's infrastructure.\n\nBy following these steps, you can ensure that your critical infrastructure and key resources are adequately protected against security and privacy issues.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-9",
+    "control_name": "Risk Management Strategy",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "A risk management strategy helps organizations identify, assess, and prioritize potential risks to their information systems.",
+    "example_implementation": "This script develop a formal risk management plan that outlines how risks will be identified, assessed, and mitigated within your organization. This plan should include roles and responsibilities, risk assessment methodologies, and risk treatment strategies.",
+    "non_technical_guidance": "This plan to implement the Risk Management Strategy control (pm-9) in compliance with NIST 800-53, follow these steps:\n\n1. Develop a comprehensive risk management strategy that aligns with organizational goals and objectives.\n2. Identify and assess potential risks to the organization's information systems and data.\n3. Implement risk mitigation measures to reduce the impact of identified risks.\n4. Regularly review and update the risk management strategy to address evolving threats and vulnerabilities.\n5. Ensure that key stakeholders are involved in the risk management process and understand their roles and responsibilities.\n6. Document the risk management strategy and communicate it effectively to relevant personnel.\n7. Monitor and evaluate the effectiveness of the risk management strategy through regular assessments and audits.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-10",
+    "control_name": "Authorization Process",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The Authorization Process control ensures that only authorized users have access to sensitive information and systems.",
+    "example_implementation": "This script implement a role-based access control system to easily manage and enforce user permissions based on their job responsibilities.",
+    "non_technical_guidance": "This plan to ensure compliance with control pm-10 (Authorization Process), the following non-technical implementation plan can be followed:\n\n1. Develop and document a formal authorization process that outlines the steps required for granting access to systems, applications, and data.\n2. Define roles and responsibilities for individuals involved in the authorization process, including approvers and reviewers.\n3. Implement a system for requesting access that includes necessary approvals and documentation.\n4. Regularly review and update the authorization process to ensure it remains effective and aligned with organizational policies and procedures.\n5. Provide training to personnel involved in the authorization process to ensure they understand their roles and responsibilities.\n6. Conduct periodic audits to verify compliance with the authorization process and identify any areas for improvement.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-11",
+    "control_name": "Mission and Business Process Definition",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that your organization clearly defines its mission and business processes to guide IT activities and investments.",
+    "example_implementation": "This script collaborate with stakeholders from different departments to develop a comprehensive understanding of the organization's mission and business processes, and regularly review and update them to ensure alignment with IT activities.",
+    "non_technical_guidance": "This plan to comply with control pm-11, the organization should clearly define and document its mission and business processes. This includes identifying the organization's goals, objectives, stakeholders, and the processes involved in achieving them. The documentation should be regularly reviewed and updated to ensure it accurately reflects the organization's current mission and business processes. Additionally, all relevant stakeholders should be involved in the definition and documentation process to ensure alignment and understanding across the organization.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-12",
+    "control_name": "Insider Threat Program",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Implement an insider threat program that includes a cross-discipline insider threat incident handling team.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Have a plan in place to detect and respond to threats from within your organization.",
+    "example_implementation": "This script establish a team with members from different departments (IT, HR, security) to effectively handle insider threats.",
+    "non_technical_guidance": "This plan to implement an insider threat program that includes a cross-discipline insider threat incident handling team, follow these steps:\n\n1. Establish a clear policy: Develop a policy that outlines the purpose, scope, roles, responsibilities, and procedures of the insider threat program. Ensure that all employees are aware of this policy and receive training on it.\n\n2. Form a cross-discipline team: Create a team that includes representatives from different departments such as HR, IT, security, legal, and management. Each member should bring a unique perspective to the team and be responsible for specific tasks related to insider threat detection and response.\n\n3. Conduct risk assessments: Identify potential insider threats by conducting regular risk assessments of employees, contractors, and third-party vendors. Look for warning signs such as unauthorized access to sensitive data, changes in behavior, or disgruntled employees.\n\n4. Implement monitoring and detection tools: Use technology solutions to monitor user activity, network traffic, and access logs for any suspicious behavior. Set up alerts for unusual activities and investigate them promptly.\n\n5. Develop an incident response plan: Create a detailed plan for responding to insider threats, including steps for containment, eradication, recovery, and post-incident analysis. Ensure that all team members are trained on this plan and conduct regular drills to test its effectiveness.\n\n6. Report and investigate incidents: Establish procedures for reporting insider threat incidents to the appropriate authorities, such as HR, legal, and law enforcement. Conduct thorough investigations to determine the cause of the incident and take appropriate disciplinary or legal action.\n\n7. Continuously improve the program: Regularly review and update the insider threat program to adapt to changing threats and technologies. Incorporate lessons learned from past incidents to enhance detection and response capabilities.\n\nBy following these steps, you can establish an effective insider threat program that helps protect your organization from internal security risks.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-13",
+    "control_name": "Security and Privacy Workforce",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Establish a security and privacy workforce development and improvement program.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that your organization has a program in place to train and improve the skills of employees responsible for security and privacy.",
+    "example_implementation": "This script develop a training plan that includes regular workshops, certifications, and opportunities for employees to stay up-to-date on the latest security and privacy practices.",
+    "non_technical_guidance": "This plan to establish a security and privacy workforce development and improvement program, follow these steps:\n1. Identify the security and privacy training needs of your workforce by conducting a skills assessment.\n2. Develop a training plan that includes both initial training for new hires and ongoing training for existing employees.\n3. Provide resources for employees to obtain certifications in relevant security and privacy areas.\n4. Encourage employees to attend industry conferences, workshops, and seminars to stay current on best practices.\n5. Implement a mentorship program where experienced employees can mentor newer employees in security and privacy practices.\n6. Regularly review and update the workforce development program to ensure it remains effective and relevant to the organization's needs.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-14",
+    "control_name": "Testing, Training, and Monitoring",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Regularly testing, training, and monitoring your IT systems to ensure they are secure and functioning properly.",
+    "example_implementation": "This script establish a schedule for ongoing testing, provide regular training for employees on security procedures, and use monitoring tools to keep track of system performance and security incidents.",
+    "non_technical_guidance": "This plan - Develop a comprehensive testing, training, and monitoring program to ensure that all personnel are adequately trained and aware of their responsibilities in relation to information security.\n- Regularly conduct testing exercises to assess the effectiveness of security controls and incident response procedures.\n- Provide ongoing training to personnel on security best practices and procedures.\n- Implement monitoring tools and processes to continuously monitor the security posture of the organization and detect any anomalies or security incidents.\n- Establish clear metrics and reporting mechanisms to track the effectiveness of the testing, training, and monitoring program.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-15",
+    "control_name": "Security and Privacy Groups and Associations",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Establish and institutionalize contact with selected groups and associations within the security and privacy communities:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Build relationships with security and privacy groups to stay informed and collaborate on best practices.",
+    "example_implementation": "This script attend industry conferences and networking events to meet and connect with professionals from security and privacy groups.",
+    "non_technical_guidance": "This plan to comply with Control PM-15, the following non-technical implementation plan can be followed:\n\n1. Identify relevant security and privacy groups and associations within the industry that align with your organization's goals and objectives.\n2. Establish contact with these groups and associations by attending conferences, seminars, webinars, and networking events.\n3. Participate actively in discussions, share knowledge, and stay updated on the latest trends and best practices in security and privacy.\n4. Collaborate with these groups and associations on research projects, working groups, and initiatives to enhance your organization's security posture.\n5. Regularly review and update your contact list with these groups and associations to ensure ongoing engagement and collaboration.\n\nBy establishing and institutionalizing contact with selected groups and associations within the security and privacy communities, your organization can stay informed about emerging threats, vulnerabilities, and regulatory requirements, and leverage the collective expertise of the community to enhance your security and privacy practices.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-16",
+    "control_name": "Threat Awareness Program",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Implement a threat awareness program that includes a cross-organization information-sharing capability for threat intelligence.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure everyone in the organization is aware of potential threats and has the ability to share information about them.",
+    "example_implementation": "This script conduct regular training sessions on recognizing and reporting threats, and establish a system for employees to easily share any threat intelligence they come across.",
+    "non_technical_guidance": "This plan to implement a threat awareness program that includes a cross-organization information-sharing capability for threat intelligence, follow these steps:\n1. Establish a dedicated team or individual responsible for managing the threat awareness program.\n2. Define the scope of the program, including the types of threats to be monitored and shared.\n3. Identify sources of threat intelligence, such as industry reports, security vendors, government agencies, and internal security tools.\n4. Develop a process for collecting, analyzing, and sharing threat intelligence within the organization.\n5. Train employees on how to recognize and report potential threats.\n6. Regularly review and update the threat awareness program to ensure it remains effective and up-to-date with the latest threats.\n7. Foster a culture of collaboration and information sharing across different departments and teams within the organization to enhance the effectiveness of the program.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pm-16.1",
+        "title": "Automated Means for Sharing Threat Intelligence",
+        "official_text": "Employ automated mechanisms to maximize the effectiveness of sharing threat intelligence information."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-16.1",
+    "control_name": "Automated Means for Sharing Threat Intelligence",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Employ automated mechanisms to maximize the effectiveness of sharing threat intelligence information.",
+    "parent_control": "pm-16",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ automated mechanisms to maximize the effectiveness of sharing threat intelligence information.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-17",
+    "control_name": "Protecting Controlled Unclassified Information on External Systems",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control is about ensuring that any sensitive information that is not classified is protected when stored on external systems.",
+    "example_implementation": "This script make sure to encrypt any Controlled Unclassified Information (CUI) before storing it on external systems, and regularly monitor and audit access to this data to ensure it is secure.",
+    "non_technical_guidance": "This plan to comply with control pm-17 \"Protecting Controlled Unclassified Information on External Systems\", follow these non-technical steps:\n\n1. Identify all external systems that may store or process Controlled Unclassified Information (CUI).\n2. Implement access controls to restrict access to CUI on external systems to authorized users only.\n3. Encrypt CUI stored on external systems to protect it from unauthorized access.\n4. Regularly monitor and audit access to CUI on external systems to detect any unauthorized activities.\n5. Implement secure configurations on external systems to protect against common security vulnerabilities.\n6. Develop and enforce policies and procedures for handling CUI on external systems, including data retention and disposal.\n7. Provide security awareness training to all users who have access to CUI on external systems to educate them on the importance of protecting sensitive information.\n\nBy following these steps, you can ensure that Controlled Unclassified Information on external systems is adequately protected in compliance with control pm-17.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-18",
+    "control_name": "Privacy Program Plan",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The Privacy Program Plan control ensures that an organization has a plan in place to protect the privacy of sensitive information.",
+    "example_implementation": "This script develop a detailed privacy program plan that outlines how personal data will be collected, stored, and protected, including policies, procedures, and training for employees.",
+    "non_technical_guidance": "This plan to comply with control pm-18 (Privacy Program Plan), follow these steps:\n\n1. Develop a comprehensive privacy program plan that outlines the organization's approach to managing and protecting privacy-related information.\n2. The plan should include the organization's privacy policies, procedures, guidelines, and controls for handling personal data.\n3. Ensure that the privacy program plan aligns with relevant laws, regulations, and industry best practices.\n4. Assign responsibility for implementing and maintaining the privacy program plan to a designated individual or team.\n5. Regularly review and update the privacy program plan to address changes in the organization's privacy requirements and risk landscape.\n6. Communicate the privacy program plan to all relevant stakeholders within the organization.\n7. Provide training to employees on their responsibilities and obligations under the privacy program plan.\n8. Conduct periodic assessments and audits to ensure compliance with the privacy program plan.\n9. Document all aspects of the privacy program plan and maintain records as evidence of compliance.\n\nBy following these steps, the organization can demonstrate a commitment to protecting privacy-related information and complying with control pm-18.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-19",
+    "control_name": "Privacy Program Leadership Role",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Appoint a senior agency official for privacy with the authority, mission, accountability, and resources to coordinate, develop, and implement, applicable privacy requirements and manage privacy risks through the organization-wide privacy program.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Appoint a senior official to oversee and manage privacy requirements and risks within the organization's privacy program.",
+    "example_implementation": "This script ensure the appointed senior official has the necessary authority, resources, and support to effectively coordinate and implement privacy requirements throughout the organization. Regularly communicate with this official to stay informed on privacy program developments.",
+    "non_technical_guidance": "This plan to comply with control pm-19, the organization should appoint a senior agency official for privacy who has the authority, mission, accountability, and resources to coordinate, develop, and implement applicable privacy requirements and manage privacy risks through an organization-wide privacy program. This official should have a clear understanding of privacy laws and regulations, as well as the ability to communicate effectively with stakeholders at all levels of the organization. Additionally, the official should have the necessary resources and support to effectively carry out their responsibilities. Regular training and updates on privacy requirements should be provided to ensure ongoing compliance.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-20",
+    "control_name": "Dissemination of Privacy Program Information",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Maintain a central resource webpage on the organization’s principal public website that serves as a central source of information about the organization’s privacy program and that:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure there is a webpage on your organization's website that provides information about your privacy program.",
+    "example_implementation": "This script creates a dedicated section on your organization's website that includes details about your privacy program, such as policies, procedures, and contact information for the privacy team.",
+    "non_technical_guidance": "This plan to comply with control pm-20, you should create a central resource webpage on your organization's principal public website that serves as a central source of information about your privacy program. This webpage should include details about your organization's privacy policies, procedures, and contact information for privacy inquiries. Regularly update this webpage to ensure that it remains an accurate and comprehensive resource for individuals seeking information about your privacy program.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pm-20.1",
+        "title": "Privacy Policies on Websites, Applications, and Digital Services",
+        "official_text": "Develop and post privacy policies on all external-facing websites, mobile applications, and other digital services, that:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-20.1",
+    "control_name": "Privacy Policies on Websites, Applications, and Digital Services",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop and post privacy policies on all external-facing websites, mobile applications, and other digital services, that:",
+    "parent_control": "pm-20",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Develop and post privacy policies on all external-facing websites, mobile applications, and other digital services, that:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-21",
+    "control_name": "Accounting of Disclosures",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Keep track of who accesses and discloses sensitive information to ensure accountability and transparency.",
+    "example_implementation": "This script utilize a secure database or logging system to record all instances of information disclosure, including user identities and timestamps. Regularly review and audit these records to detect any unauthorized disclosures.",
+    "non_technical_guidance": "This plan to comply with the Accounting of Disclosures control (pm-21), the organization should establish and maintain a process for tracking and documenting all disclosures of sensitive information to external entities. This can be achieved by implementing a formal procedure for logging and monitoring all disclosures, including the date, time, recipient, purpose, and type of information disclosed. Regular audits should be conducted to ensure that all disclosures are properly documented and accounted for. Additionally, staff should be trained on the importance of accurately recording disclosures and the potential consequences of failing to do so.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-22",
+    "control_name": "Personally Identifiable Information Quality Management",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop and document organization-wide policies and procedures for:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that personally identifiable information (PII) is accurate, relevant, timely, and complete to maintain data quality.",
+    "example_implementation": "This script regularly review and update PII data to ensure accuracy and relevance, and establish procedures for employees to report any discrepancies or errors.",
+    "non_technical_guidance": "This plan to comply with Control ID pm-22, Personally Identifiable Information Quality Management, the organization should develop and document organization-wide policies and procedures for managing the quality of personally identifiable information (PII). This includes defining what constitutes high-quality PII, establishing processes for ensuring the accuracy and completeness of PII, and implementing measures to maintain the integrity and confidentiality of PII. The policies and procedures should be communicated to all relevant personnel within the organization and regularly reviewed and updated as needed to ensure ongoing compliance. Additionally, training programs should be implemented to educate employees on the importance of PII quality management and their roles and responsibilities in safeguarding PII. Regular audits and assessments should be conducted to verify compliance with the established policies and procedures.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-23",
+    "control_name": "Data Governance Body",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Establish a Data Governance Body consisting of {{ insert: param, pm-23_odp.01 }} with {{ insert: param, pm-23_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Create a team responsible for overseeing and managing data within your organization.",
+    "example_implementation": "This script ensure that the Data Governance Body includes representatives from various departments to provide diverse perspectives and expertise.",
+    "non_technical_guidance": "This plan to establish a Data Governance Body as per control pm-23, you should follow these steps:\n\n1. Identify key stakeholders within the organization who should be part of the Data Governance Body. This may include representatives from IT, legal, compliance, security, and business units.\n\n2. Define the roles and responsibilities of each member of the Data Governance Body. This should include decision-making authority, accountability, and communication protocols.\n\n3. Establish regular meetings for the Data Governance Body to discuss data governance issues, review policies and procedures, and make decisions regarding data management.\n\n4. Develop a charter or framework document that outlines the purpose, scope, and objectives of the Data Governance Body. This document should also include guidelines for decision-making and conflict resolution.\n\n5. Implement mechanisms for monitoring and reporting on the activities of the Data Governance Body. This may include regular reports to senior management or the board of directors.\n\n6. Continuously evaluate the effectiveness of the Data Governance Body and make adjustments as needed to ensure alignment with organizational goals and objectives.\n\nBy following these steps, you can establish a Data Governance Body that meets the requirements of control pm-23 and helps ensure effective data governance within your organization.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-24",
+    "control_name": "Data Integrity Board",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Establish a Data Integrity Board to:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The Data Integrity Board is a group that ensures the accuracy and reliability of data within an organization.",
+    "example_implementation": "This script when establishing a Data Integrity Board, make sure to include representatives from different departments to ensure a comprehensive approach to data integrity.",
+    "non_technical_guidance": "This plan to establish a Data Integrity Board for compliance with control pm-24, follow these steps:\n1. Identify key stakeholders within the organization who will be part of the Data Integrity Board. This may include representatives from IT, security, compliance, legal, and other relevant departments.\n2. Define the roles and responsibilities of the Data Integrity Board members, including chairperson, secretary, and other necessary positions.\n3. Develop a charter for the Data Integrity Board outlining its purpose, scope, decision-making authority, meeting frequency, and reporting structure.\n4. Hold an initial meeting to introduce the Data Integrity Board members, review the charter, and establish communication channels for ongoing collaboration.\n5. Regularly convene the Data Integrity Board meetings to discuss data integrity issues, review compliance status, address any incidents or breaches, and make recommendations for improvement.\n6. Ensure that the Data Integrity Board has the necessary resources, support, and authority to effectively carry out its responsibilities.\n7. Document the activities, decisions, and recommendations of the Data Integrity Board to demonstrate compliance with control pm-24 during audits or assessments.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-25",
+    "control_name": "Minimization of Personally Identifiable Information Used in Testing, Training, and Research",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control ensures that only the minimum amount of personal information is used in testing, training, and research to protect individuals' privacy.",
+    "example_implementation": "This script before conducting any testing, training, or research, review and remove any personally identifiable information that is not necessary for the purpose of the activity.",
+    "non_technical_guidance": "This plan to comply with the Minimization of Personally Identifiable Information Used in Testing, Training, and Research control (pm-25), follow these steps:\n\n1. Identify all personally identifiable information (PII) used in testing, training, and research within your organization.\n2. Evaluate the necessity of using PII in these activities and determine if it can be minimized or replaced with synthetic data.\n3. Develop policies and procedures that clearly outline the restrictions and limitations on the use of PII in testing, training, and research.\n4. Train employees and stakeholders on the importance of minimizing PII and the proper handling of any PII that is necessary for these activities.\n5. Regularly review and update your processes to ensure ongoing compliance with the minimization of PII in testing, training, and research.\n\nBy following these steps and implementing appropriate policies and procedures, your organization can effectively minimize the use of personally identifiable information in testing, training, and research activities to comply with this control.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-26",
+    "control_name": "Complaint Management",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Implement a process for receiving and responding to complaints, concerns, or questions from individuals about the organizational security and privacy practices that includes:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Have a system in place to handle complaints and questions from people about your organization's security and privacy practices.",
+    "example_implementation": "This script sets up a dedicated email address or online form for individuals to submit complaints or concerns, and designate a specific team or individual responsible for responding to and resolving them in a timely manner.",
+    "non_technical_guidance": "This plan to implement the Complaint Management control, follow these steps:\n1. Designate a specific individual or team responsible for receiving and responding to complaints, concerns, or questions related to security and privacy practices.\n2. Establish clear communication channels for individuals to submit complaints or concerns, such as a dedicated email address or phone number.\n3. Develop a documented process for handling and responding to complaints in a timely and appropriate manner.\n4. Ensure that all complaints are logged, tracked, and resolved according to the established process.\n5. Regularly review and update the Complaint Management process to address any identified gaps or areas for improvement.\n6. Provide training to employees on how to appropriately handle and escalate complaints received.\n7. Conduct regular audits or assessments to verify compliance with the Complaint Management process and make any necessary adjustments.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-27",
+    "control_name": "Privacy Reporting",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Privacy Reporting ensures that any privacy incidents or breaches are promptly reported and addressed.",
+    "example_implementation": "This script establish a clear process for employees to report privacy incidents, including who to contact and what information to provide. Conduct regular training to ensure all staff are aware of the reporting procedures.",
+    "non_technical_guidance": "This plan to comply with the Privacy Reporting control (pm-27), you should establish a process for reporting privacy incidents and breaches in a timely manner. This process should include clear guidelines on what constitutes a privacy incident or breach, who should be notified, how the incident should be documented, and what steps should be taken to mitigate the impact. Additionally, regular privacy reporting should be conducted to ensure compliance with privacy regulations and to identify any trends or patterns that may indicate potential privacy risks. It is important to train all relevant personnel on the privacy reporting process and ensure that they understand their roles and responsibilities in reporting and responding to privacy incidents. Regular reviews and updates to the privacy reporting process should also be conducted to ensure its effectiveness and alignment with current privacy requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-28",
+    "control_name": "Risk Framing",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Risk framing involves defining the boundaries and scope of risks that an organization will address in its risk management process.",
+    "example_implementation": "This script when implementing risk framing, ensure that key stakeholders are involved in defining the risk boundaries and scope to ensure alignment with organizational goals and objectives.",
+    "non_technical_guidance": "This plan to implement the Risk Framing control (pm-28), follow these steps:\n\n1. Identify the key stakeholders involved in risk management within your organization.\n2. Define the scope and boundaries of the risk framing process, including the types of risks to be considered and the level of detail required.\n3. Establish a risk framing methodology that aligns with industry best practices and regulatory requirements.\n4. Develop a risk framing document that outlines the risk management approach, including risk tolerance levels, risk assessment criteria, and risk response strategies.\n5. Communicate the risk framing document to all relevant stakeholders and ensure their understanding and buy-in.\n6. Regularly review and update the risk framing document to reflect changes in the organization's risk profile and business environment.\n7. Monitor the effectiveness of the risk framing process and make adjustments as needed to improve risk management practices.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "pm-29",
+    "control_name": "Risk Management Program Leadership Roles",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control ensures that there are designated leaders responsible for overseeing the organization's risk management program.",
+    "example_implementation": "This script assigns specific individuals within your organization to take on leadership roles in managing and overseeing the risk management program, clearly defining their responsibilities and authority. Regularly review and update these roles as needed.",
+    "non_technical_guidance": "This plan to implement control pm-29 \"Risk Management Program Leadership Roles\" in a non-technical manner, follow these steps:\n1. Identify key stakeholders within the organization who will be responsible for overseeing the risk management program.\n2. Assign specific leadership roles to these stakeholders, such as a Chief Risk Officer, Risk Management Committee members, or other relevant positions.\n3. Clearly define the responsibilities and authority of each leadership role in managing risks within the organization.\n4. Ensure that these leadership roles have the necessary resources and support to effectively carry out their risk management duties.\n5. Regularly review and update the leadership roles as needed to adapt to changes in the organization or risk landscape.\n6. Document the assigned leadership roles and responsibilities in a formal policy or procedure document for reference and accountability.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-30",
+    "control_name": "Supply Chain Risk Management Strategy",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Organizations must have a strategy in place to manage risks related to their supply chain.",
+    "example_implementation": "This script conduct thorough background checks and due diligence on potential suppliers to assess their security posture and potential risks to your organization.",
+    "non_technical_guidance": "This plan to implement the Supply Chain Risk Management Strategy control (pm-30), follow these steps:\n\n1. Develop a comprehensive supply chain risk management strategy that includes identifying, assessing, and mitigating risks associated with the acquisition of products and services.\n2. Establish clear policies and procedures for vetting and monitoring suppliers and vendors to ensure they meet security and compliance requirements.\n3. Conduct regular assessments and audits of your supply chain to identify and address any potential vulnerabilities or weaknesses.\n4. Implement a process for responding to and recovering from supply chain incidents or disruptions.\n5. Provide training and awareness programs for employees involved in the supply chain to ensure they understand their roles and responsibilities in managing risks.\n6. Continuously monitor and update your supply chain risk management strategy to adapt to changing threats and vulnerabilities.\n\nBy following these steps, you can effectively implement a robust supply chain risk management strategy to comply with control pm-30.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pm-30.1",
+        "title": "Suppliers of Critical or Mission-essential Items",
+        "official_text": "Identify, prioritize, and assess suppliers of critical or mission-essential technologies, products, and services."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-30.1",
+    "control_name": "Suppliers of Critical or Mission-essential Items",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Identify, prioritize, and assess suppliers of critical or mission-essential technologies, products, and services.",
+    "parent_control": "pm-30",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Identify, prioritize, and assess suppliers of critical or mission-essential technologies, products, and services.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-31",
+    "control_name": "Continuous Monitoring Strategy",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Develop an organization-wide continuous monitoring strategy and implement continuous monitoring programs that include:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Develop a plan to continuously monitor your organization's systems and networks to ensure they are secure and compliant with regulations.",
+    "example_implementation": "This script implement automated monitoring tools that can regularly scan and assess your systems for vulnerabilities and compliance issues. Regularly review and update your monitoring strategy to adapt to new threats and changes in your IT environment.",
+    "non_technical_guidance": "This plan to implement the Continuous Monitoring Strategy for NIST 800-53 control pm-31, follow these steps:\n\n1. Define the scope: Identify the systems, applications, and data that need to be continuously monitored.\n2. Establish monitoring objectives: Determine what specific metrics, events, and activities need to be monitored to ensure the security of the organization's information systems.\n3. Select monitoring tools: Choose the appropriate tools and technologies that can help automate the monitoring process and provide real-time alerts.\n4. Develop monitoring procedures: Create detailed procedures on how monitoring will be conducted, including frequency, data collection methods, and response protocols.\n5. Implement monitoring programs: Deploy the selected monitoring tools and configure them based on the defined monitoring objectives and procedures.\n6. Monitor and analyze: Regularly review the monitoring data, analyze any anomalies or suspicious activities, and take corrective actions as necessary.\n7. Review and update: Periodically review the continuous monitoring strategy and programs to ensure they remain effective and aligned with the organization's security requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "pm-32",
+    "control_name": "Purposing",
+    "family": "Program Management",
+    "family_id": "pm",
+    "official_text": "Analyze {{ insert: param, pm-32_odp }} supporting mission essential services or functions to ensure that the information resources are being used consistent with their intended purpose.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Make sure that the information resources are being used for their intended purpose.",
+    "example_implementation": "This script regularly review and analyze the usage of information resources to ensure they align with the mission essential services or functions they support.",
+    "non_technical_guidance": "This plan to ensure compliance with control pm-32, the following non-technical implementation plan can be followed:\n1. Identify all information resources supporting mission essential services or functions within the organization.\n2. Review the intended purpose of each information resource and document it accordingly.\n3. Conduct periodic audits or assessments to ensure that the information resources are being used in alignment with their intended purpose.\n4. Implement a process for reporting and addressing any instances where information resources are being used inconsistently with their intended purpose.\n5. Provide training and awareness to employees on the importance of using information resources for their intended purpose.\n6. Document all findings and actions taken to demonstrate compliance with control pm-32 during audits or assessments.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  }
+]

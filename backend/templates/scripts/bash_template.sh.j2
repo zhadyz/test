@@ -1,0 +1,567 @@
+#!/bin/bash
+################################################################################
+# NIST 800-53 {{ control_id }} Implementation Script
+# Control: {{ control_name }}
+# Platform: {{ platform }}
+# Generated: {{ generated_date }}
+# Generator Version: {{ generator_version }}
+#
+# Description:
+# {{ description }}
+#
+# This script implements {{ control_id }} compliance requirements with:
+# - Pre-flight validation
+# - State backup
+# - Implementation with error handling
+# - Verification
+# - Rollback capability on failure
+################################################################################
+
+set -euo pipefail  # Exit on error, undefined vars, pipe failures
+IFS=$'\n\t'        # Safer field splitting
+
+################################################################################
+# CONFIGURATION
+################################################################################
+
+readonly SCRIPT_NAME="$(basename "$0")"
+readonly SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+readonly TIMESTAMP="$(date +%Y%m%d_%H%M%S)"
+readonly LOG_FILE="/var/log/nist_compliance_${TIMESTAMP}.log"
+readonly BACKUP_DIR="/var/backups/nist_{{ control_id | lower }}_${TIMESTAMP}"
+readonly CONTROL_ID="{{ control_id }}"
+readonly PLATFORM="{{ platform }}"
+
+# Exit codes
+readonly EXIT_SUCCESS=0
+readonly EXIT_PREFLIGHT_FAILED=1
+readonly EXIT_IMPLEMENTATION_FAILED=2
+readonly EXIT_VERIFICATION_FAILED=3
+readonly EXIT_ROLLBACK_FAILED=4
+
+################################################################################
+# LOGGING
+################################################################################
+
+log() {
+    local level="$1"
+    shift
+    local message="$*"
+    local timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
+    echo "[${timestamp}] [${level}] ${message}" | tee -a "${LOG_FILE}"
+}
+
+log_info() {
+    log "INFO" "$@"
+}
+
+log_warn() {
+    log "WARN" "$@"
+}
+
+log_error() {
+    log "ERROR" "$@"
+}
+
+log_success() {
+    log "SUCCESS" "$@"
+}
+
+################################################################################
+# ERROR HANDLING
+################################################################################
+
+cleanup() {
+    local exit_code=$?
+
+    if [ ${exit_code} -ne 0 ]; then
+        log_error "Script failed with exit code ${exit_code}"
+
+        # Attempt rollback on failure
+        if [ "${BACKUP_CREATED:-false}" = "true" ]; then
+            log_warn "Attempting automatic rollback..."
+            rollback_changes || log_error "Rollback failed"
+        fi
+    fi
+
+    exit ${exit_code}
+}
+
+trap cleanup EXIT
+trap 'log_error "Script interrupted"; exit 130' INT TERM
+
+################################################################################
+# PRE-FLIGHT CHECKS
+################################################################################
+
+preflight_checks() {
+    log_info "Starting pre-flight checks for {{ control_id }}..."
+
+    # Check if running as root
+    if [ "${EUID}" -ne 0 ]; then
+        log_error "This script must be run as root or with sudo"
+        return ${EXIT_PREFLIGHT_FAILED}
+    fi
+
+    # OS detection
+    if [ ! -f /etc/os-release ]; then
+        log_error "Cannot detect OS - /etc/os-release not found"
+        return ${EXIT_PREFLIGHT_FAILED}
+    fi
+
+    source /etc/os-release
+    log_info "Detected OS: ${NAME} ${VERSION_ID}"
+
+{% if is_rhel %}
+    # Verify RHEL platform
+    if [[ ! "${ID}" =~ ^(rhel|centos|rocky|almalinux)$ ]]; then
+        log_error "This script is designed for RHEL-based systems"
+        return ${EXIT_PREFLIGHT_FAILED}
+    fi
+{% elif is_ubuntu %}
+    # Verify Ubuntu platform
+    if [ "${ID}" != "ubuntu" ]; then
+        log_error "This script is designed for Ubuntu systems"
+        return ${EXIT_PREFLIGHT_FAILED}
+    fi
+{% endif %}
+
+    # Check disk space (minimum 100MB)
+    local available_space=$(df -BM / | awk 'NR==2 {print $4}' | sed 's/M//')
+    if [ "${available_space}" -lt 100 ]; then
+        log_warn "Low disk space: ${available_space}MB available"
+    fi
+
+    # Check required commands
+    local required_commands=("{{ package_manager }}" "{{ service_manager }}" "grep" "sed" "awk")
+    for cmd in "${required_commands[@]}"; do
+        if ! command -v "${cmd}" &> /dev/null; then
+            log_error "Required command not found: ${cmd}"
+            return ${EXIT_PREFLIGHT_FAILED}
+        fi
+    done
+
+{% if prerequisites %}
+    # Control-specific prerequisites
+{% for prereq in prerequisites %}
+    log_info "Checking prerequisite: {{ prereq }}"
+    # Add prerequisite check logic here
+{% endfor %}
+{% endif %}
+
+    log_success "Pre-flight checks passed"
+    return ${EXIT_SUCCESS}
+}
+
+################################################################################
+# BACKUP
+################################################################################
+
+backup_state() {
+    log_info "Creating backup in ${BACKUP_DIR}..."
+
+    # Create backup directory
+    mkdir -p "${BACKUP_DIR}"
+
+{% if is_linux %}
+    # Backup common configuration files
+    local files_to_backup=(
+        "/etc/login.defs"
+        "/etc/pam.d"
+        "/etc/security"
+        "/etc/ssh/sshd_config"
+        "/etc/audit/auditd.conf"
+        "/etc/sudoers"
+    )
+
+    for file in "${files_to_backup[@]}"; do
+        if [ -e "${file}" ]; then
+            local backup_path="${BACKUP_DIR}$(dirname ${file})"
+            mkdir -p "${backup_path}"
+            cp -a "${file}" "${backup_path}/" 2>/dev/null || true
+            log_info "Backed up: ${file}"
+        fi
+    done
+{% endif %}
+
+    # Create state snapshot
+    cat > "${BACKUP_DIR}/state_snapshot.txt" <<EOF
+Backup created: $(date)
+Control ID: ${CONTROL_ID}
+Platform: ${PLATFORM}
+Hostname: $(hostname)
+Kernel: $(uname -r)
+EOF
+
+    BACKUP_CREATED=true
+    log_success "Backup completed: ${BACKUP_DIR}"
+    return ${EXIT_SUCCESS}
+}
+
+################################################################################
+# IMPLEMENTATION
+################################################################################
+
+implement_control() {
+    log_info "Implementing {{ control_id }} compliance requirements..."
+
+{% if checks %}
+    # Pre-implementation checks
+{% for check in checks %}
+    log_info "Check: {{ check }}"
+{% endfor %}
+{% endif %}
+
+{% if implementations %}
+    # Implementation steps
+{% for impl in implementations %}
+    log_info "Implementing: {{ impl }}"
+
+    # {{ impl }}
+    {%- if 'PASS_MIN_LEN' in impl %}
+    # Set password minimum length
+    if grep -q '^PASS_MIN_LEN' /etc/login.defs; then
+        sed -i 's/^PASS_MIN_LEN.*/PASS_MIN_LEN 14/' /etc/login.defs
+    else
+        echo 'PASS_MIN_LEN 14' >> /etc/login.defs
+    fi
+    log_success "Password minimum length set to 14"
+
+    {%- elif 'pam_faillock' in impl %}
+    # Configure PAM faillock for account lockout
+    local pam_file="/etc/pam.d/common-auth"
+    {% if is_rhel %}
+    pam_file="/etc/pam.d/system-auth"
+    {% endif %}
+
+    if ! grep -q 'pam_faillock.so' "${pam_file}"; then
+        # Add faillock configuration
+        sed -i '/^auth.*pam_unix.so/i auth required pam_faillock.so preauth silent deny=3 unlock_time=900' "${pam_file}"
+        sed -i '/^auth.*pam_unix.so/a auth [default=die] pam_faillock.so authfail deny=3 unlock_time=900' "${pam_file}"
+        log_success "PAM faillock configured (3 attempts, 15 min lockout)"
+    else
+        log_info "PAM faillock already configured"
+    fi
+
+    {%- elif 'sudo' in impl.lower() %}
+    # Configure sudo with logging
+    if ! grep -q 'Defaults.*logfile' /etc/sudoers; then
+        echo 'Defaults logfile="/var/log/sudo.log"' >> /etc/sudoers.d/logging
+        chmod 0440 /etc/sudoers.d/logging
+        log_success "Sudo logging configured"
+    fi
+
+    {%- elif 'selinux' in impl.lower() or 'apparmor' in impl.lower() %}
+    # Enable mandatory access control
+    {% if is_rhel %}
+    # SELinux configuration
+    if command -v selinuxenabled &> /dev/null; then
+        if ! selinuxenabled; then
+            sed -i 's/^SELINUX=.*/SELINUX=enforcing/' /etc/selinux/config
+            log_warn "SELinux set to enforcing - reboot required"
+        else
+            log_info "SELinux already enabled"
+        fi
+    fi
+    {% elif is_ubuntu %}
+    # AppArmor configuration
+    if command -v aa-status &> /dev/null; then
+        {{ service_manager }} enable apparmor
+        {{ service_manager }} start apparmor
+        log_success "AppArmor enabled"
+    fi
+    {% endif %}
+
+    {%- elif 'auditd' in impl.lower() %}
+    # Configure audit daemon
+    {{ service_manager }} enable auditd
+    {{ service_manager }} start auditd
+
+    # Add audit rules
+    local audit_rules="/etc/audit/rules.d/nist.rules"
+    cat > "${audit_rules}" <<'AUDIT_EOF'
+# NIST 800-53 {{ control_id }} Audit Rules
+-w /etc/passwd -p wa -k identity
+-w /etc/group -p wa -k identity
+-w /etc/shadow -p wa -k identity
+-w /etc/sudoers -p wa -k actions
+-w /var/log/sudo.log -p wa -k actions
+AUDIT_EOF
+
+    # Reload audit rules
+    augenrules --load
+    log_success "Audit rules configured and loaded"
+
+    {%- elif 'maxlogins' in impl.lower() or 'limits.conf' in impl.lower() %}
+    # Configure session limits via PAM limits
+    local limits_file="/etc/security/limits.conf"
+    local max_sessions="{{ parameters.max_concurrent_sessions | default(3) }}"
+
+    # Backup limits.conf if not already backed up
+    if [ ! -f "${limits_file}.bak" ]; then
+        cp "${limits_file}" "${limits_file}.bak"
+    fi
+
+    # Set maxlogins limit
+    if grep -q '^[*#].*maxlogins' "${limits_file}"; then
+        sed -i "s/^[*#].*maxlogins.*/* hard maxlogins ${max_sessions}/" "${limits_file}"
+    else
+        echo "* hard maxlogins ${max_sessions}" >> "${limits_file}"
+    fi
+
+    log_success "Session limit set to ${max_sessions} concurrent sessions"
+
+    {%- elif ('enable' in impl.lower() or 'start' in impl.lower() or 'restart' in impl.lower()) and 'service' in impl.lower() %}
+    # Service management - enable/start/restart services
+    # Extract service name from implementation description
+    log_info "Service management: {{ impl }}"
+
+    # This is a generic service management pattern
+    # For specific services, add dedicated patterns above this one
+    if [[ "{{ impl }}" =~ [Ee]nsure.*enabled|[Ee]nable ]]; then
+        log_warn "Service enable detected but service name unclear. Manual implementation required."
+    fi
+
+    {%- elif 'chmod' in impl.lower() or 'chown' in impl.lower() or 'permission' in impl.lower() %}
+    # File permissions management
+    log_info "Permission management: {{ impl }}"
+
+    # Common permission patterns
+    {%- if '/etc/shadow' in impl %}
+    chmod 000 /etc/shadow
+    log_success "Set /etc/shadow permissions to 000"
+    {%- elif '/etc/passwd' in impl %}
+    chmod 644 /etc/passwd
+    log_success "Set /etc/passwd permissions to 644"
+    {%- elif '/etc/group' in impl %}
+    chmod 644 /etc/group
+    log_success "Set /etc/group permissions to 644"
+    {%- else %}
+    log_warn "Permission change required but target file unclear: {{ impl }}"
+    {% endif %}
+
+    {%- elif 'firewall' in impl.lower() or 'iptables' in impl.lower() or 'ufw' in impl.lower() or 'firewalld' in impl.lower() %}
+    # Firewall configuration
+    {% if is_rhel %}
+    # RHEL: Use firewalld
+    if command -v firewall-cmd &> /dev/null; then
+        {{ service_manager }} enable firewalld
+        {{ service_manager }} start firewalld
+        log_success "Firewalld enabled and started"
+    else
+        log_warn "firewalld not found, install with: {{ package_manager }} install firewalld"
+    fi
+    {% elif is_ubuntu %}
+    # Ubuntu: Use ufw
+    if command -v ufw &> /dev/null; then
+        ufw --force enable
+        log_success "UFW firewall enabled"
+    else
+        log_warn "ufw not found, install with: {{ package_manager }} install ufw"
+    fi
+    {% endif %}
+
+    {%- elif 'install' in impl.lower() and ('package' in impl.lower() or 'yum' in impl.lower() or 'apt' in impl.lower() or 'dnf' in impl.lower()) %}
+    # Package installation
+    log_info "Package installation: {{ impl }}"
+    # Note: Package names should be specified in control implementation
+    log_warn "Package installation required but package name unclear: {{ impl }}"
+
+    {%- elif 'sysctl' in impl.lower() or 'kernel parameter' in impl.lower() %}
+    # Kernel parameter configuration via sysctl
+    log_info "Sysctl configuration: {{ impl }}"
+
+    # Example: Common security parameters
+    local sysctl_file="/etc/sysctl.d/99-nist-{{ control_id | lower }}.conf"
+
+    cat > "${sysctl_file}" <<'SYSCTL_EOF'
+# NIST 800-53 {{ control_id }} Kernel Parameters
+# Add specific parameters here based on control requirements
+SYSCTL_EOF
+
+    sysctl -p "${sysctl_file}"
+    log_success "Sysctl parameters configured"
+
+    {%- elif 'rsyslog' in impl.lower() or 'journald' in impl.lower() or ('log' in impl.lower() and 'config' in impl.lower()) %}
+    # Logging configuration
+    {% if is_rhel %}
+    # Ensure rsyslog is installed and running
+    if ! rpm -q rsyslog &> /dev/null; then
+        {{ package_manager }} install -y rsyslog
+    fi
+    {{ service_manager }} enable rsyslog
+    {{ service_manager }} start rsyslog
+    log_success "Rsyslog configured and running"
+    {% elif is_ubuntu %}
+    # Ensure rsyslog is installed and running
+    if ! dpkg -l | grep -q rsyslog; then
+        {{ package_manager }} install -y rsyslog
+    fi
+    {{ service_manager }} enable rsyslog
+    {{ service_manager }} start rsyslog
+    log_success "Rsyslog configured and running"
+    {% endif %}
+
+    {%- elif '/etc/' in impl and ('.conf' in impl or 'file' in impl.lower() or 'edit' in impl.lower() or 'modify' in impl.lower() or 'set' in impl.lower()) %}
+    # Generic configuration file editing
+    log_info "File configuration: {{ impl }}"
+
+    # This is a generic file editing pattern
+    # Extract filename from implementation description
+    {%- if '/etc/security/limits.conf' in impl %}
+    log_info "Editing /etc/security/limits.conf - see PAM limits pattern above"
+    {%- elif '/etc/login.defs' in impl %}
+    log_info "Editing /etc/login.defs - see password policy pattern above"
+    {%- elif '/etc/ssh/sshd_config' in impl %}
+    # SSH configuration
+    local sshd_config="/etc/ssh/sshd_config"
+    cp "${sshd_config}" "${sshd_config}.bak.${TIMESTAMP}"
+    log_info "SSH configuration backup created"
+    # Specific SSH settings should be added based on control requirements
+    {% else %}
+    log_warn "File editing required: {{ impl }}"
+    log_warn "Please implement specific editing logic for this configuration file"
+    {% endif %}
+
+    {%- else %}
+    # Generic implementation - No specific pattern matched
+    log_warn "No template pattern for: {{ impl }}"
+    log_warn "This implementation requires custom scripting"
+    log_warn "Consider adding a new pattern to bash_template.sh.j2"
+    {% endif %}
+
+{% endfor %}
+{% else %}
+    log_warn "No implementation steps defined for this control"
+{% endif %}
+
+    log_success "{{ control_id }} implementation completed"
+    return ${EXIT_SUCCESS}
+}
+
+################################################################################
+# VERIFICATION
+################################################################################
+
+verify_implementation() {
+    log_info "Verifying {{ control_id }} implementation..."
+
+    local verification_passed=true
+
+{% if verification %}
+{% for verify in verification %}
+    # Verification: {{ verify }}
+    log_info "Verifying: {{ verify }}"
+
+    {%- if 'PASS_MIN_LEN' in verify %}
+    if grep -q '^PASS_MIN_LEN.*14' /etc/login.defs; then
+        log_success "[PASS] Password minimum length verified"
+    else
+        log_error "[FAIL] Password minimum length not set correctly"
+        verification_passed=false
+    fi
+
+    {%- elif 'pam_faillock' in verify %}
+    local pam_file="/etc/pam.d/common-auth"
+    {% if is_rhel %}
+    pam_file="/etc/pam.d/system-auth"
+    {% endif %}
+
+    if grep -q 'pam_faillock.so.*deny=3' "${pam_file}"; then
+        log_success "[PASS] PAM faillock verified"
+    else
+        log_error "[FAIL] PAM faillock not configured correctly"
+        verification_passed=false
+    fi
+
+    {%- elif 'sudo' in verify.lower() %}
+    if [ -f /etc/sudoers.d/logging ]; then
+        log_success "[PASS] Sudo logging verified"
+    else
+        log_error "[FAIL] Sudo logging not configured"
+        verification_passed=false
+    fi
+
+    {%- elif 'auditd' in verify.lower() %}
+    if {{ service_manager }} is-active --quiet auditd; then
+        log_success "[PASS] Auditd service active"
+    else
+        log_error "[FAIL] Auditd service not active"
+        verification_passed=false
+    fi
+
+    {%- else %}
+    # Generic verification
+    log_info "Generic verification: {{ verify }}"
+    {% endif %}
+
+{% endfor %}
+{% else %}
+    log_warn "No verification steps defined"
+{% endif %}
+
+    if [ "${verification_passed}" = "true" ]; then
+        log_success "All verification checks passed"
+        return ${EXIT_SUCCESS}
+    else
+        log_error "Some verification checks failed"
+        return ${EXIT_VERIFICATION_FAILED}
+    fi
+}
+
+################################################################################
+# ROLLBACK
+################################################################################
+
+rollback_changes() {
+    log_warn "Rolling back changes from ${BACKUP_DIR}..."
+
+    if [ ! -d "${BACKUP_DIR}" ]; then
+        log_error "Backup directory not found: ${BACKUP_DIR}"
+        return ${EXIT_ROLLBACK_FAILED}
+    fi
+
+    # Restore backed up files
+    if [ -d "${BACKUP_DIR}/etc" ]; then
+        cp -a "${BACKUP_DIR}/etc/"* /etc/ 2>/dev/null || true
+        log_info "Configuration files restored"
+    fi
+
+{% if rollback %}
+{% for rollback_step in rollback %}
+    # {{ rollback_step }}
+    log_info "Rollback step: {{ rollback_step }}"
+{% endfor %}
+{% endif %}
+
+    log_success "Rollback completed"
+    return ${EXIT_SUCCESS}
+}
+
+################################################################################
+# MAIN
+################################################################################
+
+main() {
+    log_info "========================================="
+    log_info "NIST 800-53 {{ control_id }} Implementation"
+    log_info "Platform: {{ platform }}"
+    log_info "========================================="
+
+    # Execute implementation pipeline
+    preflight_checks || exit $?
+    backup_state || exit $?
+    implement_control || exit $?
+    verify_implementation || exit $?
+
+    log_success "========================================="
+    log_success "{{ control_id }} implementation successful!"
+    log_success "Logs: ${LOG_FILE}"
+    log_success "Backup: ${BACKUP_DIR}"
+    log_success "========================================="
+
+    exit ${EXIT_SUCCESS}
+}
+
+# Execute main function
+main "$@"

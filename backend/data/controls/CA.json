@@ -1,0 +1,1075 @@
+[
+  {
+    "control_id": "ca-1",
+    "control_name": "Policy and Procedures",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that policies and procedures are in place to guide the organization's security efforts.",
+    "example_implementation": "This script regularly review and update policies and procedures to ensure they align with current security threats and best practices. Involve key stakeholders in the review process to ensure buy-in and compliance.",
+    "non_technical_guidance": "This plan to comply with control CA-1 (Policy and Procedures), the following non-technical implementation plan can be followed:\n\n1. Develop and document comprehensive policies and procedures related to information security, privacy, and compliance.\n2. Ensure that these policies and procedures are reviewed and approved by appropriate management personnel.\n3. Implement a process for regularly reviewing and updating policies and procedures to reflect changes in technology, regulations, and business requirements.\n4. Provide training to employees on the policies and procedures to ensure awareness and understanding.\n5. Conduct periodic audits or assessments to verify compliance with the established policies and procedures.\n6. Establish a process for reporting and addressing any non-compliance issues identified during audits or assessments.\n7. Document all activities related to policy and procedure management for audit and compliance purposes.\n\nBy following these steps, organizations can demonstrate compliance with control CA-1 and ensure that policies and procedures are effectively implemented and maintained.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-2",
+    "control_name": "Control Assessments",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Control Assessments ensure that security controls are implemented correctly and are effective in protecting the organization's information systems.",
+    "example_implementation": "This script regularly conduct control assessments to identify any weaknesses or gaps in security controls and take necessary actions to address them.",
+    "non_technical_guidance": "This plan regularly assess the security controls in place to ensure they are implemented correctly and are effective in mitigating risks. This can be done through manual reviews, audits, interviews, and documentation reviews. Develop a schedule for conducting control assessments and assign responsibilities to specific individuals or teams. Keep detailed records of assessment results and any corrective actions taken. Ensure that assessments are conducted in accordance with organizational policies and procedures.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-2.1",
+        "title": "Independent Assessors",
+        "official_text": "Employ independent assessors or assessment teams to conduct control assessments."
+      },
+      {
+        "id": "ca-2.2",
+        "title": "Specialized Assessments",
+        "official_text": "Include as part of control assessments, {{ insert: param, ca-02.02_odp.01 }}, {{ insert: param, ca-02.02_odp.02 }}, {{ insert: param, ca-02.02_odp.03 }}."
+      },
+      {
+        "id": "ca-2.3",
+        "title": "Leveraging Results from External Organizations",
+        "official_text": "Leverage the results of control assessments performed by {{ insert: param, ca-02.03_odp.01 }} on {{ insert: param, ca-02.03_odp.02 }} when the assessment meets {{ insert: param, ca-02.03_odp.03 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "ca-2.1",
+    "control_name": "Independent Assessors",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ independent assessors or assessment teams to conduct control assessments.",
+    "parent_control": "ca-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Employ independent assessors or assessment teams to conduct control assessments.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-2.2",
+    "control_name": "Specialized Assessments",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Include as part of control assessments, {{ insert: param, ca-02.02_odp.01 }}, {{ insert: param, ca-02.02_odp.02 }}, {{ insert: param, ca-02.02_odp.03 }}.",
+    "parent_control": "ca-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Include as part of control assessments, {{ insert: param, ca-02.02_odp.01 }}, {{ insert: param, ca-02.02_odp.02 }}, {{ insert: param, ca-02.02_odp.03 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-2.3",
+    "control_name": "Leveraging Results from External Organizations",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Leverage the results of control assessments performed by {{ insert: param, ca-02.03_odp.01 }} on {{ insert: param, ca-02.03_odp.02 }} when the assessment meets {{ insert: param, ca-02.03_odp.03 }}.",
+    "parent_control": "ca-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Leverage the results of control assessments performed by {{ insert: param, ca-02.03_odp.01 }} on {{ insert: param, ca-02.03_odp.02 }} when the assessment meets {{ insert: param, ca-02.03_odp.03 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3",
+    "control_name": "Information Exchange",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that information exchanged between systems is done securely to protect sensitive data.",
+    "example_implementation": "This script implement strong encryption protocols when transferring sensitive information between systems to ensure data confidentiality and integrity.",
+    "non_technical_guidance": "This plan to comply with control ca-3, Information Exchange, you should establish and maintain information sharing agreements with external organizations that define the information to be shared, the purpose of the sharing, and the responsibilities of each party. This can involve creating formal agreements, policies, and procedures for exchanging information securely and in accordance with relevant laws and regulations. Regularly review and update these agreements to ensure they remain current and effective. Additionally, provide training to staff on the importance of information exchange and the proper procedures for sharing information securely. Regularly monitor and audit information exchange activities to ensure compliance with established agreements and policies.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-3.1",
+        "title": "Unclassified National Security System Connections",
+        "official_text": ""
+      },
+      {
+        "id": "ca-3.2",
+        "title": "Classified National Security System Connections",
+        "official_text": ""
+      },
+      {
+        "id": "ca-3.3",
+        "title": "Unclassified Non-national Security System Connections",
+        "official_text": ""
+      },
+      {
+        "id": "ca-3.4",
+        "title": "Connections to Public Networks",
+        "official_text": ""
+      },
+      {
+        "id": "ca-3.5",
+        "title": "Restrictions on External System Connections",
+        "official_text": ""
+      },
+      {
+        "id": "ca-3.6",
+        "title": "Transfer Authorizations",
+        "official_text": "Verify that individuals or systems transferring data between interconnecting systems have the requisite authorizations (i.e., write permissions or privileges) prior to accepting such data."
+      },
+      {
+        "id": "ca-3.7",
+        "title": "Transitive Information Exchanges",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.1",
+    "control_name": "Unclassified National Security System Connections",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.2",
+    "control_name": "Classified National Security System Connections",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.3",
+    "control_name": "Unclassified Non-national Security System Connections",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.4",
+    "control_name": "Connections to Public Networks",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.5",
+    "control_name": "Restrictions on External System Connections",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.6",
+    "control_name": "Transfer Authorizations",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Verify that individuals or systems transferring data between interconnecting systems have the requisite authorizations (i.e., write permissions or privileges) prior to accepting such data.",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Verify that individuals or systems transferring data between interconnecting systems have the requisite authorizations (i.e., write permissions or privileges) prior to accepting such data.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-3.7",
+    "control_name": "Transitive Information Exchanges",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-4",
+    "control_name": "Security Certification",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Security Certification ensures that systems are certified and accredited before being authorized to operate.",
+    "example_implementation": "This script ensure that all systems undergo a thorough security certification process before being allowed to operate in your IT environment.",
+    "non_technical_guidance": "This plan to comply with control CA-4 (Security Certification), the organization must ensure that security certifications are obtained and maintained for information systems as required by laws, regulations, and organizational policies. \n\nTo implement this control, the organization should establish a formal process for obtaining and maintaining security certifications for all information systems. This process should include identifying the specific certifications required for each system based on applicable laws, regulations, and organizational policies. \n\nThe organization should designate responsible individuals or teams to oversee the certification process, including submitting necessary documentation, scheduling audits, and ensuring compliance with certification requirements. Regular reviews should be conducted to verify that certifications are up to date and any necessary actions are taken to maintain compliance. \n\nDocumentation of security certifications and compliance efforts should be maintained and made available for audit purposes. Regular training and awareness programs should be conducted to ensure all personnel are aware of the certification requirements and their role in maintaining compliance.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-5",
+    "control_name": "Plan of Action and Milestones",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Organizations must create a plan to address security weaknesses and track progress towards fixing them.",
+    "example_implementation": "This script regularly review and update your Plan of Action and Milestones (POA&M) document to ensure it reflects the current state of security vulnerabilities and remediation efforts.",
+    "non_technical_guidance": "This plan to comply with control CA-5 \"Plan of Action and Milestones,\" follow these steps:\n1. Develop a Plan of Action and Milestones (POA&M) document that outlines the security weaknesses or deficiencies identified during security assessments.\n2. Include in the POA&M:\n   - Description of the weakness or deficiency\n   - Responsible individual or team for addressing the weakness\n   - Timeline for addressing the weakness\n   - Resources required to address the weakness\n3. Regularly update and track progress on the POA&M document.\n4. Implement corrective actions to address the identified weaknesses or deficiencies within the specified timelines.\n5. Review and update the POA&M document as needed to reflect changes in the security posture of the system.\n6. Ensure senior leadership is aware of the progress and status of the POA&M.\n7. Use the POA&M as a tool for continuous improvement and monitoring of security controls.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-5.1",
+        "title": "Automation Support for Accuracy and Currency",
+        "official_text": "Ensure the accuracy, currency, and availability of the plan of action and milestones for the system using {{ insert: param, ca-05.01_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "ca-5.1",
+    "control_name": "Automation Support for Accuracy and Currency",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Ensure the accuracy, currency, and availability of the plan of action and milestones for the system using {{ insert: param, ca-05.01_odp }}.",
+    "parent_control": "ca-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure the accuracy, currency, and availability of the plan of action and milestones for the system using {{ insert: param, ca-05.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-6",
+    "control_name": "Authorization",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Authorization control ensures that only authorized individuals have access to systems, applications, and data.",
+    "example_implementation": "This script regularly review and update user access permissions to ensure that only necessary individuals have access to sensitive information.",
+    "non_technical_guidance": "This plan to implement control CA-6 (Authorization) in a non-technical manner, you should establish clear policies and procedures for authorizing access to systems, applications, and data. This includes defining roles and responsibilities for granting, modifying, and revoking access permissions. Regularly review and update access controls based on changes in personnel, job roles, or system requirements. Conduct training for employees on the importance of authorization and the proper procedures for requesting access. Implement a process for monitoring and auditing access to ensure compliance with authorization policies. Regularly assess and update authorization controls to align with organizational changes and evolving security requirements.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-6.1",
+        "title": "Joint Authorization — Intra-organization",
+        "official_text": "Employ a joint authorization process for the system that includes multiple authorizing officials from the same organization conducting the authorization."
+      },
+      {
+        "id": "ca-6.2",
+        "title": "Joint Authorization — Inter-organization",
+        "official_text": "Employ a joint authorization process for the system that includes multiple authorizing officials with at least one authorizing official from an organization external to the organization conducting the authorization."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-6.1",
+    "control_name": "Joint Authorization — Intra-organization",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ a joint authorization process for the system that includes multiple authorizing officials from the same organization conducting the authorization.",
+    "parent_control": "ca-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ a joint authorization process for the system that includes multiple authorizing officials from the same organization conducting the authorization.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-6.2",
+    "control_name": "Joint Authorization — Inter-organization",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ a joint authorization process for the system that includes multiple authorizing officials with at least one authorizing official from an organization external to the organization conducting the authorization.",
+    "parent_control": "ca-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ a joint authorization process for the system that includes multiple authorizing officials with at least one authorizing official from an organization external to the organization conducting the authorization.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7",
+    "control_name": "Continuous Monitoring",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Develop a system-level continuous monitoring strategy and implement continuous monitoring in accordance with the organization-level continuous monitoring strategy that includes:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Continuous monitoring involves regularly checking and assessing the security of systems to ensure they are protected from threats.",
+    "example_implementation": "This script sets up automated tools to regularly scan and monitor your systems for any potential security vulnerabilities or incidents. Regularly review and analyze the monitoring data to stay on top of any security issues.",
+    "non_technical_guidance": "This plan 1. Develop a system-level continuous monitoring strategy that aligns with the organization-level continuous monitoring strategy.\n2. Identify key metrics and indicators that need to be monitored regularly to ensure the security and compliance of the system.\n3. Implement tools and processes that enable continuous monitoring, such as security information and event management (SIEM) systems, intrusion detection systems (IDS), and log monitoring solutions.\n4. Define roles and responsibilities for monitoring activities, including regular reviews and analysis of monitoring data.\n5. Establish procedures for responding to and remediating security incidents identified through continuous monitoring.\n6. Regularly review and update the continuous monitoring strategy to adapt to changing threats and vulnerabilities.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-7.1",
+        "title": "Independent Assessment",
+        "official_text": "Employ independent assessors or assessment teams to monitor the controls in the system on an ongoing basis."
+      },
+      {
+        "id": "ca-7.2",
+        "title": "Types of Assessments",
+        "official_text": ""
+      },
+      {
+        "id": "ca-7.3",
+        "title": "Trend Analyses",
+        "official_text": "Employ trend analyses to determine if control implementations, the frequency of continuous monitoring activities, and the types of activities used in the continuous monitoring process need to be modified based on empirical data."
+      },
+      {
+        "id": "ca-7.4",
+        "title": "Risk Monitoring",
+        "official_text": "Ensure risk monitoring is an integral part of the continuous monitoring strategy that includes the following:"
+      },
+      {
+        "id": "ca-7.5",
+        "title": "Consistency Analysis",
+        "official_text": "Employ the following actions to validate that policies are established and implemented controls are operating in a consistent manner: {{ insert: param, ca-7.5_prm_1 }}."
+      },
+      {
+        "id": "ca-7.6",
+        "title": "Automation Support for Monitoring",
+        "official_text": "Ensure the accuracy, currency, and availability of monitoring results for the system using {{ insert: param, ca-07.06_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.1",
+    "control_name": "Independent Assessment",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ independent assessors or assessment teams to monitor the controls in the system on an ongoing basis.",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Employ independent assessors or assessment teams to monitor the controls in the system on an ongoing basis.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.2",
+    "control_name": "Types of Assessments",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.3",
+    "control_name": "Trend Analyses",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ trend analyses to determine if control implementations, the frequency of continuous monitoring activities, and the types of activities used in the continuous monitoring process need to be modified based on empirical data.",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ trend analyses to determine if control implementations, the frequency of continuous monitoring activities, and the types of activities used in the continuous monitoring process need to be modified based on empirical data.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.4",
+    "control_name": "Risk Monitoring",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Ensure risk monitoring is an integral part of the continuous monitoring strategy that includes the following:",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure risk monitoring is an integral part of the continuous monitoring strategy that includes the following:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.5",
+    "control_name": "Consistency Analysis",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ the following actions to validate that policies are established and implemented controls are operating in a consistent manner: {{ insert: param, ca-7.5_prm_1 }}.",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following actions to validate that policies are established and implemented controls are operating in a consistent manner: {{ insert: param, ca-7.5_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-7.6",
+    "control_name": "Automation Support for Monitoring",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Ensure the accuracy, currency, and availability of monitoring results for the system using {{ insert: param, ca-07.06_odp }}.",
+    "parent_control": "ca-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure the accuracy, currency, and availability of monitoring results for the system using {{ insert: param, ca-07.06_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-8",
+    "control_name": "Penetration Testing",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Conduct penetration testing {{ insert: param, ca-08_odp.01 }} on {{ insert: param, ca-08_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Conducting penetration testing involves simulating cyber attacks to identify vulnerabilities in a system.",
+    "example_implementation": "This script schedule regular penetration testing exercises to proactively identify and address security weaknesses in your IT environment.",
+    "non_technical_guidance": "This plan to comply with Control ID ca-8, Penetration Testing, you should engage a qualified third-party security firm to conduct regular penetration testing on your systems. The testing should include both internal and external assessments to identify vulnerabilities and potential points of exploitation. The results of these tests should be documented and used to improve your security posture by addressing any identified weaknesses. It is important to schedule these tests regularly to ensure ongoing compliance with this control.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-8.1",
+        "title": "Independent Penetration Testing Agent or Team",
+        "official_text": "Employ an independent penetration testing agent or team to perform penetration testing on the system or system components."
+      },
+      {
+        "id": "ca-8.2",
+        "title": "Red Team Exercises",
+        "official_text": "Employ the following red-team exercises to simulate attempts by adversaries to compromise organizational systems in accordance with applicable rules of engagement: {{ insert: param, ca-08.02_odp }}."
+      },
+      {
+        "id": "ca-8.3",
+        "title": "Facility Penetration Testing",
+        "official_text": "Employ a penetration testing process that includes {{ insert: param, ca-08.03_odp.01 }} {{ insert: param, ca-08.03_odp.02 }} attempts to bypass or circumvent controls associated with physical access points to the facility."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-8.1",
+    "control_name": "Independent Penetration Testing Agent or Team",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ an independent penetration testing agent or team to perform penetration testing on the system or system components.",
+    "parent_control": "ca-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Employ an independent penetration testing agent or team to perform penetration testing on the system or system components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-8.2",
+    "control_name": "Red Team Exercises",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ the following red-team exercises to simulate attempts by adversaries to compromise organizational systems in accordance with applicable rules of engagement: {{ insert: param, ca-08.02_odp }}.",
+    "parent_control": "ca-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following red-team exercises to simulate attempts by adversaries to compromise organizational systems in accordance with applicable rules of engagement: {{ insert: param, ca-08.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-8.3",
+    "control_name": "Facility Penetration Testing",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Employ a penetration testing process that includes {{ insert: param, ca-08.03_odp.01 }} {{ insert: param, ca-08.03_odp.02 }} attempts to bypass or circumvent controls associated with physical access points to the facility.",
+    "parent_control": "ca-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ a penetration testing process that includes {{ insert: param, ca-08.03_odp.01 }} {{ insert: param, ca-08.03_odp.02 }} attempts to bypass or circumvent controls associated with physical access points to the facility.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  },
+  {
+    "control_id": "ca-9",
+    "control_name": "Internal System Connections",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that internal connections within a system are secure and only authorized users can access them.",
+    "example_implementation": "This script implement network segmentation to separate different parts of the system and restrict access based on user roles and permissions. Regularly monitor and audit internal connections to ensure compliance with security policies.",
+    "non_technical_guidance": "This plan ensure that internal system connections are restricted to only authorized users and systems. This can be achieved by implementing proper access controls, network segmentation, and monitoring mechanisms. Regularly review and update access control lists, firewall rules, and network configurations to ensure that only necessary connections are allowed. Conduct periodic audits to verify compliance with internal system connection policies and address any unauthorized connections promptly. Provide training to staff on the importance of following internal system connection policies and procedures.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ca-9.1",
+        "title": "Compliance Checks",
+        "official_text": "Perform security and privacy compliance checks on constituent system components prior to the establishment of the internal connection."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    }
+  },
+  {
+    "control_id": "ca-9.1",
+    "control_name": "Compliance Checks",
+    "family": "Assessment, Authorization, and Monitoring",
+    "family_id": "ca",
+    "official_text": "Perform security and privacy compliance checks on constituent system components prior to the establishment of the internal connection.",
+    "parent_control": "ca-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Perform security and privacy compliance checks on constituent system components prior to the establishment of the internal connection.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    }
+  }
+]

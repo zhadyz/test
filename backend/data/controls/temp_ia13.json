@@ -1,0 +1,169 @@
+[
+  {
+    "control_id": "ia-13",
+    "control_name": "Identity Providers and Authorization Servers",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Employ identity providers and authorization servers to manage user, device, and non-person entity (NPE) identities, attributes, and access rights supporting authentication and authorization decisions in accordance with {{ insert: param, ia-13_odp.01 }} using {{ insert: param, ia-13_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use identity providers and authorization servers to manage user identities, attributes, and access rights for authentication and authorization decisions.",
+    "example_implementation": "This script implement a centralized identity provider and authorization server to streamline user access management and ensure security compliance.",
+    "non_technical_guidance": "This plan to comply with control IA-13, you should implement identity providers and authorization servers to manage user, device, and non-person entity (NPE) identities, attributes, and access rights. This involves utilizing a centralized system to authenticate and authorize users, devices, and entities within your organization. \n\nHere is an implementation plan for compliance:\n1. Identify the identity providers and authorization servers that are suitable for your organization's needs.\n2. Integrate these systems with your existing infrastructure to ensure seamless authentication and authorization processes.\n3. Configure the identity providers and authorization servers to enforce access controls based on user roles, attributes, and policies.\n4. Regularly review and update the configurations to ensure they align with your organization's security requirements and compliance standards.\n5. Train your employees on how to use the identity providers and authorization servers effectively to prevent unauthorized access to sensitive information.\n6. Conduct regular audits and assessments to verify that the identity providers and authorization servers are functioning as intended and are compliant with relevant regulations.\n\nBy following these steps, you can effectively implement identity providers and authorization servers to meet the requirements of control IA-13.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ia-13.1",
+        "title": "Protection of Cryptographic Keys",
+        "official_text": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse."
+      },
+      {
+        "id": "ia-13.2",
+        "title": "Verification of Identity Assertions and Access Tokens",
+        "official_text": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources."
+      },
+      {
+        "id": "ia-13.3",
+        "title": "Token Management",
+        "official_text": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:24.999753+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.1",
+    "control_name": "Protection of Cryptographic Keys",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse.",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Cryptographic keys that protect access tokens are generated, managed, and protected from disclosure and misuse.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:26.589123+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.2",
+    "control_name": "Verification of Identity Assertions and Access Tokens",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources.",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "The source and integrity of identity assertions and access tokens are verified before granting access to system and information resources.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:28.187019+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ia-13.3",
+    "control_name": "Token Management",
+    "family": "Identification and Authentication",
+    "family_id": "ia",
+    "official_text": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:",
+    "parent_control": "ia-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "In accordance with {{ insert: param, ia-13_odp.01 }}, assertions and access tokens are:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:09:29.792703+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

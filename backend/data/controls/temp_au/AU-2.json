@@ -1,0 +1,150 @@
+[
+  {
+    "control_id": "AU-2",
+    "control_id_normalized": "AU-2",
+    "control_name": "Event Logging",
+    "family": "Audit and Accountability",
+    "family_id": "au",
+    "official_text": "Determine the events that the system is capable of logging in support of the audit function; coordinate the event logging function with other organizational entities requiring audit-related information to guide and inform the selection criteria for events to be logged; specify the event types for logging within the system (along with the frequency of (or situation requiring) logging for each identified event type); provide a rationale for why the event types selected for logging are deemed adequate to support after-the-fact investigations of incidents; and review and update the event types selected for logging at an organization-defined frequency.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Organizations must systematically identify what events their systems can log, coordinate with relevant departments about what should be logged, select specific event types to record, document why those events support incident investigations, and periodically review and update logging selections. Event logging is foundational to detecting unauthorized access, tracking system changes, and investigating security incidents.",
+    "example_implementation": "Conduct an event identification workshop with security, compliance, and operations teams to catalog all system-capable events. Document baseline events required by NIST (failed login attempts, privilege escalation, data access, configuration changes). Configure Linux auditd with STIG-aligned rules (RHEL-08-030xxx series) and Windows Event Log with security event categories. Establish quarterly reviews to evaluate effectiveness and adjust rules based on threat landscape changes and regulatory updates.",
+    "non_technical_guidance": "1. Engage stakeholders (security, compliance, operations, legal) to understand event logging requirements\n2. Balance comprehensive monitoring with system performance considerations\n3. Document the rationale for selected event types to support compliance audits\n4. Create a governance process for periodic review (minimum annual) and updates\n5. Ensure retention policies align with regulatory requirements\n6. Consider privacy implications and personally identifiable information exposure\n7. Train personnel on event logging importance and proper implementation",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "AU-2.1",
+        "id_normalized": "AU-2.1",
+        "title": "Compilation of Audit Records from Multiple Sources",
+        "status": "WITHDRAWN - Incorporated into AU-12.1",
+        "official_text": "[WITHDRAWN in NIST 800-53 Revision 5: Incorporated into AU-12(1)]"
+      },
+      {
+        "id": "AU-2.2",
+        "id_normalized": "AU-2.2",
+        "title": "Selection of Audit Events by Component",
+        "status": "WITHDRAWN - Incorporated into AU-12",
+        "official_text": "[WITHDRAWN in NIST 800-53 Revision 5: Incorporated into AU-12]"
+      },
+      {
+        "id": "AU-2.3",
+        "id_normalized": "AU-2.3",
+        "title": "Reviews and Updates",
+        "status": "WITHDRAWN - Incorporated into AU-2 base control",
+        "official_text": "[WITHDRAWN in NIST 800-53 Revision 5: Incorporated into AU-2 base control. Requirement to review and update event types selected for logging is now part of the base AU-2 control.]"
+      },
+      {
+        "id": "AU-2.4",
+        "id_normalized": "AU-2.4",
+        "title": "Privileged Functions",
+        "status": "WITHDRAWN - Incorporated into AC-6.9",
+        "official_text": "[WITHDRAWN in NIST 800-53 Revision 5: Incorporated into AC-6(9). The requirement to audit privileged function execution is now found in AC-6(9): Audit the Execution of Privileged Functions.]"
+      }
+    ],
+    "related_controls": [
+      "AU-3",
+      "AU-6",
+      "AU-12",
+      "AC-6",
+      "AC-6.9"
+    ],
+    "supplemental_guidance": "AU-2 is a foundational control for the Audit and Accountability family. Event types to consider include: failed logon attempts, successful logon attempts, privilege escalation, administrative actions, security attribute modifications, data access operations (for systems holding sensitive data), system configuration changes, unauthorized access attempts, and account lifecycle events (creation, modification, deletion, disabling). Organizations performing compliance audits in RHEL 8 environments should reference RHEL-08-030xxx STIG rules which provide specific auditd configurations. Privacy considerations: event logging can expose personally identifiable information through usage patterns and requires mitigation planning.",
+    "ai_guidance": "When implementing AU-2, first conduct a comprehensive audit capability assessment to identify what your systems can log. Prioritize events based on: (1) regulatory requirements (FISMA, PCI-DSS, HIPAA), (2) incident investigation needs, (3) privilege abuse detection. Create an audit event matrix mapping business functions to events. Use ComplianceAsCode STIG rules as baseline for technical implementation. Document exceptions where performance constraints prevent logging. Establish metrics: log volume, retention days, analysis latency. Review effectiveness annually or when threat landscape changes. Note: Enhancements AU-2.1 through AU-2.4 are WITHDRAWN in Rev 5 - consult AU-12, AC-6.9 for successor requirements.",
+    "implementation_scripts": {
+      "linux": {
+        "description": "RHEL 8 auditd configuration aligned with STIG RHEL-08-030xxx rules",
+        "bash": "#!/bin/bash\n# Install auditd package\nsudo dnf install audit audit-libs -y\n\n# Enable auditd service\nsudo systemctl enable auditd\nsudo systemctl start auditd\n\n# Configure audit rules (STIG-aligned)\nsudo tee /etc/audit/rules.d/audit.rules > /dev/null << 'RULES'\n# Delete all existing rules\n-D\n\n# Buffer Size\n-b 8192\n\n# Failure handling (2 = panic on failure)\n-f 2\n\n# Time Change Events (STIG RHEL-08-030300)\n-a always,exit -F arch=b64 -S adjtimex,settimeofday -F key=time-change\n-a always,exit -F arch=b32 -S adjtimex,settimeofday,stime -F key=time-change\n-a always,exit -F arch=b64 -S clock_settime -F a0=0x0 -F key=time-change\n-a always,exit -F arch=b32 -S clock_settime -F a0=0x0 -F key=time-change\n\n# User/Group Modification Events (STIG RHEL-08-030130-030180)\n-a always,exit -F arch=b64 -F path=/etc/group -F perm=wa -F key=identity\n-a always,exit -F arch=b64 -F path=/etc/passwd -F perm=wa -F key=identity\n-a always,exit -F arch=b64 -F path=/etc/gshadow -F perm=wa -F key=identity\n-a always,exit -F arch=b64 -F path=/etc/shadow -F perm=wa -F key=identity\n\n# System Locale Changes (STIG RHEL-08-030310)\n-a always,exit -F arch=b64 -S sethostname,setdomainname -F key=system-locale\n-a always,exit -F arch=b32 -S sethostname,setdomainname -F key=system-locale\n\n# DAC Modifications (STIG RHEL-08-030200-030270)\n-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod\n-a always,exit -F arch=b32 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod\n-a always,exit -F arch=b64 -S chown,fchown,fchownat,lchown -F auid>=1000 -F auid!=-1 -F key=perm_mod\n-a always,exit -F arch=b32 -S chown,fchown,fchownat,lchown -F auid>=1000 -F auid!=-1 -F key=perm_mod\n\n# File Access (Unsuccessful - STIG RHEL-08-030320)\n-a always,exit -F arch=b64 -S open,creat,truncate,openat -F exit=-EACCES -F key=access\n-a always,exit -F arch=b32 -S open,creat,truncate,openat -F exit=-EACCES -F key=access\n-a always,exit -F arch=b64 -S open,creat,truncate,openat -F exit=-EPERM -F key=access\n-a always,exit -F arch=b32 -S open,creat,truncate,openat -F exit=-EPERM -F key=access\n\n# File Deletion (STIG RHEL-08-030340)\n-a always,exit -F arch=b64 -S unlink,unlinkat,rename,renameat -F auid>=1000 -F auid!=-1 -F key=delete\n-a always,exit -F arch=b32 -S unlink,unlinkat,rename,renameat -F auid>=1000 -F auid!=-1 -F key=delete\n\n# Privileged Commands - sudo (STIG RHEL-08-030360)\n-a always,exit -F path=/usr/bin/sudo -F perm=x -F auid>=1000 -F auid!=-1 -F key=actions\n\n# Privileged Commands - su (STIG RHEL-08-030370)\n-a always,exit -F path=/usr/bin/su -F perm=x -F auid>=1000 -F auid!=-1 -F key=actions\n\n# Make audit configuration immutable (STIG RHEL-08-030121)\n-e 2\nRULES\n\n# Reload audit rules\nsudo service audit restart\n\n# Verify audit rules are loaded\nsudo auditctl -l\n\necho 'Auditd configured with STIG-aligned event logging rules'\n"
+      },
+      "windows": {
+        "description": "Windows Event Log configuration for AU-2 event logging",
+        "powershell": "# Enable Windows Event Log for Security Events\nWrite-Host 'Configuring Windows Event Logging for AU-2 compliance...'\n\n# Ensure required event log channels are enabled\nSet-EventLog -LogName Security -RetentionDays 90\n\n# Configure audit policies (requires Group Policy Editor or auditpol.exe)\n# Enable Logon/Logoff auditing\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable /failure:enable\n\n# Enable Account Management auditing\nauditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Security Group Management\" /success:enable /failure:enable\n\n# Enable Privilege Use auditing\nauditpol /set /subcategory:\"Sensitive Privilege Use\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Non Sensitive Privilege Use\" /success:enable /failure:enable\n\n# Enable Object Access auditing (File and Registry)\nauditpol /set /subcategory:\"File Share\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Registry\" /success:enable /failure:enable\n\n# Enable Policy Change auditing\nauditpol /set /subcategory:\"Audit Policy Change\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Security State Change\" /success:enable /failure:enable\n\n# Verify audit policy\nauditpol /get /category:*\n\nWrite-Host 'Windows Event Logging configured for AU-2 compliance'\n"
+      },
+      "ansible": {
+        "description": "Ansible playbook for AU-2 implementation across RHEL systems",
+        "yml": "---\n- name: Implement AU-2 Event Logging Control\n  hosts: rhel_systems\n  become: true\n  vars:\n    audit_rules_file: /etc/audit/rules.d/audit.rules\n  \n  tasks:\n    - name: Install auditd package\n      dnf:\n        name:\n          - audit\n          - audit-libs\n        state: present\n\n    - name: Ensure auditd service is enabled and started\n      systemd:\n        name: auditd\n        enabled: true\n        state: started\n\n    - name: Deploy STIG-aligned audit rules\n      copy:\n        dest: \"{{ audit_rules_file }}\"\n        content: |\n          # Audit rules for NIST AU-2 - Event Logging\n          -D\n          -b 8192\n          -f 2\n          \n          # Time Change Events\n          -a always,exit -F arch=b64 -S adjtimex,settimeofday -F key=time-change\n          -a always,exit -F arch=b32 -S adjtimex,settimeofday,stime -F key=time-change\n          \n          # User/Group Modifications\n          -a always,exit -F arch=b64 -F path=/etc/group -F perm=wa -F key=identity\n          -a always,exit -F arch=b64 -F path=/etc/passwd -F perm=wa -F key=identity\n          -a always,exit -F arch=b64 -F path=/etc/gshadow -F perm=wa -F key=identity\n          -a always,exit -F arch=b64 -F path=/etc/shadow -F perm=wa -F key=identity\n          \n          # DAC Modifications\n          -a always,exit -F arch=b64 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod\n          -a always,exit -F arch=b32 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod\n          \n          # File Deletion\n          -a always,exit -F arch=b64 -S unlink,unlinkat,rename,renameat -F auid>=1000 -F auid!=-1 -F key=delete\n          \n          # Privileged Commands\n          -a always,exit -F path=/usr/bin/sudo -F perm=x -F auid>=1000 -F auid!=-1 -F key=actions\n          -a always,exit -F path=/usr/bin/su -F perm=x -F auid>=1000 -F auid!=-1 -F key=actions\n          \n          # Immutable configuration\n          -e 2\n        mode: '0640'\n        owner: root\n        group: root\n      notify: Reload audit rules\n\n    - name: Ensure /var/log/audit directory exists\n      file:\n        path: /var/log/audit\n        state: directory\n        mode: '0750'\n        owner: root\n        group: root\n\n  handlers:\n    - name: Reload audit rules\n      service:\n        name: auditd\n        state: restarted\n"
+      }
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-20T00:00:00Z",
+      "has_scripts": true,
+      "qa_verdict": "FAIL",
+      "qa_reason": "NIST 800-53 Revision 5 enhancement status not properly documented"
+    },
+    "critical_issues": [
+      "NIST 800-53 Revision 5 CRITICAL: AU-2.1 through AU-2.4 are WITHDRAWN enhancements. Current AU.json lists them as active/pending - this violates NIST Rev 5 specification and must be corrected.",
+      "AU-2.1 (Compilation of Audit Records) - Requirement moved to AU-12.1 in Rev 5",
+      "AU-2.2 (Selection by Component) - Requirement moved to AU-12 in Rev 5",
+      "AU-2.3 (Reviews and Updates) - Requirement incorporated into base AU-2 in Rev 5",
+      "AU-2.4 (Privileged Functions) - Requirement moved to AC-6.9 in Rev 5",
+      "REMEDIATION: Mark all AU-2.X enhancements as WITHDRAWN with explicit mapping to successor controls. Update control ID normalization from 'au-2(1)' to 'AU-2.1' format for consistency."
+    ],
+    "stig_id": "RHEL-08-030XXX",
+    "stig_mappings": [
+      {
+        "stig_id": "RHEL-08-030121",
+        "title": "Audit system must protect auditing rules from unauthorized change",
+        "description": "Ensure audit rules are immutable (-e 2 flag in auditd.rules)"
+      },
+      {
+        "stig_id": "RHEL-08-030130",
+        "title": "Audit system must audit user/group modification events",
+        "description": "Monitor /etc/passwd, /etc/group, /etc/shadow, /etc/gshadow modifications"
+      },
+      {
+        "stig_id": "RHEL-08-030181",
+        "title": "Audit records must contain information to establish event type, source, location, and outcome",
+        "description": "Auditd captures timestamp, uid, gid, command, return code, and context"
+      },
+      {
+        "stig_id": "RHEL-08-030230",
+        "title": "Audit system must be configured for fsetxattr syscall auditing",
+        "description": "Extended file attribute modification auditing for privilege escalation detection"
+      },
+      {
+        "stig_id": "RHEL-08-030300",
+        "title": "Audit system must audit date/time changes",
+        "description": "adjtimex, settimeofday, clock_settime syscalls must be logged"
+      },
+      {
+        "stig_id": "RHEL-08-030310",
+        "title": "Audit system must audit system locale changes",
+        "description": "sethostname, setdomainname syscalls must be logged"
+      },
+      {
+        "stig_id": "RHEL-08-030340",
+        "title": "Audit system must audit file deletion events",
+        "description": "unlink, unlinkat, rename, renameat syscalls must be logged"
+      },
+      {
+        "stig_id": "RHEL-08-030360",
+        "title": "Audit system must audit sudo execution",
+        "description": "All sudo command execution must be logged for privilege escalation tracking"
+      },
+      {
+        "stig_id": "RHEL-08-030603",
+        "title": "Linux audit logging must be enabled",
+        "description": "auditd service must be enabled and running at all times"
+      },
+      {
+        "stig_id": "RHEL-08-030610",
+        "title": "Only ISSM can select auditable events",
+        "description": "Restrict audit rules modifications to authorized personnel via file permissions and RBAC"
+      }
+    ],
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-20T00:00:00Z",
+      "source": "ComplianceAsCode",
+      "platform": "rhel8, rhel9, windows-2019, windows-2022",
+      "rule_count": 45,
+      "certification": "Government-certified",
+      "stig_rule_series": "RHEL-08-030xxx"
+    }
+  }
+]

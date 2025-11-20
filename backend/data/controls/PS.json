@@ -1,0 +1,709 @@
+[
+  {
+    "control_id": "ps-1",
+    "control_name": "Policy and Procedures",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "PS-1 requires organizations to develop, document, and implement security policies and procedures to protect their information systems.",
+    "example_implementation": "This script start by conducting a thorough review of existing policies and procedures, then work with stakeholders to update and document them in a clear and accessible manner. Regularly review and update these documents to ensure they remain effective and relevant.",
+    "non_technical_guidance": "This plan to comply with control PS-1 (Policy and Procedures), the following non-technical implementation plan can be followed:\n\n1. Develop comprehensive policies and procedures that align with NIST 800-53 requirements.\n2. Ensure that all employees are trained on these policies and procedures.\n3. Regularly review and update policies and procedures to reflect changes in the organization's environment or regulations.\n4. Implement a process for monitoring compliance with policies and procedures.\n5. Conduct regular audits to ensure adherence to policies and procedures.\n6. Establish a process for reporting and addressing any non-compliance issues.\n7. Document all activities related to policy and procedure compliance for auditing purposes.\n\nBy following these steps, the organization can demonstrate compliance with control PS-1 and ensure that policies and procedures are effectively implemented and followed throughout the organization.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:56.254856+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-2",
+    "control_name": "Position Risk Designation",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that employees are assigned appropriate levels of access based on their job responsibilities.",
+    "example_implementation": "This script regularly review and update employee access levels to ensure they align with their current job roles and responsibilities.",
+    "non_technical_guidance": "This plan to implement the Position Risk Designation control (ps-2), a clear, actionable, non-technical plan for compliance would include the following steps:\n\n1. Identify positions within the organization that have access to sensitive information or critical systems.\n2. Define risk levels for each position based on the level of access and impact on the organization if compromised.\n3. Implement a system for designating the risk level of each position, such as using job titles or role descriptions.\n4. Ensure that access controls are in place to restrict access to sensitive information or critical systems based on the designated risk level of each position.\n5. Regularly review and update the risk designation of positions as roles and responsibilities change within the organization.\n6. Document the risk designation process and keep records of position risk levels for auditing purposes.\n\nBy following these steps, organizations can effectively implement the Position Risk Designation control to reduce the risk of unauthorized access to sensitive information and critical systems.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:57.879824+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-3",
+    "control_name": "Personnel Screening",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Personnel Screening control involves conducting background checks on individuals who have access to sensitive information or systems to ensure they are trustworthy and reliable.",
+    "example_implementation": "This script implement a thorough background check process for all employees and contractors with access to sensitive information, including criminal background checks and reference checks.",
+    "non_technical_guidance": "This plan personnel Screening is a control that involves screening individuals before granting them access to sensitive information or systems. To implement this control effectively, follow these non-technical steps:\n\n1. Establish a clear screening process: Define the criteria and procedures for screening personnel before granting them access to sensitive information or systems. This may include background checks, reference checks, and verification of qualifications.\n\n2. Train personnel on security policies: Ensure that all employees are aware of the organization's security policies and the importance of personnel screening in maintaining a secure environment.\n\n3. Regularly review and update screening procedures: Periodically review and update the screening procedures to ensure they are up-to-date and effective in identifying potential risks.\n\n4. Document screening results: Keep records of personnel screening results to track who has been screened and when, as well as any issues or concerns that may have been identified during the screening process.\n\nBy following these steps, you can ensure that personnel screening is effectively implemented within your organization to mitigate security risks associated with granting access to sensitive information or systems.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ps-3.1",
+        "title": "Classified Information",
+        "official_text": "Verify that individuals accessing a system processing, storing, or transmitting classified information are cleared and indoctrinated to the highest classification level of the information to which they have access on the system."
+      },
+      {
+        "id": "ps-3.2",
+        "title": "Formal Indoctrination",
+        "official_text": "Verify that individuals accessing a system processing, storing, or transmitting types of classified information that require formal indoctrination, are formally indoctrinated for all the relevant types of information to which they have access on the system."
+      },
+      {
+        "id": "ps-3.3",
+        "title": "Information Requiring Special Protective Measures",
+        "official_text": "Verify that individuals accessing a system processing, storing, or transmitting information requiring special protection:"
+      },
+      {
+        "id": "ps-3.4",
+        "title": "Citizenship Requirements",
+        "official_text": "Verify that individuals accessing a system processing, storing, or transmitting {{ insert: param, ps-03.04_odp.01 }} meet {{ insert: param, ps-03.04_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:59.485476+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-3.1",
+    "control_name": "Classified Information",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Verify that individuals accessing a system processing, storing, or transmitting classified information are cleared and indoctrinated to the highest classification level of the information to which they have access on the system.",
+    "parent_control": "ps-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that individuals accessing a system processing, storing, or transmitting classified information are cleared and indoctrinated to the highest classification level of the information to which they have access on the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:01.104504+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-3.2",
+    "control_name": "Formal Indoctrination",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Verify that individuals accessing a system processing, storing, or transmitting types of classified information that require formal indoctrination, are formally indoctrinated for all the relevant types of information to which they have access on the system.",
+    "parent_control": "ps-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that individuals accessing a system processing, storing, or transmitting types of classified information that require formal indoctrination, are formally indoctrinated for all the relevant types of information to which they have access on the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:02.709073+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-3.3",
+    "control_name": "Information Requiring Special Protective Measures",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Verify that individuals accessing a system processing, storing, or transmitting information requiring special protection:",
+    "parent_control": "ps-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that individuals accessing a system processing, storing, or transmitting information requiring special protection:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:04.305698+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-3.4",
+    "control_name": "Citizenship Requirements",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Verify that individuals accessing a system processing, storing, or transmitting {{ insert: param, ps-03.04_odp.01 }} meet {{ insert: param, ps-03.04_odp.02 }}.",
+    "parent_control": "ps-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that individuals accessing a system processing, storing, or transmitting {{ insert: param, ps-03.04_odp.01 }} meet {{ insert: param, ps-03.04_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:05.910420+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-4",
+    "control_name": "Personnel Termination",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Upon termination of individual employment:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "When an employee leaves the organization, their access to systems and data should be promptly revoked to prevent unauthorized access.",
+    "example_implementation": "This script sets up automated processes to disable user accounts immediately upon termination and regularly review access controls to ensure former employees no longer have access to sensitive information.",
+    "non_technical_guidance": "This plan upon termination of individual employment, the following steps should be taken to ensure compliance with control PS-4:\n1. Immediately revoke all access privileges, including physical access, system access, and network access.\n2. Collect all company-owned devices, keys, access cards, and any other company property from the terminated individual.\n3. Disable or delete the terminated individual's user accounts on all systems and applications.\n4. Notify relevant departments (IT, HR, Security) of the termination to ensure proper documentation and follow-up actions.\n5. Conduct an exit interview to discuss any remaining responsibilities, confidentiality agreements, and return of company property.\n6. Update any access control lists, distribution lists, or other systems that may have the terminated individual listed as a contact or member.\n7. Maintain documentation of the termination process for audit purposes.\n\nBy following these steps, organizations can effectively manage personnel termination in compliance with control PS-4.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ps-4.1",
+        "title": "Post-employment Requirements",
+        "official_text": ""
+      },
+      {
+        "id": "ps-4.2",
+        "title": "Automated Actions",
+        "official_text": "Use {{ insert: param, ps-04.02_odp.01 }} to {{ insert: param, ps-04.02_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:07.498253+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-4.1",
+    "control_name": "Post-employment Requirements",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "parent_control": "ps-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:09.123931+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-4.2",
+    "control_name": "Automated Actions",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Use {{ insert: param, ps-04.02_odp.01 }} to {{ insert: param, ps-04.02_odp.02 }}.",
+    "parent_control": "ps-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Use {{ insert: param, ps-04.02_odp.01 }} to {{ insert: param, ps-04.02_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:10.738430+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-5",
+    "control_name": "Personnel Transfer",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Personnel transfer control ensures that employees who are transferred or terminated no longer have access to sensitive information or systems.",
+    "example_implementation": "This script when an employee is transferred or leaves the organization, promptly update access controls and credentials to prevent unauthorized access to sensitive data.",
+    "non_technical_guidance": "This plan personnel Transfer control focuses on ensuring that individuals who are transferred within the organization or to another organization are properly briefed on security policies and procedures. To comply with this control, organizations should establish clear procedures for personnel transfers that include:\n\n1. Conducting security briefings for individuals being transferred, covering topics such as data handling procedures, access control policies, and incident reporting protocols.\n2. Updating access controls and permissions based on the individual's new role or responsibilities.\n3. Reviewing and updating any non-disclosure agreements or confidentiality agreements as needed.\n4. Ensuring that any necessary training or certifications are completed before the transfer.\n5. Communicating any changes in roles or responsibilities to relevant stakeholders.\n\nBy implementing these procedures and ensuring that personnel transfers are handled securely and in compliance with security policies, organizations can effectively meet the requirements of the Personnel Transfer control.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:12.271861+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-6",
+    "control_name": "Access Agreements",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Access agreements ensure that users understand and agree to follow security policies when accessing a system.",
+    "example_implementation": "This script develop a clear and concise access agreement document that outlines user responsibilities and consequences for violating security policies. Make sure all users sign and acknowledge the agreement before granting access to the system.",
+    "non_technical_guidance": "This plan access agreements are not something that can be automated. To ensure compliance with control ps-6, a clear implementation plan should be followed:\n\n1. Identify all users who require access to the system or data.\n2. Create access agreements outlining the terms and conditions of access for each user.\n3. Ensure that each user reads, understands, and signs the access agreement before being granted access.\n4. Regularly review and update access agreements as needed, especially when there are changes in user roles or responsibilities.\n5. Maintain a record of all access agreements for auditing purposes.\n6. Train employees on the importance of access agreements and the consequences of violating them.\n\nBy following these steps, organizations can effectively implement and enforce access agreements to comply with control ps-6.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "ps-6.1",
+        "title": "Information Requiring Special Protection",
+        "official_text": ""
+      },
+      {
+        "id": "ps-6.2",
+        "title": "Classified Information Requiring Special Protection",
+        "official_text": "Verify that access to classified information requiring special protection is granted only to individuals who:"
+      },
+      {
+        "id": "ps-6.3",
+        "title": "Post-employment Requirements",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:13.804612+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-6.1",
+    "control_name": "Information Requiring Special Protection",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "parent_control": "ps-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:15.364741+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-6.2",
+    "control_name": "Classified Information Requiring Special Protection",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Verify that access to classified information requiring special protection is granted only to individuals who:",
+    "parent_control": "ps-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Verify that access to classified information requiring special protection is granted only to individuals who:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:16.985958+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-6.3",
+    "control_name": "Post-employment Requirements",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "parent_control": "ps-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:18.646478+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "ps-7",
+    "control_name": "External Personnel Security",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "External Personnel Security control ensures that individuals who are not employees of the organization but have access to organizational information systems are properly screened and supervised to prevent unauthorized access or harm to the systems.",
+    "example_implementation": "This script implement a thorough background check process for all external personnel before granting them access to sensitive information systems. Regularly review and update access permissions to ensure only authorized individuals have access.",
+    "non_technical_guidance": "This plan external Personnel Security is a control that focuses on ensuring that external personnel (contractors, consultants, etc.) are properly vetted and managed to prevent unauthorized access to sensitive information or systems. To implement this control effectively, consider the following non-technical steps:\n\n1. Develop a clear policy: Create a policy that outlines the requirements for vetting external personnel, including background checks, security training, and access control procedures.\n\n2. Contractual agreements: Include security requirements in contracts with external personnel, such as confidentiality agreements, security awareness training, and reporting procedures for security incidents.\n\n3. Access control: Limit access to sensitive information and systems based on the principle of least privilege. Ensure that external personnel only have access to the resources necessary to perform their job duties.\n\n4. Monitoring and auditing: Implement monitoring and auditing mechanisms to track the activities of external personnel and detect any unauthorized access or suspicious behavior.\n\n5. Incident response: Develop an incident response plan that includes procedures for responding to security incidents involving external personnel, such as unauthorized access or data breaches.\n\nBy following these non-technical steps, organizations can effectively manage external personnel security and reduce the risk of unauthorized access to sensitive information or systems.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:20.185759+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-8",
+    "control_name": "Personnel Sanctions",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Personnel sanctions involve taking disciplinary actions against employees who violate security policies or procedures.",
+    "example_implementation": "This script ensure that your organization has clear and well-communicated policies outlining the consequences for security policy violations, and consistently enforce these sanctions to maintain a strong security culture.",
+    "non_technical_guidance": "This plan implementing personnel sanctions is a non-technical control that involves establishing policies and procedures for taking disciplinary actions against individuals who violate security policies or engage in unauthorized activities. \n\nTo implement this control effectively, the following steps can be taken:\n1. Develop a clear and comprehensive personnel sanctions policy outlining the consequences for security policy violations.\n2. Ensure all employees are aware of the policy through training and communication.\n3. Enforce the policy consistently and fairly across all employees.\n4. Document any disciplinary actions taken and the reasons for them.\n5. Regularly review and update the policy to reflect any changes in security requirements or organizational needs.\n\nBy following these steps, organizations can effectively enforce personnel sanctions and maintain a secure environment.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:21.735860+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "ps-9",
+    "control_name": "Position Descriptions",
+    "family": "Personnel Security",
+    "family_id": "ps",
+    "official_text": "Incorporate security and privacy roles and responsibilities into organizational position descriptions.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure that job descriptions include responsibilities related to security and privacy.",
+    "example_implementation": "This script review and update job descriptions to include specific security and privacy roles and responsibilities, and ensure that all employees are aware of their duties in maintaining cybersecurity.",
+    "non_technical_guidance": "This plan to comply with control ps-9, the organization should review and update all position descriptions to include security and privacy roles and responsibilities. This can be achieved by working closely with HR and security/privacy teams to identify the key responsibilities and requirements related to security and privacy for each position within the organization. HR should ensure that these descriptions accurately reflect the importance of security and privacy in each role, and that employees are aware of their responsibilities in this regard. Regular reviews of position descriptions should be conducted to ensure they remain up-to-date with changing security and privacy requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:23.271805+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

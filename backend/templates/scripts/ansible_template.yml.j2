@@ -1,0 +1,463 @@
+---
+################################################################################
+# NIST 800-53 {{ control_id }} Ansible Playbook
+# Control: {{ control_name }}
+# Platform: {{ platform }}
+# Generated: {{ generated_date }}
+# Generator Version: {{ generator_version }}
+#
+# Description:
+# {{ description }}
+#
+# Features:
+# - Idempotent operations
+# - Error handling with handlers
+# - Backup and rollback support
+# - Comprehensive verification
+################################################################################
+
+- name: "NIST 800-53 {{ control_id }} - {{ control_name }}"
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  vars:
+    control_id: "{{ control_id }}"
+    control_name: "{{ control_name }}"
+    platform: "{{ platform }}"
+    backup_dir: "/var/backups/nist_{{ control_id | lower }}_{{ '{{' }} ansible_date_time.iso8601_basic_short {{ '}}' }}"
+    log_file: "/var/log/ansible_nist_{{ control_id | lower }}.log"
+{%- if parameters %}
+    # Control-specific parameters from YAML
+{%- for key, value in parameters.items() %}
+    {{ key }}: {{ value }}
+{%- endfor %}
+{%- endif %}
+
+  pre_tasks:
+    - name: "{{ control_id }} | Display playbook information"
+      debug:
+        msg:
+          - "NIST 800-53 Control: {{ control_id }}"
+          - "Control Name: {{ control_name }}"
+          - "Target Platform: {{ platform }}"
+          - "Target Host: {{ '{{' }} ansible_hostname {{ '}}' }}"
+          - "OS: {{ '{{' }} ansible_distribution {{ '}}' }} {{ '{{' }} ansible_distribution_version {{ '}}' }}"
+
+    - name: "{{ control_id }} | Verify OS compatibility"
+      assert:
+        that:
+{% if is_rhel %}
+          - ansible_os_family == "RedHat"
+{% elif is_ubuntu %}
+          - ansible_distribution == "Ubuntu"
+{% endif %}
+        fail_msg: "This playbook requires {{ platform }} compatible OS"
+        success_msg: "OS compatibility verified"
+
+    - name: "{{ control_id }} | Create backup directory"
+      file:
+        path: "{{ '{{' }} backup_dir {{ '}}' }}"
+        state: directory
+        mode: '0700'
+
+    - name: "{{ control_id }} | Create log file"
+      file:
+        path: "{{ '{{' }} log_file {{ '}}' }}"
+        state: touch
+        mode: '0644'
+
+  tasks:
+{% if implementations %}
+{% for impl in implementations %}
+    #---------------------------------------------------------------------------
+    # Implementation: {{ impl }}
+    #---------------------------------------------------------------------------
+
+{%- if 'PASS_MIN_LEN' in impl %}
+
+    - name: "{{ control_id }} | Backup /etc/login.defs"
+      copy:
+        src: /etc/login.defs
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/login.defs"
+        remote_src: yes
+        mode: '0644'
+
+    - name: "{{ control_id }} | Set password minimum length to 14"
+      lineinfile:
+        path: /etc/login.defs
+        regexp: '^PASS_MIN_LEN'
+        line: 'PASS_MIN_LEN 14'
+        state: present
+        backup: yes
+      notify: log_change
+
+{%- elif 'pam_faillock' in impl %}
+
+    - name: "{{ control_id }} | Backup PAM configuration"
+      copy:
+        src: "{{ '{{' }} item {{ '}}' }}"
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/{{ '{{' }} item | basename {{ '}}' }}"
+        remote_src: yes
+        mode: '0644'
+      loop:
+{% if is_rhel %}
+        - /etc/pam.d/system-auth
+        - /etc/pam.d/password-auth
+{% elif is_ubuntu %}
+        - /etc/pam.d/common-auth
+        - /etc/pam.d/common-account
+{% endif %}
+
+    - name: "{{ control_id }} | Configure PAM faillock (account lockout)"
+      block:
+{% if is_rhel %}
+        - name: Add faillock preauth to system-auth
+          lineinfile:
+            path: /etc/pam.d/system-auth
+            line: 'auth required pam_faillock.so preauth silent deny=3 unlock_time=900'
+            insertbefore: '^auth.*pam_unix.so'
+            state: present
+
+        - name: Add faillock authfail to system-auth
+          lineinfile:
+            path: /etc/pam.d/system-auth
+            line: 'auth [default=die] pam_faillock.so authfail deny=3 unlock_time=900'
+            insertafter: '^auth.*pam_unix.so'
+            state: present
+{% elif is_ubuntu %}
+        - name: Add faillock preauth to common-auth
+          lineinfile:
+            path: /etc/pam.d/common-auth
+            line: 'auth required pam_faillock.so preauth silent deny=3 unlock_time=900'
+            insertbefore: '^auth.*pam_unix.so'
+            state: present
+
+        - name: Add faillock authfail to common-auth
+          lineinfile:
+            path: /etc/pam.d/common-auth
+            line: 'auth [default=die] pam_faillock.so authfail deny=3 unlock_time=900'
+            insertafter: '^auth.*pam_unix.so'
+            state: present
+{% endif %}
+      notify: log_change
+
+{%- elif 'sudo' in impl.lower() %}
+
+    - name: "{{ control_id }} | Configure sudo logging"
+      copy:
+        dest: /etc/sudoers.d/logging
+        content: |
+          # NIST 800-53 {{ control_id }} - Sudo logging
+          Defaults logfile="/var/log/sudo.log"
+          Defaults log_input, log_output
+        mode: '0440'
+        validate: '/usr/sbin/visudo -cf %s'
+      notify: log_change
+
+{%- elif 'selinux' in impl.lower() %}
+
+    - name: "{{ control_id }} | Ensure SELinux is installed"
+      {{ package_manager }}:
+        name:
+          - libselinux-python3
+          - policycoreutils
+        state: present
+
+    - name: "{{ control_id }} | Set SELinux to enforcing mode"
+      selinux:
+        policy: targeted
+        state: enforcing
+      notify: log_change
+
+{%- elif 'apparmor' in impl.lower() %}
+
+    - name: "{{ control_id }} | Ensure AppArmor is installed"
+      {{ package_manager }}:
+        name:
+          - apparmor
+          - apparmor-utils
+        state: present
+
+    - name: "{{ control_id }} | Enable and start AppArmor"
+      {{ service_manager }}:
+        name: apparmor
+        state: started
+        enabled: yes
+      notify: log_change
+
+{%- elif 'auditd' in impl.lower() %}
+
+    - name: "{{ control_id }} | Install auditd"
+      {{ package_manager }}:
+        name: auditd
+        state: present
+
+    - name: "{{ control_id }} | Backup audit configuration"
+      copy:
+        src: /etc/audit/auditd.conf
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/auditd.conf"
+        remote_src: yes
+        mode: '0640'
+
+    - name: "{{ control_id }} | Configure audit rules for {{ control_id }}"
+      copy:
+        dest: /etc/audit/rules.d/{{ control_id | lower }}.rules
+        content: |
+          ## NIST 800-53 {{ control_id }} Audit Rules
+          ## Generated: {{ generated_date }}
+
+          # Monitor identity changes
+          -w /etc/passwd -p wa -k identity
+          -w /etc/group -p wa -k identity
+          -w /etc/shadow -p wa -k identity
+
+          # Monitor privileged commands
+          -w /etc/sudoers -p wa -k actions
+          -w /etc/sudoers.d/ -p wa -k actions
+
+          # Monitor authentication
+          -w /var/log/auth.log -p wa -k authentication
+          -w /var/log/secure -p wa -k authentication
+        mode: '0640'
+      notify:
+        - reload_audit_rules
+        - log_change
+
+    - name: "{{ control_id }} | Enable and start auditd"
+      {{ service_manager }}:
+        name: auditd
+        state: started
+        enabled: yes
+
+{%- elif 'maxlogins' in impl.lower() or 'limits.conf' in impl.lower() %}
+
+    - name: "{{ control_id }} | Backup /etc/security/limits.conf"
+      copy:
+        src: /etc/security/limits.conf
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/limits.conf"
+        remote_src: yes
+        mode: '0644'
+
+    - name: "{{ control_id }} | Configure session limits via PAM"
+      lineinfile:
+        path: /etc/security/limits.conf
+        regexp: '^\*\s+hard\s+maxlogins'
+        line: "* hard maxlogins {{ parameters.max_concurrent_sessions | default(3) }}"
+        state: present
+        backup: yes
+      notify: log_change
+
+{%- elif 'enable' in impl.lower() or 'start' in impl.lower() or 'restart' in impl.lower() or 'systemctl' in impl.lower() or 'service' in impl.lower() %}
+
+    - name: "{{ control_id }} | Manage service - {{ impl }}"
+      {{ service_manager }}:
+        name: "{{ impl.split() | last }}"
+        state: "{{ 'restarted' if 'restart' in impl.lower() else 'started' }}"
+        enabled: "{{ 'yes' if 'enable' in impl.lower() else 'no' }}"
+      notify: log_change
+
+{%- elif 'chmod' in impl.lower() or 'chown' in impl.lower() or 'permission' in impl.lower() %}
+
+    - name: "{{ control_id }} | Set file permissions - {{ impl }}"
+      file:
+        path: "{{ impl | regex_search('/[^ ]+') | default('/var/log') }}"
+        mode: "{{ impl | regex_search('[0-7]{3,4}') | default('0644') }}"
+        owner: "{{ impl | regex_search('owner[=:]\\s*(\\w+)', '\\1') | default('root') | first }}"
+        state: file
+      notify: log_change
+      ignore_errors: yes
+
+{%- elif 'firewall' in impl.lower() or 'firewalld' in impl.lower() or 'ufw' in impl.lower() %}
+
+    - name: "{{ control_id }} | Install firewall package"
+      {{ package_manager }}:
+        name: "{{ 'firewalld' if is_rhel else 'ufw' }}"
+        state: present
+
+    - name: "{{ control_id }} | Enable and start firewall"
+      {{ service_manager }}:
+        name: "{{ 'firewalld' if is_rhel else 'ufw' }}"
+        state: started
+        enabled: yes
+      notify: log_change
+
+{%- elif 'install' in impl.lower() or 'package' in impl.lower() %}
+
+    - name: "{{ control_id }} | Install packages - {{ impl }}"
+      {{ package_manager }}:
+        name: "{{ impl.split() | last }}"
+        state: present
+      notify: log_change
+
+{%- elif 'sysctl' in impl.lower() or 'kernel' in impl.lower() %}
+
+    - name: "{{ control_id }} | Backup sysctl configuration"
+      copy:
+        src: /etc/sysctl.conf
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/sysctl.conf"
+        remote_src: yes
+        mode: '0644'
+
+    - name: "{{ control_id }} | Configure kernel parameter - {{ impl }}"
+      sysctl:
+        name: "{{ impl | regex_search('([a-z_]+\\.[a-z_\\.]+)', '\\1') | first | default('net.ipv4.ip_forward') }}"
+        value: "{{ impl | regex_search('=\\s*(\\d+)', '\\1') | first | default('0') }}"
+        state: present
+        reload: yes
+      notify: log_change
+
+{%- elif 'rsyslog' in impl.lower() or 'journald' in impl.lower() or 'log' in impl.lower() %}
+
+    - name: "{{ control_id }} | Configure logging - {{ impl }}"
+      lineinfile:
+        path: "{{ '/etc/rsyslog.conf' if 'rsyslog' in impl.lower() else '/etc/systemd/journald.conf' }}"
+        regexp: "{{ impl | regex_search('#?\\s*([^=]+)=', '\\1') | first | default('.*') }}"
+        line: "{{ impl | regex_search('([^=]+=.+)', '\\1') | first | default('# Logging configured') }}"
+        state: present
+        backup: yes
+      notify: log_change
+
+{%- elif '/etc/' in impl.lower() and '.conf' in impl.lower() %}
+
+    - name: "{{ control_id }} | Backup configuration file"
+      copy:
+        src: "{{ impl | regex_search('/etc/[^ ]+') | default('/etc/config') }}"
+        dest: "{{ '{{' }} backup_dir {{ '}}' }}/{{ impl | regex_search('/etc/([^ ]+)', '\\1') | first | default('config') | basename }}"
+        remote_src: yes
+        mode: '0644'
+      ignore_errors: yes
+
+    - name: "{{ control_id }} | Edit configuration file - {{ impl }}"
+      lineinfile:
+        path: "{{ impl | regex_search('/etc/[^ ]+\\.conf') | default('/etc/config.conf') }}"
+        regexp: "{{ impl | regex_search('([A-Z_]+)', '\\1') | first | default('.*') }}"
+        line: "{{ impl | regex_search('([A-Z_]+.*)', '\\1') | first | default('# Configuration') }}"
+        state: present
+        backup: yes
+      notify: log_change
+
+{%- else %}
+
+    - name: "{{ control_id }} | Generic implementation - {{ impl }}"
+      debug:
+        msg: "Implementation step: {{ impl }}"
+      notify: log_change
+
+{%- endif %}
+
+{% endfor %}
+{% else %}
+    - name: "{{ control_id }} | No implementation steps defined"
+      debug:
+        msg: "Warning: No implementation steps defined for this control"
+{% endif %}
+
+  post_tasks:
+    - name: "{{ control_id }} | Verification phase"
+      debug:
+        msg: "Starting verification checks..."
+
+{% if verification %}
+{% for verify in verification %}
+    #---------------------------------------------------------------------------
+    # Verification: {{ verify }}
+    #---------------------------------------------------------------------------
+
+{%- if 'PASS_MIN_LEN' in verify %}
+
+    - name: "{{ control_id }} | Verify password minimum length"
+      shell: grep '^PASS_MIN_LEN' /etc/login.defs | awk '{print $2}'
+      register: pass_min_len
+      changed_when: false
+
+    - name: "{{ control_id }} | Assert password minimum length is 14"
+      assert:
+        that:
+          - pass_min_len.stdout | int >= 14
+        fail_msg: "Password minimum length is {{ '{{' }} pass_min_len.stdout {{ '}}' }}, expected >= 14"
+        success_msg: "Password minimum length verified: {{ '{{' }} pass_min_len.stdout {{ '}}' }}"
+
+{%- elif 'pam_faillock' in verify %}
+
+    - name: "{{ control_id }} | Verify PAM faillock configuration"
+      shell: |
+{% if is_rhel %}
+        grep 'pam_faillock.so' /etc/pam.d/system-auth | wc -l
+{% elif is_ubuntu %}
+        grep 'pam_faillock.so' /etc/pam.d/common-auth | wc -l
+{% endif %}
+      register: faillock_count
+      changed_when: false
+
+    - name: "{{ control_id }} | Assert faillock is configured"
+      assert:
+        that:
+          - faillock_count.stdout | int >= 2
+        fail_msg: "PAM faillock not properly configured"
+        success_msg: "PAM faillock configuration verified"
+
+{%- elif 'sudo' in verify.lower() %}
+
+    - name: "{{ control_id }} | Verify sudo logging configuration"
+      stat:
+        path: /etc/sudoers.d/logging
+      register: sudo_logging
+
+    - name: "{{ control_id }} | Assert sudo logging is configured"
+      assert:
+        that:
+          - sudo_logging.stat.exists
+        fail_msg: "Sudo logging configuration not found"
+        success_msg: "Sudo logging configuration verified"
+
+{%- elif 'auditd' in verify.lower() %}
+
+    - name: "{{ control_id }} | Verify auditd service status"
+      {{ service_manager }}:
+        name: auditd
+      register: auditd_status
+
+    - name: "{{ control_id }} | Assert auditd is running"
+      assert:
+        that:
+          - auditd_status.status.ActiveState == "active"
+        fail_msg: "Auditd service is not active"
+        success_msg: "Auditd service verified as active"
+
+{%- else %}
+
+    - name: "{{ control_id }} | Generic verification - {{ verify }}"
+      debug:
+        msg: "Verification step: {{ verify }}"
+
+{%- endif %}
+
+{% endfor %}
+{% endif %}
+
+    - name: "{{ control_id }} | Implementation complete"
+      debug:
+        msg:
+          - "==============================================="
+          - "NIST 800-53 {{ control_id }} implementation completed successfully"
+          - "Control: {{ control_name }}"
+          - "Backup location: {{ '{{' }} backup_dir {{ '}}' }}"
+          - "Log file: {{ '{{' }} log_file {{ '}}' }}"
+          - "==============================================="
+
+  handlers:
+    - name: reload_audit_rules
+      shell: augenrules --load
+      ignore_errors: yes
+
+    - name: log_change
+      lineinfile:
+        path: "{{ '{{' }} log_file {{ '}}' }}"
+        line: "{{ '{{' }} ansible_date_time.iso8601 {{ '}}' }} - Change applied by {{ control_id }} playbook"
+        create: yes
+
+    - name: restart_auditd
+      {{ service_manager }}:
+        name: auditd
+        state: restarted

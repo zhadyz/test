@@ -1,0 +1,861 @@
+[
+  {
+    "control_id": "pt-1",
+    "control_name": "Policy and Procedures",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that your organization has documented policies and procedures in place to guide employees on how to handle sensitive information and IT resources.",
+    "example_implementation": "This script regularly review and update your organization's policies and procedures to ensure they align with current best practices and regulations. Involve key stakeholders in the review process to ensure buy-in and compliance.",
+    "non_technical_guidance": "This plan to implement this control, you should ensure that your organization has documented policies and procedures in place that address security requirements, roles and responsibilities, incident response, and other relevant areas. These policies and procedures should be regularly reviewed, updated, communicated to employees, and enforced. It is important to have a formal process for creating, updating, and retiring policies and procedures, as well as a system for tracking compliance with them. Regular training and awareness programs should also be conducted to ensure that employees are familiar with and adhere to the policies and procedures. Additionally, it is essential to have a mechanism for reporting violations and for taking corrective actions when necessary. Regular audits and assessments should be performed to verify compliance with the policies and procedures.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:16:24.881807+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pt-2",
+    "control_name": "Authority to Process Personally Identifiable Information",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that individuals processing personally identifiable information have the proper authorization to do so.",
+    "example_implementation": "This script implement a role-based access control system to ensure that only authorized personnel have access to personally identifiable information. Regularly review and update access permissions as needed.",
+    "non_technical_guidance": "This plan to comply with Control ID pt-2, \"Authority to Process Personally Identifiable Information,\" the following non-technical implementation plan can be followed:\n\n1. Identify and designate individuals within the organization who have the authority to process personally identifiable information (PII).\n2. Clearly define the roles and responsibilities of these designated individuals in handling PII.\n3. Ensure that proper training and awareness programs are in place for these individuals regarding the handling of PII.\n4. Implement a formal process for obtaining authorization before processing any PII.\n5. Regularly review and update the list of authorized individuals to ensure compliance with this control.\n6. Document and maintain records of authorization for processing PII to demonstrate compliance during audits or assessments.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-2.1",
+        "title": "Data Tagging",
+        "official_text": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}."
+      },
+      {
+        "id": "pt-2.2",
+        "title": "Automation",
+        "official_text": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:26.485931+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-2.1",
+    "control_name": "Data Tagging",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}.",
+    "parent_control": "pt-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:28.126269+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-2.2",
+    "control_name": "Automation",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}.",
+    "parent_control": "pt-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:29.736320+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-3",
+    "control_name": "Personally Identifiable Information Processing Purposes",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that personally identifiable information (PII) is only processed for legitimate purposes.",
+    "example_implementation": "This script conduct regular audits to review and verify that all PII processing activities align with approved purposes and obtain consent from individuals when necessary.",
+    "non_technical_guidance": "This plan to comply with Control ID pt-3, Personally Identifiable Information Processing Purposes, the following non-technical implementation plan can be followed:\n\n1. Identify all systems and applications within your organization that process Personally Identifiable Information (PII).\n2. Document the specific purposes for which PII is being processed on each system or application.\n3. Implement access controls to ensure that only authorized personnel have access to PII for the specified processing purposes.\n4. Regularly review and update the documented purposes for processing PII to ensure compliance with regulations and internal policies.\n5. Provide training to employees on the importance of processing PII only for authorized purposes and the potential consequences of unauthorized processing.\n6. Conduct regular audits to verify that PII is being processed only for the documented purposes.\n\nBy following these steps, organizations can demonstrate compliance with the control regarding Personally Identifiable Information Processing Purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-3.1",
+        "title": "Data Tagging",
+        "official_text": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}."
+      },
+      {
+        "id": "pt-3.2",
+        "title": "Automation",
+        "official_text": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:31.361091+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-3.1",
+    "control_name": "Data Tagging",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}.",
+    "parent_control": "pt-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:32.953453+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-3.2",
+    "control_name": "Automation",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}.",
+    "parent_control": "pt-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:34.551205+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-4",
+    "control_name": "Consent",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Implement {{ insert: param, pt-04_odp }} for individuals to consent to the processing of their personally identifiable information prior to its collection that facilitate individuals’ informed decision-making.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure individuals have the opportunity to give their permission before their personal information is collected.",
+    "example_implementation": "This script provide clear and easy-to-understand consent forms or mechanisms for individuals to give their consent before their personal information is collected.",
+    "non_technical_guidance": "This plan to implement the Consent control for individuals to consent to the processing of their personally identifiable information prior to its collection, you can follow these steps:\n1. Develop a clear and concise consent form that outlines the purpose of collecting PII, how it will be processed, and any third parties involved.\n2. Provide individuals with the option to opt-in or opt-out of data collection and processing.\n3. Ensure that individuals are fully informed about their rights and how their data will be used.\n4. Regularly review and update the consent process to ensure compliance with regulations and maintain transparency with individuals.\n5. Train staff members on the importance of obtaining consent and how to handle requests from individuals regarding their PII.\n6. Document all consent obtained and keep records in a secure and accessible manner for auditing purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-4.1",
+        "title": "Tailored Consent",
+        "official_text": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information."
+      },
+      {
+        "id": "pt-4.2",
+        "title": "Just-in-time Consent",
+        "official_text": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}."
+      },
+      {
+        "id": "pt-4.3",
+        "title": "Revocation",
+        "official_text": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:36.147732+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-4.1",
+    "control_name": "Tailored Consent",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information.",
+    "parent_control": "pt-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:37.702426+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-4.2",
+    "control_name": "Just-in-time Consent",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}.",
+    "parent_control": "pt-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:39.258736+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-4.3",
+    "control_name": "Revocation",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information.",
+    "parent_control": "pt-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:40.810490+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-5",
+    "control_name": "Privacy Notice",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Provide notice to individuals about the processing of personally identifiable information that:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Let people know how their personal information is being used.",
+    "example_implementation": "This script creates a clear and easy-to-understand privacy notice on your website or in your app that explains what data you collect, how it's used, and who it's shared with.",
+    "non_technical_guidance": "This plan to comply with Control ID pt-5, the organization should create and maintain a privacy notice that informs individuals about how their personally identifiable information is being processed. This notice should be easily accessible to individuals and clearly outline the purposes for which their data is being collected, how it will be used, and any third parties with whom it may be shared. The privacy notice should also include information on individuals' rights regarding their data, such as the right to access, correct, and delete their information. Regularly review and update the privacy notice to ensure it remains accurate and up to date with any changes in data processing practices. Additionally, provide mechanisms for individuals to easily contact the organization with any questions or concerns about their privacy rights.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-5.1",
+        "title": "Just-in-time Notice",
+        "official_text": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}."
+      },
+      {
+        "id": "pt-5.2",
+        "title": "Privacy Act Statements",
+        "official_text": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:42.390650+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-5.1",
+    "control_name": "Just-in-time Notice",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}.",
+    "parent_control": "pt-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:43.997785+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-5.2",
+    "control_name": "Privacy Act Statements",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals.",
+    "parent_control": "pt-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:45.641640+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-6",
+    "control_name": "System of Records Notice",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "For systems that process information that will be maintained in a Privacy Act system of records:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Before collecting and storing personal information, organizations must inform individuals through a System of Records Notice.",
+    "example_implementation": "This script ensure that your organization has a clear and easily accessible System of Records Notice that outlines how personal information will be collected, used, and protected.",
+    "non_technical_guidance": "This plan 1. Identify the systems that process information maintained in a Privacy Act system of records.\n2. Create a System of Records Notice document that includes the required information as per the Privacy Act.\n3. Distribute the System of Records Notice document to relevant personnel who handle the information.\n4. Ensure that the System of Records Notice is prominently displayed or easily accessible to individuals whose information is being processed.\n5. Regularly review and update the System of Records Notice as necessary to reflect any changes in the system or information processing practices.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-6.1",
+        "title": "Routine Uses",
+        "official_text": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected."
+      },
+      {
+        "id": "pt-6.2",
+        "title": "Exemption Rules",
+        "official_text": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:47.392745+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-6.1",
+    "control_name": "Routine Uses",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected.",
+    "parent_control": "pt-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:49.101525+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-6.2",
+    "control_name": "Exemption Rules",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice.",
+    "parent_control": "pt-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:50.682090+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-7",
+    "control_name": "Specific Categories of Personally Identifiable Information",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Apply {{ insert: param, pt-07_odp }} for specific categories of personally identifiable information.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "This control requires organizations to apply specific protections for certain types of personal information.",
+    "example_implementation": "This script identify and classify the different categories of personally identifiable information within your organization to ensure appropriate security measures are in place for each type.",
+    "non_technical_guidance": "This plan to comply with control pt-7, you should first identify the specific categories of personally identifiable information (PII) that your organization handles. This could include information such as social security numbers, driver's license numbers, financial account numbers, etc.\n\nOnce you have identified these specific categories of PII, you should implement appropriate security controls to protect this information. This could include encryption, access controls, monitoring, and regular audits to ensure compliance with relevant regulations and standards.\n\nIt is important to regularly review and update your policies and procedures related to handling specific categories of PII to stay in compliance with regulatory requirements and protect sensitive information from unauthorized access or disclosure.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pt-7.1",
+        "title": "Social Security Numbers",
+        "official_text": "When a system processes Social Security numbers:"
+      },
+      {
+        "id": "pt-7.2",
+        "title": "First Amendment Information",
+        "official_text": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:52.295877+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-7.1",
+    "control_name": "Social Security Numbers",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "When a system processes Social Security numbers:",
+    "parent_control": "pt-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "When a system processes Social Security numbers:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:53.966889+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-7.2",
+    "control_name": "First Amendment Information",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity.",
+    "parent_control": "pt-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:55.563472+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pt-8",
+    "control_name": "Computer Matching Requirements",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "pt",
+    "official_text": "When a system or organization processes information for the purpose of conducting a matching program:",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Computer matching requirements ensure that systems or organizations accurately compare and match information for specific programs.",
+    "example_implementation": "This script ensure that proper protocols and safeguards are in place to prevent errors or unauthorized access during the matching process, such as encryption and access controls.",
+    "non_technical_guidance": "This plan to comply with the Computer Matching Requirements control, the following non-technical implementation plan can be followed:\n\n1. Identify the systems or organization processes that involve conducting a matching program.\n2. Develop policies and procedures for ensuring that computer matching activities are conducted in compliance with applicable laws and regulations.\n3. Establish a review process to ensure that computer matching programs are conducted accurately and fairly.\n4. Provide training to personnel involved in computer matching activities to ensure they understand the requirements and procedures.\n5. Conduct regular audits and assessments to monitor compliance with computer matching requirements.\n6. Implement controls to protect the privacy and security of the information involved in computer matching programs.\n7. Document all computer matching activities and maintain records for auditing purposes.\n8. Periodically review and update computer matching policies and procedures to ensure ongoing compliance with regulations.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:16:57.171613+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

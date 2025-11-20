@@ -1,0 +1,1236 @@
+[
+  {
+    "control_id": "mp-1",
+    "control_name": "Policy and Procedures",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control requires organizations to establish and maintain policies and procedures to manage their security program.",
+    "example_implementation": "This script creates a centralized repository for all security policies and procedures, regularly review and update them, and ensure all employees are trained on them.",
+    "non_technical_guidance": "This plan to comply with control mp-1 (Policy and Procedures), you should ensure that your organization has documented policies and procedures in place related to information security. These policies and procedures should cover aspects such as access control, data protection, incident response, and compliance with relevant regulations. \n\nTo implement this control effectively, follow these steps:\n1. Review existing policies and procedures: Start by reviewing any existing documentation related to information security policies and procedures within your organization.\n2. Identify gaps: Identify any areas where policies or procedures are missing or outdated.\n3. Develop new policies and procedures: Develop new policies and procedures to address any identified gaps. Make sure these documents are clear, concise, and easily accessible to all relevant personnel.\n4. Communicate and train: Once the policies and procedures are in place, communicate them to all employees and provide training on how to follow them effectively.\n5. Regularly review and update: Information security is constantly evolving, so it's important to regularly review and update your policies and procedures to ensure they remain relevant and effective.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:13:05.523835+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "mp-2",
+    "control_name": "Media Access",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Restrict access to {{ insert: param, mp-2_prm_1 }} to {{ insert: param, mp-2_prm_2 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Limit who can access media in order to protect sensitive information.",
+    "example_implementation": "This script implement role-based access controls to ensure only authorized personnel can access and use media devices. Regularly review and update access permissions to prevent unauthorized access.",
+    "non_technical_guidance": "This plan to implement this control, you will need to restrict access to the specified media folder to only the specified users or groups. This can be done by setting the ownership and permissions on the folder appropriately. Ensure that only authorized users have access to the media folder and regularly review and update the access controls as needed to maintain compliance with the control.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "mp-2.1",
+        "title": "Automated Restricted Access",
+        "official_text": ""
+      },
+      {
+        "id": "mp-2.2",
+        "title": "Cryptographic Protection",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:07.215913+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-2.1",
+    "control_name": "Automated Restricted Access",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:08.817858+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-2.2",
+    "control_name": "Cryptographic Protection",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:10.428890+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-3",
+    "control_name": "Media Marking",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Media Marking ensures that all media containing federal information is properly labeled and marked to indicate its sensitivity and handling requirements.",
+    "example_implementation": "This script develop a clear and consistent labeling system for all media devices and storage to easily identify the sensitivity level and handling requirements.",
+    "non_technical_guidance": "This plan when implementing the Media Marking control (mp-3), ensure that all physical and digital media containing sensitive information are appropriately marked with the appropriate security classification level. This marking should be visible and easily identifiable to all personnel who come into contact with the media.\n\nTo comply with this control:\n1. Develop a clear and consistent labeling system for all media based on the sensitivity of the information it contains.\n2. Train all personnel on the importance of media marking and the specific labeling requirements for different classification levels.\n3. Regularly audit and inspect all media to ensure that the correct markings are present and legible.\n4. Implement a process for securely disposing of media that is no longer needed, ensuring that all sensitive information is properly marked and destroyed in accordance with organizational policies and procedures.\n\nBy following these steps, you can ensure that media containing sensitive information is appropriately marked and handled in a secure manner, reducing the risk of unauthorized disclosure or misuse.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:12.027030+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-4",
+    "control_name": "Media Storage",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Media storage controls ensure that sensitive information stored on physical or digital media is protected from unauthorized access or theft.",
+    "example_implementation": "This script implement encryption and access controls on all media storage devices to prevent unauthorized access to sensitive data. Regularly audit and monitor access to these devices to ensure compliance with security requirements.",
+    "non_technical_guidance": "This plan to comply with Control ID mp-4 (Media Storage), you should implement the following non-technical steps:\n1. Identify all media storage devices within your organization, including USB drives, external hard drives, CDs/DVDs, etc.\n2. Develop a policy that outlines the acceptable use of media storage devices and the procedures for handling sensitive information on these devices.\n3. Implement physical security measures to restrict access to media storage devices, such as locking them in secure cabinets or rooms.\n4. Regularly audit and inventory media storage devices to ensure they are properly accounted for and secure.\n5. Train employees on the proper use and handling of media storage devices to prevent unauthorized access or data breaches.\n6. Establish procedures for securely disposing of media storage devices when they are no longer needed, such as shredding or degaussing hard drives.\nBy following these steps, you can effectively manage and secure media storage devices in compliance with NIST 800-53 requirements.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "mp-4.1",
+        "title": "Cryptographic Protection",
+        "official_text": ""
+      },
+      {
+        "id": "mp-4.2",
+        "title": "Automated Restricted Access",
+        "official_text": "Restrict access to media storage areas and log access attempts and access granted using {{ insert: param, mp-4.2_prm_1 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:13.621390+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-4.1",
+    "control_name": "Cryptographic Protection",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:15.218046+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-4.2",
+    "control_name": "Automated Restricted Access",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Restrict access to media storage areas and log access attempts and access granted using {{ insert: param, mp-4.2_prm_1 }}.",
+    "parent_control": "mp-4",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Restrict access to media storage areas and log access attempts and access granted using {{ insert: param, mp-4.2_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:16.868353+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-5",
+    "control_name": "Media Transport",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that media containing organizational information is protected during transportation.",
+    "example_implementation": "This script use secure and encrypted methods to transport physical media such as USB drives or external hard drives to prevent unauthorized access or tampering.",
+    "non_technical_guidance": "This plan to comply with the Media Transport control (mp-5), the following non-technical implementation plan can be followed:\n\n1. Identify all media containing organizational information, including physical media such as USB drives, CDs, DVDs, and portable hard drives, as well as digital media such as emails, documents, and images.\n2. Implement a policy that restricts the use of media transport to authorized personnel only.\n3. Encrypt all sensitive data stored on media during transport to protect it from unauthorized access.\n4. Implement secure methods for transferring media, such as using secure courier services or encrypted file transfer protocols.\n5. Maintain a log of all media transfers, including details such as the sender, recipient, date and time of transfer, and type of media.\n6. Regularly review and update the media transport policy to ensure it remains effective and up-to-date with current technologies and threats.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "mp-5.1",
+        "title": "Protection Outside of Controlled Areas",
+        "official_text": ""
+      },
+      {
+        "id": "mp-5.2",
+        "title": "Documentation of Activities",
+        "official_text": ""
+      },
+      {
+        "id": "mp-5.3",
+        "title": "Custodians",
+        "official_text": "Employ an identified custodian during transport of system media outside of controlled areas."
+      },
+      {
+        "id": "mp-5.4",
+        "title": "Cryptographic Protection",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:18.515719+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-5.1",
+    "control_name": "Protection Outside of Controlled Areas",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:20.062367+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-5.2",
+    "control_name": "Documentation of Activities",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:21.588209+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-5.3",
+    "control_name": "Custodians",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Employ an identified custodian during transport of system media outside of controlled areas.",
+    "parent_control": "mp-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ an identified custodian during transport of system media outside of controlled areas.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:23.114833+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-5.4",
+    "control_name": "Cryptographic Protection",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:24.721197+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6",
+    "control_name": "Media Sanitization",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Media Sanitization involves securely removing data from storage devices before disposal or reuse to prevent unauthorized access to sensitive information.",
+    "example_implementation": "This script implement a thorough media sanitization process that includes wiping, degaussing, or physically destroying storage devices to ensure all data is irrecoverably removed before disposal.",
+    "non_technical_guidance": "This plan media sanitization is a critical control to ensure that sensitive information stored on media devices is properly destroyed or overwritten before disposal or reuse. To implement this control effectively, follow these steps:\n\n1. Develop a media sanitization policy: Create a clear policy outlining the procedures and methods for sanitizing media devices before disposal or reuse. Ensure that all employees are aware of and trained on this policy.\n\n2. Identify sensitive media devices: Keep a detailed inventory of all media devices that store sensitive information, including hard drives, USB drives, CDs, DVDs, etc.\n\n3. Determine the appropriate sanitization method: Depending on the sensitivity of the information stored on the media device, choose the appropriate sanitization method such as physical destruction, degaussing, or overwriting.\n\n4. Implement the sanitization process: Establish a consistent process for sanitizing media devices before disposal or reuse. Ensure that all media devices are properly sanitized according to the policy.\n\n5. Document the sanitization process: Keep detailed records of the sanitization process for each media device, including the method used, date of sanitization, and responsible personnel.\n\n6. Verify the effectiveness of sanitization: Conduct periodic audits to verify that media devices are being properly sanitized according to the policy. Make any necessary adjustments to the process based on audit findings.\n\nBy following these steps and maintaining a thorough media sanitization process, you can ensure compliance with Control ID mp-6 and protect sensitive information from unauthorized access.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "mp-6.1",
+        "title": "Review, Approve, Track, Document, and Verify",
+        "official_text": "Review, approve, track, document, and verify media sanitization and disposal actions."
+      },
+      {
+        "id": "mp-6.2",
+        "title": "Equipment Testing",
+        "official_text": "Test sanitization equipment and procedures {{ insert: param, mp-6.2_prm_1 }} to ensure that the intended sanitization is being achieved."
+      },
+      {
+        "id": "mp-6.3",
+        "title": "Nondestructive Techniques",
+        "official_text": "Apply nondestructive sanitization techniques to portable storage devices prior to connecting such devices to the system under the following circumstances: {{ insert: param, mp-06.03_odp }}."
+      },
+      {
+        "id": "mp-6.4",
+        "title": "Controlled Unclassified Information",
+        "official_text": ""
+      },
+      {
+        "id": "mp-6.5",
+        "title": "Classified Information",
+        "official_text": ""
+      },
+      {
+        "id": "mp-6.6",
+        "title": "Media Destruction",
+        "official_text": ""
+      },
+      {
+        "id": "mp-6.7",
+        "title": "Dual Authorization",
+        "official_text": "Enforce dual authorization for the sanitization of {{ insert: param, mp-06.07_odp }}."
+      },
+      {
+        "id": "mp-6.8",
+        "title": "Remote Purging or Wiping of Information",
+        "official_text": "Provide the capability to purge or wipe information from {{ insert: param, mp-06.08_odp.01 }} {{ insert: param, mp-06.08_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:26.332305+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-6.1",
+    "control_name": "Review, Approve, Track, Document, and Verify",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Review, approve, track, document, and verify media sanitization and disposal actions.",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Review, approve, track, document, and verify media sanitization and disposal actions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:27.919346+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.2",
+    "control_name": "Equipment Testing",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Test sanitization equipment and procedures {{ insert: param, mp-6.2_prm_1 }} to ensure that the intended sanitization is being achieved.",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Test sanitization equipment and procedures {{ insert: param, mp-6.2_prm_1 }} to ensure that the intended sanitization is being achieved.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:29.509502+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.3",
+    "control_name": "Nondestructive Techniques",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Apply nondestructive sanitization techniques to portable storage devices prior to connecting such devices to the system under the following circumstances: {{ insert: param, mp-06.03_odp }}.",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Apply nondestructive sanitization techniques to portable storage devices prior to connecting such devices to the system under the following circumstances: {{ insert: param, mp-06.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:31.101754+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.4",
+    "control_name": "Controlled Unclassified Information",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:32.697417+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.5",
+    "control_name": "Classified Information",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:34.298680+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.6",
+    "control_name": "Media Destruction",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:35.891503+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.7",
+    "control_name": "Dual Authorization",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Enforce dual authorization for the sanitization of {{ insert: param, mp-06.07_odp }}.",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce dual authorization for the sanitization of {{ insert: param, mp-06.07_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:37.507403+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-6.8",
+    "control_name": "Remote Purging or Wiping of Information",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Provide the capability to purge or wipe information from {{ insert: param, mp-06.08_odp.01 }} {{ insert: param, mp-06.08_odp.02 }}.",
+    "parent_control": "mp-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide the capability to purge or wipe information from {{ insert: param, mp-06.08_odp.01 }} {{ insert: param, mp-06.08_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:39.099615+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-7",
+    "control_name": "Media Use",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Media Use control ensures that media containing organizational information is properly managed to prevent unauthorized disclosure or theft.",
+    "example_implementation": "This script implement strict access controls and encryption protocols for all media devices, such as USB drives and external hard drives, to protect sensitive data from being accessed by unauthorized individuals.",
+    "non_technical_guidance": "This plan to ensure compliance with the Media Use control (mp-7), the following non-technical actions should be taken:\n\n1. Develop a Media Use policy that outlines the acceptable use of media within the organization, including guidelines for handling, storing, and disposing of media.\n2. Provide training to all employees on the Media Use policy to ensure understanding and compliance.\n3. Implement physical security measures to restrict access to media storage locations and ensure that only authorized personnel can interact with media.\n4. Regularly audit and monitor media use within the organization to identify any unauthorized activities or potential security risks.\n5. Establish procedures for securely disposing of media, including shredding or degaussing magnetic media and securely wiping electronic media.\n6. Conduct periodic reviews of the Media Use policy and procedures to ensure they remain up to date with current technologies and best practices.",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "mp-7.1",
+        "title": "Prohibit Use Without Owner",
+        "official_text": ""
+      },
+      {
+        "id": "mp-7.2",
+        "title": "Prohibit Use of Sanitization-resistant Media",
+        "official_text": "Prohibit the use of sanitization-resistant media in organizational systems."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:13:40.723270+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "mp-7.1",
+    "control_name": "Prohibit Use Without Owner",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "parent_control": "mp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:42.392898+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-7.2",
+    "control_name": "Prohibit Use of Sanitization-resistant Media",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Prohibit the use of sanitization-resistant media in organizational systems.",
+    "parent_control": "mp-7",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Prohibit the use of sanitization-resistant media in organizational systems.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:43.989535+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-8",
+    "control_name": "Media Downgrading",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Media Downgrading control ensures that sensitive information stored on media (such as hard drives or USB drives) is properly sanitized before disposal or reuse to prevent unauthorized access.",
+    "example_implementation": "This script implement a media sanitization process that includes securely wiping or destroying all sensitive data before disposing of or reusing any media devices. Regularly audit and track the disposal of media to ensure compliance with this control.",
+    "non_technical_guidance": "This plan media Downgrading refers to the process of declassifying sensitive information to a lower classification level. To implement this control, organizations should establish clear policies and procedures for downgrading media, including guidelines on when and how information should be declassified. Employees handling sensitive information should be trained on these policies and procedures to ensure compliance. Regular audits and reviews should also be conducted to verify that media downgrading is being performed correctly.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "mp-8.1",
+        "title": "Documentation of Process",
+        "official_text": "Document system media downgrading actions."
+      },
+      {
+        "id": "mp-8.2",
+        "title": "Equipment Testing",
+        "official_text": "Test downgrading equipment and procedures {{ insert: param, mp-8.2_prm_1 }} to ensure that downgrading actions are being achieved."
+      },
+      {
+        "id": "mp-8.3",
+        "title": "Controlled Unclassified Information",
+        "official_text": "Downgrade system media containing controlled unclassified information prior to public release."
+      },
+      {
+        "id": "mp-8.4",
+        "title": "Classified Information",
+        "official_text": "Downgrade system media containing classified information prior to release to individuals without required access authorizations."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:45.637618+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-8.1",
+    "control_name": "Documentation of Process",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Document system media downgrading actions.",
+    "parent_control": "mp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Document system media downgrading actions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:47.299662+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-8.2",
+    "control_name": "Equipment Testing",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Test downgrading equipment and procedures {{ insert: param, mp-8.2_prm_1 }} to ensure that downgrading actions are being achieved.",
+    "parent_control": "mp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Test downgrading equipment and procedures {{ insert: param, mp-8.2_prm_1 }} to ensure that downgrading actions are being achieved.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:48.961640+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-8.3",
+    "control_name": "Controlled Unclassified Information",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Downgrade system media containing controlled unclassified information prior to public release.",
+    "parent_control": "mp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Downgrade system media containing controlled unclassified information prior to public release.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:50.572783+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "mp-8.4",
+    "control_name": "Classified Information",
+    "family": "Media Protection",
+    "family_id": "mp",
+    "official_text": "Downgrade system media containing classified information prior to release to individuals without required access authorizations.",
+    "parent_control": "mp-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Downgrade system media containing classified information prior to release to individuals without required access authorizations.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:52.183970+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

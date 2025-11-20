@@ -1,0 +1,2385 @@
+[
+  {
+    "control_id": "pe-1",
+    "control_name": "Policy and Procedures",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Ensure that your organization has clear policies and procedures in place to guide employees on how to handle sensitive information and maintain security.",
+    "example_implementation": "This script regularly review and update your organization's policies and procedures to ensure they align with current best practices and address any new security threats or regulations.",
+    "non_technical_guidance": "This plan to comply with control pe-1 \"Policy and Procedures\", the following non-technical implementation plan can be followed:\n\n1. Develop comprehensive policies and procedures that outline the organization's security requirements, expectations, and guidelines.\n2. Ensure that all employees are aware of these policies and procedures through training and communication.\n3. Regularly review and update the policies and procedures to reflect changes in the organization's security posture and regulatory requirements.\n4. Establish a process for enforcing compliance with the policies and procedures, including consequences for non-compliance.\n5. Conduct periodic audits and assessments to ensure that the policies and procedures are being followed effectively.\n6. Document all activities related to policy enforcement and compliance for audit purposes.\n7. Continuously improve the policies and procedures based on feedback and lessons learned from incidents or audits.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:13:53.803549+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-2",
+    "control_name": "Physical Access Authorizations",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Physical Access Authorizations control ensures that only authorized individuals are allowed physical access to secure areas.",
+    "example_implementation": "This script regularly review and update access control lists to ensure that only authorized personnel have access to sensitive areas. Conduct regular audits to verify compliance with access authorization policies.",
+    "non_technical_guidance": "This plan to comply with the Physical Access Authorizations control (pe-2), the following non-technical implementation plan should be followed:\n\n1. Develop a clear physical access authorization policy: Create a policy that outlines the process for granting, reviewing, and revoking physical access to facilities, systems, and equipment.\n2. Define access control procedures: Establish procedures for verifying the identity of individuals requesting physical access, determining their access needs, and granting access only to authorized personnel.\n3. Implement access control mechanisms: Utilize physical access controls such as key cards, biometric scanners, security guards, and surveillance cameras to restrict access to sensitive areas.\n4. Conduct regular access reviews: Periodically review and update access privileges to ensure that only authorized individuals have access to physical assets.\n5. Enforce visitor access policies: Implement policies for granting temporary access to visitors, contractors, and vendors, and ensure that they are escorted while on-site.\n6. Train employees on physical security best practices: Provide training to employees on the importance of physical security, the proper use of access control mechanisms, and reporting any suspicious activities.\n\nBy following these steps, organizations can effectively manage physical access authorizations and reduce the risk of unauthorized access to sensitive areas.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-2.1",
+        "title": "Access by Position or Role",
+        "official_text": "Authorize physical access to the facility where the system resides based on position or role."
+      },
+      {
+        "id": "pe-2.2",
+        "title": "Two Forms of Identification",
+        "official_text": "Require two forms of identification from the following forms of identification for visitor access to the facility where the system resides: {{ insert: param, pe-02.02_odp }}."
+      },
+      {
+        "id": "pe-2.3",
+        "title": "Restrict Unescorted Access",
+        "official_text": "Restrict unescorted access to the facility where the system resides to personnel with {{ insert: param, pe-02.03_odp.01 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:14:32.067954+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-2.1",
+    "control_name": "Access by Position or Role",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Authorize physical access to the facility where the system resides based on position or role.",
+    "parent_control": "pe-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Authorize physical access to the facility where the system resides based on position or role.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:33.669303+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-2.2",
+    "control_name": "Two Forms of Identification",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Require two forms of identification from the following forms of identification for visitor access to the facility where the system resides: {{ insert: param, pe-02.02_odp }}.",
+    "parent_control": "pe-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Require two forms of identification from the following forms of identification for visitor access to the facility where the system resides: {{ insert: param, pe-02.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:35.269183+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-2.3",
+    "control_name": "Restrict Unescorted Access",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Restrict unescorted access to the facility where the system resides to personnel with {{ insert: param, pe-02.03_odp.01 }}.",
+    "parent_control": "pe-2",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Restrict unescorted access to the facility where the system resides to personnel with {{ insert: param, pe-02.03_odp.01 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:36.890039+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3",
+    "control_name": "Physical Access Control",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Physical Access Control ensures that only authorized individuals have access to physical facilities and equipment.",
+    "example_implementation": "This script implement a badge access system and require employees to badge in and out of secure areas to track and control physical access.",
+    "non_technical_guidance": "This plan physical access control is a critical aspect of security compliance. To ensure compliance with Control ID pe-3, the following non-technical steps can be taken:\n\n1. Establish a physical access control policy: Create a policy document that outlines the physical access control measures that need to be implemented within the organization.\n\n2. Define access control procedures: Develop procedures for granting, revoking, and monitoring physical access to sensitive areas within the organization.\n\n3. Implement access control mechanisms: Install physical access control systems such as keycard readers, biometric scanners, and security guards to restrict access to sensitive areas.\n\n4. Conduct regular audits: Periodically audit physical access control measures to ensure they are being followed and are effective in protecting sensitive assets.\n\n5. Provide training: Educate employees on the importance of physical access control and the procedures they need to follow to comply with the policy.\n\nBy following these steps, organizations can effectively implement physical access control measures to comply with Control ID pe-3.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-3.1",
+        "title": "System Access",
+        "official_text": "Enforce physical access authorizations to the system in addition to the physical access controls for the facility at {{ insert: param, pe-03.01_odp }}."
+      },
+      {
+        "id": "pe-3.2",
+        "title": "Facility and Systems",
+        "official_text": "Perform security checks {{ insert: param, pe-03.02_odp }} at the physical perimeter of the facility or system for exfiltration of information or removal of system components."
+      },
+      {
+        "id": "pe-3.3",
+        "title": "Continuous Guards",
+        "official_text": "Employ guards to control {{ insert: param, pe-03.03_odp }} to the facility where the system resides 24 hours per day, 7 days per week."
+      },
+      {
+        "id": "pe-3.4",
+        "title": "Lockable Casings",
+        "official_text": "Use lockable physical casings to protect {{ insert: param, pe-03.04_odp }} from unauthorized physical access."
+      },
+      {
+        "id": "pe-3.5",
+        "title": "Tamper Protection",
+        "official_text": "Employ {{ insert: param, pe-03.05_odp.01 }} to {{ insert: param, pe-03.05_odp.02 }} physical tampering or alteration of {{ insert: param, pe-03.05_odp.03 }} within the system."
+      },
+      {
+        "id": "pe-3.6",
+        "title": "Facility Penetration Testing",
+        "official_text": ""
+      },
+      {
+        "id": "pe-3.7",
+        "title": "Physical Barriers",
+        "official_text": "Limit access using physical barriers."
+      },
+      {
+        "id": "pe-3.8",
+        "title": "Access Control Vestibules",
+        "official_text": "Employ access control vestibules at {{ insert: param, pe-03.08_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:14:45.084793+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-3.1",
+    "control_name": "System Access",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Enforce physical access authorizations to the system in addition to the physical access controls for the facility at {{ insert: param, pe-03.01_odp }}.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Enforce physical access authorizations to the system in addition to the physical access controls for the facility at {{ insert: param, pe-03.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:46.707271+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.2",
+    "control_name": "Facility and Systems",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Perform security checks {{ insert: param, pe-03.02_odp }} at the physical perimeter of the facility or system for exfiltration of information or removal of system components.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Perform security checks {{ insert: param, pe-03.02_odp }} at the physical perimeter of the facility or system for exfiltration of information or removal of system components.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:48.391857+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.3",
+    "control_name": "Continuous Guards",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ guards to control {{ insert: param, pe-03.03_odp }} to the facility where the system resides 24 hours per day, 7 days per week.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ guards to control {{ insert: param, pe-03.03_odp }} to the facility where the system resides 24 hours per day, 7 days per week.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:49.999197+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.4",
+    "control_name": "Lockable Casings",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Use lockable physical casings to protect {{ insert: param, pe-03.04_odp }} from unauthorized physical access.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Use lockable physical casings to protect {{ insert: param, pe-03.04_odp }} from unauthorized physical access.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:51.619327+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.5",
+    "control_name": "Tamper Protection",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ {{ insert: param, pe-03.05_odp.01 }} to {{ insert: param, pe-03.05_odp.02 }} physical tampering or alteration of {{ insert: param, pe-03.05_odp.03 }} within the system.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ {{ insert: param, pe-03.05_odp.01 }} to {{ insert: param, pe-03.05_odp.02 }} physical tampering or alteration of {{ insert: param, pe-03.05_odp.03 }} within the system.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:53.275245+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.6",
+    "control_name": "Facility Penetration Testing",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:54.881440+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.7",
+    "control_name": "Physical Barriers",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Limit access using physical barriers.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Limit access using physical barriers.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:56.494312+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-3.8",
+    "control_name": "Access Control Vestibules",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ access control vestibules at {{ insert: param, pe-03.08_odp }}.",
+    "parent_control": "pe-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ access control vestibules at {{ insert: param, pe-03.08_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:58.114065+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-4",
+    "control_name": "Access Control for Transmission",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Control physical access to {{ insert: param, pe-04_odp.01 }} within organizational facilities using {{ insert: param, pe-04_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Limit physical access to sensitive data transmission equipment within your organization's facilities.",
+    "example_implementation": "This script use secure locks, access control systems, and surveillance cameras to restrict access to areas where data transmission equipment is located. Regularly review and update access controls to ensure only authorized personnel can access the equipment.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-4, Access Control for Transmission, you can implement the following non-technical measures:\n1. Implement a physical access control system such as keycard access, biometric scanners, or security guards to control access to areas where transmission of sensitive information occurs.\n2. Ensure that only authorized personnel have access to these areas and regularly review and update access permissions as needed.\n3. Train employees on the importance of physical security and the proper procedures for accessing and securing transmission areas.\n4. Conduct regular audits and inspections of physical access controls to identify and address any vulnerabilities or gaps in security measures.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:14:59.728821+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-5",
+    "control_name": "Access Control for Output Devices",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Control physical access to output from {{ insert: param, pe-05_odp }} to prevent unauthorized individuals from obtaining the output.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Control who can access the information that comes out of your computer to make sure only authorized people can see it.",
+    "example_implementation": "This script implement password protection or encryption on output devices such as printers or monitors to prevent unauthorized access to sensitive information.",
+    "non_technical_guidance": "This plan to comply with the Access Control for Output Devices control (pe-5), you should implement physical security measures to restrict access to output devices such as printers, monitors, and projectors. This can include placing output devices in secure locations, using locks or access control systems, and monitoring access to these devices. Regularly review and update access control policies to ensure that only authorized individuals can obtain output from these devices. Additionally, consider implementing procedures for secure disposal of output materials to prevent unauthorized access to sensitive information.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-5.1",
+        "title": "Access to Output by Authorized Individuals",
+        "official_text": ""
+      },
+      {
+        "id": "pe-5.2",
+        "title": "Link to Individual Identity",
+        "official_text": "Link individual identity to receipt of output from output devices."
+      },
+      {
+        "id": "pe-5.3",
+        "title": "Marking Output Devices",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:15:01.359491+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-5.1",
+    "control_name": "Access to Output by Authorized Individuals",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:02.964232+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-5.2",
+    "control_name": "Link to Individual Identity",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Link individual identity to receipt of output from output devices.",
+    "parent_control": "pe-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Link individual identity to receipt of output from output devices.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:04.556225+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-5.3",
+    "control_name": "Marking Output Devices",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-5",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:06.161583+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-6",
+    "control_name": "Monitoring Physical Access",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that physical access to facilities and equipment is monitored and controlled.",
+    "example_implementation": "This script implement a badge access system and security cameras to monitor who enters and exits your facilities. Regularly review access logs to detect any unauthorized access.",
+    "non_technical_guidance": "This plan to comply with the monitoring physical access control (pe-6), you should implement the following non-technical steps:\n1. Establish a process for monitoring physical access to sensitive areas within your organization, such as data centers, server rooms, and other restricted areas.\n2. Ensure that access control measures, such as key cards, biometric scanners, or security guards, are in place and functioning properly.\n3. Regularly review access logs and security camera footage to identify any unauthorized access or suspicious activities.\n4. Conduct periodic physical security audits to assess the effectiveness of your access control measures and make any necessary improvements.\n5. Document all physical access monitoring activities and findings for auditing purposes.\n6. Train employees on the importance of physical security and the proper procedures for accessing restricted areas.\nBy following these steps, you can effectively monitor physical access and ensure compliance with control pe-6.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-6.1",
+        "title": "Intrusion Alarms and Surveillance Equipment",
+        "official_text": "Monitor physical access to the facility where the system resides using physical intrusion alarms and surveillance equipment."
+      },
+      {
+        "id": "pe-6.2",
+        "title": "Automated Intrusion Recognition and Responses",
+        "official_text": "Recognize {{ insert: param, pe-06.02_odp.01 }} and initiate {{ insert: param, pe-06.02_odp.02 }} using {{ insert: param, pe-06.02_odp.03 }}."
+      },
+      {
+        "id": "pe-6.3",
+        "title": "Video Surveillance",
+        "official_text": ""
+      },
+      {
+        "id": "pe-6.4",
+        "title": "Monitoring Physical Access to Systems",
+        "official_text": "Monitor physical access to the system in addition to the physical access monitoring of the facility at {{ insert: param, pe-06.04_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:07.782893+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-6.1",
+    "control_name": "Intrusion Alarms and Surveillance Equipment",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Monitor physical access to the facility where the system resides using physical intrusion alarms and surveillance equipment.",
+    "parent_control": "pe-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Monitor physical access to the facility where the system resides using physical intrusion alarms and surveillance equipment.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:09.371410+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-6.2",
+    "control_name": "Automated Intrusion Recognition and Responses",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Recognize {{ insert: param, pe-06.02_odp.01 }} and initiate {{ insert: param, pe-06.02_odp.02 }} using {{ insert: param, pe-06.02_odp.03 }}.",
+    "parent_control": "pe-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Recognize {{ insert: param, pe-06.02_odp.01 }} and initiate {{ insert: param, pe-06.02_odp.02 }} using {{ insert: param, pe-06.02_odp.03 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:10.983154+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-6.3",
+    "control_name": "Video Surveillance",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:12.580921+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-6.4",
+    "control_name": "Monitoring Physical Access to Systems",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Monitor physical access to the system in addition to the physical access monitoring of the facility at {{ insert: param, pe-06.04_odp }}.",
+    "parent_control": "pe-6",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Monitor physical access to the system in addition to the physical access monitoring of the facility at {{ insert: param, pe-06.04_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:14.253979+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-7",
+    "control_name": "Visitor Control",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Visitor Control ensures that only authorized individuals are allowed access to the organization's facilities and information systems.",
+    "example_implementation": "This script implement a visitor sign-in process at all entry points to track and monitor visitors entering and exiting the premises. This can include issuing temporary access badges and escorting visitors while on-site.",
+    "non_technical_guidance": "This plan to implement Visitor Control, create a dedicated user account specifically for visitors accessing the system. This user account should have limited permissions and access rights to only the necessary resources. Regularly review and monitor visitor activities to ensure compliance with security policies. Additionally, consider implementing physical visitor control measures such as visitor badges or escort requirements for restricted areas.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:15.860219+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-8",
+    "control_name": "Visitor Access Records",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Visitor Access Records require keeping track of who enters and leaves your facility.",
+    "example_implementation": "This script implement a visitor log at the entrance of your facility and require all visitors to sign in and out. Regularly review and update this log to ensure accuracy.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-8, ensure that visitor access records are maintained by creating a log file specifically for recording visitor access. This log file should capture relevant information such as date and time of access, visitor name, purpose of visit, and any other necessary details. Regularly review and update this log file to ensure accurate and up-to-date records are maintained. Access to this log file should be restricted to authorized personnel only.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-8.1",
+        "title": "Automated Records Maintenance and Review",
+        "official_text": "Maintain and review visitor access records using {{ insert: param, pe-8.1_prm_1 }}."
+      },
+      {
+        "id": "pe-8.2",
+        "title": "Physical Access Records",
+        "official_text": ""
+      },
+      {
+        "id": "pe-8.3",
+        "title": "Limit Personally Identifiable Information Elements",
+        "official_text": "Limit personally identifiable information contained in visitor access records to the following elements identified in the privacy risk assessment: {{ insert: param, pe-08.03_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-11-10T10:15:17.494408+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
+    }
+  },
+  {
+    "control_id": "pe-8.1",
+    "control_name": "Automated Records Maintenance and Review",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Maintain and review visitor access records using {{ insert: param, pe-8.1_prm_1 }}.",
+    "parent_control": "pe-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Maintain and review visitor access records using {{ insert: param, pe-8.1_prm_1 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:19.122234+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-8.2",
+    "control_name": "Physical Access Records",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:20.659694+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-8.3",
+    "control_name": "Limit Personally Identifiable Information Elements",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Limit personally identifiable information contained in visitor access records to the following elements identified in the privacy risk assessment: {{ insert: param, pe-08.03_odp }}.",
+    "parent_control": "pe-8",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Limit personally identifiable information contained in visitor access records to the following elements identified in the privacy risk assessment: {{ insert: param, pe-08.03_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:22.194034+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-9",
+    "control_name": "Power Equipment and Cabling",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Protect power equipment and power cabling for the system from damage and destruction.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Protect power equipment and cables from being damaged or destroyed.",
+    "example_implementation": "This script regularly inspect power equipment and cables for signs of wear and tear, and ensure they are installed in a secure location to prevent damage.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-9, the following non-technical implementation plan can be followed:\n\n1. Physical Security: Ensure that power equipment and power cabling are located in secure areas that are not easily accessible to unauthorized personnel. This can include using locked cabinets or rooms to store the equipment.\n\n2. Regular Inspections: Conduct regular inspections of power equipment and cabling to check for any signs of damage or wear. Any issues should be addressed promptly to prevent potential damage or destruction.\n\n3. Training and Awareness: Provide training to staff members on the importance of protecting power equipment and cabling. This can include proper handling procedures and reporting any suspicious activity around the equipment.\n\n4. Disaster Recovery Plan: Develop a disaster recovery plan that includes procedures for protecting power equipment and cabling in the event of a natural disaster or other emergency situation.\n\nBy following these steps, organizations can ensure that their power equipment and cabling are protected from damage and destruction, helping to maintain the overall security of the system.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-9.1",
+        "title": "Redundant Cabling",
+        "official_text": "Employ redundant power cabling paths that are physically separated by {{ insert: param, pe-09.01_odp }}."
+      },
+      {
+        "id": "pe-9.2",
+        "title": "Automatic Voltage Controls",
+        "official_text": "Employ automatic voltage controls for {{ insert: param, pe-09.02_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:15:23.733480+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-9.1",
+    "control_name": "Redundant Cabling",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ redundant power cabling paths that are physically separated by {{ insert: param, pe-09.01_odp }}.",
+    "parent_control": "pe-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ redundant power cabling paths that are physically separated by {{ insert: param, pe-09.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:25.331422+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-9.2",
+    "control_name": "Automatic Voltage Controls",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ automatic voltage controls for {{ insert: param, pe-09.02_odp }}.",
+    "parent_control": "pe-9",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ automatic voltage controls for {{ insert: param, pe-09.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:15:26.937786+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-10",
+    "control_name": "Emergency Shutoff",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Emergency shutoff procedures are in place to quickly and safely shut down systems in case of an emergency.",
+    "example_implementation": "This script make sure all employees are trained on the emergency shutoff procedures and conduct regular drills to ensure everyone knows what to do in case of an emergency.",
+    "non_technical_guidance": "This plan to implement the Emergency Shutoff control, ensure that there is a documented procedure in place for initiating an emergency shutoff of systems or services in case of a security incident or other emergency situation. This procedure should include clear instructions on who has the authority to initiate the shutoff, how it should be carried out, and any follow-up actions required. Regular training and drills should be conducted to ensure that personnel are familiar with the emergency shutoff process and can act quickly and effectively when needed. Additionally, ensure that there is a mechanism in place to quickly communicate the shutoff order to all relevant personnel.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-10.1",
+        "title": "Accidental and Unauthorized Activation",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:55.405724+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-10.1",
+    "control_name": "Accidental and Unauthorized Activation",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-10",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:57.016809+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-11",
+    "control_name": "Emergency Power",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Provide an uninterruptible power supply to facilitate {{ insert: param, pe-11_odp }} in the event of a primary power source loss.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure there is a backup power source in case of a power outage.",
+    "example_implementation": "This script install uninterruptible power supplies (UPS) for critical systems to ensure they stay operational during power outages. Regularly test the UPS to ensure they are functioning properly.",
+    "non_technical_guidance": "This plan to comply with control pe-11, ensure that an uninterruptible power supply (UPS) is provided to facilitate emergency power in the event of a primary power source loss. This can be achieved by procuring and installing a UPS system that is capable of providing power backup to critical systems and equipment during power outages. Regular maintenance and testing of the UPS should also be conducted to ensure its reliability in emergency situations. Additionally, staff should be trained on the proper procedures for using the UPS in case of power failures.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-11.1",
+        "title": "Alternate Power Supply — Minimal Operational Capability",
+        "official_text": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.01_odp }} and that can maintain minimally required operational capability in the event of an extended loss of the primary power source."
+      },
+      {
+        "id": "pe-11.2",
+        "title": "Alternate Power Supply — Self-contained",
+        "official_text": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.02_odp.01 }} and that is:"
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:13:58.596373+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-11.1",
+    "control_name": "Alternate Power Supply — Minimal Operational Capability",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.01_odp }} and that can maintain minimally required operational capability in the event of an extended loss of the primary power source.",
+    "parent_control": "pe-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.01_odp }} and that can maintain minimally required operational capability in the event of an extended loss of the primary power source.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:00.205974+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-11.2",
+    "control_name": "Alternate Power Supply — Self-contained",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.02_odp.01 }} and that is:",
+    "parent_control": "pe-11",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide an alternate power supply for the system that is activated {{ insert: param, pe-11.02_odp.01 }} and that is:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:01.813421+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-12",
+    "control_name": "Emergency Lighting",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ and maintain automatic emergency lighting for the system that activates in the event of a power outage or disruption and that covers emergency exits and evacuation routes within the facility.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure there are lights that turn on automatically during a power outage to help people find their way out of the building.",
+    "example_implementation": "This script install emergency lighting near emergency exits and evacuation routes to ensure they are well-lit during a power outage. Regularly test the emergency lighting system to ensure it is functioning properly.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-12 regarding Emergency Lighting, the following non-technical implementation plan can be followed:\n\n1. Conduct an assessment of the facility to identify emergency exits and evacuation routes that need to be covered by emergency lighting.\n2. Install automatic emergency lighting systems that are activated in the event of a power outage or disruption.\n3. Regularly test and maintain the emergency lighting systems to ensure they are functioning properly.\n4. Train personnel on the location of emergency lighting and procedures to follow during a power outage or emergency situation.\n5. Keep records of maintenance and testing of emergency lighting systems for audit purposes.\n\nBy following these steps, the organization can ensure compliance with the control requirements for Emergency Lighting (pe-12) as outlined in NIST 800-53.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-12.1",
+        "title": "Essential Mission and Business Functions",
+        "official_text": "Provide emergency lighting for all areas within the facility supporting essential mission and business functions."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:03.401758+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-12.1",
+    "control_name": "Essential Mission and Business Functions",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Provide emergency lighting for all areas within the facility supporting essential mission and business functions.",
+    "parent_control": "pe-12",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide emergency lighting for all areas within the facility supporting essential mission and business functions.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:05.012444+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-13",
+    "control_name": "Fire Protection",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ and maintain fire detection and suppression systems that are supported by an independent energy source.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure your building has fire alarms and sprinkler systems that can work even if the power goes out.",
+    "example_implementation": "This script install backup batteries or generators for your fire detection and suppression systems to ensure they remain operational during power outages.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-13 (Fire Protection), you should ensure that your organization has fire detection and suppression systems in place that are supported by an independent energy source. This means having smoke detectors, fire alarms, fire extinguishers, sprinkler systems, and any other necessary fire protection equipment installed and regularly maintained.\n\nHere are some steps to implement this control:\n1. Conduct a fire risk assessment of your facility to determine the appropriate fire protection systems needed.\n2. Install fire detection systems such as smoke detectors and fire alarms throughout the facility.\n3. Implement fire suppression systems such as fire extinguishers, sprinkler systems, or other suppression methods depending on the risk assessment.\n4. Ensure that these systems are regularly tested, inspected, and maintained by qualified professionals.\n5. Have a plan in place for responding to fire incidents, including evacuation procedures and training for staff on how to use fire protection equipment.\n6. Ensure that these systems have an independent energy source to ensure they remain operational during power outages.\n\nBy following these steps, you can ensure that your organization is compliant with the pe-13 control for Fire Protection.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-13.1",
+        "title": "Detection Systems — Automatic Activation and Notification",
+        "official_text": "Employ fire detection systems that activate automatically and notify {{ insert: param, pe-13.01_odp.01 }} and {{ insert: param, pe-13.01_odp.02 }} in the event of a fire."
+      },
+      {
+        "id": "pe-13.2",
+        "title": "Suppression Systems — Automatic Activation and Notification",
+        "official_text": ""
+      },
+      {
+        "id": "pe-13.3",
+        "title": "Automatic Fire Suppression",
+        "official_text": ""
+      },
+      {
+        "id": "pe-13.4",
+        "title": "Inspections",
+        "official_text": "Ensure that the facility undergoes {{ insert: param, pe-13.04_odp.01 }} fire protection inspections by authorized and qualified inspectors and identified deficiencies are resolved within {{ insert: param, pe-13.04_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:06.608996+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-13.1",
+    "control_name": "Detection Systems — Automatic Activation and Notification",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ fire detection systems that activate automatically and notify {{ insert: param, pe-13.01_odp.01 }} and {{ insert: param, pe-13.01_odp.02 }} in the event of a fire.",
+    "parent_control": "pe-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Employ fire detection systems that activate automatically and notify {{ insert: param, pe-13.01_odp.01 }} and {{ insert: param, pe-13.01_odp.02 }} in the event of a fire.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:08.205008+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-13.2",
+    "control_name": "Suppression Systems — Automatic Activation and Notification",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:09.818854+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-13.3",
+    "control_name": "Automatic Fire Suppression",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:11.437980+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-13.4",
+    "control_name": "Inspections",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Ensure that the facility undergoes {{ insert: param, pe-13.04_odp.01 }} fire protection inspections by authorized and qualified inspectors and identified deficiencies are resolved within {{ insert: param, pe-13.04_odp.02 }}.",
+    "parent_control": "pe-13",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Ensure that the facility undergoes {{ insert: param, pe-13.04_odp.01 }} fire protection inspections by authorized and qualified inspectors and identified deficiencies are resolved within {{ insert: param, pe-13.04_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:13.039309+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-14",
+    "control_name": "Environmental Controls",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Environmental Controls ensure that the physical surroundings of an IT system are secure and protected from potential threats.",
+    "example_implementation": "This script implementing environmental controls can include measures such as monitoring and controlling temperature, humidity, and access to the physical location of the IT system to prevent unauthorized access or damage.",
+    "non_technical_guidance": "This plan environmental controls are physical safeguards put in place to protect information systems and data from environmental threats. To comply with this control, ensure that the following measures are in place:\n1. Implement proper temperature and humidity controls in data centers and server rooms to prevent overheating and damage to equipment.\n2. Install fire suppression systems to protect against fire hazards.\n3. Implement access controls to restrict unauthorized access to sensitive areas where information systems are housed.\n4. Regularly inspect and maintain environmental control systems to ensure they are functioning properly.\n5. Develop and implement a disaster recovery plan to address potential environmental threats such as floods, earthquakes, or power outages.\nBy following these guidelines, you can ensure that your organization's information systems are protected from environmental risks.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-14.1",
+        "title": "Automatic Controls",
+        "official_text": "Employ the following automatic environmental controls in the facility to prevent fluctuations potentially harmful to the system: {{ insert: param, pe-14.01_odp }}."
+      },
+      {
+        "id": "pe-14.2",
+        "title": "Monitoring with Alarms and Notifications",
+        "official_text": "Employ environmental control monitoring that provides an alarm or notification of changes potentially harmful to personnel or equipment to {{ insert: param, pe-14.02_odp }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:14.629275+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-14.1",
+    "control_name": "Automatic Controls",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ the following automatic environmental controls in the facility to prevent fluctuations potentially harmful to the system: {{ insert: param, pe-14.01_odp }}.",
+    "parent_control": "pe-14",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ the following automatic environmental controls in the facility to prevent fluctuations potentially harmful to the system: {{ insert: param, pe-14.01_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:16.224916+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-14.2",
+    "control_name": "Monitoring with Alarms and Notifications",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ environmental control monitoring that provides an alarm or notification of changes potentially harmful to personnel or equipment to {{ insert: param, pe-14.02_odp }}.",
+    "parent_control": "pe-14",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ environmental control monitoring that provides an alarm or notification of changes potentially harmful to personnel or equipment to {{ insert: param, pe-14.02_odp }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:17.884013+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-15",
+    "control_name": "Water Damage Protection",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Protect the system from damage resulting from water leakage by providing master shutoff or isolation valves that are accessible, working properly, and known to key personnel.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure there are shutoff valves in place to prevent water damage to the system.",
+    "example_implementation": "This script regularly test and maintain the shutoff valves to ensure they are working properly and that key personnel know their location and how to use them in case of a water leak.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-15, the following non-technical implementation plan can be followed:\n\n1. Identify key personnel who are responsible for the physical security of the system and ensure they are aware of the location of master shutoff or isolation valves.\n2. Regularly inspect and maintain the master shutoff or isolation valves to ensure they are accessible and working properly.\n3. Provide training to key personnel on how to quickly and effectively shut off water sources in the event of a leak or flooding.\n4. Develop and document a clear procedure for responding to water leaks or flooding incidents, including the steps to take to protect the system from damage.\n5. Conduct regular drills or exercises to test the effectiveness of the response plan and ensure key personnel are prepared to act quickly in case of an emergency.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-15.1",
+        "title": "Automation Support",
+        "official_text": "Detect the presence of water near the system and alert {{ insert: param, pe-15.01_odp.01 }} using {{ insert: param, pe-15.01_odp.02 }}."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:19.439567+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-15.1",
+    "control_name": "Automation Support",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Detect the presence of water near the system and alert {{ insert: param, pe-15.01_odp.01 }} using {{ insert: param, pe-15.01_odp.02 }}.",
+    "parent_control": "pe-15",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Detect the presence of water near the system and alert {{ insert: param, pe-15.01_odp.01 }} using {{ insert: param, pe-15.01_odp.02 }}.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:20.978589+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-16",
+    "control_name": "Delivery and Removal",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that software and hardware are delivered and removed securely to prevent unauthorized access or tampering.",
+    "example_implementation": "This script keep a detailed inventory of all software and hardware deliveries and removals, including who is responsible and when it occurred, to track and monitor access.",
+    "non_technical_guidance": "This plan to ensure compliance with control pe-16, you should implement proper controls for the delivery and removal of sensitive information. This includes setting appropriate permissions on scripts or tools used for delivery and removal to ensure that only authorized individuals can access and execute them. Regularly review and update these controls to maintain compliance with the control requirements.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:22.506399+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-17",
+    "control_name": "Alternate Work Site",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that organizations have plans in place for employees to work from alternate locations in case of emergencies or disruptions.",
+    "example_implementation": "This script make sure to regularly test and update your alternate work site plans to ensure they are effective in case of an emergency.",
+    "non_technical_guidance": "This plan for compliance with Control ID pe-17 (Alternate Work Site), the following non-technical implementation plan can be followed:\n\n1. Develop a policy that outlines the requirements and guidelines for employees working at alternate work sites.\n2. Ensure that employees are aware of the policy and provide training on the security measures that need to be taken when working remotely.\n3. Implement secure remote access solutions such as VPNs or remote desktop services to ensure that data is transmitted securely.\n4. Require employees to use company-provided devices or ensure that personal devices used for work are compliant with security policies.\n5. Regularly review and update the policy to address any changes in technology or security threats.\n6. Conduct regular audits to ensure compliance with the policy and address any non-compliance issues promptly.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:24.056359+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-18",
+    "control_name": "Location of System Components",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Position system components within the facility to minimize potential damage from {{ insert: param, pe-18_odp }} and to minimize the opportunity for unauthorized access.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure to place system components in a safe location to protect them from damage and unauthorized access.",
+    "example_implementation": "This script store servers and other critical equipment in a secure room with limited access, such as a locked server room or data center.",
+    "non_technical_guidance": "This plan to comply with Control ID pe-18, the following non-technical implementation plan can be followed:\n\n1. Conduct a physical assessment of the facility where the system components are located to identify potential risks such as natural disasters, unauthorized access points, etc.\n2. Position the system components in a secure location within the facility that minimizes the risk of damage from potential threats and unauthorized access. This may include placing them in a locked room or cabinet, away from windows or potential water sources.\n3. Implement access controls to ensure only authorized personnel have access to the system components.\n4. Regularly review and update the physical security measures in place to adapt to any changes in the facility or potential threats.\n5. Document the physical security measures taken to comply with pe-18 for audit and compliance purposes.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-18.1",
+        "title": "Facility Site",
+        "official_text": ""
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "manual",
+      "last_analyzed": "2025-11-10T10:14:25.664368+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
+    }
+  },
+  {
+    "control_id": "pe-18.1",
+    "control_name": "Facility Site",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "parent_control": "pe-18",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:27.282827+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-19",
+    "control_name": "Information Leakage",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Protect the system from information leakage due to electromagnetic signals emanations.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Protect the system from leaking information through electromagnetic signals.",
+    "example_implementation": "This script implement physical security measures such as shielding and isolation to prevent electromagnetic signals from being intercepted.",
+    "non_technical_guidance": "This plan to protect the system from information leakage due to electromagnetic signals emanations, the following non-technical implementation plan can be followed:\n\n1. Physical Security: Ensure that the physical environment where the system is located has adequate protection against unauthorized access. This includes restricting access to the server room, using locks and access control mechanisms, and monitoring who enters the area.\n\n2. Shielding: Implement electromagnetic shielding for the system components to prevent leakage of signals. This can include using shielded cables, enclosures, and other equipment that can block electromagnetic emissions.\n\n3. Regular Assessment: Conduct regular assessments and audits to identify any potential vulnerabilities or weaknesses in the system that could lead to information leakage. This can include conducting electromagnetic interference testing and ensuring compliance with relevant standards.\n\n4. Employee Training: Provide training to employees on the importance of protecting sensitive information and the risks associated with information leakage due to electromagnetic signals. This can help raise awareness and ensure that employees follow best practices for securing the system.\n\nBy following these steps, organizations can effectively protect their systems from information leakage due to electromagnetic signals emanations.",
+    "is_technical": false,
+    "enhancements": [
+      {
+        "id": "pe-19.1",
+        "title": "National Emissions Policies and Procedures",
+        "official_text": "Protect system components, associated data communications, and networks in accordance with national Emissions Security policies and procedures based on the security category or classification of the information."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:28.875864+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-19.1",
+    "control_name": "National Emissions Policies and Procedures",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Protect system components, associated data communications, and networks in accordance with national Emissions Security policies and procedures based on the security category or classification of the information.",
+    "parent_control": "pe-19",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Protect system components, associated data communications, and networks in accordance with national Emissions Security policies and procedures based on the security category or classification of the information.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:30.468627+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-20",
+    "control_name": "Asset Monitoring and Tracking",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ {{ insert: param, pe-20_odp.01 }} to track and monitor the location and movement of {{ insert: param, pe-20_odp.02 }} within {{ insert: param, pe-20_odp.03 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Keep track of where your assets are and monitor their movement.",
+    "example_implementation": "This script implement a centralized asset management system that uses RFID tags or GPS tracking to monitor the location and movement of assets in real-time.",
+    "non_technical_guidance": "This plan to implement Asset Monitoring and Tracking (pe-20) in a non-technical manner, follow these steps:\n1. Develop a comprehensive inventory list of all assets within your organization, including hardware, software, and data.\n2. Assign unique identifiers to each asset for easy tracking and monitoring.\n3. Establish a centralized system or database to store and update asset information regularly.\n4. Implement a process for tracking the movement of assets within the organization, including transfers, disposals, and acquisitions.\n5. Conduct regular audits to ensure the accuracy and completeness of the asset inventory.\n6. Define roles and responsibilities for asset monitoring and tracking, including who is responsible for updating asset information and conducting audits.\n7. Provide training to employees on the importance of asset monitoring and tracking and how to comply with organizational policies and procedures.\n8. Review and update asset monitoring and tracking procedures regularly to adapt to changes in the organization's assets and operations.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": true
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:38.483449+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-21",
+    "control_name": "Electromagnetic Pulse Protection",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Employ {{ insert: param, pe-21_odp.01 }} against electromagnetic pulse damage for {{ insert: param, pe-21_odp.02 }}.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Protect against damage from electromagnetic pulses.",
+    "example_implementation": "This script ensure critical systems and equipment are shielded or protected from electromagnetic pulse events by using surge protectors, Faraday cages, or other appropriate measures.",
+    "non_technical_guidance": "This plan to comply with Electromagnetic Pulse Protection control (pe-21), follow these steps:\n1. Conduct a risk assessment to determine the potential impact of electromagnetic pulse (EMP) damage on your systems and infrastructure.\n2. Implement physical protection measures such as shielding, grounding, and surge protection to mitigate the risk of EMP damage.\n3. Develop and maintain an EMP protection plan that includes procedures for shutting down critical systems in the event of an EMP threat.\n4. Train staff on EMP protection measures and procedures to ensure proper response in case of an EMP event.\n5. Regularly review and update EMP protection measures as technology and threats evolve.\n6. Document all EMP protection measures and procedures for audit and compliance purposes.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:40.101838+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-22",
+    "control_name": "Component Marking",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "Mark {{ insert: param, pe-22_odp }} indicating the impact level or classification level of the information permitted to be processed, stored, or transmitted by the hardware component.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Mark hardware components with the appropriate impact or classification level of information they are allowed to process, store, or transmit.",
+    "example_implementation": "This script creates a standardized labeling system for hardware components based on impact or classification levels to easily identify and manage them in your IT environment.",
+    "non_technical_guidance": "This plan to implement control pe-22 for Component Marking, follow these steps:\n1. Identify the hardware components that process, store, or transmit information.\n2. Determine the impact level or classification level of the information handled by each hardware component.\n3. Physically mark each hardware component with the appropriate designation indicating the impact level or classification level.\n4. Ensure that all relevant personnel are aware of the marking system and its significance.\n5. Regularly review and update the markings as necessary to reflect any changes in the information being processed, stored, or transmitted.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:41.713435+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  },
+  {
+    "control_id": "pe-23",
+    "control_name": "Facility Location",
+    "family": "Physical and Environmental Protection",
+    "family_id": "pe",
+    "official_text": "",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Facility Location control ensures that physical facilities are located in areas that minimize the risks of natural and man-made disasters.",
+    "example_implementation": "This script when selecting a location for your data center or office, consider factors such as proximity to flood zones, seismic activity, and security risks to minimize potential disruptions to operations.",
+    "non_technical_guidance": "This plan for compliance with control pe-23 (Facility Location), the organization should ensure that physical facilities housing information systems and assets are located in secure areas that minimize the risks of unauthorized access, damage, and interference. To implement this control, the following non-technical steps can be taken:\n\n1. Conduct a physical security assessment of all facilities where information systems and assets are located.\n2. Identify and document any potential risks or vulnerabilities related to the physical location of these facilities.\n3. Implement appropriate physical security measures such as access controls, surveillance cameras, alarms, and secure entry points to mitigate identified risks.\n4. Regularly review and update physical security measures to address any changes in the security landscape or business operations.\n5. Train employees on security protocols and procedures related to facility access and protection of assets.\n\nBy following these steps, the organization can ensure compliance with control pe-23 and protect the physical security of its information systems and assets.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "has_scripts": false
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T10:14:43.362324+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    }
+  }
+]

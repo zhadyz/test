@@ -1,0 +1,227 @@
+---
+################################################################################
+# NIST 800-53 AC-10 Ansible Playbook
+# Control: Concurrent Session Control
+# Platform: Ubuntu 20.04
+# Generated: 2025-01-08
+# Generator Version: 1.0.0
+#
+# Description:
+# Implements NIST 800-53 Rev 5 AC-10 by limiting concurrent sessions per user
+# to prevent resource exhaustion and enforce accountability.
+#
+# Features:
+# - Idempotent operations
+# - Error handling with handlers
+# - Backup and rollback support
+# - Comprehensive verification
+################################################################################
+
+- name: "NIST 800-53 AC-10 - Concurrent Session Control"
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  vars:
+    control_id: "AC-10"
+    control_name: "Concurrent Session Control"
+    platform: "Ubuntu 20.04"
+    max_concurrent_sessions: 3
+    backup_dir: "/var/backups/nist_ac10_{{ ansible_date_time.iso8601_basic_short }}"
+    log_file: "/var/log/ansible_nist_ac10.log"
+    limits_conf: "/etc/security/limits.conf"
+    pam_common_session: "/etc/pam.d/common-session"
+
+  pre_tasks:
+    - name: "AC-10 | Display playbook information"
+      debug:
+        msg:
+          - "NIST 800-53 Control: AC-10"
+          - "Control Name: Concurrent Session Control"
+          - "Target Platform: Ubuntu 20.04"
+          - "Target Host: {{ ansible_hostname }}"
+          - "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+          - "Max Concurrent Sessions: {{ max_concurrent_sessions }}"
+
+    - name: "AC-10 | Verify OS compatibility"
+      assert:
+        that:
+          - ansible_distribution == "Ubuntu"
+          - ansible_distribution_version is version('20.04', '>=')
+        fail_msg: "This playbook requires Ubuntu 20.04 or higher"
+        success_msg: "OS compatibility verified"
+
+    - name: "AC-10 | Create backup directory"
+      file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: '0700'
+
+    - name: "AC-10 | Create log file"
+      file:
+        path: "{{ log_file }}"
+        state: touch
+        mode: '0644'
+
+  tasks:
+    #---------------------------------------------------------------------------
+    # Implementation: Backup current configuration
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Backup /etc/security/limits.conf"
+      copy:
+        src: "{{ limits_conf }}"
+        dest: "{{ backup_dir }}/limits.conf.backup"
+        remote_src: yes
+        mode: '0644'
+      register: backup_limits
+
+    - name: "AC-10 | Backup PAM system-auth configuration"
+      copy:
+        src: "{{ pam_common_session }}"
+        dest: "{{ backup_dir }}/system-auth.backup"
+        remote_src: yes
+        mode: '0644'
+      register: backup_pam
+
+    - name: "AC-10 | Log backup completion"
+      lineinfile:
+        path: "{{ log_file }}"
+        line: "{{ ansible_date_time.iso8601 }} - Backup completed to {{ backup_dir }}"
+        create: yes
+
+    #---------------------------------------------------------------------------
+    # Implementation: Remove existing maxlogins entries
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Remove existing maxlogins entries to avoid conflicts"
+      lineinfile:
+        path: "{{ limits_conf }}"
+        regexp: '^[^#]*maxlogins'
+        state: absent
+      register: removed_existing
+
+    #---------------------------------------------------------------------------
+    # Implementation: Configure concurrent session limit
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Add NIST 800-53 AC-10 header comment"
+      blockinfile:
+        path: "{{ limits_conf }}"
+        marker: "# {mark} NIST 800-53 AC-10 CONCURRENT SESSION CONTROL"
+        block: |
+          # Limit concurrent sessions to prevent resource exhaustion
+          # Applied: {{ ansible_date_time.iso8601 }}
+          # Max concurrent sessions: {{ max_concurrent_sessions }}
+        insertafter: EOF
+      notify: log_change
+
+    - name: "AC-10 | Set hard maxlogins limit for all users"
+      lineinfile:
+        path: "{{ limits_conf }}"
+        line: "* hard maxlogins {{ max_concurrent_sessions }}"
+        insertafter: "# {mark} NIST 800-53 AC-10 CONCURRENT SESSION CONTROL"
+        state: present
+      notify: log_change
+      register: maxlogins_set
+
+    #---------------------------------------------------------------------------
+    # Implementation: Ensure PAM limits module is enabled
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Check if pam_limits.so is in system-auth"
+      shell: grep 'pam_limits.so' {{ pam_common_session }}
+      register: pam_limits_check
+      changed_when: false
+      failed_when: false
+
+    - name: "AC-10 | Add pam_limits.so to system-auth if missing"
+      lineinfile:
+        path: "{{ pam_common_session }}"
+        line: "session     required      pam_limits.so"
+        insertafter: '^session'
+        state: present
+      when: pam_limits_check.rc != 0
+      notify: log_change
+
+    - name: "AC-10 | Verify limits.conf file permissions"
+      file:
+        path: "{{ limits_conf }}"
+        mode: '0644'
+        owner: root
+        group: root
+
+  post_tasks:
+    - name: "AC-10 | Verification phase"
+      debug:
+        msg: "Starting verification checks..."
+
+    #---------------------------------------------------------------------------
+    # Verification: maxlogins setting
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Verify maxlogins setting in limits.conf"
+      shell: grep -E '^\*[[:space:]]+hard[[:space:]]+maxlogins[[:space:]]+{{ max_concurrent_sessions }}' {{ limits_conf }}
+      register: verify_maxlogins
+      changed_when: false
+      failed_when: false
+
+    - name: "AC-10 | Assert maxlogins is configured correctly"
+      assert:
+        that:
+          - verify_maxlogins.rc == 0
+        fail_msg: "maxlogins not configured correctly in {{ limits_conf }}"
+        success_msg: "maxlogins verified: * hard maxlogins {{ max_concurrent_sessions }}"
+
+    #---------------------------------------------------------------------------
+    # Verification: PAM limits module
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Verify PAM limits module is enabled"
+      shell: grep 'pam_limits.so' {{ pam_common_session }}
+      register: verify_pam_limits
+      changed_when: false
+
+    - name: "AC-10 | Assert PAM limits module is configured"
+      assert:
+        that:
+          - verify_pam_limits.rc == 0
+        fail_msg: "PAM limits module not found in {{ pam_common_session }}"
+        success_msg: "PAM limits module verified"
+
+    #---------------------------------------------------------------------------
+    # Verification: File syntax validation
+    #---------------------------------------------------------------------------
+
+    - name: "AC-10 | Validate limits.conf syntax"
+      shell: grep -qE '^[^#]+[[:space:]]+hard[[:space:]]+maxlogins[[:space:]]+[0-9]+' {{ limits_conf }}
+      register: syntax_check
+      changed_when: false
+
+    - name: "AC-10 | Assert limits.conf syntax is valid"
+      assert:
+        that:
+          - syntax_check.rc == 0
+        fail_msg: "limits.conf syntax validation failed"
+        success_msg: "limits.conf syntax is valid"
+
+    - name: "AC-10 | Implementation complete"
+      debug:
+        msg:
+          - "==============================================="
+          - "NIST 800-53 AC-10 implementation completed successfully"
+          - "Control: Concurrent Session Control"
+          - "Max concurrent sessions: {{ max_concurrent_sessions }}"
+          - "Backup location: {{ backup_dir }}"
+          - "Log file: {{ log_file }}"
+          - ""
+          - "IMPORTANT: Changes apply to NEW user sessions"
+          - "Existing sessions are NOT affected"
+          - "==============================================="
+
+  handlers:
+    - name: log_change
+      lineinfile:
+        path: "{{ log_file }}"
+        line: "{{ ansible_date_time.iso8601 }} - Configuration change applied by AC-10 playbook"
+        create: yes

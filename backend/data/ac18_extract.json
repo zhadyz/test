@@ -1,0 +1,63 @@
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "This control ensures that wireless access to the network is secure and monitored.",
+    "example_implementation": "This script implement strong encryption protocols like WPA2 for wireless access points and regularly monitor wireless network traffic for any unauthorized devices.",
+    "non_technical_guidance": "This plan to comply with control AC-18 regarding Wireless Access, the following non-technical implementation plan can be followed:\n\n1. Implement a policy that prohibits the use of unauthorized wireless access points within the organization.\n2. Regularly scan the premises for unauthorized wireless networks and take immediate action to disable them.\n3. Ensure that all authorized wireless access points are securely configured with strong encryption and authentication mechanisms.\n4. Enforce the use of strong passwords for accessing wireless networks and regularly update these passwords.\n5. Educate employees on the risks associated with connecting to unsecured wireless networks and the importance of following the organization's wireless access policies.\n6. Monitor network traffic for any suspicious activity related to wireless access and investigate any anomalies promptly.\n7. Conduct regular security audits and assessments to ensure compliance with wireless access control measures.",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "ac-18.1",
+        "title": "Authentication and Encryption",
+        "official_text": "Protect wireless access to the system using authentication of [authentication mechanism] and encryption.",
+        "metadata": {
+          "stig_id": "RHEL-08-040171"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Authentication and Encryption."
+      },
+      {
+        "id": "ac-18.2",
+        "title": "Monitoring Unauthorized Connections",
+        "official_text": "",
+        "rationale": "Continuous monitoring for unauthorized wireless signals identifies rogue access points or ad-hoc networks that could bypass perimeter defenses.",
+        "metadata": {
+          "stig_id": "RHEL-08-040172"
+        },
+        "ai_guidance": "Scan for rogue Wi-Fi access points that employees might have plugged in without permission."
+      },
+      {
+        "id": "ac-18.3",
+        "title": "Disable Wireless Networking",
+        "official_text": "Disable, when not intended for use, wireless networking capabilities embedded within system components prior to issuance and deployment.",
+        "rationale": "Disabling wireless hardware on servers and sensitive endpoints prevents accidental or unauthorized bridging of air gaps.",
+        "metadata": {
+          "stig_id": "RHEL-08-040173"
+        },
+        "ai_guidance": "If a server doesn't need Wi-Fi, turn the Wi-Fi chip off completely."
+      },
+      {
+        "id": "ac-18.4",
+        "title": "Restrict Configurations by Users",
+        "official_text": "Identify and explicitly authorize users allowed to independently configure wireless networking capabilities.",
+        "rationale": "Restricting who can configure wireless settings prevents users from accidentally connecting to insecure networks or creating rogue access points.",
+        "metadata": {
+          "stig_id": "RHEL-08-040174"
+        },
+        "ai_guidance": "Don't let regular users change Wi-Fi settings. Lock that configuration down."
+      },
+      {
+        "id": "ac-18.5",
+        "title": "Antennas and Transmission Power Levels",
+        "official_text": "Select radio antennas and calibrate transmission power levels to reduce the probability that signals from wireless access points can be received outside of organization-controlled boundaries.",
+        "metadata": {
+          "stig_id": "RHEL-08-040175"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Antennas and Transmission Power Levels."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {

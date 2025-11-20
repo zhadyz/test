@@ -1,0 +1,795 @@
+    "control_id": "ac-3",
+    "control_name": "Access Enforcement",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": true,
+      "moderate": true,
+      "high": true
+    },
+    "plain_english_explanation": "Make sure only authorized users have access to information and system resources.",
+    "example_implementation": "This script regularly review and update access control policies to ensure that only approved users can access sensitive information and resources.",
+    "non_technical_guidance": "This plan to enforce approved authorizations for logical access, follow these steps:\n1. Regularly review and update access control policies to ensure they align with the organization's security requirements.\n2. Implement role-based access control (RBAC) to assign permissions based on job roles and responsibilities.\n3. Use multi-factor authentication to enhance access security.\n4. Conduct regular access reviews to ensure that access rights are appropriate and up to date.\n5. Implement monitoring and auditing mechanisms to detect unauthorized access attempts.\n6. Provide security awareness training to employees on the importance of following access control policies.\n7. Document and communicate access control procedures to all personnel.\n8. Periodically test access controls to identify and address any vulnerabilities or gaps.\n```",
+    "is_technical": true,
+    "enhancements": [
+      {
+        "id": "ac-3.1",
+        "title": "Restricted Access to Privileged Functions",
+        "official_text": "",
+        "rationale": "Access enforcement mechanisms must be able to restrict access based on attributes (e.g., time of day, location, project assignment) rather than just identity.",
+        "metadata": {
+          "stig_id": "RHEL-08-010301"
+        },
+        "ai_guidance": "Control access based on things like 'is the user on the VPN?' not just 'who is the user?'."
+      },
+      {
+        "id": "ac-3.2",
+        "title": "Dual Authorization",
+        "official_text": "Enforce dual authorization for [dual authorization procedures].",
+        "metadata": {
+          "stig_id": "RHEL-08-010302"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Dual Authorization."
+      },
+      {
+        "id": "ac-3.3",
+        "title": "Mandatory Access Control",
+        "official_text": "Enforce [mandatory access control policy] over the set of covered subjects and objects specified in the policy, and where the policy:",
+        "metadata": {
+          "stig_id": "RHEL-08-010303"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Mandatory Access Control."
+      },
+      {
+        "id": "ac-3.4",
+        "title": "Discretionary Access Control",
+        "official_text": "Enforce [discretionary access control policy] over the set of covered subjects and objects specified in the policy, and where the policy specifies that a subject that has been granted access to information can do one or more of the following:",
+        "metadata": {
+          "stig_id": "RHEL-08-010304"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Discretionary Access Control."
+      },
+      {
+        "id": "ac-3.5",
+        "title": "Security-relevant Information",
+        "official_text": "Prevent access to [security attributes (e.g., classification)] except during secure, non-operable system states.",
+        "metadata": {
+          "stig_id": "RHEL-08-010305"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Security-relevant Information."
+      },
+      {
+        "id": "ac-3.6",
+        "title": "Protection of User and System Information",
+        "official_text": "",
+        "rationale": "Encrypting data at rest and in transit adds a layer of defense, ensuring that even if access controls are bypassed, the data remains unintelligible.",
+        "metadata": {
+          "stig_id": "RHEL-08-010306"
+        },
+        "ai_guidance": "Encrypt your data. If someone steals the hard drive, they still can't read the files."
+      },
+      {
+        "id": "ac-3.7",
+        "title": "Role-based Access Control",
+        "official_text": "Enforce a role-based access control policy over defined subjects and objects and control access based upon [role-based access control policy].",
+        "metadata": {
+          "stig_id": "RHEL-08-010307"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Role-based Access Control."
+      },
+      {
+        "id": "ac-3.8",
+        "title": "Revocation of Access Authorizations",
+        "official_text": "Enforce the revocation of access authorizations resulting from changes to the security attributes of subjects and objects based on [revocation time period (e.g., immediate)].",
+        "metadata": {
+          "stig_id": "RHEL-08-010308"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Revocation of Access Authorizations."
+      },
+      {
+        "id": "ac-3.9",
+        "title": "Controlled Release",
+        "official_text": "Release information outside of the system only if:",
+        "rationale": "Controlled release ensures that information sharing with external systems only occurs when the receiving system has adequate security controls.",
+        "metadata": {
+          "stig_id": "RHEL-08-010309"
+        },
+        "ai_guidance": "Don't send sensitive data to a system that isn't secure. Check before you send."
+      },
+      {
+        "id": "ac-3.10",
+        "title": "Audited Override of Access Control Mechanisms",
+        "official_text": "Employ an audited override of automated access control mechanisms under [audit logs] by [prohibited activities].",
+        "metadata": {
+          "stig_id": "RHEL-08-010310"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Audited Override of Access Control Mechanisms."
+      },
+      {
+        "id": "ac-3.11",
+        "title": "Restrict Access to Specific Information Types",
+        "official_text": "Restrict access to data repositories containing [restricted interface (e.g., read-only)].",
+        "metadata": {
+          "stig_id": "RHEL-08-010311"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Restrict Access to Specific Information Types."
+      },
+      {
+        "id": "ac-3.12",
+        "title": "Assert and Enforce Application Access",
+        "official_text": "",
+        "rationale": "Applications must explicitly state their access requirements during installation to prevent 'scope creep' and unauthorized access escalation.",
+        "metadata": {
+          "stig_id": "RHEL-08-010312"
+        },
+        "ai_guidance": "When installing new software, make it say exactly what permissions it needs upfront."
+      },
+      {
+        "id": "ac-3.13",
+        "title": "Attribute-based Access Control",
+        "official_text": "Enforce attribute-based access control policy over defined subjects and objects and control access based upon [sensitive data types].",
+        "metadata": {
+          "stig_id": "RHEL-08-010313"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Attribute-based Access Control."
+      },
+      {
+        "id": "ac-3.14",
+        "title": "Individual Access",
+        "official_text": "Provide [specific individuals] to enable individuals to have access to the following elements of their personally identifiable information: [specific data types].",
+        "metadata": {
+          "stig_id": "RHEL-08-010314"
+        },
+        "ai_guidance": "Enhance security by applying specific controls for Individual Access."
+      },
+      {
+        "id": "ac-3.15",
+        "title": "Discretionary and Mandatory Access Control",
+        "official_text": "",
+        "rationale": "Implementing both Discretionary Access Control (DAC) and Mandatory Access Control (MAC) provides robust defense-in-depth for high-security environments.",
+        "metadata": {
+          "stig_id": "RHEL-08-010315"
+        },
+        "ai_guidance": "Use both 'user-decided' permissions (DAC) and 'system-mandated' permissions (MAC) for double protection."
+      }
+    ],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {
+        "bash": "#!/bin/bash\n# AC-3 Access Enforcement (Linux)\n# Description: Verify permissions on critical system files and ensure discretionary access control is enforced.\n\necho \"Verifying permissions on /etc/shadow...\"\nif [ \"$(stat -c %a /etc/shadow)\" -ne \"000\" ]; then\n    echo \"Fixing /etc/shadow permissions...\"\n    chmod 000 /etc/shadow\nfi\n\necho \"Verifying permissions on /etc/gshadow...\"\nif [ \"$(stat -c %a /etc/gshadow)\" -ne \"000\" ]; then\n    echo \"Fixing /etc/gshadow permissions...\"\n    chmod 000 /etc/gshadow\nfi\n\necho \"Verifying permissions on /etc/passwd...\"\nif [ \"$(stat -c %a /etc/passwd)\" -ne \"644\" ]; then\n    echo \"Fixing /etc/passwd permissions...\"\n    chmod 644 /etc/passwd\nfi\n\necho \"Access enforcement verification complete.\"\n",
+        "ansible": "---\n- name: AC-3 Access Enforcement\n  hosts: all\n  tasks:\n    - name: Ensure permissions on /etc/shadow are configured\n      file:\n        path: /etc/shadow\n        mode: '0000'\n        owner: root\n        group: root\n\n    - name: Ensure permissions on /etc/gshadow are configured\n      file:\n        path: /etc/gshadow\n        mode: '0000'\n        owner: root\n        group: root\n\n    - name: Ensure permissions on /etc/passwd are configured\n      file:\n        path: /etc/passwd\n        mode: '0644'\n        owner: root\n        group: root\n"
+      },
+      "windows": {},
+      "_note": "Added file permission checks."
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-10T22:36:36.343614",
+      "has_scripts": true,
+      "migration_source": "CAC_AC3_family_migration",
+      "stig_id": "RHEL-08-010300"
+    },
+    "cac_metadata": {
+      "implementation_type": "automated",
+      "last_analyzed": "2025-11-10T09:38:32.639071+00:00",
+      "source": "ComplianceAsCode",
+      "last_updated": "2025-11-10T09:38:32.710637+00:00",
+      "platform": "rhcos4",
+      "rule_count": 2,
+      "certification": "Government-certified"
+    },
+    "ai_guidance": "Ensure the computer actually stops people from accessing files they shouldn't see."
+  },
+  {
+    "control_id": "ac-3.1",
+    "control_name": "Restricted Access to Privileged Functions",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141452+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010301"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:34.363405+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Access enforcement mechanisms must be able to restrict access based on attributes (e.g., time of day, location, project assignment) rather than just identity.",
+    "ai_guidance": "Control access based on things like 'is the user on the VPN?' not just 'who is the user?'."
+  },
+  {
+    "control_id": "ac-3.2",
+    "control_name": "Dual Authorization",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce dual authorization for [dual authorization procedures].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce dual authorization for [dual authorization procedures].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141552+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010302"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:45.384395+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Dual Authorization according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.3",
+    "control_name": "Mandatory Access Control",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce [mandatory access control policy] over the set of covered subjects and objects specified in the policy, and where the policy:",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce [mandatory access control policy] over the set of covered subjects and objects specified in the policy, and where the policy:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {
+        "bash": "#!/bin/bash\n# Source: ComplianceAsCode/content\n# Generated from CAC template\n\n# platform = multi_platform_all\n# reboot = false\n# strategy = configure\n# complexity = low\n# disruption = low\n\nvar_selinux_policy_name='(bash-populate var_selinux_policy_name)'\nif [ -e \"/etc/selinux/config\" ] ; then\n    LC_ALL=C sed -i \"/^SELINUXTYPE=/Id\" \"/etc/selinux/config\"\nelse\n    touch \"/etc/selinux/config\"\nfi\n# make sure file has newline at the end\nsed -i -e '$a\\' \"/etc/selinux/config\"\n\ncp \"/etc/selinux/config\" \"/etc/selinux/config.bak\"\n# Insert at the end of the file\nprintf '%s\\n' \"SELINUXTYPE=$var_selinux_policy_name\" >> \"/etc/selinux/config\"\n# Clean up after ourselves.\nrm \"/etc/selinux/config.bak\"\n",
+        "ansible": "---\n# Source: ComplianceAsCode/content\n# Generated from CAC template\n\n# platform = multi_platform_all\n# reboot = false\n# strategy = configure\n# complexity = low\n# disruption = low\n\n- (xccdf-var var_selinux_policy_name)\n- name: \"Configure SELinux Policy\"\n  block:\n    - name: \"Check for duplicate values\"\n      ansible.builtin.lineinfile:\n        path: '/etc/selinux/config'\n        create: True\n        regexp: '^SELINUXTYPE='\n        state: 'absent'\n      check_mode: yes\n      changed_when: no\n      register: 'dupes'\n    - name: \"Deduplicate values from /etc/selinux/config\"\n      ansible.builtin.lineinfile:\n        path: '/etc/selinux/config'\n        create: True\n        regexp: '^SELINUXTYPE='\n        state: 'absent'\n      when: 'dupes.found is defined and dupes.found > 1'\n    - name: \"Insert correct line to /etc/selinux/config\"\n      ansible.builtin.lineinfile:\n        path: '/etc/selinux/config'\n        create: True\n        regexp: '^SELINUXTYPE='\n        line: 'SELINUXTYPE={{ var_selinux_policy_name }}'\n        state: present\n"
+      },
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-10T22:36:36.343629",
+      "has_scripts": true,
+      "migration_source": "CAC_AC3_family_migration",
+      "stig_id": "RHEL-08-010303"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:46.978305+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Mandatory Access Control according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.4",
+    "control_name": "Discretionary Access Control",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce [discretionary access control policy] over the set of covered subjects and objects specified in the policy, and where the policy specifies that a subject that has been granted access to information can do one or more of the following:",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce [discretionary access control policy] over the set of covered subjects and objects specified in the policy, and where the policy specifies that a subject that has been granted access to information can do one or more of the following:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141581+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010304"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:48.523575+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Discretionary Access Control according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.5",
+    "control_name": "Security-relevant Information",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Prevent access to [security attributes (e.g., classification)] except during secure, non-operable system states.",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Prevent access to [security attributes (e.g., classification)] except during secure, non-operable system states.",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141595+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010305"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:50.075346+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Security-relevant Information according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.6",
+    "control_name": "Protection of User and System Information",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141607+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010306"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:51.688612+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Encrypting data at rest and in transit adds a layer of defense, ensuring that even if access controls are bypassed, the data remains unintelligible.",
+    "ai_guidance": "Encrypt your data. If someone steals the hard drive, they still can't read the files."
+  },
+  {
+    "control_id": "ac-3.7",
+    "control_name": "Role-based Access Control",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce a role-based access control policy over defined subjects and objects and control access based upon [role-based access control policy].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce a role-based access control policy over defined subjects and objects and control access based upon [role-based access control policy].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141624+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010307"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:53.230724+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Role-based Access Control according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.8",
+    "control_name": "Revocation of Access Authorizations",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce the revocation of access authorizations resulting from changes to the security attributes of subjects and objects based on [revocation time period (e.g., immediate)].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce the revocation of access authorizations resulting from changes to the security attributes of subjects and objects based on [revocation time period (e.g., immediate)].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141639+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010308"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:54.746905+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Revocation of Access Authorizations according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.9",
+    "control_name": "Controlled Release",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Release information outside of the system only if:",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Release information outside of the system only if:",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141654+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010309"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:56.375566+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Controlled release ensures that information sharing with external systems only occurs when the receiving system has adequate security controls.",
+    "ai_guidance": "Don't send sensitive data to a system that isn't secure. Check before you send."
+  },
+  {
+    "control_id": "ac-3.10",
+    "control_name": "Audited Override of Access Control Mechanisms",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Employ an audited override of automated access control mechanisms under [audit logs] by [prohibited activities].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Employ an audited override of automated access control mechanisms under [audit logs] by [prohibited activities].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141466+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010310"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:35.914208+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Audited Override of Access Control Mechanisms according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.11",
+    "control_name": "Restrict Access to Specific Information Types",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Restrict access to data repositories containing [restricted interface (e.g., read-only)].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Restrict access to data repositories containing [restricted interface (e.g., read-only)].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141481+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010311"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:37.456251+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Restrict Access to Specific Information Types according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.12",
+    "control_name": "Assert and Enforce Application Access",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141495+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010312"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:39.008525+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Applications must explicitly state their access requirements during installation to prevent 'scope creep' and unauthorized access escalation.",
+    "ai_guidance": "When installing new software, make it say exactly what permissions it needs upfront."
+  },
+  {
+    "control_id": "ac-3.13",
+    "control_name": "Attribute-based Access Control",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Enforce attribute-based access control policy over defined subjects and objects and control access based upon [sensitive data types].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Enforce attribute-based access control policy over defined subjects and objects and control access based upon [sensitive data types].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141510+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010313"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:40.619264+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Attribute-based Access Control according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.14",
+    "control_name": "Individual Access",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "Provide [specific individuals] to enable individuals to have access to the following elements of their personally identifiable information: [specific data types].",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Provide [specific individuals] to enable individuals to have access to the following elements of their personally identifiable information: [specific data types].",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141523+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010314"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:42.223317+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "ai_guidance": "Implement and enforce Individual Access according to organization policies to ensure access is strictly controlled."
+  },
+  {
+    "control_id": "ac-3.15",
+    "control_name": "Discretionary and Mandatory Access Control",
+    "family": "Access Control",
+    "family_id": "ac",
+    "official_text": "",
+    "parent_control": "ac-3",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "",
+    "example_implementation": "Community contribution needed",
+    "non_technical_guidance": "Awaiting implementation guidance",
+    "is_technical": true,
+    "enhancements": [],
+    "related_controls": [],
+    "supplemental_guidance": "",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "pending_implementation",
+      "last_updated": "2025-11-09T12:31:24.141538+00:00",
+      "has_scripts": true,
+      "stig_id": "RHEL-08-010315"
+    },
+    "cac_metadata": {
+      "implementation_type": "pending",
+      "last_analyzed": "2025-11-10T09:38:43.774819+00:00",
+      "source": "ComplianceAsCode",
+      "cac_status": "pending",
+      "cac_planned": true,
+      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    },
+    "rationale": "Implementing both Discretionary Access Control (DAC) and Mandatory Access Control (MAC) provides robust defense-in-depth for high-security environments.",
+    "ai_guidance": "Use both 'user-decided' permissions (DAC) and 'system-mandated' permissions (MAC) for double protection."
+  },
+  {
