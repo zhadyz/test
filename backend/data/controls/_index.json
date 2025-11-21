@@ -1,7 +1,7 @@
 {
   "families": {
     "AC": 145,
-    "AT": 17,
+    "AT": 15,
     "AU": 69,
     "CA": 32,
     "CM": 66,
@@ -21,7 +21,7 @@
     "SI": 119,
     "SR": 27
   },
-  "total_controls": 1194,
+  "total_controls": 1192,
   "files": [
     "AC.json",
     "AT.json",

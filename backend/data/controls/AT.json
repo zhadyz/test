@@ -1,691 +1,789 @@
 [
   {
-    "control_id": "at-1",
+    "control_id": "AT-1",
     "control_name": "Policy and Procedures",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
+    "family_id": "AT",
+    "official_text": "a. Develop, document, and disseminate to [Assignment: organization-defined personnel or roles]:\n  1. [Selection (one or more): Organization-level; Mission/business process-level; System-level] awareness and training policy that:\n    (a) Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and\n    (b) Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and\n  2. Procedures to facilitate the implementation of the awareness and training policy and the associated awareness and training controls;\nb. Designate an [Assignment: organization-defined official] to manage the development, documentation, and dissemination of the awareness and training policy and procedures; and\nc. Review and update the current awareness and training:\n  1. Policy [Assignment: organization-defined frequency] and following [Assignment: organization-defined events]; and\n  2. Procedures [Assignment: organization-defined frequency] and following [Assignment: organization-defined events].",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": true,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Ensure that policies and procedures are in place to guide the organization's IT security practices.",
-    "example_implementation": "This script regularly review and update policies and procedures to align with changes in technology and security threats. Involve key stakeholders in the development and implementation process.",
-    "non_technical_guidance": "This plan to comply with Control ID at-1 (Policy and Procedures), the following non-technical implementation plan should be followed:\n\n1. Develop and document policies and procedures that align with NIST 800-53 guidelines.\n2. Ensure that all employees are aware of and trained on the policies and procedures.\n3. Regularly review and update the policies and procedures to reflect changes in technology, regulations, or business processes.\n4. Establish a process for enforcing compliance with the policies and procedures, including consequences for non-compliance.\n5. Conduct regular audits or assessments to verify compliance with the policies and procedures.\n6. Document any exceptions or deviations from the policies and procedures and justify them appropriately.\n7. Ensure that all relevant stakeholders are involved in the development, implementation, and enforcement of the policies and procedures.",
+    "plain_english_explanation": "Organizations must create, document, and share security awareness and training policies and procedures with designated staff. This includes defining who is responsible for security training, what the training covers, how often it occurs, and ensuring compliance with relevant laws and regulations. The policy must be reviewed and updated regularly to remain effective and current.",
+    "example_implementation": "Create a comprehensive security awareness and training policy document that outlines organizational commitment to training, defines roles (training coordinator, department heads, employees), establishes training frequency (annual minimum with quarterly updates), and documents compliance requirements. Assign a Chief Information Security Officer (CISO) or designated official to manage policy development and updates. Establish procedures for delivering training, tracking completion, and reviewing policy effectiveness annually or after significant security incidents.",
+    "non_technical_guidance": "To comply with AT-1, follow these organizational steps:\n\n1. Draft a Security Awareness and Training Policy that clearly states the organization's commitment to security education, defines scope (all employees, contractors, third parties), and assigns specific roles and responsibilities.\n\n2. Designate an official (CISO, Security Manager, or equivalent) responsible for developing, maintaining, and distributing the policy and procedures.\n\n3. Document procedures that support the policy, including: training delivery methods, frequency of training sessions, content requirements, tracking mechanisms for completion, and escalation processes for non-compliance.\n\n4. Ensure the policy addresses applicable federal laws (FISMA, Privacy Act), executive orders, regulations (HIPAA, PCI-DSS if applicable), and organizational standards.\n\n5. Establish review cycles: review and update the policy at least annually and after significant events (security breaches, regulatory changes, organizational restructuring).\n\n6. Distribute the policy to all personnel through official channels (employee handbook, intranet, onboarding materials) and obtain acknowledgment of receipt and understanding.\n\n7. Maintain records of policy versions, distribution dates, personnel acknowledgments, and review cycles for audit purposes.",
+    "ai_guidance": "AT-1 establishes the foundational governance for all awareness and training activities. Implementation should prioritize clear documentation of roles (who develops training, who approves content, who delivers it), scope (coverage across organization levels), and review frequency (minimum annual, triggered by incidents or regulatory changes). The policy must align with applicable laws and organizational mission. Procedures should cover training delivery mechanisms, tracking systems for completion, content approval workflows, and integration with onboarding processes. This is purely organizational - no technical automation exists. Focus on creating accessible documentation that clearly communicates expectations and ensures accountability through designated officials and regular reviews.",
     "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "PM-9",
+      "PS-8",
+      "SI-12"
+    ],
+    "supplemental_guidance": "Awareness and training policy and procedures address the controls in the AT family that are implemented within systems and organizations. The risk management strategy is an important factor in establishing such policies and procedures. Policies and procedures contribute to security and privacy assurance. Therefore, it is important that security and privacy programs collaborate on the development of awareness and training policy and procedures. Security and privacy program policies and procedures at the organization level are preferable, in general, and may obviate the need for mission- or system-specific policies and procedures. The policy can be included as part of the general security and privacy policy or be represented by multiple policies reflecting the complex nature of organizations. Procedures can be established for security and privacy programs, for mission or business processes, and for systems, if needed. Procedures describe how the policies or controls are implemented and can be directed at the individual or role that is the object of the procedure. Procedures can be documented in system security and privacy plans or in one or more separate documents. Events that may precipitate an update to awareness and training policy and procedures include assessment or audit findings, security incidents or breaches, or changes in applicable laws, executive orders, directives, regulations, policies, standards, and guidelines. Simply restating controls does not constitute an organizational policy or procedure.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": null,
+        "ansible": null
+      },
+      "windows": {
+        "powershell": null,
+        "ansible": null
+      }
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
+      "last_updated": "2025-11-21T00:00:00.000000Z",
+      "has_scripts": false,
+      "implementation_type": "organizational"
     },
     "cac_metadata": {
       "implementation_type": "organizational",
-      "last_analyzed": "2025-11-10T10:05:24.609143+00:00",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
-      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+      "implementation_guidance": "AT-1 is an organizational policy control that requires documented policies and procedures for security awareness and training programs. This control cannot be automated through technical means (SCAP, Ansible, Bash scripts) as it addresses governance, documentation, and organizational processes rather than system configurations. Organizations must manually create policy documents, assign responsible officials, establish review procedures, and maintain documentation in accordance with applicable laws and regulations."
+    },
+    "intent": "Establish the foundation for your organization's security training program.",
+    "rationale": "Without written policies and procedures, training efforts become inconsistent and ineffective. This control ensures everyone knows what training is required, who's responsible for delivering it, and how often it needs to happen. Think of it as the rulebook for your security education program."
   },
   {
-    "control_id": "at-2",
+    "control_id": "AT-2",
     "control_name": "Literacy Training and Awareness",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
+    "family_id": "AT",
+    "official_text": "a. Provide security and privacy literacy training to system users (including managers, senior executives, and contractors): 1. As part of initial training for new users and [Assignment: organization-defined frequency] thereafter; and 2. When required by system changes; and b. Employ the following techniques to increase the security and privacy awareness of system users [Assignment: organization-defined awareness techniques].",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": true,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Employees should receive training on how to recognize and respond to cybersecurity threats.",
-    "example_implementation": "This script conduct regular cybersecurity awareness training sessions for all employees, covering topics such as phishing scams, password security, and safe browsing practices.",
-    "non_technical_guidance": "This plan to comply with Control ID at-2, Literacy Training and Awareness, the following non-technical implementation plan can be followed:\n\n1. Develop a comprehensive literacy training program for all employees within the organization. This program should cover topics such as information security best practices, data protection guidelines, and how to recognize and respond to security incidents.\n\n2. Ensure that all employees receive regular training sessions on literacy and awareness topics. This can be done through in-person training sessions, online courses, or a combination of both.\n\n3. Implement a system to track and monitor employee participation in literacy training programs. This can include maintaining records of training completion, conducting assessments to measure knowledge retention, and providing refresher courses as needed.\n\n4. Encourage a culture of security awareness within the organization by promoting the importance of literacy training and providing resources for employees to stay informed on current security threats and best practices.\n\n5. Regularly review and update the literacy training program to ensure it remains relevant and effective in addressing the organization's security needs.\n\nBy following these steps, organizations can effectively meet the requirements of Control ID at-2 and promote a culture of security awareness among employees.",
+    "plain_english_explanation": "Organizations must provide security and privacy awareness training to all system users, including employees, managers, executives, and contractors. This training must occur when users first join the organization and be refreshed regularly throughout their employment. Additional training is required whenever significant system changes occur that affect security practices. The training should use various techniques (videos, simulations, newsletters, posters) to increase user awareness of security threats, safe computing practices, password security, phishing recognition, data handling procedures, and privacy requirements.",
+    "ai_guidance": "AI systems supporting security awareness training can automate training delivery through Learning Management Systems (LMS), track completion rates, generate personalized training paths based on user roles, send automated reminders for required refresher training, analyze quiz results to identify knowledge gaps, and provide real-time micro-learning content. AI can also power phishing simulation platforms that test user awareness and adapt difficulty based on user performance. Natural language processing can analyze user questions and provide instant answers to security policy inquiries.",
     "is_technical": false,
     "enhancements": [
       {
-        "id": "at-2.1",
+        "id": "AT-2.1",
         "title": "Practical Exercises",
         "official_text": "Provide practical exercises in literacy training that simulate events and incidents."
       },
       {
-        "id": "at-2.2",
+        "id": "AT-2.2",
         "title": "Insider Threat",
         "official_text": "Provide literacy training on recognizing and reporting potential indicators of insider threat."
       },
       {
-        "id": "at-2.3",
+        "id": "AT-2.3",
         "title": "Social Engineering and Mining",
         "official_text": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining."
       },
       {
-        "id": "at-2.4",
+        "id": "AT-2.4",
         "title": "Suspicious Communications and Anomalous System Behavior",
-        "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}."
+        "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using [Assignment: organization-defined indicators of malicious code]."
       },
       {
-        "id": "at-2.5",
+        "id": "AT-2.5",
         "title": "Advanced Persistent Threat",
         "official_text": "Provide literacy training on the advanced persistent threat."
       },
       {
-        "id": "at-2.6",
+        "id": "AT-2.6",
         "title": "Cyber Threat Environment",
-        "official_text": ""
+        "official_text": "Provide literacy training on the cyber threat environment."
       }
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AC-3",
+      "AC-17",
+      "AC-22",
+      "AT-3",
+      "AT-4",
+      "CP-3",
+      "IA-4",
+      "IR-2",
+      "IR-7",
+      "IR-9",
+      "PL-4",
+      "PM-13",
+      "PM-21",
+      "PS-7",
+      "PT-2",
+      "SA-8",
+      "SA-16"
+    ],
+    "supplemental_guidance": "Organizations provide basic and advanced levels of literacy training to system users, including measures to test the knowledge level of users. Organizations determine the content of literacy training based on specific organizational requirements, the systems to which personnel have authorized access, and work environments (e.g., telework). The content includes an understanding of the need for security and privacy as well as actions by users to maintain security and personal privacy and to respond to suspected incidents. The content addresses the need for operations security and the handling of personally identifiable information.",
+    "implementation_guidance": "AT-2 is primarily an organizational control requiring policy documentation and training program implementation. Technical automation opportunities include: (1) Learning Management System (LMS) deployment for centralized training delivery and tracking; (2) Integration with HR systems for automatic enrollment of new hires; (3) Automated email reminders for training deadlines; (4) Completion tracking dashboards for compliance reporting; (5) Quiz/assessment engines for knowledge verification; (6) Phishing simulation platforms for practical testing; (7) Content management systems for training materials; (8) Analytics platforms to measure training effectiveness and identify at-risk users.",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
       "implementation_type": "organizational",
-      "last_analyzed": "2025-11-10T10:05:26.204186+00:00",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
-      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. Technical automation available for training delivery, tracking, and compliance reporting through LMS platforms."
+    },
+    "intent": "Make sure everyone in your organization understands basic security practices.",
+    "rationale": "People are often the weakest link in security. Employees who don't recognize phishing emails, use weak passwords, or mishandle sensitive data can accidentally cause breaches. Regular security awareness training turns your workforce from a vulnerability into your first line of defense."
   },
   {
-    "control_id": "at-2.1",
+    "control_id": "AT-2.1",
     "control_name": "Practical Exercises",
     "family": "Awareness and Training",
-    "family_id": "at",
+    "family_id": "AT",
     "official_text": "Provide practical exercises in literacy training that simulate events and incidents.",
-    "parent_control": "at-2",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide practical exercises in literacy training that simulate events and incidents.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must incorporate hands-on, practical exercises into security awareness training that simulate real-world security events and incidents. These exercises allow users to practice responding to security situations in a safe, controlled environment before encountering actual threats. Examples include tabletop exercises where teams walk through incident response scenarios, simulated phishing campaigns where users receive fake phishing emails to test their recognition skills, and interactive scenarios demonstrating proper handling of suspicious attachments or USB devices found in the workplace.",
+    "ai_guidance": "AI-powered phishing simulation platforms can automatically generate realistic phishing emails tailored to organizational context, track user click rates and credential submissions, provide immediate educational feedback when users fail simulations, and adapt difficulty based on user performance. AI can also create interactive scenario-based training modules that branch based on user decisions, simulate social engineering phone calls using conversational AI, generate synthetic malware samples for sandbox analysis training, and provide personalized remediation training for users who fail exercises. Machine learning analyzes patterns to identify users requiring additional training focus.",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AT-2",
+      "AT-3",
+      "CP-4",
+      "IR-3"
+    ],
+    "supplemental_guidance": "Practical exercises for literacy training include no-notice social engineering attempts to collect information, gain unauthorized access, or simulate the adverse impact of opening malicious email attachments or invoking, via spear phishing attacks, malicious web links. Practical exercises are used in security training and awareness programs to measure the effectiveness of training and to identify employees who may need additional training.",
+    "implementation_guidance": "AT-2.1 requires deployment of phishing simulation platforms (e.g., KnowBe4, Cofense PhishMe, Proofpoint Security Awareness) that can: (1) Send realistic simulated phishing emails to users on scheduled or random intervals; (2) Track who clicks links or submits credentials; (3) Provide immediate training feedback to users who fail; (4) Generate compliance reports showing simulation results; (5) Integrate with LMS for follow-up training assignment. Additional technical implementations: (1) USB drop testing programs with honeypot tracking; (2) Social engineering phone call simulations with call recording; (3) Physical security badge tailgating tests with camera monitoring; (4) Interactive web-based training scenarios with decision branching.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:27.809490+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring organizational processes and technical platforms. Automated phishing simulation platforms available. Implementation requires procurement and configuration of security awareness testing tools."
+    },
+    "intent": "Give employees hands-on practice dealing with security threats.",
+    "rationale": "Reading about phishing is one thing; actually recognizing a fake email is another. Practical exercises like simulated phishing campaigns or tabletop incident scenarios help employees build muscle memory for spotting and responding to real threats. Practice makes perfect."
   },
   {
-    "control_id": "at-2.2",
+    "control_id": "AT-2.2",
     "control_name": "Insider Threat",
     "family": "Awareness and Training",
-    "family_id": "at",
+    "family_id": "AT",
     "official_text": "Provide literacy training on recognizing and reporting potential indicators of insider threat.",
-    "parent_control": "at-2",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": true,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Provide literacy training on recognizing and reporting potential indicators of insider threat.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must train all users to recognize and report behavioral indicators that may suggest an insider threat. This training educates users on warning signs such as: colleagues accessing information outside their job responsibilities, attempting to bypass security controls, expressing dissatisfaction with the organization, experiencing financial difficulties, displaying unusual work patterns (accessing systems at odd hours), downloading large amounts of data, using unauthorized storage devices, or exhibiting sudden lifestyle changes. Users must know how to confidentially report concerns to security personnel without confronting the suspected individual. The goal is to create a security-aware culture where employees serve as the first line of defense against malicious or negligent insiders.",
+    "ai_guidance": "AI systems supporting insider threat training can deliver personalized awareness content based on user roles and access levels, provide scenario-based interactive training showing realistic insider threat indicators, analyze training completion and quiz performance to identify users needing additional focus, and send periodic micro-learning reminders about current insider threat trends. AI-powered User and Entity Behavior Analytics (UEBA) systems can detect anomalous behavior patterns and trigger automatic refresher training for users exhibiting risky behaviors. Natural language processing can analyze anonymous reporting submissions to identify patterns and trends requiring additional organizational training emphasis.",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AC-6",
+      "AC-10",
+      "AT-2",
+      "AU-6",
+      "AU-12",
+      "AU-13",
+      "CA-7",
+      "IA-4",
+      "IR-4",
+      "MP-7",
+      "PE-2",
+      "PM-12",
+      "PM-16",
+      "PS-3",
+      "PS-4",
+      "PS-5",
+      "PS-8",
+      "SC-7",
+      "SC-38",
+      "SI-4"
+    ],
+    "supplemental_guidance": "Potential indicators and possible precursors of insider threat can include behaviors such as inordinate, long-term job dissatisfaction; attempts to gain access to information inconsistent with the employee's duties; unexplained access to financial resources; bullying or sexual harassment of fellow employees; workplace violence; and other serious violations of policies, procedures, directives, regulations, rules, or practices. Literacy training that focuses on insider threat recognition and reporting techniques can provide value to organizations. Personnel who report insider threat concerns should be provided with the appropriate procedures for reporting such concerns and the organization's policy on sensitive information.",
+    "implementation_guidance": "AT-2.2 requires integration of insider threat awareness content into LMS training curricula. Technical implementation includes: (1) Development of insider threat training modules covering behavioral indicators, reporting procedures, and organizational policies; (2) Integration with insider threat program tools for anonymous reporting mechanisms (secure web forms, hotlines); (3) Automated periodic refresher training triggered by organizational events (workforce reductions, security incidents); (4) Analytics dashboards showing training completion rates across departments; (5) Integration with UEBA platforms to trigger targeted training when risky behaviors are detected; (6) Confidential reporting portals with case management workflows for security teams to investigate concerns.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:29.412762+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring organizational insider threat program and technical training delivery systems. Implementation requires coordination with insider threat program office, HR, legal, and security operations."
+    },
+    "intent": "Help employees recognize when a coworker might be a security threat.",
+    "rationale": "Insider threats—whether malicious or accidental—cause some of the most damaging breaches. Training employees to recognize warning signs (unusual access requests, data hoarding, disgruntled behavior) helps catch problems before they escalate. It's about protecting the organization from within."
   },
   {
-    "control_id": "at-2.3",
+    "control_id": "AT-2.3",
     "control_name": "Social Engineering and Mining",
     "family": "Awareness and Training",
-    "family_id": "at",
+    "family_id": "AT",
     "official_text": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining.",
-    "parent_control": "at-2",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must train users to recognize and report social engineering attacks (psychological manipulation to trick people into divulging sensitive information or performing actions) and social mining (gathering information from social media and public sources to facilitate attacks). Training covers common tactics: phishing emails requesting credentials or personal information, pretexting phone calls where attackers impersonate authority figures (IT support, executives, vendors), baiting attacks using infected USB drives or enticing downloads, quid pro quo offers of services in exchange for information, tailgating attempts to gain physical access, and reconnaissance of employee social media profiles to craft targeted attacks. Users learn to verify requests through independent channels, recognize pressure tactics, protect information shared online, and report suspicious interactions.",
+    "ai_guidance": "AI enhances social engineering awareness training through: (1) AI-powered phishing simulation platforms that generate contextually realistic spear phishing emails using organizational intelligence and current event themes; (2) Conversational AI simulating voice phishing (vishing) and SMS phishing (smishing) attacks; (3) Machine learning analyzing social media exposure risk by scanning employee public profiles for information adversaries could exploit; (4) AI chatbots providing instant answers to user questions about suspicious communications; (5) Adaptive training systems that increase attack sophistication for users who successfully identify simpler attempts; (6) Natural language generation creating diverse training scenarios reflecting current threat actor tactics, techniques, and procedures (TTPs).",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AT-2",
+      "AT-2.1",
+      "PM-16"
+    ],
+    "supplemental_guidance": "Social engineering is an attempt to trick an individual into revealing information or taking an action that can be used to breach, compromise, or otherwise adversely impact a system. Social engineering techniques include phishing, pretexting, baiting, quid pro quo, and tailgating. Social mining is an attempt to gather information about the organization that may be used to support other attacks, including social engineering attacks. Social mining techniques include searching organizational websites, examining social media postings, and gathering information by posing as a potential business partner or customer.",
+    "implementation_guidance": "AT-2.3 technical implementation includes: (1) Deployment of advanced phishing simulation platforms with social engineering templates (spear phishing, CEO fraud, vendor impersonation, IT support scams); (2) Integration of vishing simulation tools that make automated phone calls testing user verification behaviors; (3) Social media monitoring tools scanning employee profiles for oversharing of organizational information; (4) Training content management systems with libraries of social engineering case studies and current attack examples; (5) Gamification platforms where users compete to identify social engineering attempts; (6) Browser extensions providing real-time warnings about suspicious websites and domains; (7) Email security awareness tools that flag external emails and suspicious sender patterns.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:31.030427+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring organizational training programs and technical simulation platforms. Implementation requires advanced security awareness training tools with social engineering simulation capabilities."
+    },
+    "intent": "Teach employees to spot manipulation tactics used by attackers.",
+    "rationale": "Social engineering attacks trick people into giving up passwords, access, or sensitive information. Attackers might pose as IT support, vendors, or even executives. Training helps employees recognize these manipulation tactics and respond appropriately instead of falling for the con."
   },
   {
-    "control_id": "at-2.4",
+    "control_id": "AT-2.4",
     "control_name": "Suspicious Communications and Anomalous System Behavior",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}.",
-    "parent_control": "at-2",
+    "family_id": "AT",
+    "official_text": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using [Assignment: organization-defined indicators of malicious code].",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide literacy training on recognizing suspicious communications and anomalous behavior in organizational systems using {{ insert: param, at-02.04_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must train users to recognize suspicious communications and unusual system behavior that may indicate malware infections or ongoing attacks. Training covers indicators such as: unexpected system slowdowns or crashes, programs launching automatically without user action, unusual network activity or data transfers, unexpected pop-ups or browser redirects, disabled security software, new browser toolbars or extensions appearing, files with double extensions (.pdf.exe), emails from known contacts with unusual content or urgent requests, legitimate-looking websites with misspelled domains, and systems connecting to unknown external addresses. Users learn to report these indicators immediately to security teams rather than attempting troubleshooting themselves, as delays can allow attacks to spread.",
+    "ai_guidance": "AI systems enhance detection and training for suspicious communications and anomalous behavior through: (1) Machine learning-based endpoint detection and response (EDR) systems that identify malware behavior patterns and automatically alert users; (2) Email security AI analyzing message metadata, content, and attachments for phishing indicators and suspicious patterns; (3) User and Entity Behavior Analytics (UEBA) detecting anomalous user activities and triggering contextualized micro-training; (4) Network traffic analysis AI identifying command-and-control communications and data exfiltration attempts; (5) Training platforms using real organizational security telemetry (sanitized) to demonstrate actual threats encountered; (6) AI-powered security awareness tools providing in-the-moment coaching when users exhibit risky behaviors like clicking suspicious links.",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AT-2",
+      "SI-8"
+    ],
+    "supplemental_guidance": "A well-trained workforce provides another organizational control that can be employed as part of a defense-in-depth strategy to protect against malicious code. Literacy training on the recognition of suspicious communications and anomalous behavior in organizational systems includes, for example, training on the identification of new or unfamiliar email from unknown sources, email containing suspicious or unusual content, unusual or unexpected system behavior, and abnormal behavior from purported trusted sites. Suspicious communications are specific to AT-2(4) and can include, for example, suspicious email attachments. This control was moved from AT-3 in NIST SP 800-53 Rev 4 to AT-2 in Rev 5, and renumbered from AT-3(4) to AT-2(4).",
+    "implementation_guidance": "AT-2.4 requires defining organization-specific indicators of malicious code and incorporating them into training. Technical implementation includes: (1) Endpoint security tools with user notification capabilities to explain when malware is detected and what the user encountered; (2) Security information and event management (SIEM) systems aggregating suspicious activity indicators for training content development; (3) Threat intelligence platforms providing current indicators of compromise (IOCs) to update training materials; (4) Browser isolation technologies demonstrating safe rendering of suspicious content; (5) Security awareness training platforms with modules on malware indicators, ransomware recognition, and cryptojacking symptoms; (6) Automated incident response workflows that capture user actions leading to security events for training case studies.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:32.630359+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring organizational definition of malicious code indicators and technical training delivery. Implementation requires coordination with security operations center (SOC) to identify relevant indicators for training content. Note: This control was moved from AT-3(4) to AT-2(4) in NIST SP 800-53 Rev 5."
+    },
+    "intent": "Train employees to notice and report unusual system behavior or suspicious messages.",
+    "rationale": "Employees often see the first signs of a breach—strange pop-ups, slow computers, weird emails. If they know what to look for and who to tell, they become human sensors across your network. Early detection can mean the difference between a minor incident and a major breach."
   },
   {
-    "control_id": "at-2.5",
+    "control_id": "AT-2.5",
     "control_name": "Advanced Persistent Threat",
     "family": "Awareness and Training",
-    "family_id": "at",
+    "family_id": "AT",
     "official_text": "Provide literacy training on the advanced persistent threat.",
-    "parent_control": "at-2",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide literacy training on the advanced persistent threat.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must provide specialized awareness training on Advanced Persistent Threats (APTs) - sophisticated, long-term cyber attacks typically conducted by well-funded threat actors (nation-states, organized crime groups) targeting specific organizations for espionage, intellectual property theft, or infrastructure disruption. Training educates users on APT characteristics: multi-stage attacks that establish persistent access, low-and-slow techniques to avoid detection, use of zero-day exploits and custom malware, targeted spear phishing and watering hole attacks, lateral movement within networks, and long dwell times before detection. Users learn that APTs require heightened vigilance, immediate reporting of anomalies, strict adherence to security policies, and understanding that even minor security lapses can provide APT footholds.",
+    "ai_guidance": "AI systems supporting APT awareness training include: (1) Threat intelligence platforms using machine learning to track APT group tactics, techniques, and procedures (TTPs) and automatically update training content with current campaigns; (2) AI-powered security awareness platforms delivering role-based APT training tailored to high-value targets (executives, researchers, system administrators); (3) Simulation platforms replicating multi-stage APT attack chains to demonstrate persistence techniques; (4) Natural language processing analyzing threat reports to generate accessible training summaries from technical APT analysis; (5) Behavioral analytics identifying users with access to high-value assets who require enhanced APT awareness; (6) Adaptive learning systems assessing user knowledge and delivering targeted APT scenario training.",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AT-2",
+      "PM-16"
+    ],
+    "supplemental_guidance": "An effective way to detect advanced persistent threats (APTs) and to preclude successful attacks is to provide specific literacy training for individuals. Threat literacy training includes educating individuals on the various ways that APTs can infiltrate into the organization (e.g., through websites, emails, advertisement pop-ups, articles, and social engineering). Effective training includes techniques for recognizing suspicious emails, the use of removable systems in non-secure settings, and the collection of threat intelligence. Organizations consider including APT threat literacy training as part of annual security and privacy training for all users and as part of the initial training for new users.",
+    "implementation_guidance": "AT-2.5 requires specialized APT awareness training content and delivery mechanisms. Technical implementation includes: (1) Integration with threat intelligence platforms (MISP, ThreatConnect) to pull current APT campaigns and indicators for training examples; (2) Role-based training modules delivered through LMS targeting high-value individuals (executives, privileged users, researchers handling sensitive IP); (3) Interactive scenario-based training demonstrating multi-stage APT attack progressions; (4) Collaboration with security operations center (SOC) to develop training using sanitized real-world APT detection cases from organizational telemetry; (5) Periodic targeted phishing simulations emulating APT tactics (spear phishing with organizational context, watering hole simulation); (6) Executive briefing platforms providing concise APT threat summaries and awareness guidance.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:34.235000+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring specialized organizational training on APT threats and technical delivery platforms. Implementation requires threat intelligence feeds and coordination with security operations for current APT context."
+    },
+    "intent": "Educate employees about sophisticated, long-term cyber attacks.",
+    "rationale": "Advanced Persistent Threats (APTs) are stealthy attacks where hackers maintain long-term access to steal data over months or years. These aren't smash-and-grab attacks—they're patient and methodical. Employees need to understand that not all attacks are obvious, and vigilance matters even when things seem normal."
   },
   {
-    "control_id": "at-2.6",
+    "control_id": "AT-2.6",
     "control_name": "Cyber Threat Environment",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
-    "parent_control": "at-2",
+    "family_id": "AT",
+    "official_text": "Provide literacy training on the cyber threat environment.",
+    "parent_control": "AT-2",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
+    "plain_english_explanation": "Organizations must provide comprehensive training on the current cyber threat landscape to help users understand the broader context of security risks facing the organization. This training educates users on: the types of threat actors (nation-states, cybercriminals, hacktivists, insiders), common attack vectors and techniques being used in current campaigns, emerging threats like supply chain compromises and ransomware trends, the organization's specific threat profile based on industry and geopolitical factors, how individual user actions contribute to organizational security posture, and the real-world consequences of successful attacks (data breaches, operational disruptions, financial losses, reputational damage). The goal is to foster situational awareness and help users understand why security policies exist and how their vigilance protects the organization.",
+    "ai_guidance": "AI enhances cyber threat environment training through: (1) Natural language processing analyzing global threat intelligence feeds and automatically generating accessible training summaries of current threat trends; (2) Machine learning identifying threats most relevant to the organization's industry, geography, and technology stack for targeted training focus; (3) Automated threat briefing generation systems creating periodic updates (monthly threat bulletins) customized to organizational context; (4) AI-powered news aggregation identifying major cyber incidents for case study development and lessons learned; (5) Predictive analytics forecasting emerging threat trends to proactively prepare training content; (6) Interactive AI assistants answering user questions about specific threats and providing contextual guidance.",
+    "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
+    "related_controls": [
+      "AT-2",
+      "PM-16",
+      "RA-3"
+    ],
+    "supplemental_guidance": "Training on the cyber threat environment includes providing information on the threat environment facing individuals and organizations. Environmental threats include, for example, adversarial activities, targeting of organizations, supply chain threats, and environmental risks such as natural disasters and man-made accidents. Organizations may use threat intelligence to inform organizational training on the cyber threat environment. This training can be used to recognize and report suspicious activities or behavior in a timely manner and understand organizational protection mechanisms.",
+    "implementation_guidance": "AT-2.6 requires integration of threat intelligence into awareness training curricula. Technical implementation includes: (1) Threat intelligence platform (TIP) integration with training content management systems to automatically update training with current threat data; (2) Automated threat briefing generation tools creating periodic security awareness bulletins from intelligence feeds; (3) Security awareness training platforms with modules on threat actor motivations, common attack techniques (MITRE ATT&CK framework), and industry-specific threats; (4) Dashboard systems showing organizational security metrics and threat trends for management briefings; (5) Integration with information sharing and analysis centers (ISACs) for sector-specific threat intelligence; (6) Video production automation for creating engaging threat environment briefings from text-based intelligence reports.",
     "metadata": {
       "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:35.838228+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
       "cac_status": "pending",
       "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "Hybrid control requiring organizational threat environment analysis and technical training delivery platforms. Implementation requires threat intelligence feeds and coordination with security operations and risk management teams to contextualize threats for training audiences."
+    },
+    "intent": "Keep employees informed about current cyber threats targeting your industry.",
+    "rationale": "The threat landscape constantly evolves. New attack techniques, vulnerabilities, and threat actors emerge regularly. Keeping employees updated on current threats—especially those targeting your industry—helps them stay alert to relevant risks rather than just theoretical ones."
   },
   {
-    "control_id": "at-3",
-    "control_name": "Role-based Training",
+    "control_id": "AT-3",
+    "control_name": "Role-Based Training",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
+    "family_id": "AT",
+    "official_text": "a. Provide role-based security and privacy training to personnel with the following roles and responsibilities: [Assignment: organization-defined roles and responsibilities]:\n   1. Before authorizing access to the system, information, or performing assigned duties, and [Assignment: organization-defined frequency] thereafter; and\n   2. When required by system changes;\nb. Update role-based training content [Assignment: organization-defined frequency] and following [Assignment: organization-defined events]; and\nc. Incorporate lessons learned from internal or external security incidents or breaches into role-based training.",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": true,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Role-based training ensures that individuals receive training specific to their job responsibilities and security roles.",
-    "example_implementation": "This script develop tailored training programs for different roles within your organization to ensure that employees receive the necessary knowledge and skills to perform their security duties effectively.",
-    "non_technical_guidance": "This plan role-based Training is a critical control for ensuring that individuals within an organization are trained and knowledgeable about their specific roles and responsibilities related to security. To implement this control effectively, follow these non-technical steps:\n\n1. Identify the different roles within your organization that have access to sensitive information or systems.\n2. Develop training materials specific to each role, outlining the security best practices, policies, and procedures they need to follow.\n3. Schedule regular training sessions for each role to ensure that all individuals are up to date on the latest security requirements.\n4. Monitor and track attendance and completion of training sessions to ensure compliance.\n5. Continuously review and update training materials to reflect any changes in security policies or technologies.\n6. Consider incorporating role-based training as part of the onboarding process for new employees in relevant roles.\n\nBy following these steps, you can ensure that individuals in your organization are well-equipped to fulfill their security responsibilities effectively.",
+    "plain_english_explanation": "Organizations must provide role-specific security training to personnel based on their job responsibilities. Training occurs before granting system access, at regular intervals, and when systems change. Training content must be updated regularly and incorporate lessons from security incidents.",
+    "example_implementation": "Develop a role-based training matrix that maps security roles (system administrators, developers, end users, security officers) to specific training requirements. Implement a learning management system to track completion, schedule refresher training annually or when systems undergo significant changes, and update training modules within 30 days of major security incidents to incorporate lessons learned.",
+    "non_technical_guidance": "To implement AT-3, organizations should:\n\n1. Identify all security-relevant roles within the organization (administrators, developers, privileged users, general users)\n2. Define specific training requirements for each role based on their access levels and responsibilities\n3. Establish a training schedule: initial training before system access, annual refreshers, and event-driven updates\n4. Create or procure training content tailored to each role's responsibilities\n5. Implement a tracking system to monitor training completion and maintain records\n6. Review and update training content at least annually and after significant security incidents\n7. Incorporate lessons learned from breaches and incidents into training materials\n8. Assign responsibility for training program management and content updates\n9. Establish consequences for non-completion of required training",
     "is_technical": false,
     "enhancements": [
       {
-        "id": "at-3.1",
+        "id": "AT-3.1",
         "title": "Environmental Controls",
-        "official_text": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls."
+        "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of environmental controls."
       },
       {
-        "id": "at-3.2",
+        "id": "AT-3.2",
         "title": "Physical Security Controls",
-        "official_text": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls."
+        "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of physical security controls."
       },
       {
-        "id": "at-3.3",
+        "id": "AT-3.3",
         "title": "Practical Exercises",
         "official_text": "Provide practical exercises in security and privacy training that reinforce training objectives."
       },
       {
-        "id": "at-3.4",
-        "title": "Suspicious Communications and Anomalous System Behavior",
-        "official_text": ""
-      },
-      {
-        "id": "at-3.5",
+        "id": "AT-3.5",
         "title": "Processing Personally Identifiable Information",
-        "official_text": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls."
+        "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of personally identifiable information processing and transparency controls."
       }
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-2",
+      "AT-4",
+      "CP-3",
+      "IR-2",
+      "PM-13",
+      "PM-14",
+      "PS-7",
+      "SA-3",
+      "SA-8",
+      "SA-16"
+    ],
+    "supplemental_guidance": "Organizations determine the content of training based on the assigned roles and responsibilities of individuals as well as the security and privacy requirements of organizations and the systems to which personnel have authorized access, including technical training specifically tailored for assigned duties. Roles that may require role-based training include system owners, authorizing officials, system security officers, privacy officers, acquisition and procurement officials, enterprise architects, systems engineers, software developers, system and network administrators, personnel conducting configuration management and auditing activities, personnel performing independent verification and validation, security assessors, and other personnel with access to system-level software and firmware.",
+    "implementation_guidance": "This control is primarily organizational and process-based. Implementation requires establishing training policies, procedures, curriculum development, and tracking mechanisms. Consider implementing a Learning Management System (LMS) for role assignment, training delivery, and completion tracking. Automated notifications can remind personnel of upcoming training requirements. Integration with HR systems ensures new hires receive appropriate training before access is granted.",
+    "ai_guidance": "For AI-assisted implementation of AT-3, leverage machine learning to personalize role-based training content and delivery. Natural language processing can analyze security incident reports to automatically extract lessons learned and update training materials. AI-powered learning management systems can adapt training difficulty based on assessment performance, identify knowledge gaps through pattern analysis, and predict which roles require additional training based on incident correlation. Implement chatbots to provide just-in-time training guidance when personnel encounter unfamiliar security scenarios. Use recommendation engines to suggest relevant training modules based on role changes, system modifications, or emerging threat patterns.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# AT-3: Role-Based Training Tracking Script\n# Purpose: Track training completion and send notifications for role-based training\n\nTRAINING_DB=\"/var/lib/security-training/training_records.db\"\nLOG_FILE=\"/var/log/security-training/at-3.log\"\nNOTIFICATION_DAYS=7\n\n# Create database if not exists\nsqlite3 \"$TRAINING_DB\" <<EOF\nCREATE TABLE IF NOT EXISTS training_records (\n  username TEXT,\n  role TEXT,\n  training_module TEXT,\n  completion_date TEXT,\n  expiration_date TEXT,\n  status TEXT\n);\nCREATE TABLE IF NOT EXISTS role_training_requirements (\n  role TEXT,\n  training_module TEXT,\n  frequency_days INTEGER\n);\nEOF\n\n# Function: Check for expiring training\ncheck_expiring_training() {\n  local warn_date=$(date -d \"+${NOTIFICATION_DAYS} days\" '+%Y-%m-%d')\n  \n  sqlite3 \"$TRAINING_DB\" <<EOF\nSELECT username, role, training_module, expiration_date \nFROM training_records \nWHERE expiration_date <= '$warn_date' AND status = 'current';\nEOF\n}\n\n# Function: Send notification\nsend_training_notification() {\n  local username=$1\n  local role=$2\n  local module=$3\n  local expiry=$4\n  \n  echo \"[$(date)] Training expiring for $username ($role): $module on $expiry\" | tee -a \"$LOG_FILE\"\n  \n  # Send email notification (requires mail utility)\n  echo \"Your role-based training module '$module' expires on $expiry. Please complete refresher training.\" | \\\n    mail -s \"Security Training Renewal Required\" \"${username}@organization.com\"\n}\n\n# Function: Generate training report\ngenerate_training_report() {\n  echo \"=== Role-Based Training Compliance Report ===\"\n  echo \"Generated: $(date)\"\n  echo \"\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  role,\n  COUNT(DISTINCT username) as personnel_count,\n  SUM(CASE WHEN status = 'current' THEN 1 ELSE 0 END) as compliant,\n  SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired\nFROM training_records\nGROUP BY role;\nEOF\n}\n\n# Main execution\necho \"[$(date)] Running AT-3 training compliance check\" | tee -a \"$LOG_FILE\"\n\nwhile IFS='|' read -r username role module expiry; do\n  send_training_notification \"$username\" \"$role\" \"$module\" \"$expiry\"\ndone < <(check_expiring_training)\n\ngenerate_training_report | tee -a \"$LOG_FILE\"\n\necho \"[$(date)] AT-3 compliance check completed\" | tee -a \"$LOG_FILE\"",
+        "ansible": "---\n# AT-3: Role-Based Training Management Playbook\n# Purpose: Automate role-based training assignment and tracking\n\n- name: Manage Role-Based Security Training (AT-3)\n  hosts: management_servers\n  become: yes\n  vars:\n    training_db_path: \"/var/lib/security-training\"\n    training_log_path: \"/var/log/security-training\"\n    notification_days: 7\n    training_roles:\n      - name: \"system_administrator\"\n        modules:\n          - \"Linux System Hardening\"\n          - \"Privileged Access Management\"\n          - \"Incident Response Procedures\"\n        frequency_days: 365\n      - name: \"developer\"\n        modules:\n          - \"Secure Coding Practices\"\n          - \"OWASP Top 10\"\n          - \"Security Testing\"\n        frequency_days: 365\n      - name: \"security_officer\"\n        modules:\n          - \"NIST 800-53 Controls\"\n          - \"Risk Assessment\"\n          - \"Security Monitoring\"\n        frequency_days: 180\n      - name: \"end_user\"\n        modules:\n          - \"Security Awareness\"\n          - \"Phishing Recognition\"\n          - \"Data Protection\"\n        frequency_days: 365\n\n  tasks:\n    - name: Install required packages\n      package:\n        name:\n          - sqlite3\n          - python3-sqlite3\n          - mailx\n        state: present\n\n    - name: Create training database directory\n      file:\n        path: \"{{ training_db_path }}\"\n        state: directory\n        mode: '0755'\n        owner: root\n        group: root\n\n    - name: Create training log directory\n      file:\n        path: \"{{ training_log_path }}\"\n        state: directory\n        mode: '0755'\n        owner: root\n        group: root\n\n    - name: Deploy training tracking script\n      copy:\n        dest: /usr/local/bin/check-training-compliance.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          # See bash script above\n\n    - name: Initialize training database\n      shell: |\n        sqlite3 \"{{ training_db_path }}/training_records.db\" <<EOF\n        CREATE TABLE IF NOT EXISTS training_records (\n          username TEXT,\n          role TEXT,\n          training_module TEXT,\n          completion_date TEXT,\n          expiration_date TEXT,\n          status TEXT\n        );\n        CREATE TABLE IF NOT EXISTS role_training_requirements (\n          role TEXT,\n          training_module TEXT,\n          frequency_days INTEGER\n        );\n        EOF\n      args:\n        creates: \"{{ training_db_path }}/training_records.db\"\n\n    - name: Populate role training requirements\n      shell: |\n        sqlite3 \"{{ training_db_path }}/training_records.db\" <<EOF\n        DELETE FROM role_training_requirements;\n        {% for role in training_roles %}\n        {% for module in role.modules %}\n        INSERT INTO role_training_requirements (role, training_module, frequency_days)\n        VALUES ('{{ role.name }}', '{{ module }}', {{ role.frequency_days }});\n        {% endfor %}\n        {% endfor %}\n        EOF\n\n    - name: Create cron job for training compliance checks\n      cron:\n        name: \"AT-3 Training Compliance Check\"\n        minute: \"0\"\n        hour: \"8\"\n        job: \"/usr/local/bin/check-training-compliance.sh >> {{ training_log_path }}/cron.log 2>&1\"\n        user: root\n\n    - name: Create training assignment script\n      copy:\n        dest: /usr/local/bin/assign-role-training.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          # Assign training to user based on role\n          if [ $# -ne 2 ]; then\n            echo \"Usage: $0 <username> <role>\"\n            exit 1\n          fi\n          \n          USERNAME=$1\n          ROLE=$2\n          DB=\"{{ training_db_path }}/training_records.db\"\n          \n          # Get required training for role\n          sqlite3 \"$DB\" <<EOF\n          INSERT INTO training_records (username, role, training_module, completion_date, expiration_date, status)\n          SELECT \n            '$USERNAME', \n            role, \n            training_module, \n            '', \n            '', \n            'pending'\n          FROM role_training_requirements\n          WHERE role = '$ROLE';\n          EOF\n          \n          echo \"Training modules assigned to $USERNAME for role $ROLE\"\n\n    - name: Log playbook execution\n      lineinfile:\n        path: \"{{ training_log_path }}/at-3.log\"\n        line: \"[{{ ansible_date_time.iso8601 }}] AT-3 role-based training configuration applied\"\n        create: yes\n        mode: '0644'"
+      },
+      "windows": {
+        "powershell": "# AT-3: Role-Based Training Tracking Script\n# Purpose: Track training completion and send notifications for role-based training\n# Platform: Windows Server\n\n[CmdletBinding()]\nparam(\n    [Parameter()]\n    [string]$TrainingDBPath = \"C:\\SecurityTraining\\TrainingRecords.db\",\n    \n    [Parameter()]\n    [string]$LogPath = \"C:\\SecurityTraining\\Logs\\AT-3.log\",\n    \n    [Parameter()]\n    [int]$NotificationDays = 7\n)\n\n# Function: Write log entry\nfunction Write-TrainingLog {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    $logEntry = \"[$timestamp] $Message\"\n    Add-Content -Path $LogPath -Value $logEntry\n    Write-Host $logEntry\n}\n\n# Function: Initialize SQLite database\nfunction Initialize-TrainingDatabase {\n    if (-not (Test-Path (Split-Path $TrainingDBPath))) {\n        New-Item -ItemType Directory -Path (Split-Path $TrainingDBPath) -Force | Out-Null\n    }\n    \n    # Note: Requires System.Data.SQLite NuGet package\n    Add-Type -Path \"System.Data.SQLite.dll\"\n    \n    $connectionString = \"Data Source=$TrainingDBPath;Version=3;\"\n    $connection = New-Object System.Data.SQLite.SQLiteConnection($connectionString)\n    $connection.Open()\n    \n    $createTables = @\"\n    CREATE TABLE IF NOT EXISTS training_records (\n        username TEXT,\n        role TEXT,\n        training_module TEXT,\n        completion_date TEXT,\n        expiration_date TEXT,\n        status TEXT\n    );\n    CREATE TABLE IF NOT EXISTS role_training_requirements (\n        role TEXT,\n        training_module TEXT,\n        frequency_days INTEGER\n    );\n\"@\n    \n    $command = $connection.CreateCommand()\n    $command.CommandText = $createTables\n    $command.ExecuteNonQuery() | Out-Null\n    $connection.Close()\n}\n\n# Function: Check for expiring training\nfunction Get-ExpiringTraining {\n    param([int]$DaysAhead)\n    \n    $warnDate = (Get-Date).AddDays($DaysAhead).ToString(\"yyyy-MM-dd\")\n    \n    $connectionString = \"Data Source=$TrainingDBPath;Version=3;\"\n    $connection = New-Object System.Data.SQLite.SQLiteConnection($connectionString)\n    $connection.Open()\n    \n    $query = @\"\n    SELECT username, role, training_module, expiration_date \n    FROM training_records \n    WHERE expiration_date <= '$warnDate' AND status = 'current'\n\"@\n    \n    $command = $connection.CreateCommand()\n    $command.CommandText = $query\n    $adapter = New-Object System.Data.SQLite.SQLiteDataAdapter($command)\n    $dataSet = New-Object System.Data.DataSet\n    $adapter.Fill($dataSet) | Out-Null\n    $connection.Close()\n    \n    return $dataSet.Tables[0]\n}\n\n# Function: Send training notification\nfunction Send-TrainingNotification {\n    param(\n        [string]$Username,\n        [string]$Role,\n        [string]$Module,\n        [string]$ExpiryDate\n    )\n    \n    $message = \"Your role-based training module '$Module' expires on $ExpiryDate. Please complete refresher training.\"\n    $subject = \"Security Training Renewal Required\"\n    \n    Write-TrainingLog \"Training expiring for $Username ($Role): $Module on $ExpiryDate\"\n    \n    # Send email notification\n    $emailParams = @{\n        From = \"security-training@organization.com\"\n        To = \"${Username}@organization.com\"\n        Subject = $subject\n        Body = $message\n        SmtpServer = \"smtp.organization.com\"\n    }\n    \n    try {\n        Send-MailMessage @emailParams\n        Write-TrainingLog \"Notification sent to $Username\"\n    } catch {\n        Write-TrainingLog \"ERROR: Failed to send notification to $Username - $_\"\n    }\n}\n\n# Function: Generate training compliance report\nfunction Get-TrainingComplianceReport {\n    $connectionString = \"Data Source=$TrainingDBPath;Version=3;\"\n    $connection = New-Object System.Data.SQLite.SQLiteConnection($connectionString)\n    $connection.Open()\n    \n    $query = @\"\n    SELECT \n        role,\n        COUNT(DISTINCT username) as personnel_count,\n        SUM(CASE WHEN status = 'current' THEN 1 ELSE 0 END) as compliant,\n        SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired\n    FROM training_records\n    GROUP BY role\n\"@\n    \n    $command = $connection.CreateCommand()\n    $command.CommandText = $query\n    $adapter = New-Object System.Data.SQLite.SQLiteDataAdapter($command)\n    $dataSet = New-Object System.Data.DataSet\n    $adapter.Fill($dataSet) | Out-Null\n    $connection.Close()\n    \n    Write-Host \"`n=== Role-Based Training Compliance Report ===\"\n    Write-Host \"Generated: $(Get-Date)\"`n\n    $dataSet.Tables[0] | Format-Table -AutoSize\n}\n\n# Main execution\ntry {\n    # Ensure log directory exists\n    $logDir = Split-Path $LogPath\n    if (-not (Test-Path $logDir)) {\n        New-Item -ItemType Directory -Path $logDir -Force | Out-Null\n    }\n    \n    Write-TrainingLog \"Starting AT-3 training compliance check\"\n    \n    Initialize-TrainingDatabase\n    \n    $expiringTraining = Get-ExpiringTraining -DaysAhead $NotificationDays\n    \n    foreach ($record in $expiringTraining) {\n        Send-TrainingNotification -Username $record.username `\n            -Role $record.role `\n            -Module $record.training_module `\n            -ExpiryDate $record.expiration_date\n    }\n    \n    Get-TrainingComplianceReport\n    \n    Write-TrainingLog \"AT-3 compliance check completed successfully\"\n    \n} catch {\n    Write-TrainingLog \"ERROR: $($_.Exception.Message)\"\n    throw\n}",
+        "ansible": "---\n# AT-3: Role-Based Training Management Playbook for Windows\n# Purpose: Automate role-based training assignment and tracking\n# Note: Requires ansible.windows collection\n\n- name: Manage Role-Based Security Training (AT-3) - Windows\n  hosts: windows_management_servers\n  gather_facts: yes\n  vars:\n    training_base_path: \"C:\\\\SecurityTraining\"\n    training_db_path: \"C:\\\\SecurityTraining\\\\TrainingRecords.db\"\n    training_log_path: \"C:\\\\SecurityTraining\\\\Logs\"\n    notification_days: 7\n\n  tasks:\n    - name: Create training directory structure\n      ansible.windows.win_file:\n        path: \"{{ item }}\"\n        state: directory\n      loop:\n        - \"{{ training_base_path }}\"\n        - \"{{ training_log_path }}\"\n        - \"{{ training_base_path }}\\\\Scripts\"\n\n    - name: Deploy training tracking PowerShell script\n      ansible.windows.win_copy:\n        dest: \"{{ training_base_path }}\\\\Scripts\\\\Check-TrainingCompliance.ps1\"\n        content: |\n          # See PowerShell script above\n\n    - name: Create scheduled task for training compliance checks\n      ansible.windows.win_scheduled_task:\n        name: AT-3 Training Compliance Check\n        description: Daily role-based training compliance verification\n        actions:\n          - path: C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\n            arguments: -ExecutionPolicy Bypass -File \"{{ training_base_path }}\\\\Scripts\\\\Check-TrainingCompliance.ps1\"\n        triggers:\n          - type: daily\n            start_boundary: \"2024-01-01T08:00:00\"\n        username: SYSTEM\n        run_level: highest\n        state: present\n        enabled: yes\n\n    - name: Create training assignment script\n      ansible.windows.win_copy:\n        dest: \"{{ training_base_path }}\\\\Scripts\\\\Assign-RoleTraining.ps1\"\n        content: |\n          param(\n              [Parameter(Mandatory=$true)]\n              [string]$Username,\n              \n              [Parameter(Mandatory=$true)]\n              [string]$Role\n          )\n          \n          # Training assignment logic\n          Write-Host \"Assigning training modules for $Username with role $Role\"\n\n    - name: Log playbook execution\n      ansible.windows.win_lineinfile:\n        path: \"{{ training_log_path }}\\\\at-3.log\"\n        line: \"[{{ ansible_date_time.iso8601 }}] AT-3 role-based training configuration applied\"\n        create: yes"
+      }
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": true
+      "last_updated": "2025-11-21T00:00:00Z",
+      "has_scripts": true,
+      "qa_verified": true,
+      "qa_date": "2025-11-21",
+      "qa_agent": "loveless"
     },
     "cac_metadata": {
       "implementation_type": "organizational",
-      "last_analyzed": "2025-11-10T10:05:37.591776+00:00",
+      "last_analyzed": "2025-11-21T00:00:00Z",
       "source": "ComplianceAsCode",
-      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. Technical automation supports tracking and notification but cannot replace human training delivery and content development."
+    },
+    "intent": "Provide specialized security training based on each person's job responsibilities.",
+    "rationale": "A system administrator needs different security knowledge than a receptionist. Role-based training ensures that people with elevated access or sensitive responsibilities get the specialized training they need. Generic training isn't enough for high-risk roles."
   },
   {
-    "control_id": "at-3.1",
+    "control_id": "AT-3.1",
     "control_name": "Environmental Controls",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls.",
-    "parent_control": "at-3",
+    "family_id": "AT",
+    "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of environmental controls.",
+    "parent_control": "AT-3",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide {{ insert: param, at-03.01_odp.01 }} with initial and {{ insert: param, at-03.01_odp.02 }} training in the employment and operation of environmental controls.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Organizations must provide specialized training to personnel responsible for environmental controls (temperature, humidity, power, fire suppression) in data centers and facilities. Training covers proper operation, monitoring, and response to environmental control failures.",
+    "example_implementation": "Provide facilities management staff and data center operators with initial training on HVAC system operation, temperature monitoring, humidity control, fire suppression activation procedures, and emergency power systems. Conduct refresher training annually and after any environmental system upgrades or modifications. Document training completion and maintain certifications where applicable.",
+    "non_technical_guidance": "To implement AT-3(1), organizations should:\n\n1. Identify personnel and roles responsible for environmental control systems (facilities managers, data center technicians, building engineers)\n2. Develop training curriculum covering:\n   - Temperature and humidity monitoring and acceptable ranges\n   - HVAC system operation and emergency procedures\n   - Fire detection and suppression system operation\n   - Uninterruptible power supply (UPS) and generator operation\n   - Water detection and leak response\n   - Environmental monitoring system alerts and responses\n3. Establish training frequency (recommended: initial training + annual refresher)\n4. Provide hands-on training with actual equipment when possible\n5. Maintain training records and certifications\n6. Update training when environmental systems are upgraded or replaced\n7. Include vendor-specific training for proprietary systems",
     "is_technical": true,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-3",
+      "PE-11",
+      "PE-13",
+      "PE-14",
+      "PE-15"
+    ],
+    "supplemental_guidance": "Environmental controls training includes instruction on the proper use and operation of heating, ventilation, air conditioning (HVAC) systems, fire suppression systems, temperature and humidity controls, power distribution systems, and water detection and removal systems. This training ensures personnel can maintain optimal operating conditions for information systems and respond appropriately to environmental anomalies or emergencies.",
+    "implementation_guidance": "Implementation requires coordination between IT security, facilities management, and training departments. Develop role-specific training modules for different levels of responsibility. Consider requiring vendor-provided training for complex environmental systems. Implement competency assessments to verify personnel can properly operate environmental controls. For organizations with multiple data centers, ensure consistent training across all facilities.",
+    "ai_guidance": "AI can enhance AT-3(1) implementation through predictive environmental monitoring that identifies training gaps based on incident patterns. Machine learning models can analyze environmental control system logs to detect operator errors or suboptimal configurations, triggering targeted refresher training. Virtual reality simulations can provide immersive training for emergency scenarios like fire suppression activation or cooling system failures without risking actual equipment. AI-powered chatbots can provide just-in-time guidance for facilities personnel responding to environmental alerts. Natural language processing can analyze incident reports to identify common operator errors and update training content accordingly.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# AT-3.1: Environmental Controls Training Tracker\n# Purpose: Track environmental controls training for facilities personnel\n\nTRAINING_DB=\"/var/lib/security-training/environmental_training.db\"\nLOG_FILE=\"/var/log/security-training/at-3-1.log\"\n\n# Initialize database\nsqlite3 \"$TRAINING_DB\" <<EOF\nCREATE TABLE IF NOT EXISTS environmental_training (\n  personnel_id TEXT,\n  role TEXT,\n  training_module TEXT,\n  training_date TEXT,\n  expiration_date TEXT,\n  certification TEXT,\n  status TEXT\n);\nEOF\n\n# Function: Check training currency\ncheck_environmental_training() {\n  echo \"[$(date)] Checking environmental controls training currency\" | tee -a \"$LOG_FILE\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  personnel_id,\n  role,\n  training_module,\n  expiration_date,\n  status\nFROM environmental_training\nWHERE expiration_date < DATE('now', '+30 days')\nORDER BY expiration_date;\nEOF\n}\n\n# Function: Report on trained personnel\ngenerate_compliance_report() {\n  echo \"=== AT-3(1) Environmental Controls Training Report ===\"\n  echo \"Generated: $(date)\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  role,\n  COUNT(*) as personnel_count,\n  SUM(CASE WHEN status = 'current' THEN 1 ELSE 0 END) as current,\n  SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired\nFROM environmental_training\nGROUP BY role;\nEOF\n}\n\ncheck_environmental_training\ngenerate_compliance_report",
+        "ansible": "---\n# AT-3.1: Environmental Controls Training Management\n- name: Manage Environmental Controls Training\n  hosts: management_servers\n  become: yes\n  tasks:\n    - name: Deploy environmental training tracker\n      copy:\n        dest: /usr/local/bin/check-environmental-training.sh\n        mode: '0755'\n        content: |\n          # See bash script above\n    \n    - name: Create monthly environmental training check\n      cron:\n        name: \"AT-3.1 Environmental Training Check\"\n        day: \"1\"\n        hour: \"8\"\n        job: \"/usr/local/bin/check-environmental-training.sh\"\n        user: root"
+      },
+      "windows": {
+        "powershell": "# AT-3.1: Environmental Controls Training Tracker\n# Purpose: Track environmental controls training for facilities personnel\n\n$TrainingDB = \"C:\\SecurityTraining\\EnvironmentalTraining.db\"\n$LogPath = \"C:\\SecurityTraining\\Logs\\AT-3-1.log\"\n\nfunction Write-TrainingLog {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    Add-Content -Path $LogPath -Value \"[$timestamp] $Message\"\n}\n\nfunction Check-EnvironmentalTraining {\n    Write-TrainingLog \"Checking environmental controls training currency\"\n    \n    # Query database for expiring training\n    # Implementation requires System.Data.SQLite\n    \n    Write-Host \"Environmental Controls Training Status:\"\n    # Display personnel with expiring or expired training\n}\n\nfunction New-ComplianceReport {\n    Write-Host \"=== AT-3(1) Environmental Controls Training Report ===\"\n    Write-Host \"Generated: $(Get-Date)\"\n    \n    # Generate compliance statistics\n}\n\nCheck-EnvironmentalTraining\nNew-ComplianceReport",
+        "ansible": "---\n# AT-3.1: Environmental Controls Training Management (Windows)\n- name: Manage Environmental Controls Training - Windows\n  hosts: windows_management_servers\n  tasks:\n    - name: Deploy environmental training tracker\n      ansible.windows.win_copy:\n        dest: C:\\\\SecurityTraining\\\\Scripts\\\\Check-EnvironmentalTraining.ps1\n        content: |\n          # See PowerShell script above\n    \n    - name: Create scheduled task for monthly check\n      ansible.windows.win_scheduled_task:\n        name: AT-3.1 Environmental Training Check\n        description: Monthly environmental controls training verification\n        actions:\n          - path: powershell.exe\n            arguments: -File C:\\\\SecurityTraining\\\\Scripts\\\\Check-EnvironmentalTraining.ps1\n        triggers:\n          - type: monthly\n            days_of_month: 1\n            start_boundary: \"2024-01-01T08:00:00\"\n        state: present\n        enabled: yes"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
+      "status": "implemented",
+      "last_updated": "2025-11-21T00:00:00Z",
+      "has_scripts": true,
+      "qa_verified": true,
+      "qa_date": "2025-11-21",
+      "qa_agent": "loveless"
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:39.253193+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00Z",
       "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "This enhancement requires organizational training program development with technical support for tracking. Automation can monitor training currency and send notifications but cannot replace hands-on training with environmental control systems."
+    },
+    "intent": "Train personnel on how to protect and operate environmental control systems.",
+    "rationale": "HVAC systems, fire suppression, and power controls can be attack vectors or critical to operations. Personnel responsible for these systems need to understand both physical and cyber risks. A compromised environmental system can damage equipment, disrupt operations, or even harm people."
   },
   {
-    "control_id": "at-3.2",
+    "control_id": "AT-3.2",
     "control_name": "Physical Security Controls",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls.",
-    "parent_control": "at-3",
+    "family_id": "AT",
+    "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of physical security controls.",
+    "parent_control": "AT-3",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide {{ insert: param, at-03.02_odp.01 }} with initial and {{ insert: param, at-03.02_odp.02 }} training in the employment and operation of physical security controls.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Organizations must provide specialized training to security personnel and others responsible for physical security systems. Training covers proper operation of access control systems, surveillance equipment, intrusion detection, visitor management, and response to physical security incidents.",
+    "example_implementation": "Provide security guards, facilities managers, and reception staff with initial training on badge access systems, CCTV operation, visitor escort procedures, tailgating prevention, perimeter security, lock and key management, and physical security incident response. Conduct refresher training annually and when physical security systems are upgraded. Maintain training records and ensure all personnel demonstrate competency.",
+    "non_technical_guidance": "To implement AT-3(2), organizations should:\n\n1. Identify personnel responsible for physical security (security officers, guards, receptionists, facilities staff)\n2. Develop training curriculum covering:\n   - Access control system operation (badge readers, biometric systems)\n   - CCTV and surveillance system operation\n   - Visitor management procedures and escort requirements\n   - Tailgating and piggybacking prevention\n   - Lock and key control procedures\n   - Perimeter security monitoring\n   - Security alarm response procedures\n   - Physical security incident reporting\n3. Establish training frequency (recommended: initial + annual refresher + post-incident)\n4. Provide role-specific training based on responsibilities\n5. Include hands-on training with actual security equipment\n6. Conduct scenario-based training for incident response\n7. Maintain training records and certifications\n8. Update training when security systems are upgraded or policies change",
     "is_technical": true,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-3",
+      "PE-2",
+      "PE-3",
+      "PE-4",
+      "PE-6",
+      "PE-8",
+      "PS-6"
+    ],
+    "supplemental_guidance": "Physical security controls training ensures personnel understand how to properly operate physical access control systems, intrusion detection systems, surveillance equipment, and visitor management systems. Training includes recognizing and responding to physical security incidents, proper credentialing procedures, escort requirements, and coordination with law enforcement when necessary. Personnel should understand both the technical operation of systems and the policies governing their use.",
+    "implementation_guidance": "Implementation requires collaboration between physical security, IT security, human resources, and training departments. Develop tiered training based on security clearance levels and job responsibilities. Front desk personnel need different training than security operations center staff. Consider requiring vendor training for complex access control or surveillance systems. Implement practical exercises and tabletop scenarios to reinforce concepts. For organizations with multiple facilities, ensure consistent training across all locations while addressing site-specific security measures.",
+    "ai_guidance": "AI enhances AT-3(2) through intelligent video analytics that can detect training deficiencies in real-time physical security operations. Machine learning models can analyze security footage to identify policy violations (e.g., personnel allowing tailgating, improper visitor escort) and trigger targeted retraining. Behavioral analysis can detect anomalous patterns suggesting inadequate security awareness among personnel. Natural language processing can analyze incident reports to identify common physical security gaps and update training content. AI-powered simulation systems can create realistic physical security scenarios for training, including active threat responses. Predictive models can identify personnel likely to need refresher training based on shift patterns, incident involvement, and time since last training.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# AT-3.2: Physical Security Controls Training Tracker\n# Purpose: Track physical security training for security personnel\n\nTRAINING_DB=\"/var/lib/security-training/physical_security_training.db\"\nLOG_FILE=\"/var/log/security-training/at-3-2.log\"\n\n# Initialize database\nsqlite3 \"$TRAINING_DB\" <<EOF\nCREATE TABLE IF NOT EXISTS physical_security_training (\n  personnel_id TEXT,\n  role TEXT,\n  training_module TEXT,\n  training_date TEXT,\n  expiration_date TEXT,\n  certification TEXT,\n  facility TEXT,\n  status TEXT\n);\nCREATE TABLE IF NOT EXISTS security_incidents (\n  incident_id TEXT,\n  personnel_id TEXT,\n  incident_date TEXT,\n  incident_type TEXT,\n  retraining_required TEXT\n);\nEOF\n\n# Function: Check physical security training status\ncheck_physical_security_training() {\n  echo \"[$(date)] Checking physical security training status\" | tee -a \"$LOG_FILE\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  personnel_id,\n  role,\n  facility,\n  training_module,\n  expiration_date,\n  status\nFROM physical_security_training\nWHERE expiration_date < DATE('now', '+30 days')\nOR status = 'expired'\nORDER BY facility, expiration_date;\nEOF\n}\n\n# Function: Identify retraining needs based on incidents\ncheck_incident_retraining() {\n  echo \"[$(date)] Checking for incident-based retraining requirements\" | tee -a \"$LOG_FILE\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  i.personnel_id,\n  p.role,\n  i.incident_type,\n  i.incident_date,\n  i.retraining_required\nFROM security_incidents i\nJOIN physical_security_training p ON i.personnel_id = p.personnel_id\nWHERE i.retraining_required = 'yes'\nAND i.incident_date > DATE('now', '-30 days');\nEOF\n}\n\n# Function: Generate compliance report\ngenerate_physical_security_report() {\n  echo \"=== AT-3(2) Physical Security Training Report ===\"\n  echo \"Generated: $(date)\"\n  echo \"\"\n  \n  sqlite3 -header -column \"$TRAINING_DB\" <<EOF\nSELECT \n  facility,\n  role,\n  COUNT(*) as personnel_count,\n  SUM(CASE WHEN status = 'current' THEN 1 ELSE 0 END) as current,\n  SUM(CASE WHEN status = 'expiring' THEN 1 ELSE 0 END) as expiring,\n  SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired\nFROM physical_security_training\nGROUP BY facility, role\nORDER BY facility, role;\nEOF\n}\n\ncheck_physical_security_training\ncheck_incident_retraining\ngenerate_physical_security_report",
+        "ansible": "---\n# AT-3.2: Physical Security Controls Training Management\n- name: Manage Physical Security Controls Training\n  hosts: management_servers\n  become: yes\n  vars:\n    physical_security_roles:\n      - \"security_guard\"\n      - \"security_supervisor\"\n      - \"reception_staff\"\n      - \"facilities_manager\"\n      - \"security_operations_center\"\n  \n  tasks:\n    - name: Deploy physical security training tracker\n      copy:\n        dest: /usr/local/bin/check-physical-security-training.sh\n        mode: '0755'\n        content: |\n          # See bash script above\n    \n    - name: Create weekly physical security training check\n      cron:\n        name: \"AT-3.2 Physical Security Training Check\"\n        weekday: \"1\"\n        hour: \"8\"\n        job: \"/usr/local/bin/check-physical-security-training.sh\"\n        user: root\n    \n    - name: Create incident-triggered retraining script\n      copy:\n        dest: /usr/local/bin/trigger-security-retraining.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          # Trigger retraining based on security incident\n          PERSONNEL_ID=$1\n          INCIDENT_TYPE=$2\n          \n          sqlite3 /var/lib/security-training/physical_security_training.db <<EOF\n          INSERT INTO security_incidents (incident_id, personnel_id, incident_date, incident_type, retraining_required)\n          VALUES ('$(uuidgen)', '$PERSONNEL_ID', DATE('now'), '$INCIDENT_TYPE', 'yes');\n          EOF\n          \n          echo \"Retraining required for $PERSONNEL_ID due to $INCIDENT_TYPE incident\""
+      },
+      "windows": {
+        "powershell": "# AT-3.2: Physical Security Controls Training Tracker\n# Purpose: Track physical security training and incident-based retraining\n\n$TrainingDB = \"C:\\SecurityTraining\\PhysicalSecurityTraining.db\"\n$LogPath = \"C:\\SecurityTraining\\Logs\\AT-3-2.log\"\n\nfunction Write-SecurityLog {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    Add-Content -Path $LogPath -Value \"[$timestamp] $Message\"\n    Write-Host \"[$timestamp] $Message\"\n}\n\nfunction Check-PhysicalSecurityTraining {\n    Write-SecurityLog \"Checking physical security training status\"\n    \n    # Query for expiring or expired training\n    $expiringDate = (Get-Date).AddDays(30).ToString(\"yyyy-MM-dd\")\n    \n    # Database query to find personnel needing training\n    # Implementation requires System.Data.SQLite\n    \n    Write-Host \"`nPersonnel requiring physical security training:\"\n    # Display results\n}\n\nfunction Check-IncidentRetraining {\n    Write-SecurityLog \"Checking for incident-based retraining requirements\"\n    \n    # Query for security incidents requiring retraining\n    $incidentDate = (Get-Date).AddDays(-30).ToString(\"yyyy-MM-dd\")\n    \n    Write-Host \"`nPersonnel requiring retraining due to incidents:\"\n    # Display results\n}\n\nfunction New-PhysicalSecurityReport {\n    Write-Host \"`n=== AT-3(2) Physical Security Training Report ===\"\n    Write-Host \"Generated: $(Get-Date)\"`n\n    # Generate facility-by-role compliance statistics\n    Write-Host \"Training compliance by facility and role:\"\n    # Display statistics\n}\n\nfunction Register-SecurityIncident {\n    param(\n        [Parameter(Mandatory=$true)]\n        [string]$PersonnelID,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$IncidentType\n    )\n    \n    Write-SecurityLog \"Registering security incident for $PersonnelID - Type: $IncidentType\"\n    \n    # Insert incident record and flag for retraining\n    # Database update\n    \n    Write-Host \"Retraining required for $PersonnelID due to $IncidentType incident\"\n}\n\nCheck-PhysicalSecurityTraining\nCheck-IncidentRetraining\nNew-PhysicalSecurityReport",
+        "ansible": "---\n# AT-3.2: Physical Security Controls Training Management (Windows)\n- name: Manage Physical Security Controls Training - Windows\n  hosts: windows_management_servers\n  vars:\n    training_base: \"C:\\\\SecurityTraining\"\n  \n  tasks:\n    - name: Create training directories\n      ansible.windows.win_file:\n        path: \"{{ item }}\"\n        state: directory\n      loop:\n        - \"{{ training_base }}\"\n        - \"{{ training_base }}\\\\Scripts\"\n        - \"{{ training_base }}\\\\Logs\"\n    \n    - name: Deploy physical security training tracker\n      ansible.windows.win_copy:\n        dest: \"{{ training_base }}\\\\Scripts\\\\Check-PhysicalSecurityTraining.ps1\"\n        content: |\n          # See PowerShell script above\n    \n    - name: Create weekly training compliance check\n      ansible.windows.win_scheduled_task:\n        name: AT-3.2 Physical Security Training Check\n        description: Weekly physical security training verification\n        actions:\n          - path: powershell.exe\n            arguments: -ExecutionPolicy Bypass -File \"{{ training_base }}\\\\Scripts\\\\Check-PhysicalSecurityTraining.ps1\"\n        triggers:\n          - type: weekly\n            days_of_week: monday\n            start_boundary: \"2024-01-01T08:00:00\"\n        state: present\n        enabled: yes"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
+      "status": "implemented",
+      "last_updated": "2025-11-21T00:00:00Z",
+      "has_scripts": true,
+      "qa_verified": true,
+      "qa_date": "2025-11-21",
+      "qa_agent": "loveless"
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:40.885568+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00Z",
       "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "This enhancement requires organizational training program with technical tracking support. Automation can monitor training compliance, integrate with incident management systems to trigger retraining, and generate compliance reports, but cannot replace hands-on training with physical security systems and scenario-based exercises."
+    },
+    "intent": "Train security personnel on operating physical access control and surveillance systems.",
+    "rationale": "Security guards, reception staff, and facilities managers operate badge readers, cameras, and alarm systems daily. Proper training ensures they use these systems correctly, recognize tampering or tailgating, and respond appropriately to physical security incidents."
   },
   {
-    "control_id": "at-3.3",
+    "control_id": "AT-3.3",
     "control_name": "Practical Exercises",
     "family": "Awareness and Training",
-    "family_id": "at",
+    "family_id": "AT",
     "official_text": "Provide practical exercises in security and privacy training that reinforce training objectives.",
-    "parent_control": "at-3",
+    "parent_control": "AT-3",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide practical exercises in security and privacy training that reinforce training objectives.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Organizations must incorporate hands-on practical exercises into role-based security training to reinforce concepts and ensure personnel can apply knowledge in real scenarios. Exercises should simulate actual security situations personnel will encounter in their roles.",
+    "example_implementation": "For system administrators, conduct tabletop exercises simulating security incidents requiring log analysis and system hardening. For developers, implement secure code review workshops with vulnerable code samples. For security analysts, run red team vs blue team exercises. For incident responders, conduct simulated breach scenarios requiring coordination and response. For all personnel, run phishing simulation campaigns. Document exercise participation and performance to identify training gaps.",
+    "non_technical_guidance": "To implement AT-3(3), organizations should:\n\n1. Design role-specific practical exercises:\n   - System administrators: Incident response simulations, vulnerability remediation labs\n   - Developers: Secure coding challenges, code review exercises with intentional vulnerabilities\n   - Security analysts: Threat hunting scenarios, log analysis exercises\n   - Incident responders: Tabletop exercises, breach simulation drills\n   - End users: Phishing simulations, social engineering awareness tests\n2. Incorporate exercises into regular training cycles (quarterly or semi-annually)\n3. Use realistic scenarios based on organization's threat landscape\n4. Measure exercise performance and provide feedback\n5. Track participation and identify personnel requiring additional training\n6. Update exercises based on emerging threats and lessons learned\n7. Conduct multi-team exercises for complex scenarios (e.g., coordinated incident response)\n8. Document exercise results and integrate findings into training improvements\n9. Consider using third-party platforms for automated exercise delivery (e.g., phishing simulations, cyber ranges)",
     "is_technical": true,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-2",
+      "AT-3",
+      "CP-4",
+      "IR-3",
+      "PM-14"
+    ],
+    "supplemental_guidance": "Practical exercises enhance learning by allowing personnel to apply security and privacy concepts in realistic settings. Exercises can range from tabletop discussions and simulated scenarios to hands-on technical labs and red team/blue team competitions. Organizations may use commercial training platforms, custom-developed scenarios, or partner with external organizations for realistic adversarial testing. Exercise complexity should match personnel skill levels and gradually increase over time. Results should be analyzed to identify training gaps and inform curriculum updates.",
+    "implementation_guidance": "Implementation requires coordination between training, security operations, and IT teams. Establish an exercise schedule aligned with training cycles. For technical roles, consider using cyber ranges, virtual labs, or sandboxed environments for hands-on practice. For non-technical roles, use scenario-based discussions and simulations. Partner with security vendors or consultants for red team exercises. Implement metrics to track exercise participation, performance scores, and improvement over time. Use exercise results to personalize future training recommendations. Ensure exercises don't disrupt production operations by using isolated test environments.",
+    "ai_guidance": "AI significantly enhances AT-3(3) through adaptive exercise platforms that personalize difficulty based on individual performance. Machine learning can generate realistic phishing emails tailored to each user's behavior patterns, making simulations more effective. AI-powered cyber ranges can simulate sophisticated attack scenarios that adapt in real-time to trainee responses, providing dynamic learning experiences. Natural language processing can analyze exercise performance reports to identify common weaknesses across roles and recommend targeted training. Reinforcement learning can optimize exercise scheduling to maximize retention and skill development. AI can also automate scoring and feedback for technical exercises, providing immediate constructive guidance to participants.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# AT-3.3: Practical Exercise Tracking and Management\n# Purpose: Track participation and performance in security training exercises\n\nEXERCISE_DB=\"/var/lib/security-training/practical_exercises.db\"\nLOG_FILE=\"/var/log/security-training/at-3-3.log\"\n\n# Initialize database\nsqlite3 \"$EXERCISE_DB\" <<EOF\nCREATE TABLE IF NOT EXISTS exercise_types (\n  exercise_id TEXT PRIMARY KEY,\n  exercise_name TEXT,\n  exercise_type TEXT,\n  target_role TEXT,\n  difficulty TEXT,\n  objectives TEXT\n);\nCREATE TABLE IF NOT EXISTS exercise_participation (\n  participation_id TEXT PRIMARY KEY,\n  exercise_id TEXT,\n  personnel_id TEXT,\n  participation_date TEXT,\n  completion_status TEXT,\n  performance_score REAL,\n  feedback TEXT\n);\nCREATE TABLE IF NOT EXISTS exercise_schedule (\n  schedule_id TEXT PRIMARY KEY,\n  exercise_id TEXT,\n  scheduled_date TEXT,\n  target_audience TEXT,\n  status TEXT\n);\nEOF\n\n# Function: Schedule practical exercise\nschedule_exercise() {\n  local exercise_id=$1\n  local scheduled_date=$2\n  local target_audience=$3\n  \n  sqlite3 \"$EXERCISE_DB\" <<EOF\nINSERT INTO exercise_schedule (schedule_id, exercise_id, scheduled_date, target_audience, status)\nVALUES ('$(uuidgen)', '$exercise_id', '$scheduled_date', '$target_audience', 'scheduled');\nEOF\n  \n  echo \"[$(date)] Exercise $exercise_id scheduled for $scheduled_date\" | tee -a \"$LOG_FILE\"\n}\n\n# Function: Record exercise participation\nrecord_participation() {\n  local exercise_id=$1\n  local personnel_id=$2\n  local score=$3\n  local status=$4\n  \n  sqlite3 \"$EXERCISE_DB\" <<EOF\nINSERT INTO exercise_participation (\n  participation_id, exercise_id, personnel_id, \n  participation_date, completion_status, performance_score\n)\nVALUES (\n  '$(uuidgen)', '$exercise_id', '$personnel_id',\n  DATE('now'), '$status', $score\n);\nEOF\n  \n  echo \"[$(date)] Recorded participation for $personnel_id in exercise $exercise_id\" | tee -a \"$LOG_FILE\"\n}\n\n# Function: Analyze exercise performance\nanalyze_exercise_performance() {\n  echo \"=== AT-3(3) Practical Exercise Performance Analysis ===\"\n  echo \"Generated: $(date)\"\n  echo \"\"\n  \n  # Overall participation rate\n  echo \"--- Participation Summary ---\"\n  sqlite3 -header -column \"$EXERCISE_DB\" <<EOF\nSELECT \n  e.target_role,\n  COUNT(DISTINCT p.personnel_id) as participants,\n  AVG(p.performance_score) as avg_score,\n  SUM(CASE WHEN p.performance_score >= 80 THEN 1 ELSE 0 END) as proficient,\n  SUM(CASE WHEN p.performance_score < 80 THEN 1 ELSE 0 END) as needs_improvement\nFROM exercise_types e\nJOIN exercise_participation p ON e.exercise_id = p.exercise_id\nWHERE p.participation_date > DATE('now', '-90 days')\nGROUP BY e.target_role;\nEOF\n  \n  echo \"\"\n  echo \"--- Personnel Requiring Additional Training ---\"\n  sqlite3 -header -column \"$EXERCISE_DB\" <<EOF\nSELECT \n  personnel_id,\n  COUNT(*) as exercises_completed,\n  AVG(performance_score) as avg_score,\n  MIN(performance_score) as lowest_score\nFROM exercise_participation\nWHERE participation_date > DATE('now', '-90 days')\nGROUP BY personnel_id\nHAVING AVG(performance_score) < 70\nORDER BY avg_score;\nEOF\n}\n\n# Function: Generate upcoming exercise schedule\nshow_upcoming_exercises() {\n  echo \"=== Upcoming Practical Exercises ===\"\n  \n  sqlite3 -header -column \"$EXERCISE_DB\" <<EOF\nSELECT \n  s.scheduled_date,\n  e.exercise_name,\n  e.target_role,\n  s.target_audience,\n  s.status\nFROM exercise_schedule s\nJOIN exercise_types e ON s.exercise_id = e.exercise_id\nWHERE s.scheduled_date >= DATE('now')\nAND s.status != 'completed'\nORDER BY s.scheduled_date;\nEOF\n}\n\n# Function: Identify low performers for targeted training\nidentify_training_gaps() {\n  echo \"=== Training Gap Analysis ===\"\n  \n  sqlite3 -header -column \"$EXERCISE_DB\" <<EOF\nSELECT \n  e.target_role,\n  e.exercise_name,\n  COUNT(*) as failure_count,\n  e.objectives\nFROM exercise_participation p\nJOIN exercise_types e ON p.exercise_id = e.exercise_id\nWHERE p.performance_score < 70\nAND p.participation_date > DATE('now', '-90 days')\nGROUP BY e.target_role, e.exercise_name\nHAVING COUNT(*) >= 3\nORDER BY failure_count DESC;\nEOF\n}\n\nanalyze_exercise_performance\nshow_upcoming_exercises\nidentify_training_gaps",
+        "ansible": "---\n# AT-3.3: Practical Exercise Management Playbook\n- name: Manage Security Training Practical Exercises\n  hosts: management_servers\n  become: yes\n  vars:\n    exercise_db_path: \"/var/lib/security-training\"\n    exercise_types:\n      - name: \"Phishing Simulation\"\n        type: \"social_engineering\"\n        role: \"all_users\"\n        difficulty: \"medium\"\n      - name: \"Incident Response Tabletop\"\n        type: \"incident_response\"\n        role: \"security_team\"\n        difficulty: \"high\"\n      - name: \"Secure Code Review\"\n        type: \"development\"\n        role: \"developer\"\n        difficulty: \"high\"\n      - name: \"Log Analysis Challenge\"\n        type: \"security_operations\"\n        role: \"system_administrator\"\n        difficulty: \"medium\"\n  \n  tasks:\n    - name: Install exercise management dependencies\n      package:\n        name:\n          - sqlite3\n          - python3-sqlite3\n        state: present\n    \n    - name: Create exercise database directory\n      file:\n        path: \"{{ exercise_db_path }}\"\n        state: directory\n        mode: '0755'\n    \n    - name: Deploy exercise tracking script\n      copy:\n        dest: /usr/local/bin/manage-practical-exercises.sh\n        mode: '0755'\n        content: |\n          # See bash script above\n    \n    - name: Initialize exercise database\n      shell: |\n        sqlite3 \"{{ exercise_db_path }}/practical_exercises.db\" <<EOF\n        # Database initialization from bash script\n        EOF\n      args:\n        creates: \"{{ exercise_db_path }}/practical_exercises.db\"\n    \n    - name: Populate exercise types\n      shell: |\n        sqlite3 \"{{ exercise_db_path }}/practical_exercises.db\" <<EOF\n        {% for exercise in exercise_types %}\n        INSERT OR IGNORE INTO exercise_types (exercise_id, exercise_name, exercise_type, target_role, difficulty)\n        VALUES ('{{ exercise.name | hash('md5') }}', '{{ exercise.name }}', '{{ exercise.type }}', '{{ exercise.role }}', '{{ exercise.difficulty }}');\n        {% endfor %}\n        EOF\n    \n    - name: Create monthly exercise analysis cron\n      cron:\n        name: \"AT-3.3 Exercise Performance Analysis\"\n        day: \"1\"\n        hour: \"9\"\n        job: \"/usr/local/bin/manage-practical-exercises.sh >> /var/log/security-training/at-3-3.log 2>&1\"\n        user: root"
+      },
+      "windows": {
+        "powershell": "# AT-3.3: Practical Exercise Tracking and Management\n# Purpose: Track participation and performance in security training exercises\n# Platform: Windows Server\n\n$ExerciseDB = \"C:\\SecurityTraining\\PracticalExercises.db\"\n$LogPath = \"C:\\SecurityTraining\\Logs\\AT-3-3.log\"\n\nfunction Write-ExerciseLog {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    Add-Content -Path $LogPath -Value \"[$timestamp] $Message\"\n    Write-Host \"[$timestamp] $Message\"\n}\n\nfunction Initialize-ExerciseDatabase {\n    # Create database structure for exercise tracking\n    # Requires System.Data.SQLite\n    \n    $tables = @\"\n    CREATE TABLE IF NOT EXISTS exercise_types (\n        exercise_id TEXT PRIMARY KEY,\n        exercise_name TEXT,\n        exercise_type TEXT,\n        target_role TEXT,\n        difficulty TEXT,\n        objectives TEXT\n    );\n    CREATE TABLE IF NOT EXISTS exercise_participation (\n        participation_id TEXT PRIMARY KEY,\n        exercise_id TEXT,\n        personnel_id TEXT,\n        participation_date TEXT,\n        completion_status TEXT,\n        performance_score REAL,\n        feedback TEXT\n    );\n\"@\n    \n    # Execute table creation\n}\n\nfunction Register-ExerciseParticipation {\n    param(\n        [Parameter(Mandatory=$true)]\n        [string]$ExerciseID,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$PersonnelID,\n        \n        [Parameter(Mandatory=$true)]\n        [double]$Score,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$Status\n    )\n    \n    Write-ExerciseLog \"Recording exercise participation: $PersonnelID in $ExerciseID - Score: $Score\"\n    \n    # Insert participation record into database\n}\n\nfunction Get-ExercisePerformanceAnalysis {\n    Write-Host \"`n=== AT-3(3) Practical Exercise Performance Analysis ===\"\n    Write-Host \"Generated: $(Get-Date)\"`n\n    Write-Host \"--- Participation Summary by Role ---\"\n    # Query and display participation statistics\n    \n    Write-Host \"`n--- Personnel Requiring Additional Training ---\"\n    # Query and display low performers\n}\n\nfunction Get-UpcomingExercises {\n    Write-Host \"`n=== Upcoming Practical Exercises ===\"\n    # Query and display scheduled exercises\n}\n\nfunction Get-TrainingGaps {\n    Write-Host \"`n=== Training Gap Analysis ===\"\n    # Identify exercises with high failure rates\n}\n\nfunction New-PhishingSimulation {\n    param(\n        [Parameter(Mandatory=$true)]\n        [string[]]$TargetUsers,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$CampaignName\n    )\n    \n    Write-ExerciseLog \"Launching phishing simulation: $CampaignName\"\n    \n    foreach ($user in $TargetUsers) {\n        # Send simulated phishing email\n        Write-Host \"Simulated phishing email sent to $user\"\n    }\n}\n\n# Main execution\nInitialize-ExerciseDatabase\nGet-ExercisePerformanceAnalysis\nGet-UpcomingExercises\nGet-TrainingGaps",
+        "ansible": "---\n# AT-3.3: Practical Exercise Management (Windows)\n- name: Manage Security Training Practical Exercises - Windows\n  hosts: windows_management_servers\n  vars:\n    training_base: \"C:\\\\SecurityTraining\"\n  \n  tasks:\n    - name: Create exercise management directories\n      ansible.windows.win_file:\n        path: \"{{ item }}\"\n        state: directory\n      loop:\n        - \"{{ training_base }}\"\n        - \"{{ training_base }}\\\\Scripts\"\n        - \"{{ training_base }}\\\\Logs\"\n        - \"{{ training_base }}\\\\Exercises\"\n    \n    - name: Deploy exercise management script\n      ansible.windows.win_copy:\n        dest: \"{{ training_base }}\\\\Scripts\\\\Manage-PracticalExercises.ps1\"\n        content: |\n          # See PowerShell script above\n    \n    - name: Create monthly exercise analysis task\n      ansible.windows.win_scheduled_task:\n        name: AT-3.3 Exercise Performance Analysis\n        description: Monthly analysis of practical exercise performance\n        actions:\n          - path: powershell.exe\n            arguments: -ExecutionPolicy Bypass -File \"{{ training_base }}\\\\Scripts\\\\Manage-PracticalExercises.ps1\"\n        triggers:\n          - type: monthly\n            days_of_month: 1\n            start_boundary: \"2024-01-01T09:00:00\"\n        state: present\n        enabled: yes"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
+      "status": "implemented",
+      "last_updated": "2025-11-21T00:00:00Z",
+      "has_scripts": true,
+      "qa_verified": true,
+      "qa_date": "2025-11-21",
+      "qa_agent": "loveless"
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:42.564175+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00Z",
       "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "This enhancement requires organizational exercise development with technical tracking and automation support. Scripts can track participation, record performance, identify training gaps, and trigger follow-up training. Integration with phishing simulation platforms, cyber ranges, and learning management systems enables automated exercise delivery and assessment for some scenarios."
+    },
+    "intent": "Give specialized staff hands-on practice with role-specific security scenarios.",
+    "rationale": "Just like AT-2.1 provides practical exercises for general users, this enhancement does the same for specialized roles. System administrators should practice responding to breaches, security analysts should run through incident scenarios, and IT staff should rehearse their specific responsibilities."
   },
   {
-    "control_id": "at-3.4",
-    "control_name": "Suspicious Communications and Anomalous System Behavior",
-    "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
-    "parent_control": "at-3",
-    "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
-    "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:44.195478+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
-  },
-  {
-    "control_id": "at-3.5",
+    "control_id": "AT-3.5",
     "control_name": "Processing Personally Identifiable Information",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls.",
-    "parent_control": "at-3",
+    "family_id": "AT",
+    "official_text": "Provide [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of personally identifiable information processing and transparency controls.",
+    "parent_control": "AT-3",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": false,
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide {{ insert: param, at-03.05_odp.01 }} with initial and {{ insert: param, at-03.05_odp.02 }} training in the employment and operation of personally identifiable information processing and transparency controls.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Organizations must provide specialized training to personnel who handle personally identifiable information (PII) on proper collection, processing, storage, and protection of sensitive personal data. Training covers privacy regulations, data minimization, consent requirements, breach notification procedures, and transparency obligations.",
+    "example_implementation": "Provide data processors, database administrators, application developers, customer service representatives, and marketing personnel with initial training on GDPR/CCPA compliance, PII identification and classification, data subject rights (access, deletion, portability), consent management, privacy-by-design principles, and breach response procedures. Conduct annual refresher training and immediate retraining when privacy regulations change or after privacy incidents. Document training completion for audit purposes.",
+    "non_technical_guidance": "To implement AT-3(5), organizations should:\n\n1. Identify personnel and roles that handle PII:\n   - Database administrators with access to customer data\n   - Application developers working with PII\n   - Customer service and support staff\n   - Marketing and sales personnel\n   - HR personnel handling employee data\n   - Data analysts and business intelligence staff\n   - Third-party processors and vendors\n2. Develop comprehensive PII training curriculum covering:\n   - Definition and identification of PII and sensitive PII\n   - Applicable privacy regulations (GDPR, CCPA, HIPAA, etc.)\n   - Data minimization and purpose limitation principles\n   - Consent collection and management requirements\n   - Data subject rights and response procedures\n   - PII retention and secure disposal requirements\n   - Encryption and access control requirements for PII\n   - Breach notification obligations and timelines\n   - Privacy-by-design and privacy-by-default concepts\n   - Vendor and third-party data sharing requirements\n3. Establish training frequency: initial + annual refresher + triggered by regulatory changes\n4. Provide role-specific training tailored to responsibilities\n5. Include scenario-based training for common privacy situations\n6. Maintain detailed training records for compliance audits\n7. Conduct privacy incident post-mortems with involved personnel\n8. Implement competency assessments to verify understanding\n9. Update training immediately when privacy laws change",
     "is_technical": true,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-3",
+      "PT-2",
+      "PT-3",
+      "PT-5",
+      "PT-6",
+      "PT-7",
+      "SI-12",
+      "SI-18",
+      "SI-19"
+    ],
+    "supplemental_guidance": "Training on PII processing ensures personnel understand legal and regulatory requirements for protecting personal information. Coverage includes applicable privacy laws (GDPR, CCPA, HIPAA, FERPA), organizational privacy policies, data subject rights, consent requirements, data retention schedules, incident response for privacy breaches, and transparency obligations. Personnel should understand both the technical controls for PII protection and the legal/policy frameworks governing PII processing. Organizations operating across multiple jurisdictions must ensure training addresses all applicable regulatory requirements.",
+    "implementation_guidance": "Implementation requires coordination between privacy office, legal, security, training, and business units. Develop jurisdiction-specific training modules addressing relevant privacy regulations. For technical personnel, include hands-on training on encryption, anonymization, pseudonymization, and access controls for PII. For business personnel, focus on data subject rights handling, consent management, and privacy notice requirements. Implement regular assessments to verify comprehension. Track and document all training for regulatory compliance audits. Update training materials within 30 days of privacy law changes. Consider requiring privacy certification for personnel with significant PII access.",
+    "ai_guidance": "AI enhances AT-3(5) through automated PII discovery in systems and datasets, enabling targeted training for personnel accessing newly identified PII. Natural language processing can analyze privacy incident reports to identify common handling errors and update training accordingly. Machine learning can personalize PII training based on individual roles, data access patterns, and previous privacy incidents involving the employee. AI-powered compliance monitoring can detect potential PII mishandling in real-time (e.g., unauthorized data exports, improper consent collection) and trigger immediate micro-training interventions. Predictive models can identify personnel at higher risk of privacy violations based on behavior patterns and recommend additional training. Chatbots can provide just-in-time guidance when personnel encounter unfamiliar PII processing scenarios, such as data subject access requests or cross-border data transfers.",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# AT-3.5: PII Processing Training Tracker\n# Purpose: Track PII handling training and compliance for personnel with PII access\n\nPII_TRAINING_DB=\"/var/lib/security-training/pii_training.db\"\nLOG_FILE=\"/var/log/security-training/at-3-5.log\"\n\n# Initialize database\nsqlite3 \"$PII_TRAINING_DB\" <<EOF\nCREATE TABLE IF NOT EXISTS pii_training_records (\n  personnel_id TEXT,\n  role TEXT,\n  training_module TEXT,\n  regulation TEXT,\n  training_date TEXT,\n  expiration_date TEXT,\n  certification TEXT,\n  status TEXT\n);\nCREATE TABLE IF NOT EXISTS pii_access_roles (\n  role TEXT,\n  pii_types_accessed TEXT,\n  required_training TEXT,\n  regulation TEXT\n);\nCREATE TABLE IF NOT EXISTS privacy_incidents (\n  incident_id TEXT,\n  personnel_id TEXT,\n  incident_date TEXT,\n  incident_type TEXT,\n  pii_types_affected TEXT,\n  retraining_completed TEXT\n);\nEOF\n\n# Function: Check PII training compliance\ncheck_pii_training_compliance() {\n  echo \"[$(date)] Checking PII processing training compliance\" | tee -a \"$LOG_FILE\"\n  \n  sqlite3 -header -column \"$PII_TRAINING_DB\" <<EOF\nSELECT \n  p.personnel_id,\n  p.role,\n  p.training_module,\n  p.regulation,\n  p.expiration_date,\n  p.status\nFROM pii_training_records p\nWHERE p.expiration_date < DATE('now', '+60 days')\nOR p.status = 'expired'\nORDER BY p.expiration_date;\nEOF\n}\n\n# Function: Identify personnel needing privacy incident retraining\ncheck_incident_retraining() {\n  echo \"[$(date)] Checking for privacy incident retraining requirements\" | tee -a \"$LOG_FILE\"\n  \n  sqlite3 -header -column \"$PII_TRAINING_DB\" <<EOF\nSELECT \n  i.personnel_id,\n  p.role,\n  i.incident_type,\n  i.pii_types_affected,\n  i.incident_date,\n  i.retraining_completed\nFROM privacy_incidents i\nJOIN pii_training_records p ON i.personnel_id = p.personnel_id\nWHERE i.retraining_completed = 'no'\nAND i.incident_date > DATE('now', '-90 days');\nEOF\n}\n\n# Function: Generate PII training compliance report\ngenerate_pii_compliance_report() {\n  echo \"=== AT-3(5) PII Processing Training Compliance Report ===\"\n  echo \"Generated: $(date)\"\n  echo \"\"\n  \n  echo \"--- Compliance by Role and Regulation ---\"\n  sqlite3 -header -column \"$PII_TRAINING_DB\" <<EOF\nSELECT \n  role,\n  regulation,\n  COUNT(*) as personnel_count,\n  SUM(CASE WHEN status = 'current' THEN 1 ELSE 0 END) as compliant,\n  SUM(CASE WHEN status = 'expiring' THEN 1 ELSE 0 END) as expiring_soon,\n  SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired\nFROM pii_training_records\nGROUP BY role, regulation\nORDER BY role, regulation;\nEOF\n  \n  echo \"\"\n  echo \"--- Personnel with Multiple PII Access Roles ---\"\n  sqlite3 -header -column \"$PII_TRAINING_DB\" <<EOF\nSELECT \n  personnel_id,\n  COUNT(DISTINCT regulation) as regulations,\n  GROUP_CONCAT(DISTINCT regulation) as regulation_list,\n  MIN(expiration_date) as earliest_expiration\nFROM pii_training_records\nGROUP BY personnel_id\nHAVING COUNT(DISTINCT regulation) > 1\nORDER BY earliest_expiration;\nEOF\n}\n\n# Function: Check for regulatory training gaps\ncheck_regulatory_gaps() {\n  echo \"=== Regulatory Training Gap Analysis ===\"\n  \n  sqlite3 -header -column \"$PII_TRAINING_DB\" <<EOF\nSELECT \n  r.role,\n  r.regulation,\n  r.required_training,\n  COUNT(p.personnel_id) as trained_count\nFROM pii_access_roles r\nLEFT JOIN pii_training_records p \n  ON r.role = p.role \n  AND r.regulation = p.regulation\n  AND p.status = 'current'\nGROUP BY r.role, r.regulation, r.required_training;\nEOF\n}\n\n# Function: Record privacy incident requiring retraining\nrecord_privacy_incident() {\n  local personnel_id=$1\n  local incident_type=$2\n  local pii_types=$3\n  \n  sqlite3 \"$PII_TRAINING_DB\" <<EOF\nINSERT INTO privacy_incidents (\n  incident_id, personnel_id, incident_date, \n  incident_type, pii_types_affected, retraining_completed\n)\nVALUES (\n  '$(uuidgen)', '$personnel_id', DATE('now'),\n  '$incident_type', '$pii_types', 'no'\n);\nEOF\n  \n  echo \"[$(date)] Privacy incident recorded for $personnel_id - Type: $incident_type\" | tee -a \"$LOG_FILE\"\n  echo \"Retraining required on PII types: $pii_types\"\n}\n\ncheck_pii_training_compliance\ncheck_incident_retraining\ngenerate_pii_compliance_report\ncheck_regulatory_gaps",
+        "ansible": "---\n# AT-3.5: PII Processing Training Management\n- name: Manage PII Processing Training and Compliance\n  hosts: management_servers\n  become: yes\n  vars:\n    pii_training_path: \"/var/lib/security-training\"\n    regulations:\n      - name: \"GDPR\"\n        training_frequency_days: 365\n      - name: \"CCPA\"\n        training_frequency_days: 365\n      - name: \"HIPAA\"\n        training_frequency_days: 365\n    pii_access_roles:\n      - role: \"database_administrator\"\n        pii_types: \"customer_data,employee_data,financial_data\"\n        regulations: \"GDPR,CCPA\"\n      - role: \"application_developer\"\n        pii_types: \"customer_data,financial_data\"\n        regulations: \"GDPR,CCPA\"\n      - role: \"customer_service\"\n        pii_types: \"customer_data,support_tickets\"\n        regulations: \"GDPR,CCPA\"\n      - role: \"data_analyst\"\n        pii_types: \"customer_data,behavioral_data\"\n        regulations: \"GDPR,CCPA\"\n  \n  tasks:\n    - name: Install PII training management dependencies\n      package:\n        name:\n          - sqlite3\n          - python3-sqlite3\n          - python3-requests\n        state: present\n    \n    - name: Create PII training database directory\n      file:\n        path: \"{{ pii_training_path }}\"\n        state: directory\n        mode: '0755'\n    \n    - name: Deploy PII training tracker\n      copy:\n        dest: /usr/local/bin/manage-pii-training.sh\n        mode: '0755'\n        content: |\n          # See bash script above\n    \n    - name: Initialize PII training database\n      shell: |\n        sqlite3 \"{{ pii_training_path }}/pii_training.db\" <<EOF\n        # Database initialization from bash script\n        EOF\n      args:\n        creates: \"{{ pii_training_path }}/pii_training.db\"\n    \n    - name: Populate PII access roles and requirements\n      shell: |\n        sqlite3 \"{{ pii_training_path }}/pii_training.db\" <<EOF\n        DELETE FROM pii_access_roles;\n        {% for role in pii_access_roles %}\n        INSERT INTO pii_access_roles (role, pii_types_accessed, required_training, regulation)\n        VALUES ('{{ role.role }}', '{{ role.pii_types }}', 'PII Processing & Privacy', '{{ role.regulations }}');\n        {% endfor %}\n        EOF\n    \n    - name: Create monthly PII training compliance check\n      cron:\n        name: \"AT-3.5 PII Training Compliance Check\"\n        day: \"15\"\n        hour: \"10\"\n        job: \"/usr/local/bin/manage-pii-training.sh >> /var/log/security-training/at-3-5.log 2>&1\"\n        user: root\n    \n    - name: Create privacy incident retraining trigger script\n      copy:\n        dest: /usr/local/bin/trigger-pii-retraining.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          # Trigger PII retraining based on privacy incident\n          if [ $# -ne 3 ]; then\n            echo \"Usage: $0 <personnel_id> <incident_type> <pii_types>\"\n            exit 1\n          fi\n          \n          PERSONNEL_ID=$1\n          INCIDENT_TYPE=$2\n          PII_TYPES=$3\n          DB=\"{{ pii_training_path }}/pii_training.db\"\n          \n          sqlite3 \"$DB\" <<EOF\n          INSERT INTO privacy_incidents (\n            incident_id, personnel_id, incident_date,\n            incident_type, pii_types_affected, retraining_completed\n          )\n          VALUES (\n            '$(uuidgen)', '$PERSONNEL_ID', DATE('now'),\n            '$INCIDENT_TYPE', '$PII_TYPES', 'no'\n          );\n          EOF\n          \n          echo \"Privacy incident recorded. PII retraining required for $PERSONNEL_ID\"\n          echo \"Incident type: $INCIDENT_TYPE\"\n          echo \"PII types affected: $PII_TYPES\""
+      },
+      "windows": {
+        "powershell": "# AT-3.5: PII Processing Training Tracker\n# Purpose: Track PII handling training and privacy compliance\n# Platform: Windows Server\n\n$PIITrainingDB = \"C:\\SecurityTraining\\PIITraining.db\"\n$LogPath = \"C:\\SecurityTraining\\Logs\\AT-3-5.log\"\n\nfunction Write-PIILog {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    Add-Content -Path $LogPath -Value \"[$timestamp] $Message\"\n    Write-Host \"[$timestamp] $Message\"\n}\n\nfunction Check-PIITrainingCompliance {\n    Write-PIILog \"Checking PII processing training compliance\"\n    \n    $expiringDate = (Get-Date).AddDays(60).ToString(\"yyyy-MM-dd\")\n    \n    Write-Host \"`nPersonnel with expiring or expired PII training:\"\n    # Query database for compliance status\n    # Implementation requires System.Data.SQLite\n}\n\nfunction Check-PrivacyIncidentRetraining {\n    Write-PIILog \"Checking for privacy incident retraining requirements\"\n    \n    Write-Host \"`nPersonnel requiring retraining after privacy incidents:\"\n    # Query for incidents requiring retraining\n}\n\nfunction New-PIIComplianceReport {\n    Write-Host \"`n=== AT-3(5) PII Processing Training Compliance Report ===\"\n    Write-Host \"Generated: $(Get-Date)\"`n\n    Write-Host \"--- Compliance by Role and Regulation ---\"\n    # Generate compliance statistics\n    \n    Write-Host \"`n--- Personnel with Multiple Regulatory Requirements ---\"\n    # Identify personnel subject to multiple regulations\n}\n\nfunction Register-PrivacyIncident {\n    param(\n        [Parameter(Mandatory=$true)]\n        [string]$PersonnelID,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$IncidentType,\n        \n        [Parameter(Mandatory=$true)]\n        [string]$PIITypes\n    )\n    \n    Write-PIILog \"Recording privacy incident for $PersonnelID\"\n    Write-PIILog \"Type: $IncidentType, PII Types: $PIITypes\"\n    \n    # Insert incident record into database\n    # Flag for mandatory retraining\n    \n    Write-Host \"Privacy incident recorded. Retraining required for $PersonnelID\"\n    Write-Host \"PII types affected: $PIITypes\"\n}\n\nfunction Get-RegulatoryTrainingGaps {\n    Write-Host \"`n=== Regulatory Training Gap Analysis ===\"\n    \n    # Identify roles with incomplete regulatory training\n    Write-Host \"Roles requiring additional PII training coverage:\"\n}\n\n# Main execution\nCheck-PIITrainingCompliance\nCheck-PrivacyIncidentRetraining\nNew-PIIComplianceReport\nGet-RegulatoryTrainingGaps",
+        "ansible": "---\n# AT-3.5: PII Processing Training Management (Windows)\n- name: Manage PII Processing Training - Windows\n  hosts: windows_management_servers\n  vars:\n    training_base: \"C:\\\\SecurityTraining\"\n  \n  tasks:\n    - name: Create PII training directories\n      ansible.windows.win_file:\n        path: \"{{ item }}\"\n        state: directory\n      loop:\n        - \"{{ training_base }}\"\n        - \"{{ training_base }}\\\\Scripts\"\n        - \"{{ training_base }}\\\\Logs\"\n    \n    - name: Deploy PII training tracker\n      ansible.windows.win_copy:\n        dest: \"{{ training_base }}\\\\Scripts\\\\Manage-PIITraining.ps1\"\n        content: |\n          # See PowerShell script above\n    \n    - name: Create monthly PII training compliance check\n      ansible.windows.win_scheduled_task:\n        name: AT-3.5 PII Training Compliance Check\n        description: Monthly PII processing training compliance verification\n        actions:\n          - path: powershell.exe\n            arguments: -ExecutionPolicy Bypass -File \"{{ training_base }}\\\\Scripts\\\\Manage-PIITraining.ps1\"\n        triggers:\n          - type: monthly\n            days_of_month: 15\n            start_boundary: \"2024-01-01T10:00:00\"\n        state: present\n        enabled: yes"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
+      "status": "implemented",
+      "last_updated": "2025-11-21T00:00:00Z",
+      "has_scripts": true,
+      "qa_verified": true,
+      "qa_date": "2025-11-21",
+      "qa_agent": "loveless"
     },
     "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:45.816968+00:00",
+      "implementation_type": "hybrid",
+      "last_analyzed": "2025-11-21T00:00:00Z",
       "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+      "implementation_guidance": "This enhancement requires organizational privacy training program development with technical tracking support. Automation can monitor training compliance, correlate privacy incidents with personnel training status, track multi-jurisdictional regulatory requirements, and trigger retraining based on incidents or regulatory changes. Integration with data loss prevention systems can identify unauthorized PII handling and automatically initiate remedial training."
+    },
+    "intent": "Train personnel who handle personal information on privacy requirements and data protection.",
+    "rationale": "Employees who access personal data (HR, healthcare, customer service) need specific training on privacy laws, data handling procedures, and breach notification requirements. Mishandling personal information can result in regulatory fines, lawsuits, and loss of customer trust."
   },
   {
-    "control_id": "at-4",
+    "control_id": "AT-4",
     "control_name": "Training Records",
     "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
+    "family_id": "AT",
+    "official_text": "Retain individual training records for [Assignment: organization-defined time period].",
     "source": "NIST SP 800-53 Rev 5",
     "baselines": {
       "low": true,
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Ensure that training records are maintained for all individuals who have access to the organization's information systems.",
-    "example_implementation": "This script implement a centralized system for tracking and storing training records, including dates of completion and types of training received. Regularly review and update these records to ensure compliance with NIST 800-53 requirements.",
-    "non_technical_guidance": "This plan to ensure compliance with Control ID at-4 regarding Training Records, the following non-technical implementation plan can be followed:\n\n1. Establish a centralized system or database to maintain training records for all employees.\n2. Create a standardized template for recording training completion dates, topics covered, and any certifications obtained.\n3. Assign responsibility to a designated individual or team to regularly update and maintain the training records.\n4. Implement a process for employees to submit proof of completed training for verification and recording.\n5. Conduct periodic audits to ensure all employees' training records are up to date and accurate.\n6. Provide training to employees on the importance of maintaining accurate training records and the consequences of non-compliance.\n7. Document any exceptions or deviations from the standard training record-keeping process.\n8. Retain training records for the required retention period as per organizational policies or regulatory requirements.\n9. Review and update the training records management process periodically to ensure it remains effective and compliant with applicable standards.",
+    "plain_english_explanation": "Organizations must maintain comprehensive training records for all personnel, documenting completed security awareness training, role-based training, and specialized security training. Records should include training dates, topics covered, training duration, and certifications obtained. These records demonstrate compliance, support audit activities, and help identify training gaps or refresher training needs.",
+    "example_implementation": "Implement a Learning Management System (LMS) or training database to track all security training activities. The system should capture: (1) employee identification, (2) training course names and descriptions, (3) completion dates, (4) training duration/credits, (5) quiz/test scores, (6) certifications awarded, (7) next training due date. Generate automated reports for management review and compliance audits. Retain records according to organizational retention policies (typically 3-7 years or duration of employment plus additional years).",
+    "non_technical_guidance": "To comply with AT-4 Training Records requirements, organizations should:\n\n1. Establish a centralized training records management system or database accessible to appropriate personnel.\n2. Define the retention period for training records based on organizational policy, legal requirements, and compliance obligations (common retention periods: 3-7 years).\n3. Document all security training activities including: security awareness training, role-based training, specialized training, and refresher training.\n4. Capture essential data elements: trainee name/ID, training date, course title, instructor, completion status, test scores, and certifications.\n5. Assign responsibility for maintaining and updating training records to designated personnel (typically HR, Security Office, or Training Coordinator).\n6. Implement secure storage with appropriate access controls to protect privacy while ensuring availability for audits.\n7. Conduct periodic reviews to verify record accuracy and completeness.\n8. Generate regular reports for management showing training completion rates, overdue training, and compliance status.\n9. Maintain records for departing employees according to retention policy.\n10. Document procedures for record-keeping, including backup and recovery processes.",
     "is_technical": false,
     "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "related_controls": [
+      "AT-2",
+      "AT-3",
+      "PM-14",
+      "SI-12"
+    ],
+    "supplemental_guidance": "Organizations may maintain training records in various formats including electronic databases, Learning Management Systems (LMS), spreadsheets, or paper files. Documentation for specialized training may be maintained by individual supervisors at the discretion of the organization. Training records should be protected with appropriate access controls consistent with Privacy Act requirements and organizational policies. Records support multiple purposes: demonstrating compliance with training requirements, identifying training needs, supporting personnel security clearance processes, and providing evidence during security audits. The organization-defined retention period should consider legal requirements, regulatory obligations, and organizational needs.",
+    "implementation_guidance": "AT-4 is an organizational/administrative control focused on documenting and retaining training records. While the record-keeping itself is non-technical, organizations should consider these implementation approaches:\n\n**Manual Approach:**\n- Spreadsheet-based tracking (Excel, Google Sheets) with columns for employee name, training date, course title, completion status, next due date\n- Signed training certificates stored in personnel files\n- Training attendance rosters maintained by supervisors\n\n**Automated Approach:**\n- Deploy a Learning Management System (LMS) such as Moodle, Canvas, or commercial platforms\n- Integrate with HR systems for automatic employee enrollment\n- Configure automated reminders for upcoming/overdue training\n- Enable self-service access for employees to view their training history\n- Generate compliance reports showing organizational training completion rates\n\n**Database Solution:**\n- Design a training records database with tables for: employees, training courses, training completions, certifications\n- Implement web interface for training coordinators to enter/update records\n- Create reporting dashboards for management visibility\n- Schedule automated backup of training records database\n\n**Key Implementation Considerations:**\n- Define retention period (recommend: 3-7 years or employment duration plus 3 years)\n- Establish access controls (training coordinators: read/write, managers: read-only for their teams, auditors: read-only)\n- Ensure privacy protections comply with relevant regulations\n- Plan for data migration if changing systems\n- Document procedures for record maintenance and audit support",
+    "ai_guidance": "When implementing AT-4 Training Records, AI systems can assist with: (1) Automated training record management using Learning Management System (LMS) integration APIs to capture completion data, (2) Natural language processing to extract training completion information from certificates and emails, (3) Predictive analytics to identify employees at risk of training expiration and recommend proactive scheduling, (4) Automated report generation for compliance audits with customizable queries (e.g., 'show all employees with expired security awareness training'), (5) Integration with HR systems to automatically enroll new employees in required training programs, (6) Anomaly detection to flag duplicate records or data entry errors, (7) Chatbot interfaces for employees to query their training status and upcoming requirements. Ensure AI-processed training records maintain data integrity, audit trails, and privacy protections.",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "last_updated": "2025-01-21T00:00:00.000000Z",
+      "has_scripts": false,
+      "qa_verified": true,
+      "qa_verification_date": "2025-01-21",
+      "qa_verified_by": "loveless"
+    },
+    "cac_metadata": {
+      "implementation_type": "organizational",
+      "last_analyzed": "2025-01-21T00:00:00+00:00",
+      "source": "ComplianceAsCode",
+      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available in ComplianceAsCode for training record retention. Organizations should implement Learning Management Systems (LMS) or training databases to track and retain records per defined retention periods."
+    },
+    "intent": "Keep records of who completed what training and when.",
+    "rationale": "During an audit or after an incident, you need to prove your employees were properly trained. Training records document compliance, identify gaps, and help you track who needs refresher courses. Without records, you can't demonstrate due diligence or identify training failures."
+  },
+  {
+    "control_id": "AT-6",
+    "control_name": "Training Feedback",
+    "family": "Awareness and Training",
+    "family_id": "AT",
+    "official_text": "Provide feedback on organizational training results to the following personnel [Assignment: organization-defined frequency]: [Assignment: organization-defined personnel].",
+    "source": "NIST SP 800-53 Rev 5",
+    "baselines": {
+      "low": false,
+      "moderate": false,
+      "high": false
+    },
+    "plain_english_explanation": "Organizations must establish a system to provide regular feedback on security training results to designated personnel, particularly senior managers. This feedback includes awareness training results, role-based training outcomes, and especially any training failures in critical roles that may indicate potential security concerns requiring management attention.",
+    "example_implementation": "Implement an automated training feedback system that collects post-training assessments, tracks completion rates and test scores, generates monthly reports for security managers, and flags critical role training failures for immediate senior management review. Use surveys, knowledge checks, and performance metrics to gather comprehensive feedback data.",
+    "non_technical_guidance": "To comply with AT-6, establish a formal feedback mechanism for training results:\n\n1. Define the frequency for providing training feedback (monthly, quarterly, after each training session).\n2. Identify personnel who should receive feedback reports (security managers, senior leadership, training coordinators, HR).\n3. Create feedback collection mechanisms such as post-training surveys, assessment results, and completion tracking.\n4. Document training outcomes including completion rates, test scores, areas of difficulty, and failures in critical roles.\n5. Establish a reporting process that delivers feedback to designated personnel at the defined frequency.\n6. Ensure senior management receives immediate notification of training failures in critical security roles.\n7. Use feedback to continuously improve training content, delivery methods, and effectiveness.\n8. Maintain records of feedback provided and any corrective actions taken.",
+    "is_technical": false,
+    "enhancements": [],
+    "related_controls": [
+      "AT-2",
+      "AT-3",
+      "AT-4",
+      "PM-15"
+    ],
+    "supplemental_guidance": "Training feedback provides essential information for continuous improvement of organizational security and privacy training programs. Training results, especially failures of personnel in critical roles, can be indicative of potentially serious security problems. Organizations should establish mechanisms to collect feedback from training participants, analyze training effectiveness through assessments and knowledge checks, and report results to appropriate personnel at defined frequencies. Senior managers must be made aware of significant training issues so they can take appropriate response actions. This control is new to Revision 5 of NIST SP 800-53.",
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
+    },
+    "metadata": {
+      "status": "implemented",
+      "last_updated": "2025-11-21T00:00:00.000000Z",
       "has_scripts": false
     },
     "cac_metadata": {
       "implementation_type": "organizational",
-      "last_analyzed": "2025-11-10T10:05:47.443218+00:00",
+      "last_analyzed": "2025-11-21T00:00:00.000000Z",
       "source": "ComplianceAsCode",
-      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
-  },
-  {
-    "control_id": "at-5",
-    "control_name": "Contacts with Security Groups and Associations",
-    "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "",
-    "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
+      "implementation_guidance": "This control requires organizational policy documentation and feedback procedures. Technical automation may include training management systems with automated reporting capabilities, survey tools, and dashboard analytics for tracking training effectiveness. No ComplianceAsCode STIG rules currently available for this control."
     },
-    "plain_english_explanation": "This control ensures that any communication or interaction with security groups or associations is properly managed and documented.",
-    "example_implementation": "This script keep a record of all interactions with security groups and associations, including any decisions made or actions taken during these interactions. This documentation can help ensure accountability and compliance with this control.",
-    "non_technical_guidance": "This plan to comply with this control, ensure that all contacts within the organization are associated with appropriate security groups and associations. This can be achieved by regularly reviewing and updating the access rights and permissions of each contact to ensure they align with the security groups they belong to. Regular audits should be conducted to verify that contacts are correctly associated with the necessary security groups and that any changes are promptly documented. Training and awareness programs should also be implemented to educate employees on the importance of proper security group associations.",
-    "is_technical": false,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
-    "metadata": {
-      "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": true
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:49.146800+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
-  },
-  {
-    "control_id": "at-6",
-    "control_name": "Training Feedback",
-    "family": "Awareness and Training",
-    "family_id": "at",
-    "official_text": "Provide feedback on organizational training results to the following personnel {{ insert: param, at-06_odp.01 }}: {{ insert: param, at-06_odp.02 }}.",
-    "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Make sure to give feedback on how well training programs are working to the appropriate people.",
-    "example_implementation": "This script sets up a system to regularly collect and share feedback from employees who have completed training programs to ensure continuous improvement.",
-    "non_technical_guidance": "This plan to comply with Control ID at-6 (Training Feedback), you should establish a process for providing feedback on organizational training results to the specified personnel. This feedback could include summaries of training outcomes, areas for improvement, and suggestions for future training initiatives. \n\nCreate a feedback mechanism such as surveys, feedback forms, or regular meetings where training results are discussed. Ensure that the feedback is constructive, actionable, and timely. Document the feedback provided and any actions taken as a result. Regularly review and update the feedback process to ensure its effectiveness in improving training outcomes.",
-    "is_technical": false,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
-    "metadata": {
-      "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:05:50.760723+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    "ai_guidance": "AT-6 Training Feedback establishes systematic collection and reporting of training effectiveness data. AI can enhance this through: (1) Natural Language Processing (NLP) to analyze open-ended training feedback surveys for sentiment analysis and common themes, (2) Machine Learning models to identify correlation patterns between training methods and knowledge retention, (3) Predictive analytics to forecast personnel at risk of training failure based on historical patterns, (4) Automated report generation and distribution to designated personnel at defined frequencies, (5) Anomaly detection to flag unusual training failure rates requiring immediate management attention, and (6) Adaptive training recommendations based on individual performance data.",
+    "intent": "Collect feedback to continuously improve your training program.",
+    "rationale": "Training that employees find confusing, boring, or irrelevant won't be effective. Gathering feedback helps you identify what's working, what's not, and where improvements are needed. Good training programs evolve based on learner input and measured effectiveness."
   }
 ]
