@@ -17,6 +17,7 @@ build/
 *.egg-info/
 .next/
 out/
+.vite/
 
 # IDE
 .vscode/
@@ -37,16 +38,6 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# Temporary/diagnostic scripts (IA family work)
-backend/data/controls/fixed/
-merge_ia_controls.py
-clean_ia_empty_scripts.py
-verify_ia_api.py
-check_stig.py
-audit_fixed_files.py
-check_ia2.py
-IA_FIX_SUMMARY.md
-
 # OS
 Thumbs.db
 .DS_Store
@@ -56,8 +47,26 @@ coverage/
 .pytest_cache/
 .coverage
 htmlcov/
+test-results/
+playwright-report/
+qa-screenshots/
 
 # Database
 *.db
 *.sqlite
 *.sqlite3
+
+# Archived QA artifacts
+.archive/
+
+# Claude Code / AI config (internal)
+.claude/
+.mendicant/
+.serena/
+.mnemosyne
+CLAUDE.md
+
+# Temporary files
+*.tmp
+*.temp
+nul
