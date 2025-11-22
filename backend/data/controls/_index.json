@@ -18,10 +18,10 @@
     "RA": 26,
     "SA": 147,
     "SC": 162,
-    "SI": 119,
+    "SI": 118,
     "SR": 27
   },
-  "total_controls": 1192,
+  "total_controls": 1191,
   "files": [
     "AC.json",
     "AT.json",
