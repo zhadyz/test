@@ -1,6 +1,6 @@
 [
   {
-    "control_id": "pe-1",
+    "control_id": "PE-1",
     "control_name": "Policy and Procedures",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -32,10 +32,13 @@
       "last_analyzed": "2025-11-10T10:13:53.803549+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Establish organizational policies and procedures for physical and environmental protection to ensure consistent security practices across facilities.",
+    "rationale": "Documented policies provide the foundation for physical security programs and ensure all personnel understand their responsibilities for protecting facilities and equipment.",
+    "ai_guidance": "AI systems can assist with PE-1 compliance by automatically generating policy documentation templates based on organizational context, analyzing existing policies for gaps against NIST requirements, tracking policy review schedules and sending automated reminders, comparing policies against industry best practices and regulatory requirements, and creating compliance dashboards showing policy coverage across all PE controls. Implement document management systems with version control and automated policy distribution workflows."
   },
   {
-    "control_id": "pe-2",
+    "control_id": "PE-2",
     "control_name": "Physical Access Authorizations",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -83,10 +86,14 @@
       "last_analyzed": "2025-11-10T10:14:32.067954+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Ensure only authorized individuals have physical access to facilities, systems, and equipment through formal authorization processes.",
+    "rationale": "Physical access authorization prevents unauthorized personnel from gaining access to sensitive areas, reducing risks of theft, sabotage, and unauthorized information access.",
+    "ai_guidance": "AI-driven physical access authorization systems can analyze access request patterns to detect anomalies, automatically verify authorization requirements against job roles and clearance levels, integrate with HR systems to immediately revoke access upon termination, use machine learning to identify access patterns that may indicate insider threats, and maintain comprehensive audit trails. Implement automated workflows for access request approval, periodic revalidation, and badge deactivation. Consider integration with PACS (Physical Access Control Systems) for real-time enforcement.",
+    "stig_id": "V-245795, V-245796, V-245797, V-245798, V-245799, V-245800, V-245801, V-245802, V-245803, V-245804, V-245865"
   },
   {
-    "control_id": "pe-2.1",
+    "control_id": "PE-2.1",
     "control_name": "Access by Position or Role",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -106,8 +113,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\necho \"Checking physical access authorization audit...\"\n\n# Review user accounts that may correlate with physical access\necho \"=== Active User Accounts ===\"\ncat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1,3,6\n\n# Check last login times\necho \"\\n=== Last Login Times ===\"\nlastlog | grep -v 'Never'\n\n# Check for accounts without password expiry\necho \"\\n=== Password Policy Check ===\"\nchage -l root\n\necho \"\\nPhysical access authorization audit complete\"\necho \"Correlate system accounts with PACS badge database\"",
+        "ansible": "---\n# PE-2: Physical Access Authorizations\n- name: Audit physical access authorizations\n  hosts: all\n  become: yes\n  tasks:\n    - name: Get active user accounts\n      shell: cat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1\n      register: active_users\n      changed_when: false\n\n    - name: Display active users for PACS correlation\n      debug:\n        msg: \"Active users to verify against PACS: {{ active_users.stdout_lines }}\""
+      },
+      "windows": {
+        "powershell": "# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\nWrite-Host \"Auditing physical access authorizations...\"\n\n# Get all enabled user accounts\nWrite-Host \"\\n=== Enabled User Accounts ===\"\nGet-LocalUser | Where-Object {$_.Enabled -eq $true} | Select-Object Name, LastLogon, PasswordRequired\n\n# Get domain users if joined\nif ((Get-WmiObject Win32_ComputerSystem).PartOfDomain) {\n    Write-Host \"\\n=== Domain Users (sample) ===\"\n    Get-ADUser -Filter {Enabled -eq $true} -Properties LastLogonDate | Select-Object -First 20 Name, LastLogonDate\n}\n\nWrite-Host \"\\nPhysical access authorization audit complete\"\nWrite-Host \"Correlate these accounts with PACS badge database\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -121,10 +133,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Ensure only authorized individuals have physical access to facilities, systems, and equipment through formal authorization processes.",
+    "rationale": "Physical access authorization prevents unauthorized personnel from gaining access to sensitive areas, reducing risks of theft, sabotage, and unauthorized information access.",
+    "ai_guidance": "AI-driven physical access authorization systems can analyze access request patterns to detect anomalies, automatically verify authorization requirements against job roles and clearance levels, integrate with HR systems to immediately revoke access upon termination, use machine learning to identify access patterns that may indicate insider threats, and maintain comprehensive audit trails. Implement automated workflows for access request approval, periodic revalidation, and badge deactivation. Consider integration with PACS (Physical Access Control Systems) for real-time enforcement.",
+    "stig_id": "V-245795, V-245796, V-245797, V-245798, V-245799, V-245800, V-245801, V-245802, V-245803, V-245804, V-245865"
   },
   {
-    "control_id": "pe-2.2",
+    "control_id": "PE-2.2",
     "control_name": "Two Forms of Identification",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -144,8 +160,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\necho \"Checking physical access authorization audit...\"\n\n# Review user accounts that may correlate with physical access\necho \"=== Active User Accounts ===\"\ncat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1,3,6\n\n# Check last login times\necho \"\\n=== Last Login Times ===\"\nlastlog | grep -v 'Never'\n\n# Check for accounts without password expiry\necho \"\\n=== Password Policy Check ===\"\nchage -l root\n\necho \"\\nPhysical access authorization audit complete\"\necho \"Correlate system accounts with PACS badge database\"",
+        "ansible": "---\n# PE-2: Physical Access Authorizations\n- name: Audit physical access authorizations\n  hosts: all\n  become: yes\n  tasks:\n    - name: Get active user accounts\n      shell: cat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1\n      register: active_users\n      changed_when: false\n\n    - name: Display active users for PACS correlation\n      debug:\n        msg: \"Active users to verify against PACS: {{ active_users.stdout_lines }}\""
+      },
+      "windows": {
+        "powershell": "# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\nWrite-Host \"Auditing physical access authorizations...\"\n\n# Get all enabled user accounts\nWrite-Host \"\\n=== Enabled User Accounts ===\"\nGet-LocalUser | Where-Object {$_.Enabled -eq $true} | Select-Object Name, LastLogon, PasswordRequired\n\n# Get domain users if joined\nif ((Get-WmiObject Win32_ComputerSystem).PartOfDomain) {\n    Write-Host \"\\n=== Domain Users (sample) ===\"\n    Get-ADUser -Filter {Enabled -eq $true} -Properties LastLogonDate | Select-Object -First 20 Name, LastLogonDate\n}\n\nWrite-Host \"\\nPhysical access authorization audit complete\"\nWrite-Host \"Correlate these accounts with PACS badge database\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -159,10 +180,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Ensure only authorized individuals have physical access to facilities, systems, and equipment through formal authorization processes.",
+    "rationale": "Physical access authorization prevents unauthorized personnel from gaining access to sensitive areas, reducing risks of theft, sabotage, and unauthorized information access.",
+    "ai_guidance": "AI-driven physical access authorization systems can analyze access request patterns to detect anomalies, automatically verify authorization requirements against job roles and clearance levels, integrate with HR systems to immediately revoke access upon termination, use machine learning to identify access patterns that may indicate insider threats, and maintain comprehensive audit trails. Implement automated workflows for access request approval, periodic revalidation, and badge deactivation. Consider integration with PACS (Physical Access Control Systems) for real-time enforcement.",
+    "stig_id": "V-245795, V-245796, V-245797, V-245798, V-245799, V-245800, V-245801, V-245802, V-245803, V-245804, V-245865"
   },
   {
-    "control_id": "pe-2.3",
+    "control_id": "PE-2.3",
     "control_name": "Restrict Unescorted Access",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -182,8 +207,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\necho \"Checking physical access authorization audit...\"\n\n# Review user accounts that may correlate with physical access\necho \"=== Active User Accounts ===\"\ncat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1,3,6\n\n# Check last login times\necho \"\\n=== Last Login Times ===\"\nlastlog | grep -v 'Never'\n\n# Check for accounts without password expiry\necho \"\\n=== Password Policy Check ===\"\nchage -l root\n\necho \"\\nPhysical access authorization audit complete\"\necho \"Correlate system accounts with PACS badge database\"",
+        "ansible": "---\n# PE-2: Physical Access Authorizations\n- name: Audit physical access authorizations\n  hosts: all\n  become: yes\n  tasks:\n    - name: Get active user accounts\n      shell: cat /etc/passwd | grep -v 'nologin\\|false' | cut -d: -f1\n      register: active_users\n      changed_when: false\n\n    - name: Display active users for PACS correlation\n      debug:\n        msg: \"Active users to verify against PACS: {{ active_users.stdout_lines }}\""
+      },
+      "windows": {
+        "powershell": "# PE-2: Physical Access Authorizations\n# Audit and verify physical access authorization records\n\nWrite-Host \"Auditing physical access authorizations...\"\n\n# Get all enabled user accounts\nWrite-Host \"\\n=== Enabled User Accounts ===\"\nGet-LocalUser | Where-Object {$_.Enabled -eq $true} | Select-Object Name, LastLogon, PasswordRequired\n\n# Get domain users if joined\nif ((Get-WmiObject Win32_ComputerSystem).PartOfDomain) {\n    Write-Host \"\\n=== Domain Users (sample) ===\"\n    Get-ADUser -Filter {Enabled -eq $true} -Properties LastLogonDate | Select-Object -First 20 Name, LastLogonDate\n}\n\nWrite-Host \"\\nPhysical access authorization audit complete\"\nWrite-Host \"Correlate these accounts with PACS badge database\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -197,10 +227,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Ensure only authorized individuals have physical access to facilities, systems, and equipment through formal authorization processes.",
+    "rationale": "Physical access authorization prevents unauthorized personnel from gaining access to sensitive areas, reducing risks of theft, sabotage, and unauthorized information access.",
+    "ai_guidance": "AI-driven physical access authorization systems can analyze access request patterns to detect anomalies, automatically verify authorization requirements against job roles and clearance levels, integrate with HR systems to immediately revoke access upon termination, use machine learning to identify access patterns that may indicate insider threats, and maintain comprehensive audit trails. Implement automated workflows for access request approval, periodic revalidation, and badge deactivation. Consider integration with PACS (Physical Access Control Systems) for real-time enforcement.",
+    "stig_id": "V-245795, V-245796, V-245797, V-245798, V-245799, V-245800, V-245801, V-245802, V-245803, V-245804, V-245865"
   },
   {
-    "control_id": "pe-3",
+    "control_id": "PE-3",
     "control_name": "Physical Access Control",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -273,10 +307,14 @@
       "last_analyzed": "2025-11-10T10:14:45.084793+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.1",
+    "control_id": "PE-3.1",
     "control_name": "System Access",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -296,8 +334,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -311,10 +354,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.2",
+    "control_id": "PE-3.2",
     "control_name": "Facility and Systems",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -334,8 +381,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -349,10 +401,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.3",
+    "control_id": "PE-3.3",
     "control_name": "Continuous Guards",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -372,8 +428,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -387,10 +448,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.4",
+    "control_id": "PE-3.4",
     "control_name": "Lockable Casings",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -410,8 +475,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -425,10 +495,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.5",
+    "control_id": "PE-3.5",
     "control_name": "Tamper Protection",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -448,8 +522,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -463,10 +542,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.6",
+    "control_id": "PE-3.6",
     "control_name": "Facility Penetration Testing",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -486,8 +569,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -501,10 +589,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.7",
+    "control_id": "PE-3.7",
     "control_name": "Physical Barriers",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -524,8 +616,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -539,10 +636,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-3.8",
+    "control_id": "PE-3.8",
     "control_name": "Access Control Vestibules",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -562,8 +663,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-3: Physical Access Control - Audit Log Configuration\n# Configure auditd to log authentication events for physical access correlation\n\nsystemctl enable auditd\nsystemctl start auditd\n\n# Add audit rules for login/logout events\necho \"-w /var/log/wtmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\necho \"-w /var/log/btmp -p wa -k physical-access\" >> /etc/audit/rules.d/physical-access.rules\naugenrules --load\n\necho \"Physical access audit logging configured\"",
+        "ansible": "---\n# PE-3: Physical Access Control - Audit Configuration\n- name: Configure physical access audit logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure auditd is installed\n      package:\n        name: audit\n        state: present\n\n    - name: Create physical access audit rules\n      copy:\n        dest: /etc/audit/rules.d/physical-access.rules\n        content: |\n          -w /var/log/wtmp -p wa -k physical-access\n          -w /var/log/btmp -p wa -k physical-access\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PE-3: Physical Access Control - Windows Audit Configuration\n# Configure Windows Security Event Logging for physical access correlation\n\nWrite-Host \"Configuring audit policies for physical access correlation...\"\n\n# Audit Logon events (Success and Failure)\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Logoff\" /success:enable\n\nWrite-Host \"Security event logging configured for physical access correlation\"\nWrite-Host \"Key Event IDs: 4624 (logon), 4625 (failed), 4634 (logoff)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -577,10 +683,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to organizational facilities and areas containing information systems through entry points, guards, access devices, and monitoring.",
+    "rationale": "Physical access controls are the first line of defense against unauthorized access to systems and data, protecting against theft, tampering, and environmental threats.",
+    "ai_guidance": "Implement intelligent physical access control with AI-powered video analytics for tailgating detection, facial recognition for identity verification, behavioral analysis to detect suspicious activity, and automated alert correlation between PACS events and system access logs. Deploy smart card/badge systems with multi-factor authentication, mantrap vestibules for sensitive areas, and real-time dashboard monitoring. Configure audit logging to capture all access events including timestamp, identity, location, and access method. Integration with SIEM enables correlation of physical and logical access for comprehensive security monitoring.",
+    "stig_id": "V-245807, V-245808, V-245809, V-245867, V-245868, V-245869, V-245870"
   },
   {
-    "control_id": "pe-4",
+    "control_id": "PE-4",
     "control_name": "Access Control for Transmission",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -612,10 +722,13 @@
       "last_analyzed": "2025-11-10T10:14:59.728821+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Protect physical access to information system distribution and transmission lines within organizational facilities.",
+    "rationale": "Protecting transmission media prevents eavesdropping, interception, and tampering with data in transit through physical means like cable tapping.",
+    "ai_guidance": "AI can enhance transmission line protection through automated cable management systems that detect unauthorized access to wiring closets and conduits, vibration sensors on fiber optic lines that use ML to distinguish between environmental noise and tampering attempts, thermal imaging analysis to detect unauthorized splicing or tapping equipment, and network traffic analysis to identify anomalies that may indicate physical layer compromises. Implement cable labeling systems with barcode/RFID tracking, secure conduit routing through controlled spaces, and tamper-evident seals on junction boxes with automated inspection scheduling."
   },
   {
-    "control_id": "pe-5",
+    "control_id": "PE-5",
     "control_name": "Access Control for Output Devices",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -663,10 +776,13 @@
       "last_analyzed": "2025-11-10T10:15:01.359491+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Control physical access to information system output devices to prevent unauthorized viewing or removal of sensitive information.",
+    "rationale": "Output devices like printers, displays, and removable media can expose sensitive information if not properly secured against unauthorized physical access.",
+    "ai_guidance": "AI-enhanced output device security includes intelligent print release systems requiring user authentication at the device (pull-printing), automated document classification scanning that applies appropriate handling based on content sensitivity, computer vision systems that detect shoulder surfing or unauthorized viewing of displays, and smart display systems that automatically lock or obscure content when unauthorized personnel approach. Implement privacy screens, secure print rooms, and automated shredding workflows for sensitive documents. Consider DLP integration with printing systems to block or watermark sensitive document output."
   },
   {
-    "control_id": "pe-5.1",
+    "control_id": "PE-5.1",
     "control_name": "Access to Output by Authorized Individuals",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -686,8 +802,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-5: Access Control for Output Devices\n# Configure screen lock to protect displayed information\n\necho \"Configuring screen lock policies...\"\n\n# Configure GNOME screen lock if available\nif command -v gsettings &> /dev/null; then\n    gsettings set org.gnome.desktop.screensaver lock-enabled true\n    gsettings set org.gnome.desktop.screensaver lock-delay 0\n    gsettings set org.gnome.desktop.session idle-delay 900\n    echo \"Screen lock configured (15 minute timeout)\"\nfi",
+        "ansible": "---\n# PE-5: Access Control for Output Devices\n- name: Configure output device security\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure dconf screen lock settings\n      copy:\n        dest: /etc/dconf/db/local.d/00-screensaver\n        content: |\n          [org/gnome/desktop/screensaver]\n          lock-enabled=true\n          lock-delay=uint32 0\n          [org/gnome/desktop/session]\n          idle-delay=uint32 900"
+      },
+      "windows": {
+        "powershell": "# PE-5: Access Control for Output Devices\n# Configure screen saver and lock settings\n\nWrite-Host \"Configuring output device security...\"\n\n# Configure screen saver timeout (900 seconds = 15 minutes)\n$RegPath = \"HKCU:\\Control Panel\\Desktop\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveActive\" -Value \"1\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveTimeOut\" -Value \"900\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaverIsSecure\" -Value \"1\"\n\nWrite-Host \"Screen lock policy configured (15 minute timeout)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -701,10 +822,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to information system output devices to prevent unauthorized viewing or removal of sensitive information.",
+    "rationale": "Output devices like printers, displays, and removable media can expose sensitive information if not properly secured against unauthorized physical access.",
+    "ai_guidance": "AI-enhanced output device security includes intelligent print release systems requiring user authentication at the device (pull-printing), automated document classification scanning that applies appropriate handling based on content sensitivity, computer vision systems that detect shoulder surfing or unauthorized viewing of displays, and smart display systems that automatically lock or obscure content when unauthorized personnel approach. Implement privacy screens, secure print rooms, and automated shredding workflows for sensitive documents. Consider DLP integration with printing systems to block or watermark sensitive document output."
   },
   {
-    "control_id": "pe-5.2",
+    "control_id": "PE-5.2",
     "control_name": "Link to Individual Identity",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -724,8 +848,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-5: Access Control for Output Devices\n# Configure screen lock to protect displayed information\n\necho \"Configuring screen lock policies...\"\n\n# Configure GNOME screen lock if available\nif command -v gsettings &> /dev/null; then\n    gsettings set org.gnome.desktop.screensaver lock-enabled true\n    gsettings set org.gnome.desktop.screensaver lock-delay 0\n    gsettings set org.gnome.desktop.session idle-delay 900\n    echo \"Screen lock configured (15 minute timeout)\"\nfi",
+        "ansible": "---\n# PE-5: Access Control for Output Devices\n- name: Configure output device security\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure dconf screen lock settings\n      copy:\n        dest: /etc/dconf/db/local.d/00-screensaver\n        content: |\n          [org/gnome/desktop/screensaver]\n          lock-enabled=true\n          lock-delay=uint32 0\n          [org/gnome/desktop/session]\n          idle-delay=uint32 900"
+      },
+      "windows": {
+        "powershell": "# PE-5: Access Control for Output Devices\n# Configure screen saver and lock settings\n\nWrite-Host \"Configuring output device security...\"\n\n# Configure screen saver timeout (900 seconds = 15 minutes)\n$RegPath = \"HKCU:\\Control Panel\\Desktop\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveActive\" -Value \"1\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveTimeOut\" -Value \"900\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaverIsSecure\" -Value \"1\"\n\nWrite-Host \"Screen lock policy configured (15 minute timeout)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -739,10 +868,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to information system output devices to prevent unauthorized viewing or removal of sensitive information.",
+    "rationale": "Output devices like printers, displays, and removable media can expose sensitive information if not properly secured against unauthorized physical access.",
+    "ai_guidance": "AI-enhanced output device security includes intelligent print release systems requiring user authentication at the device (pull-printing), automated document classification scanning that applies appropriate handling based on content sensitivity, computer vision systems that detect shoulder surfing or unauthorized viewing of displays, and smart display systems that automatically lock or obscure content when unauthorized personnel approach. Implement privacy screens, secure print rooms, and automated shredding workflows for sensitive documents. Consider DLP integration with printing systems to block or watermark sensitive document output."
   },
   {
-    "control_id": "pe-5.3",
+    "control_id": "PE-5.3",
     "control_name": "Marking Output Devices",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -762,8 +894,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-5: Access Control for Output Devices\n# Configure screen lock to protect displayed information\n\necho \"Configuring screen lock policies...\"\n\n# Configure GNOME screen lock if available\nif command -v gsettings &> /dev/null; then\n    gsettings set org.gnome.desktop.screensaver lock-enabled true\n    gsettings set org.gnome.desktop.screensaver lock-delay 0\n    gsettings set org.gnome.desktop.session idle-delay 900\n    echo \"Screen lock configured (15 minute timeout)\"\nfi",
+        "ansible": "---\n# PE-5: Access Control for Output Devices\n- name: Configure output device security\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure dconf screen lock settings\n      copy:\n        dest: /etc/dconf/db/local.d/00-screensaver\n        content: |\n          [org/gnome/desktop/screensaver]\n          lock-enabled=true\n          lock-delay=uint32 0\n          [org/gnome/desktop/session]\n          idle-delay=uint32 900"
+      },
+      "windows": {
+        "powershell": "# PE-5: Access Control for Output Devices\n# Configure screen saver and lock settings\n\nWrite-Host \"Configuring output device security...\"\n\n# Configure screen saver timeout (900 seconds = 15 minutes)\n$RegPath = \"HKCU:\\Control Panel\\Desktop\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveActive\" -Value \"1\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaveTimeOut\" -Value \"900\"\nSet-ItemProperty -Path $RegPath -Name \"ScreenSaverIsSecure\" -Value \"1\"\n\nWrite-Host \"Screen lock policy configured (15 minute timeout)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -777,10 +914,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Control physical access to information system output devices to prevent unauthorized viewing or removal of sensitive information.",
+    "rationale": "Output devices like printers, displays, and removable media can expose sensitive information if not properly secured against unauthorized physical access.",
+    "ai_guidance": "AI-enhanced output device security includes intelligent print release systems requiring user authentication at the device (pull-printing), automated document classification scanning that applies appropriate handling based on content sensitivity, computer vision systems that detect shoulder surfing or unauthorized viewing of displays, and smart display systems that automatically lock or obscure content when unauthorized personnel approach. Implement privacy screens, secure print rooms, and automated shredding workflows for sensitive documents. Consider DLP integration with printing systems to block or watermark sensitive document output."
   },
   {
-    "control_id": "pe-6",
+    "control_id": "PE-6",
     "control_name": "Monitoring Physical Access",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -833,10 +973,14 @@
       "last_analyzed": "2025-11-10T10:15:07.782893+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Monitor physical access to facilities and information systems to detect and respond to security incidents.",
+    "rationale": "Physical access monitoring provides evidence for incident investigation, deters unauthorized access attempts, and enables rapid response to security breaches.",
+    "ai_guidance": "Deploy AI-powered video surveillance with object detection, facial recognition, and behavioral analytics to identify suspicious activities. Integrate PACS events with SIEM for correlation between physical access badge swipes and system login events - mismatches indicate potential credential sharing or tailgating. Implement ML-based anomaly detection on access patterns to identify after-hours access, unusual access sequences, or access to areas outside normal job function. Configure automated alerting for failed access attempts, forced entry detection, and propped-open doors. Maintain 90-day retention of access logs with tamper-evident storage.",
+    "stig_id": "V-245807, V-245844, V-245845, V-245846"
   },
   {
-    "control_id": "pe-6.1",
+    "control_id": "PE-6.1",
     "control_name": "Intrusion Alarms and Surveillance Equipment",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -856,8 +1000,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-6: Monitoring Physical Access\n# Configure comprehensive authentication logging\n\n# Configure rsyslog for auth events\necho \"auth,authpriv.* /var/log/auth.log\" > /etc/rsyslog.d/50-physical-access.conf\nsystemctl restart rsyslog\n\n# Configure auditd\ncat > /etc/audit/rules.d/pe6-monitoring.rules << EOF\n-w /var/log/faillog -p wa -k login-failures\n-w /etc/passwd -p wa -k user-modify\n-w /etc/shadow -p wa -k user-modify\nEOF\naugenrules --load\n\necho \"Physical access monitoring configured\"",
+        "ansible": "---\n# PE-6: Monitoring Physical Access\n- name: Configure physical access monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure rsyslog for auth logging\n      copy:\n        dest: /etc/rsyslog.d/50-physical-access.conf\n        content: \"auth,authpriv.* /var/log/auth.log\"\n      notify: restart rsyslog\n\n    - name: Configure auditd rules for access monitoring\n      copy:\n        dest: /etc/audit/rules.d/pe6-monitoring.rules\n        content: |\n          -w /var/log/faillog -p wa -k login-failures\n          -w /etc/passwd -p wa -k user-modify\n      notify: reload auditd"
+      },
+      "windows": {
+        "powershell": "# PE-6: Monitoring Physical Access\n# Configure Windows event logging for physical access\n\nWrite-Host \"Configuring physical access monitoring...\"\n\n# Enable audit policies\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Account Lockout\" /success:enable /failure:enable\nauditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable\n\n# Configure Security Event Log size\nwevtutil sl Security /ms:1073741824\n\nWrite-Host \"Physical access monitoring configured\"\nWrite-Host \"Key Event IDs: 4624, 4625, 4720, 4726\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -871,10 +1020,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Monitor physical access to facilities and information systems to detect and respond to security incidents.",
+    "rationale": "Physical access monitoring provides evidence for incident investigation, deters unauthorized access attempts, and enables rapid response to security breaches.",
+    "ai_guidance": "Deploy AI-powered video surveillance with object detection, facial recognition, and behavioral analytics to identify suspicious activities. Integrate PACS events with SIEM for correlation between physical access badge swipes and system login events - mismatches indicate potential credential sharing or tailgating. Implement ML-based anomaly detection on access patterns to identify after-hours access, unusual access sequences, or access to areas outside normal job function. Configure automated alerting for failed access attempts, forced entry detection, and propped-open doors. Maintain 90-day retention of access logs with tamper-evident storage.",
+    "stig_id": "V-245807, V-245844, V-245845, V-245846"
   },
   {
-    "control_id": "pe-6.2",
+    "control_id": "PE-6.2",
     "control_name": "Automated Intrusion Recognition and Responses",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -894,8 +1047,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-6: Monitoring Physical Access\n# Configure comprehensive authentication logging\n\n# Configure rsyslog for auth events\necho \"auth,authpriv.* /var/log/auth.log\" > /etc/rsyslog.d/50-physical-access.conf\nsystemctl restart rsyslog\n\n# Configure auditd\ncat > /etc/audit/rules.d/pe6-monitoring.rules << EOF\n-w /var/log/faillog -p wa -k login-failures\n-w /etc/passwd -p wa -k user-modify\n-w /etc/shadow -p wa -k user-modify\nEOF\naugenrules --load\n\necho \"Physical access monitoring configured\"",
+        "ansible": "---\n# PE-6: Monitoring Physical Access\n- name: Configure physical access monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure rsyslog for auth logging\n      copy:\n        dest: /etc/rsyslog.d/50-physical-access.conf\n        content: \"auth,authpriv.* /var/log/auth.log\"\n      notify: restart rsyslog\n\n    - name: Configure auditd rules for access monitoring\n      copy:\n        dest: /etc/audit/rules.d/pe6-monitoring.rules\n        content: |\n          -w /var/log/faillog -p wa -k login-failures\n          -w /etc/passwd -p wa -k user-modify\n      notify: reload auditd"
+      },
+      "windows": {
+        "powershell": "# PE-6: Monitoring Physical Access\n# Configure Windows event logging for physical access\n\nWrite-Host \"Configuring physical access monitoring...\"\n\n# Enable audit policies\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Account Lockout\" /success:enable /failure:enable\nauditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable\n\n# Configure Security Event Log size\nwevtutil sl Security /ms:1073741824\n\nWrite-Host \"Physical access monitoring configured\"\nWrite-Host \"Key Event IDs: 4624, 4625, 4720, 4726\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -909,10 +1067,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Monitor physical access to facilities and information systems to detect and respond to security incidents.",
+    "rationale": "Physical access monitoring provides evidence for incident investigation, deters unauthorized access attempts, and enables rapid response to security breaches.",
+    "ai_guidance": "Deploy AI-powered video surveillance with object detection, facial recognition, and behavioral analytics to identify suspicious activities. Integrate PACS events with SIEM for correlation between physical access badge swipes and system login events - mismatches indicate potential credential sharing or tailgating. Implement ML-based anomaly detection on access patterns to identify after-hours access, unusual access sequences, or access to areas outside normal job function. Configure automated alerting for failed access attempts, forced entry detection, and propped-open doors. Maintain 90-day retention of access logs with tamper-evident storage.",
+    "stig_id": "V-245807, V-245844, V-245845, V-245846"
   },
   {
-    "control_id": "pe-6.3",
+    "control_id": "PE-6.3",
     "control_name": "Video Surveillance",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -932,8 +1094,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-6: Monitoring Physical Access\n# Configure comprehensive authentication logging\n\n# Configure rsyslog for auth events\necho \"auth,authpriv.* /var/log/auth.log\" > /etc/rsyslog.d/50-physical-access.conf\nsystemctl restart rsyslog\n\n# Configure auditd\ncat > /etc/audit/rules.d/pe6-monitoring.rules << EOF\n-w /var/log/faillog -p wa -k login-failures\n-w /etc/passwd -p wa -k user-modify\n-w /etc/shadow -p wa -k user-modify\nEOF\naugenrules --load\n\necho \"Physical access monitoring configured\"",
+        "ansible": "---\n# PE-6: Monitoring Physical Access\n- name: Configure physical access monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure rsyslog for auth logging\n      copy:\n        dest: /etc/rsyslog.d/50-physical-access.conf\n        content: \"auth,authpriv.* /var/log/auth.log\"\n      notify: restart rsyslog\n\n    - name: Configure auditd rules for access monitoring\n      copy:\n        dest: /etc/audit/rules.d/pe6-monitoring.rules\n        content: |\n          -w /var/log/faillog -p wa -k login-failures\n          -w /etc/passwd -p wa -k user-modify\n      notify: reload auditd"
+      },
+      "windows": {
+        "powershell": "# PE-6: Monitoring Physical Access\n# Configure Windows event logging for physical access\n\nWrite-Host \"Configuring physical access monitoring...\"\n\n# Enable audit policies\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Account Lockout\" /success:enable /failure:enable\nauditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable\n\n# Configure Security Event Log size\nwevtutil sl Security /ms:1073741824\n\nWrite-Host \"Physical access monitoring configured\"\nWrite-Host \"Key Event IDs: 4624, 4625, 4720, 4726\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -947,10 +1114,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Monitor physical access to facilities and information systems to detect and respond to security incidents.",
+    "rationale": "Physical access monitoring provides evidence for incident investigation, deters unauthorized access attempts, and enables rapid response to security breaches.",
+    "ai_guidance": "Deploy AI-powered video surveillance with object detection, facial recognition, and behavioral analytics to identify suspicious activities. Integrate PACS events with SIEM for correlation between physical access badge swipes and system login events - mismatches indicate potential credential sharing or tailgating. Implement ML-based anomaly detection on access patterns to identify after-hours access, unusual access sequences, or access to areas outside normal job function. Configure automated alerting for failed access attempts, forced entry detection, and propped-open doors. Maintain 90-day retention of access logs with tamper-evident storage.",
+    "stig_id": "V-245807, V-245844, V-245845, V-245846"
   },
   {
-    "control_id": "pe-6.4",
+    "control_id": "PE-6.4",
     "control_name": "Monitoring Physical Access to Systems",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -970,8 +1141,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-6: Monitoring Physical Access\n# Configure comprehensive authentication logging\n\n# Configure rsyslog for auth events\necho \"auth,authpriv.* /var/log/auth.log\" > /etc/rsyslog.d/50-physical-access.conf\nsystemctl restart rsyslog\n\n# Configure auditd\ncat > /etc/audit/rules.d/pe6-monitoring.rules << EOF\n-w /var/log/faillog -p wa -k login-failures\n-w /etc/passwd -p wa -k user-modify\n-w /etc/shadow -p wa -k user-modify\nEOF\naugenrules --load\n\necho \"Physical access monitoring configured\"",
+        "ansible": "---\n# PE-6: Monitoring Physical Access\n- name: Configure physical access monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Configure rsyslog for auth logging\n      copy:\n        dest: /etc/rsyslog.d/50-physical-access.conf\n        content: \"auth,authpriv.* /var/log/auth.log\"\n      notify: restart rsyslog\n\n    - name: Configure auditd rules for access monitoring\n      copy:\n        dest: /etc/audit/rules.d/pe6-monitoring.rules\n        content: |\n          -w /var/log/faillog -p wa -k login-failures\n          -w /etc/passwd -p wa -k user-modify\n      notify: reload auditd"
+      },
+      "windows": {
+        "powershell": "# PE-6: Monitoring Physical Access\n# Configure Windows event logging for physical access\n\nWrite-Host \"Configuring physical access monitoring...\"\n\n# Enable audit policies\nauditpol /set /subcategory:\"Logon\" /success:enable /failure:enable\nauditpol /set /subcategory:\"Account Lockout\" /success:enable /failure:enable\nauditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable\n\n# Configure Security Event Log size\nwevtutil sl Security /ms:1073741824\n\nWrite-Host \"Physical access monitoring configured\"\nWrite-Host \"Key Event IDs: 4624, 4625, 4720, 4726\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -985,10 +1161,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Monitor physical access to facilities and information systems to detect and respond to security incidents.",
+    "rationale": "Physical access monitoring provides evidence for incident investigation, deters unauthorized access attempts, and enables rapid response to security breaches.",
+    "ai_guidance": "Deploy AI-powered video surveillance with object detection, facial recognition, and behavioral analytics to identify suspicious activities. Integrate PACS events with SIEM for correlation between physical access badge swipes and system login events - mismatches indicate potential credential sharing or tailgating. Implement ML-based anomaly detection on access patterns to identify after-hours access, unusual access sequences, or access to areas outside normal job function. Configure automated alerting for failed access attempts, forced entry detection, and propped-open doors. Maintain 90-day retention of access logs with tamper-evident storage.",
+    "stig_id": "V-245807, V-245844, V-245845, V-245846"
   },
   {
-    "control_id": "pe-7",
+    "control_id": "PE-7",
     "control_name": "Visitor Control",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1022,10 +1202,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "WITHDRAWN: Incorporated into PE-2 and PE-3.",
+    "rationale": "Control functionality consolidated into physical access authorization (PE-2) and physical access control (PE-3) controls.",
+    "ai_guidance": "This control was withdrawn in NIST SP 800-53 Rev 5. The visitor control requirements are now addressed through PE-2 (Physical Access Authorizations) and PE-3 (Physical Access Control). Organizations should ensure their visitor management processes are documented under those controls."
   },
   {
-    "control_id": "pe-8",
+    "control_id": "PE-8",
     "control_name": "Visitor Access Records",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1073,10 +1256,14 @@
       "last_analyzed": "2025-11-10T10:15:17.494408+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "intent": "Maintain visitor access records for organizational facilities to support accountability and incident investigation.",
+    "rationale": "Visitor records provide audit trails for investigating security incidents and verify that visitor access procedures are being followed.",
+    "ai_guidance": "Implement electronic visitor management systems (VMS) with AI capabilities including automated identity verification through ID scanning and database checks, facial recognition enrollment for frequent visitors, automated badge printing with expiration times, real-time visitor location tracking using BLE beacons, and integration with watchlist databases. Configure automated record retention per organizational policy (typically 1-3 years), periodic access reviews, and export capabilities for incident investigations. VMS should integrate with PACS to enforce escort requirements and restrict visitor access to authorized areas only.",
+    "stig_id": "V-245847, V-245848"
   },
   {
-    "control_id": "pe-8.1",
+    "control_id": "PE-8.1",
     "control_name": "Automated Records Maintenance and Review",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1096,8 +1283,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-8: Visitor Access Records\n# Configure visitor logging system integration\n\necho \"Configuring visitor access logging...\"\n\n# Create visitor log directory\nmkdir -p /var/log/visitor-access\nchmod 750 /var/log/visitor-access\n\n# Configure logrotate for visitor logs\ncat > /etc/logrotate.d/visitor-access << EOF\n/var/log/visitor-access/*.log {\n    weekly\n    rotate 52\n    compress\n    notifempty\n}\nEOF\n\necho \"Visitor access logging configured\"",
+        "ansible": "---\n# PE-8: Visitor Access Records\n- name: Configure visitor access logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Create visitor log directory\n      file:\n        path: /var/log/visitor-access\n        state: directory\n        mode: '0750'\n\n    - name: Configure visitor log retention\n      copy:\n        dest: /etc/logrotate.d/visitor-access\n        content: |\n          /var/log/visitor-access/*.log {\n              weekly\n              rotate 52\n              compress\n          }"
+      },
+      "windows": {
+        "powershell": "# PE-8: Visitor Access Records\n# Configure visitor logging on Windows\n\nWrite-Host \"Configuring visitor access logging...\"\n\n# Create visitor log directory\n$LogPath = \"C:\\Logs\\VisitorAccess\"\nif (!(Test-Path $LogPath)) {\n    New-Item -Path $LogPath -ItemType Directory -Force\n}\n\n# Sample visitor log entry function\n$LogFunction = @'\nfunction Log-VisitorAccess {\n    param($VisitorName, $Sponsor, $Purpose)\n    $Entry = @{\n        Timestamp = Get-Date -Format \"o\"\n        Visitor = $VisitorName\n        Sponsor = $Sponsor\n        Purpose = $Purpose\n    }\n    $Entry | ConvertTo-Json | Add-Content \"C:\\Logs\\VisitorAccess\\visitors.log\"\n}\n'@\n\nWrite-Host \"Visitor access logging configured\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1111,10 +1303,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Maintain visitor access records for organizational facilities to support accountability and incident investigation.",
+    "rationale": "Visitor records provide audit trails for investigating security incidents and verify that visitor access procedures are being followed.",
+    "ai_guidance": "Implement electronic visitor management systems (VMS) with AI capabilities including automated identity verification through ID scanning and database checks, facial recognition enrollment for frequent visitors, automated badge printing with expiration times, real-time visitor location tracking using BLE beacons, and integration with watchlist databases. Configure automated record retention per organizational policy (typically 1-3 years), periodic access reviews, and export capabilities for incident investigations. VMS should integrate with PACS to enforce escort requirements and restrict visitor access to authorized areas only.",
+    "stig_id": "V-245847, V-245848"
   },
   {
-    "control_id": "pe-8.2",
+    "control_id": "PE-8.2",
     "control_name": "Physical Access Records",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1134,8 +1330,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-8: Visitor Access Records\n# Configure visitor logging system integration\n\necho \"Configuring visitor access logging...\"\n\n# Create visitor log directory\nmkdir -p /var/log/visitor-access\nchmod 750 /var/log/visitor-access\n\n# Configure logrotate for visitor logs\ncat > /etc/logrotate.d/visitor-access << EOF\n/var/log/visitor-access/*.log {\n    weekly\n    rotate 52\n    compress\n    notifempty\n}\nEOF\n\necho \"Visitor access logging configured\"",
+        "ansible": "---\n# PE-8: Visitor Access Records\n- name: Configure visitor access logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Create visitor log directory\n      file:\n        path: /var/log/visitor-access\n        state: directory\n        mode: '0750'\n\n    - name: Configure visitor log retention\n      copy:\n        dest: /etc/logrotate.d/visitor-access\n        content: |\n          /var/log/visitor-access/*.log {\n              weekly\n              rotate 52\n              compress\n          }"
+      },
+      "windows": {
+        "powershell": "# PE-8: Visitor Access Records\n# Configure visitor logging on Windows\n\nWrite-Host \"Configuring visitor access logging...\"\n\n# Create visitor log directory\n$LogPath = \"C:\\Logs\\VisitorAccess\"\nif (!(Test-Path $LogPath)) {\n    New-Item -Path $LogPath -ItemType Directory -Force\n}\n\n# Sample visitor log entry function\n$LogFunction = @'\nfunction Log-VisitorAccess {\n    param($VisitorName, $Sponsor, $Purpose)\n    $Entry = @{\n        Timestamp = Get-Date -Format \"o\"\n        Visitor = $VisitorName\n        Sponsor = $Sponsor\n        Purpose = $Purpose\n    }\n    $Entry | ConvertTo-Json | Add-Content \"C:\\Logs\\VisitorAccess\\visitors.log\"\n}\n'@\n\nWrite-Host \"Visitor access logging configured\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1149,10 +1350,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Maintain visitor access records for organizational facilities to support accountability and incident investigation.",
+    "rationale": "Visitor records provide audit trails for investigating security incidents and verify that visitor access procedures are being followed.",
+    "ai_guidance": "Implement electronic visitor management systems (VMS) with AI capabilities including automated identity verification through ID scanning and database checks, facial recognition enrollment for frequent visitors, automated badge printing with expiration times, real-time visitor location tracking using BLE beacons, and integration with watchlist databases. Configure automated record retention per organizational policy (typically 1-3 years), periodic access reviews, and export capabilities for incident investigations. VMS should integrate with PACS to enforce escort requirements and restrict visitor access to authorized areas only.",
+    "stig_id": "V-245847, V-245848"
   },
   {
-    "control_id": "pe-8.3",
+    "control_id": "PE-8.3",
     "control_name": "Limit Personally Identifiable Information Elements",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1172,8 +1377,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-8: Visitor Access Records\n# Configure visitor logging system integration\n\necho \"Configuring visitor access logging...\"\n\n# Create visitor log directory\nmkdir -p /var/log/visitor-access\nchmod 750 /var/log/visitor-access\n\n# Configure logrotate for visitor logs\ncat > /etc/logrotate.d/visitor-access << EOF\n/var/log/visitor-access/*.log {\n    weekly\n    rotate 52\n    compress\n    notifempty\n}\nEOF\n\necho \"Visitor access logging configured\"",
+        "ansible": "---\n# PE-8: Visitor Access Records\n- name: Configure visitor access logging\n  hosts: all\n  become: yes\n  tasks:\n    - name: Create visitor log directory\n      file:\n        path: /var/log/visitor-access\n        state: directory\n        mode: '0750'\n\n    - name: Configure visitor log retention\n      copy:\n        dest: /etc/logrotate.d/visitor-access\n        content: |\n          /var/log/visitor-access/*.log {\n              weekly\n              rotate 52\n              compress\n          }"
+      },
+      "windows": {
+        "powershell": "# PE-8: Visitor Access Records\n# Configure visitor logging on Windows\n\nWrite-Host \"Configuring visitor access logging...\"\n\n# Create visitor log directory\n$LogPath = \"C:\\Logs\\VisitorAccess\"\nif (!(Test-Path $LogPath)) {\n    New-Item -Path $LogPath -ItemType Directory -Force\n}\n\n# Sample visitor log entry function\n$LogFunction = @'\nfunction Log-VisitorAccess {\n    param($VisitorName, $Sponsor, $Purpose)\n    $Entry = @{\n        Timestamp = Get-Date -Format \"o\"\n        Visitor = $VisitorName\n        Sponsor = $Sponsor\n        Purpose = $Purpose\n    }\n    $Entry | ConvertTo-Json | Add-Content \"C:\\Logs\\VisitorAccess\\visitors.log\"\n}\n'@\n\nWrite-Host \"Visitor access logging configured\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1187,10 +1397,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Maintain visitor access records for organizational facilities to support accountability and incident investigation.",
+    "rationale": "Visitor records provide audit trails for investigating security incidents and verify that visitor access procedures are being followed.",
+    "ai_guidance": "Implement electronic visitor management systems (VMS) with AI capabilities including automated identity verification through ID scanning and database checks, facial recognition enrollment for frequent visitors, automated badge printing with expiration times, real-time visitor location tracking using BLE beacons, and integration with watchlist databases. Configure automated record retention per organizational policy (typically 1-3 years), periodic access reviews, and export capabilities for incident investigations. VMS should integrate with PACS to enforce escort requirements and restrict visitor access to authorized areas only.",
+    "stig_id": "V-245847, V-245848"
   },
   {
-    "control_id": "pe-9",
+    "control_id": "PE-9",
     "control_name": "Power Equipment and Cabling",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1233,10 +1447,13 @@
       "last_analyzed": "2025-11-10T10:15:23.733480+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Protect power equipment and cabling for information systems from damage and destruction.",
+    "rationale": "Power infrastructure protection ensures system availability by preventing intentional or accidental damage to critical power systems.",
+    "ai_guidance": "AI-enhanced power infrastructure protection includes predictive maintenance algorithms analyzing UPS battery health, PDU load patterns, and generator fuel levels to prevent failures before they occur. Deploy IoT sensors for real-time monitoring of power quality (voltage, frequency, harmonics) with ML-based anomaly detection. Implement automated transfer switch testing, generator load bank testing schedules, and fuel quality monitoring. Physical protection should include locked electrical rooms with access logging, tamper-evident seals on breaker panels, and conduit protection for power cabling. Integration with BMS (Building Management Systems) enables coordinated response to power events."
   },
   {
-    "control_id": "pe-9.1",
+    "control_id": "PE-9.1",
     "control_name": "Redundant Cabling",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1256,8 +1473,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-9: Power Equipment and Cabling\n# Monitor UPS and power infrastructure\n\necho \"Checking power equipment status...\"\n\n# Check if apcupsd is available for UPS monitoring\nif command -v apcaccess &> /dev/null; then\n    echo \"=== UPS Status ===\"\n    apcaccess status\nelse\n    echo \"apcupsd not installed - install for UPS monitoring\"\nfi\n\n# Check power management\nif command -v upower &> /dev/null; then\n    echo \"\\n=== Power Devices ===\"\n    upower -e\nfi\n\necho \"\\nPower equipment check complete\"",
+        "ansible": "---\n# PE-9: Power Equipment and Cabling\n- name: Configure power monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install UPS monitoring tools\n      package:\n        name: apcupsd\n        state: present\n      ignore_errors: yes\n\n    - name: Check UPS status\n      command: apcaccess status\n      register: ups_status\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-9: Power Equipment and Cabling\n# Monitor UPS and power status on Windows\n\nWrite-Host \"Checking power equipment status...\"\n\n# Get battery/UPS status\n$Battery = Get-WmiObject Win32_Battery\nif ($Battery) {\n    Write-Host \"Battery Status: $($Battery.BatteryStatus)\"\n    Write-Host \"Estimated Runtime: $($Battery.EstimatedRunTime) minutes\"\n} else {\n    Write-Host \"No battery/UPS detected via WMI\"\n}\n\n# Check power plan\n$PowerPlan = powercfg /getactivescheme\nWrite-Host \"\\nActive Power Plan: $PowerPlan\"\n\nWrite-Host \"\\nPower equipment check complete\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1271,10 +1493,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Protect power equipment and cabling for information systems from damage and destruction.",
+    "rationale": "Power infrastructure protection ensures system availability by preventing intentional or accidental damage to critical power systems.",
+    "ai_guidance": "AI-enhanced power infrastructure protection includes predictive maintenance algorithms analyzing UPS battery health, PDU load patterns, and generator fuel levels to prevent failures before they occur. Deploy IoT sensors for real-time monitoring of power quality (voltage, frequency, harmonics) with ML-based anomaly detection. Implement automated transfer switch testing, generator load bank testing schedules, and fuel quality monitoring. Physical protection should include locked electrical rooms with access logging, tamper-evident seals on breaker panels, and conduit protection for power cabling. Integration with BMS (Building Management Systems) enables coordinated response to power events."
   },
   {
-    "control_id": "pe-9.2",
+    "control_id": "PE-9.2",
     "control_name": "Automatic Voltage Controls",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1294,8 +1519,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-9: Power Equipment and Cabling\n# Monitor UPS and power infrastructure\n\necho \"Checking power equipment status...\"\n\n# Check if apcupsd is available for UPS monitoring\nif command -v apcaccess &> /dev/null; then\n    echo \"=== UPS Status ===\"\n    apcaccess status\nelse\n    echo \"apcupsd not installed - install for UPS monitoring\"\nfi\n\n# Check power management\nif command -v upower &> /dev/null; then\n    echo \"\\n=== Power Devices ===\"\n    upower -e\nfi\n\necho \"\\nPower equipment check complete\"",
+        "ansible": "---\n# PE-9: Power Equipment and Cabling\n- name: Configure power monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install UPS monitoring tools\n      package:\n        name: apcupsd\n        state: present\n      ignore_errors: yes\n\n    - name: Check UPS status\n      command: apcaccess status\n      register: ups_status\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-9: Power Equipment and Cabling\n# Monitor UPS and power status on Windows\n\nWrite-Host \"Checking power equipment status...\"\n\n# Get battery/UPS status\n$Battery = Get-WmiObject Win32_Battery\nif ($Battery) {\n    Write-Host \"Battery Status: $($Battery.BatteryStatus)\"\n    Write-Host \"Estimated Runtime: $($Battery.EstimatedRunTime) minutes\"\n} else {\n    Write-Host \"No battery/UPS detected via WMI\"\n}\n\n# Check power plan\n$PowerPlan = powercfg /getactivescheme\nWrite-Host \"\\nActive Power Plan: $PowerPlan\"\n\nWrite-Host \"\\nPower equipment check complete\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1309,10 +1539,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Protect power equipment and cabling for information systems from damage and destruction.",
+    "rationale": "Power infrastructure protection ensures system availability by preventing intentional or accidental damage to critical power systems.",
+    "ai_guidance": "AI-enhanced power infrastructure protection includes predictive maintenance algorithms analyzing UPS battery health, PDU load patterns, and generator fuel levels to prevent failures before they occur. Deploy IoT sensors for real-time monitoring of power quality (voltage, frequency, harmonics) with ML-based anomaly detection. Implement automated transfer switch testing, generator load bank testing schedules, and fuel quality monitoring. Physical protection should include locked electrical rooms with access logging, tamper-evident seals on breaker panels, and conduit protection for power cabling. Integration with BMS (Building Management Systems) enables coordinated response to power events."
   },
   {
-    "control_id": "pe-10",
+    "control_id": "PE-10",
     "control_name": "Emergency Shutoff",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1352,10 +1585,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Provide capability to shut off power to information systems or system components in emergency situations.",
+    "rationale": "Emergency power shutoff prevents equipment damage and personnel injury during fire, flood, or other emergency conditions.",
+    "ai_guidance": "Emergency power shutoff systems should include clearly marked EPO (Emergency Power Off) buttons at all facility exits, integration with fire alarm systems for automated shutdown in certain scenarios, and remote shutdown capabilities for incident responders. AI systems can enhance emergency response through automated shutdown sequence coordination that gracefully stops applications before cutting power, predictive identification of conditions that may require emergency shutoff, and post-incident analysis of power event data. Implement regular EPO testing (typically quarterly) with documented procedures, and ensure UPS provides graceful shutdown time for critical systems."
   },
   {
-    "control_id": "pe-10.1",
+    "control_id": "PE-10.1",
     "control_name": "Accidental and Unauthorized Activation",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1375,8 +1611,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-10: Emergency Shutoff\n# Document and verify emergency power off procedures\n\necho \"Emergency Shutoff Configuration Check\"\necho \"=====================================\"\n\n# Check shutdown permissions\necho \"\\n=== Shutdown Access ===\"\nwhich shutdown poweroff reboot 2>/dev/null\n\n# Check sudoers for shutdown permissions\necho \"\\n=== Sudoers Shutdown Rules ===\"\ngrep -r 'shutdown\\|poweroff\\|reboot' /etc/sudoers /etc/sudoers.d/ 2>/dev/null\n\necho \"\\nDocument EPO button locations and test quarterly\"",
+        "ansible": "---\n# PE-10: Emergency Shutoff\n- name: Verify emergency shutoff configuration\n  hosts: all\n  become: yes\n  tasks:\n    - name: Check shutdown command availability\n      command: which shutdown\n      register: shutdown_cmd\n      changed_when: false\n      ignore_errors: yes\n\n    - name: Document EPO configuration\n      debug:\n        msg: \"Ensure EPO buttons are documented and tested quarterly\""
+      },
+      "windows": {
+        "powershell": "# PE-10: Emergency Shutoff\n# Document and verify emergency power off procedures\n\nWrite-Host \"Emergency Shutoff Configuration Check\"\nWrite-Host \"======================================\"\n\n# Check shutdown privileges\nWrite-Host \"\\nShutdown Privilege Check:\"\n$Privileges = whoami /priv | Select-String \"SeShutdownPrivilege\"\nWrite-Host $Privileges\n\n# List recent shutdown events\nWrite-Host \"\\nRecent Shutdown Events:\"\nGet-EventLog -LogName System -Source USER32 -Newest 5 | Format-Table TimeGenerated, Message -AutoSize\n\nWrite-Host \"\\nDocument EPO button locations and test quarterly\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1390,10 +1631,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Provide capability to shut off power to information systems or system components in emergency situations.",
+    "rationale": "Emergency power shutoff prevents equipment damage and personnel injury during fire, flood, or other emergency conditions.",
+    "ai_guidance": "Emergency power shutoff systems should include clearly marked EPO (Emergency Power Off) buttons at all facility exits, integration with fire alarm systems for automated shutdown in certain scenarios, and remote shutdown capabilities for incident responders. AI systems can enhance emergency response through automated shutdown sequence coordination that gracefully stops applications before cutting power, predictive identification of conditions that may require emergency shutoff, and post-incident analysis of power event data. Implement regular EPO testing (typically quarterly) with documented procedures, and ensure UPS provides graceful shutdown time for critical systems."
   },
   {
-    "control_id": "pe-11",
+    "control_id": "PE-11",
     "control_name": "Emergency Power",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1438,10 +1682,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Provide short-term and long-term backup power supply for information systems during primary power source failures.",
+    "rationale": "Emergency power ensures continued operation of critical systems during power outages, preventing data loss and service disruptions.",
+    "ai_guidance": "AI-driven emergency power management includes predictive UPS battery failure detection using discharge curve analysis, automated generator start testing with ML-based failure prediction, intelligent load shedding algorithms that prioritize critical systems during extended outages, and fuel consumption forecasting for generator runtime planning. Implement N+1 or 2N redundancy for critical systems, automatic transfer switches (ATS) with <10ms switchover, and battery monitoring systems with automated alerts at 80%, 50%, and 20% capacity. Consider integration with smart grid systems for demand response participation and utility coordination."
   },
   {
-    "control_id": "pe-11.1",
+    "control_id": "PE-11.1",
     "control_name": "Alternate Power Supply — Minimal Operational Capability",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1461,8 +1708,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-11: Emergency Power\n# Monitor UPS battery health and runtime\n\necho \"Emergency Power Status Check\"\necho \"============================\"\n\n# Check apcupsd for UPS monitoring\nif command -v apcaccess &> /dev/null; then\n    echo \"\\n=== UPS Battery Status ===\"\n    apcaccess | grep -E 'STATUS|BCHARGE|TIMELEFT|BATTV'\nelse\n    echo \"Install apcupsd for UPS monitoring\"\nfi\n\n# Check for NUT (Network UPS Tools)\nif command -v upsc &> /dev/null; then\n    echo \"\\n=== NUT UPS Status ===\"\n    upsc ups@localhost 2>/dev/null || echo \"NUT not configured\"\nfi\n\necho \"\\nVerify UPS runtime meets RTO requirements\"",
+        "ansible": "---\n# PE-11: Emergency Power\n- name: Configure UPS monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install NUT for UPS monitoring\n      package:\n        name: nut\n        state: present\n      ignore_errors: yes\n\n    - name: Check UPS status\n      command: apcaccess\n      register: ups_status\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-11: Emergency Power\n# Monitor UPS battery health\n\nWrite-Host \"Emergency Power Status Check\"\nWrite-Host \"============================\"\n\n# Check UPS/battery status\n$Battery = Get-WmiObject Win32_Battery\nif ($Battery) {\n    Write-Host \"UPS/Battery Detected\"\n    Write-Host \"  Charge: $($Battery.EstimatedChargeRemaining)%\"\n    Write-Host \"  Status: $($Battery.BatteryStatus)\"\n    Write-Host \"  Runtime: $($Battery.EstimatedRunTime) min\"\n}\n\n# Check power events\nWrite-Host \"\\nRecent Power Events:\"\nGet-EventLog -LogName System -Source Microsoft-Windows-Kernel-Power -Newest 10 -ErrorAction SilentlyContinue | Format-Table TimeGenerated, Message -AutoSize\n\nWrite-Host \"\\nVerify UPS runtime meets RTO requirements\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1476,10 +1728,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Provide short-term and long-term backup power supply for information systems during primary power source failures.",
+    "rationale": "Emergency power ensures continued operation of critical systems during power outages, preventing data loss and service disruptions.",
+    "ai_guidance": "AI-driven emergency power management includes predictive UPS battery failure detection using discharge curve analysis, automated generator start testing with ML-based failure prediction, intelligent load shedding algorithms that prioritize critical systems during extended outages, and fuel consumption forecasting for generator runtime planning. Implement N+1 or 2N redundancy for critical systems, automatic transfer switches (ATS) with <10ms switchover, and battery monitoring systems with automated alerts at 80%, 50%, and 20% capacity. Consider integration with smart grid systems for demand response participation and utility coordination."
   },
   {
-    "control_id": "pe-11.2",
+    "control_id": "PE-11.2",
     "control_name": "Alternate Power Supply — Self-contained",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1499,8 +1754,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-11: Emergency Power\n# Monitor UPS battery health and runtime\n\necho \"Emergency Power Status Check\"\necho \"============================\"\n\n# Check apcupsd for UPS monitoring\nif command -v apcaccess &> /dev/null; then\n    echo \"\\n=== UPS Battery Status ===\"\n    apcaccess | grep -E 'STATUS|BCHARGE|TIMELEFT|BATTV'\nelse\n    echo \"Install apcupsd for UPS monitoring\"\nfi\n\n# Check for NUT (Network UPS Tools)\nif command -v upsc &> /dev/null; then\n    echo \"\\n=== NUT UPS Status ===\"\n    upsc ups@localhost 2>/dev/null || echo \"NUT not configured\"\nfi\n\necho \"\\nVerify UPS runtime meets RTO requirements\"",
+        "ansible": "---\n# PE-11: Emergency Power\n- name: Configure UPS monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install NUT for UPS monitoring\n      package:\n        name: nut\n        state: present\n      ignore_errors: yes\n\n    - name: Check UPS status\n      command: apcaccess\n      register: ups_status\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-11: Emergency Power\n# Monitor UPS battery health\n\nWrite-Host \"Emergency Power Status Check\"\nWrite-Host \"============================\"\n\n# Check UPS/battery status\n$Battery = Get-WmiObject Win32_Battery\nif ($Battery) {\n    Write-Host \"UPS/Battery Detected\"\n    Write-Host \"  Charge: $($Battery.EstimatedChargeRemaining)%\"\n    Write-Host \"  Status: $($Battery.BatteryStatus)\"\n    Write-Host \"  Runtime: $($Battery.EstimatedRunTime) min\"\n}\n\n# Check power events\nWrite-Host \"\\nRecent Power Events:\"\nGet-EventLog -LogName System -Source Microsoft-Windows-Kernel-Power -Newest 10 -ErrorAction SilentlyContinue | Format-Table TimeGenerated, Message -AutoSize\n\nWrite-Host \"\\nVerify UPS runtime meets RTO requirements\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1514,10 +1774,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Provide short-term and long-term backup power supply for information systems during primary power source failures.",
+    "rationale": "Emergency power ensures continued operation of critical systems during power outages, preventing data loss and service disruptions.",
+    "ai_guidance": "AI-driven emergency power management includes predictive UPS battery failure detection using discharge curve analysis, automated generator start testing with ML-based failure prediction, intelligent load shedding algorithms that prioritize critical systems during extended outages, and fuel consumption forecasting for generator runtime planning. Implement N+1 or 2N redundancy for critical systems, automatic transfer switches (ATS) with <10ms switchover, and battery monitoring systems with automated alerts at 80%, 50%, and 20% capacity. Consider integration with smart grid systems for demand response participation and utility coordination."
   },
   {
-    "control_id": "pe-12",
+    "control_id": "PE-12",
     "control_name": "Emergency Lighting",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1555,10 +1818,13 @@
       "last_analyzed": "2025-11-10T10:14:03.401758+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Employ and maintain automatic emergency lighting for the information system that activates in the event of a power outage.",
+    "rationale": "Emergency lighting ensures safe evacuation and continued security operations during power failures.",
+    "ai_guidance": "Modern emergency lighting systems integrate with building automation for intelligent response. AI enhancements include predictive maintenance for battery backup systems using discharge testing data, integration with occupancy sensors to optimize battery usage, and path illumination algorithms that light evacuation routes based on emergency type and personnel location. Implement monthly functional testing with automated logging, annual 90-minute discharge tests, and integration with fire alarm systems for coordinated emergency response. LED emergency fixtures with self-testing capabilities reduce maintenance burden while providing compliance documentation."
   },
   {
-    "control_id": "pe-12.1",
+    "control_id": "PE-12.1",
     "control_name": "Essential Mission and Business Functions",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1578,8 +1844,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-12: Emergency Lighting\n# This is primarily a physical infrastructure control\n# Script documents lighting system integration points\n\necho \"PE-12: Emergency Lighting Check\"\necho \"================================\"\necho \"Physical infrastructure control - automated via BMS integration\"\necho \"\"\necho \"Integration recommendations:\"\necho \"  - Connect to Building Management System (BMS) API\"\necho \"  - Configure SNMP traps from lighting controllers\"\necho \"  - Schedule automated testing via maintenance system\"\necho \"\"\necho \"Required documentation:\"\necho \"  - Emergency lighting floor plans\"\necho \"  - Monthly test results\"\necho \"  - Annual 90-minute discharge test records\"",
+        "ansible": "---\n# PE-12: Emergency Lighting\n# Physical infrastructure control\n- name: Document emergency lighting requirements\n  hosts: localhost\n  tasks:\n    - name: Emergency lighting compliance note\n      debug:\n        msg: |\n          PE-12 requires physical emergency lighting systems.\n          Integration: Connect to BMS via SNMP/API for monitoring.\n          Testing: Monthly functional, annual 90-min discharge."
+      },
+      "windows": {
+        "powershell": "# PE-12: Emergency Lighting\n# Physical infrastructure control - BMS integration\n\nWrite-Host \"PE-12: Emergency Lighting Check\"\nWrite-Host \"================================\"\nWrite-Host \"Physical infrastructure control\"\nWrite-Host \"\"\nWrite-Host \"For automated monitoring, integrate with:\"\nWrite-Host \"  - Building Management System (BMS)\"\nWrite-Host \"  - SNMP monitoring for lighting controllers\"\nWrite-Host \"  - Scheduled test automation\"\nWrite-Host \"\"\nWrite-Host \"Required compliance documentation:\"\nWrite-Host \"  - Emergency lighting floor plans\"\nWrite-Host \"  - Monthly functional test records\"\nWrite-Host \"  - Annual 90-minute discharge test results\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1593,10 +1864,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ and maintain automatic emergency lighting for the information system that activates in the event of a power outage.",
+    "rationale": "Emergency lighting ensures safe evacuation and continued security operations during power failures.",
+    "ai_guidance": "Modern emergency lighting systems integrate with building automation for intelligent response. AI enhancements include predictive maintenance for battery backup systems using discharge testing data, integration with occupancy sensors to optimize battery usage, and path illumination algorithms that light evacuation routes based on emergency type and personnel location. Implement monthly functional testing with automated logging, annual 90-minute discharge tests, and integration with fire alarm systems for coordinated emergency response. LED emergency fixtures with self-testing capabilities reduce maintenance burden while providing compliance documentation."
   },
   {
-    "control_id": "pe-13",
+    "control_id": "PE-13",
     "control_name": "Fire Protection",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1649,10 +1923,13 @@
       "last_analyzed": "2025-11-10T10:14:06.608996+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Employ and maintain fire detection and suppression systems for the information system.",
+    "rationale": "Fire protection prevents equipment destruction and data loss while ensuring personnel safety during fire emergencies.",
+    "ai_guidance": "AI-enhanced fire protection includes multi-sensor smoke detection with ML algorithms that reduce false alarms while improving early detection, thermal imaging cameras for hot spot identification in electrical equipment, and predictive maintenance for suppression system components. Implement appropriate suppression systems for data centers: clean agent (FM-200, Novec 1230) for occupied spaces, inert gas (Inergen, Argonite) for unoccupied areas, or pre-action sprinklers with VESDA early warning. Integration with HVAC enables smoke evacuation and air handling unit shutdown. Configure automated EPO integration, cross-zone detection requirements, and abort switches for clean agent systems."
   },
   {
-    "control_id": "pe-13.1",
+    "control_id": "PE-13.1",
     "control_name": "Detection Systems — Automatic Activation and Notification",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1672,8 +1949,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-13: Fire Protection\n# Integration with fire alarm monitoring systems\n\necho \"PE-13: Fire Protection System Check\"\necho \"====================================\"\n\n# Check for fire alarm integration services\nif systemctl is-active --quiet snmpd; then\n    echo \"SNMP daemon running - can receive fire panel traps\"\nfi\n\necho \"\"\necho \"Fire protection monitoring integration:\"\necho \"  - Configure SNMP traps from fire alarm panel\"\necho \"  - Set up syslog forwarding for fire events\"\necho \"  - Integrate with SIEM for correlation\"\necho \"\"\necho \"Physical requirements:\"\necho \"  - VESDA/smoke detection coverage\"\necho \"  - Clean agent or pre-action suppression\"\necho \"  - Emergency Power Off integration\"",
+        "ansible": "---\n# PE-13: Fire Protection\n- name: Configure fire protection monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure SNMP is installed for fire panel integration\n      package:\n        name: net-snmp\n        state: present\n\n    - name: Document fire protection requirements\n      debug:\n        msg: |\n          Configure fire panel SNMP traps.\n          Integrate with SIEM for alerting.\n          Physical: VESDA, clean agent suppression."
+      },
+      "windows": {
+        "powershell": "# PE-13: Fire Protection\n# Fire alarm system integration\n\nWrite-Host \"PE-13: Fire Protection System Check\"\nWrite-Host \"====================================\"\n\n# Check SNMP service for fire panel integration\n$SNMP = Get-Service -Name SNMP -ErrorAction SilentlyContinue\nif ($SNMP) {\n    Write-Host \"SNMP service: $($SNMP.Status)\"\n} else {\n    Write-Host \"Install SNMP for fire panel trap reception\"\n}\n\nWrite-Host \"\"\nWrite-Host \"Fire protection integration:\"\nWrite-Host \"  - Configure fire panel SNMP traps\"\nWrite-Host \"  - Forward events to SIEM\"\nWrite-Host \"  - Link to BMS for automated response\"\nWrite-Host \"\"\nWrite-Host \"Physical requirements:\"\nWrite-Host \"  - Data center: Clean agent (FM-200, Novec)\"\nWrite-Host \"  - VESDA early warning detection\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1687,10 +1969,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ and maintain fire detection and suppression systems for the information system.",
+    "rationale": "Fire protection prevents equipment destruction and data loss while ensuring personnel safety during fire emergencies.",
+    "ai_guidance": "AI-enhanced fire protection includes multi-sensor smoke detection with ML algorithms that reduce false alarms while improving early detection, thermal imaging cameras for hot spot identification in electrical equipment, and predictive maintenance for suppression system components. Implement appropriate suppression systems for data centers: clean agent (FM-200, Novec 1230) for occupied spaces, inert gas (Inergen, Argonite) for unoccupied areas, or pre-action sprinklers with VESDA early warning. Integration with HVAC enables smoke evacuation and air handling unit shutdown. Configure automated EPO integration, cross-zone detection requirements, and abort switches for clean agent systems."
   },
   {
-    "control_id": "pe-13.2",
+    "control_id": "PE-13.2",
     "control_name": "Suppression Systems — Automatic Activation and Notification",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1710,8 +1995,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-13: Fire Protection\n# Integration with fire alarm monitoring systems\n\necho \"PE-13: Fire Protection System Check\"\necho \"====================================\"\n\n# Check for fire alarm integration services\nif systemctl is-active --quiet snmpd; then\n    echo \"SNMP daemon running - can receive fire panel traps\"\nfi\n\necho \"\"\necho \"Fire protection monitoring integration:\"\necho \"  - Configure SNMP traps from fire alarm panel\"\necho \"  - Set up syslog forwarding for fire events\"\necho \"  - Integrate with SIEM for correlation\"\necho \"\"\necho \"Physical requirements:\"\necho \"  - VESDA/smoke detection coverage\"\necho \"  - Clean agent or pre-action suppression\"\necho \"  - Emergency Power Off integration\"",
+        "ansible": "---\n# PE-13: Fire Protection\n- name: Configure fire protection monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure SNMP is installed for fire panel integration\n      package:\n        name: net-snmp\n        state: present\n\n    - name: Document fire protection requirements\n      debug:\n        msg: |\n          Configure fire panel SNMP traps.\n          Integrate with SIEM for alerting.\n          Physical: VESDA, clean agent suppression."
+      },
+      "windows": {
+        "powershell": "# PE-13: Fire Protection\n# Fire alarm system integration\n\nWrite-Host \"PE-13: Fire Protection System Check\"\nWrite-Host \"====================================\"\n\n# Check SNMP service for fire panel integration\n$SNMP = Get-Service -Name SNMP -ErrorAction SilentlyContinue\nif ($SNMP) {\n    Write-Host \"SNMP service: $($SNMP.Status)\"\n} else {\n    Write-Host \"Install SNMP for fire panel trap reception\"\n}\n\nWrite-Host \"\"\nWrite-Host \"Fire protection integration:\"\nWrite-Host \"  - Configure fire panel SNMP traps\"\nWrite-Host \"  - Forward events to SIEM\"\nWrite-Host \"  - Link to BMS for automated response\"\nWrite-Host \"\"\nWrite-Host \"Physical requirements:\"\nWrite-Host \"  - Data center: Clean agent (FM-200, Novec)\"\nWrite-Host \"  - VESDA early warning detection\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1725,10 +2015,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ and maintain fire detection and suppression systems for the information system.",
+    "rationale": "Fire protection prevents equipment destruction and data loss while ensuring personnel safety during fire emergencies.",
+    "ai_guidance": "AI-enhanced fire protection includes multi-sensor smoke detection with ML algorithms that reduce false alarms while improving early detection, thermal imaging cameras for hot spot identification in electrical equipment, and predictive maintenance for suppression system components. Implement appropriate suppression systems for data centers: clean agent (FM-200, Novec 1230) for occupied spaces, inert gas (Inergen, Argonite) for unoccupied areas, or pre-action sprinklers with VESDA early warning. Integration with HVAC enables smoke evacuation and air handling unit shutdown. Configure automated EPO integration, cross-zone detection requirements, and abort switches for clean agent systems."
   },
   {
-    "control_id": "pe-13.3",
+    "control_id": "PE-13.3",
     "control_name": "Automatic Fire Suppression",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1748,8 +2041,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-13: Fire Protection\n# Integration with fire alarm monitoring systems\n\necho \"PE-13: Fire Protection System Check\"\necho \"====================================\"\n\n# Check for fire alarm integration services\nif systemctl is-active --quiet snmpd; then\n    echo \"SNMP daemon running - can receive fire panel traps\"\nfi\n\necho \"\"\necho \"Fire protection monitoring integration:\"\necho \"  - Configure SNMP traps from fire alarm panel\"\necho \"  - Set up syslog forwarding for fire events\"\necho \"  - Integrate with SIEM for correlation\"\necho \"\"\necho \"Physical requirements:\"\necho \"  - VESDA/smoke detection coverage\"\necho \"  - Clean agent or pre-action suppression\"\necho \"  - Emergency Power Off integration\"",
+        "ansible": "---\n# PE-13: Fire Protection\n- name: Configure fire protection monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure SNMP is installed for fire panel integration\n      package:\n        name: net-snmp\n        state: present\n\n    - name: Document fire protection requirements\n      debug:\n        msg: |\n          Configure fire panel SNMP traps.\n          Integrate with SIEM for alerting.\n          Physical: VESDA, clean agent suppression."
+      },
+      "windows": {
+        "powershell": "# PE-13: Fire Protection\n# Fire alarm system integration\n\nWrite-Host \"PE-13: Fire Protection System Check\"\nWrite-Host \"====================================\"\n\n# Check SNMP service for fire panel integration\n$SNMP = Get-Service -Name SNMP -ErrorAction SilentlyContinue\nif ($SNMP) {\n    Write-Host \"SNMP service: $($SNMP.Status)\"\n} else {\n    Write-Host \"Install SNMP for fire panel trap reception\"\n}\n\nWrite-Host \"\"\nWrite-Host \"Fire protection integration:\"\nWrite-Host \"  - Configure fire panel SNMP traps\"\nWrite-Host \"  - Forward events to SIEM\"\nWrite-Host \"  - Link to BMS for automated response\"\nWrite-Host \"\"\nWrite-Host \"Physical requirements:\"\nWrite-Host \"  - Data center: Clean agent (FM-200, Novec)\"\nWrite-Host \"  - VESDA early warning detection\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1763,10 +2061,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ and maintain fire detection and suppression systems for the information system.",
+    "rationale": "Fire protection prevents equipment destruction and data loss while ensuring personnel safety during fire emergencies.",
+    "ai_guidance": "AI-enhanced fire protection includes multi-sensor smoke detection with ML algorithms that reduce false alarms while improving early detection, thermal imaging cameras for hot spot identification in electrical equipment, and predictive maintenance for suppression system components. Implement appropriate suppression systems for data centers: clean agent (FM-200, Novec 1230) for occupied spaces, inert gas (Inergen, Argonite) for unoccupied areas, or pre-action sprinklers with VESDA early warning. Integration with HVAC enables smoke evacuation and air handling unit shutdown. Configure automated EPO integration, cross-zone detection requirements, and abort switches for clean agent systems."
   },
   {
-    "control_id": "pe-13.4",
+    "control_id": "PE-13.4",
     "control_name": "Inspections",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1786,8 +2087,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-13: Fire Protection\n# Integration with fire alarm monitoring systems\n\necho \"PE-13: Fire Protection System Check\"\necho \"====================================\"\n\n# Check for fire alarm integration services\nif systemctl is-active --quiet snmpd; then\n    echo \"SNMP daemon running - can receive fire panel traps\"\nfi\n\necho \"\"\necho \"Fire protection monitoring integration:\"\necho \"  - Configure SNMP traps from fire alarm panel\"\necho \"  - Set up syslog forwarding for fire events\"\necho \"  - Integrate with SIEM for correlation\"\necho \"\"\necho \"Physical requirements:\"\necho \"  - VESDA/smoke detection coverage\"\necho \"  - Clean agent or pre-action suppression\"\necho \"  - Emergency Power Off integration\"",
+        "ansible": "---\n# PE-13: Fire Protection\n- name: Configure fire protection monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Ensure SNMP is installed for fire panel integration\n      package:\n        name: net-snmp\n        state: present\n\n    - name: Document fire protection requirements\n      debug:\n        msg: |\n          Configure fire panel SNMP traps.\n          Integrate with SIEM for alerting.\n          Physical: VESDA, clean agent suppression."
+      },
+      "windows": {
+        "powershell": "# PE-13: Fire Protection\n# Fire alarm system integration\n\nWrite-Host \"PE-13: Fire Protection System Check\"\nWrite-Host \"====================================\"\n\n# Check SNMP service for fire panel integration\n$SNMP = Get-Service -Name SNMP -ErrorAction SilentlyContinue\nif ($SNMP) {\n    Write-Host \"SNMP service: $($SNMP.Status)\"\n} else {\n    Write-Host \"Install SNMP for fire panel trap reception\"\n}\n\nWrite-Host \"\"\nWrite-Host \"Fire protection integration:\"\nWrite-Host \"  - Configure fire panel SNMP traps\"\nWrite-Host \"  - Forward events to SIEM\"\nWrite-Host \"  - Link to BMS for automated response\"\nWrite-Host \"\"\nWrite-Host \"Physical requirements:\"\nWrite-Host \"  - Data center: Clean agent (FM-200, Novec)\"\nWrite-Host \"  - VESDA early warning detection\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1801,10 +2107,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ and maintain fire detection and suppression systems for the information system.",
+    "rationale": "Fire protection prevents equipment destruction and data loss while ensuring personnel safety during fire emergencies.",
+    "ai_guidance": "AI-enhanced fire protection includes multi-sensor smoke detection with ML algorithms that reduce false alarms while improving early detection, thermal imaging cameras for hot spot identification in electrical equipment, and predictive maintenance for suppression system components. Implement appropriate suppression systems for data centers: clean agent (FM-200, Novec 1230) for occupied spaces, inert gas (Inergen, Argonite) for unoccupied areas, or pre-action sprinklers with VESDA early warning. Integration with HVAC enables smoke evacuation and air handling unit shutdown. Configure automated EPO integration, cross-zone detection requirements, and abort switches for clean agent systems."
   },
   {
-    "control_id": "pe-14",
+    "control_id": "PE-14",
     "control_name": "Environmental Controls",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1847,10 +2156,13 @@
       "last_analyzed": "2025-11-10T10:14:14.629275+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Maintain temperature and humidity levels within the facility where the information system resides within acceptable limits.",
+    "rationale": "Environmental controls prevent equipment failure from overheating or humidity damage, ensuring system reliability and longevity.",
+    "ai_guidance": "Deploy AI-powered environmental monitoring with ML-based predictive analytics for HVAC failures, automated adjustment of setpoints based on IT load and outside conditions, and digital twin modeling for capacity planning. Implement hot/cold aisle containment with differential pressure monitoring, in-row cooling for high-density racks, and redundant CRAC/CRAH units (N+1 minimum). Target conditions: 64.4-80.6F (18-27C) per ASHRAE A1 guidelines, 20-80% relative humidity. Configure alerting at 5F/10% thresholds before limits, with automated escalation and load shedding procedures. Continuous monitoring with 1-minute granularity enables rapid response to cooling failures."
   },
   {
-    "control_id": "pe-14.1",
+    "control_id": "PE-14.1",
     "control_name": "Automatic Controls",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1870,8 +2182,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-14: Environmental Controls (Temperature/Humidity)\n# Monitor data center environmental conditions\n\necho \"PE-14: Environmental Monitoring Check\"\necho \"=====================================\"\n\n# Check for lm-sensors\nif command -v sensors &> /dev/null; then\n    echo \"=== CPU/System Temperatures ===\"\n    sensors 2>/dev/null || echo \"Run sensors-detect first\"\nfi\n\n# Check for IPMI tools\nif command -v ipmitool &> /dev/null; then\n    echo \"\\n=== IPMI Environmental Sensors ===\"\n    ipmitool sensor list 2>/dev/null | grep -iE 'temp|humid|fan'\nfi\n\necho \"\\nASHRAE A1 Recommended Range:\"\necho \"  Temperature: 64.4-80.6F (18-27C)\"\necho \"  Humidity: 20-80% RH\"\necho \"\"\necho \"Integration: Connect CRAC/CRAH units to BMS for monitoring\"",
+        "ansible": "---\n# PE-14: Environmental Controls\n- name: Configure environmental monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install lm-sensors\n      package:\n        name: lm_sensors\n        state: present\n      ignore_errors: yes\n\n    - name: Install IPMI tools\n      package:\n        name: ipmitool\n        state: present\n      ignore_errors: yes\n\n    - name: Check temperature sensors\n      command: sensors\n      register: temp_sensors\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-14: Environmental Controls\n# Monitor temperature and humidity\n\nWrite-Host \"PE-14: Environmental Monitoring Check\"\nWrite-Host \"=====================================\"\n\n# Get system temperatures via WMI\n$Temps = Get-WmiObject MSAcpi_ThermalZoneTemperature -Namespace \"root/wmi\" -ErrorAction SilentlyContinue\nif ($Temps) {\n    foreach ($T in $Temps) {\n        $Celsius = ($T.CurrentTemperature - 2732) / 10\n        Write-Host \"Temperature Zone: $([math]::Round($Celsius,1))C\"\n    }\n}\n\nWrite-Host \"\"\nWrite-Host \"ASHRAE A1 Recommended Range:\"\nWrite-Host \"  Temperature: 64.4-80.6F (18-27C)\"\nWrite-Host \"  Humidity: 20-80% RH\"\nWrite-Host \"\"\nWrite-Host \"Integration recommendations:\"\nWrite-Host \"  - Connect environmental sensors to BMS\"\nWrite-Host \"  - Configure SNMP traps for threshold alerts\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1885,10 +2202,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Maintain temperature and humidity levels within the facility where the information system resides within acceptable limits.",
+    "rationale": "Environmental controls prevent equipment failure from overheating or humidity damage, ensuring system reliability and longevity.",
+    "ai_guidance": "Deploy AI-powered environmental monitoring with ML-based predictive analytics for HVAC failures, automated adjustment of setpoints based on IT load and outside conditions, and digital twin modeling for capacity planning. Implement hot/cold aisle containment with differential pressure monitoring, in-row cooling for high-density racks, and redundant CRAC/CRAH units (N+1 minimum). Target conditions: 64.4-80.6F (18-27C) per ASHRAE A1 guidelines, 20-80% relative humidity. Configure alerting at 5F/10% thresholds before limits, with automated escalation and load shedding procedures. Continuous monitoring with 1-minute granularity enables rapid response to cooling failures."
   },
   {
-    "control_id": "pe-14.2",
+    "control_id": "PE-14.2",
     "control_name": "Monitoring with Alarms and Notifications",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1908,8 +2228,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-14: Environmental Controls (Temperature/Humidity)\n# Monitor data center environmental conditions\n\necho \"PE-14: Environmental Monitoring Check\"\necho \"=====================================\"\n\n# Check for lm-sensors\nif command -v sensors &> /dev/null; then\n    echo \"=== CPU/System Temperatures ===\"\n    sensors 2>/dev/null || echo \"Run sensors-detect first\"\nfi\n\n# Check for IPMI tools\nif command -v ipmitool &> /dev/null; then\n    echo \"\\n=== IPMI Environmental Sensors ===\"\n    ipmitool sensor list 2>/dev/null | grep -iE 'temp|humid|fan'\nfi\n\necho \"\\nASHRAE A1 Recommended Range:\"\necho \"  Temperature: 64.4-80.6F (18-27C)\"\necho \"  Humidity: 20-80% RH\"\necho \"\"\necho \"Integration: Connect CRAC/CRAH units to BMS for monitoring\"",
+        "ansible": "---\n# PE-14: Environmental Controls\n- name: Configure environmental monitoring\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install lm-sensors\n      package:\n        name: lm_sensors\n        state: present\n      ignore_errors: yes\n\n    - name: Install IPMI tools\n      package:\n        name: ipmitool\n        state: present\n      ignore_errors: yes\n\n    - name: Check temperature sensors\n      command: sensors\n      register: temp_sensors\n      ignore_errors: yes\n      changed_when: false"
+      },
+      "windows": {
+        "powershell": "# PE-14: Environmental Controls\n# Monitor temperature and humidity\n\nWrite-Host \"PE-14: Environmental Monitoring Check\"\nWrite-Host \"=====================================\"\n\n# Get system temperatures via WMI\n$Temps = Get-WmiObject MSAcpi_ThermalZoneTemperature -Namespace \"root/wmi\" -ErrorAction SilentlyContinue\nif ($Temps) {\n    foreach ($T in $Temps) {\n        $Celsius = ($T.CurrentTemperature - 2732) / 10\n        Write-Host \"Temperature Zone: $([math]::Round($Celsius,1))C\"\n    }\n}\n\nWrite-Host \"\"\nWrite-Host \"ASHRAE A1 Recommended Range:\"\nWrite-Host \"  Temperature: 64.4-80.6F (18-27C)\"\nWrite-Host \"  Humidity: 20-80% RH\"\nWrite-Host \"\"\nWrite-Host \"Integration recommendations:\"\nWrite-Host \"  - Connect environmental sensors to BMS\"\nWrite-Host \"  - Configure SNMP traps for threshold alerts\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1923,10 +2248,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Maintain temperature and humidity levels within the facility where the information system resides within acceptable limits.",
+    "rationale": "Environmental controls prevent equipment failure from overheating or humidity damage, ensuring system reliability and longevity.",
+    "ai_guidance": "Deploy AI-powered environmental monitoring with ML-based predictive analytics for HVAC failures, automated adjustment of setpoints based on IT load and outside conditions, and digital twin modeling for capacity planning. Implement hot/cold aisle containment with differential pressure monitoring, in-row cooling for high-density racks, and redundant CRAC/CRAH units (N+1 minimum). Target conditions: 64.4-80.6F (18-27C) per ASHRAE A1 guidelines, 20-80% relative humidity. Configure alerting at 5F/10% thresholds before limits, with automated escalation and load shedding procedures. Continuous monitoring with 1-minute granularity enables rapid response to cooling failures."
   },
   {
-    "control_id": "pe-15",
+    "control_id": "PE-15",
     "control_name": "Water Damage Protection",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1964,10 +2292,13 @@
       "last_analyzed": "2025-11-10T10:14:19.439567+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Protect the information system from damage resulting from water leakage by providing master shutoff valves and detection mechanisms.",
+    "rationale": "Water damage protection prevents costly equipment destruction and service outages from plumbing failures, roof leaks, or flooding.",
+    "ai_guidance": "AI-enhanced water protection includes ML-based leak detection using sensor fusion from cable-based leak detection systems, humidity sensors, and thermal imaging to identify developing problems before major leaks occur. Deploy automatic shutoff valves (ASVs) on water mains entering IT spaces with integration to BMS for automated response. Implement raised floor systems (minimum 18 inches) with under-floor leak detection cables, waterproof barriers between IT spaces and potential water sources, and automated sump pump systems with redundancy. Consider water-free fire suppression to eliminate one water source. Configure alerting hierarchy with immediate notification for IT spaces and periodic summary for adjacent areas."
   },
   {
-    "control_id": "pe-15.1",
+    "control_id": "PE-15.1",
     "control_name": "Automation Support",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -1987,8 +2318,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-15: Water Damage Protection\n# Monitor for water/leak detection systems\n\necho \"PE-15: Water Damage Protection Check\"\necho \"=====================================\"\n\necho \"Physical infrastructure control\"\necho \"\"\necho \"Water detection integration:\"\necho \"  - Connect leak detection sensors to BMS\"\necho \"  - Configure SNMP traps for water alarms\"\necho \"  - Set up automated valve shutoff integration\"\necho \"\"\necho \"Physical requirements:\"\necho \"  - Under-floor leak detection cables\"\necho \"  - Automatic shutoff valves (ASV)\"\necho \"  - Raised floor (18in minimum)\"\necho \"  - Water-free fire suppression recommended\"",
+        "ansible": "---\n# PE-15: Water Damage Protection\n- name: Document water protection requirements\n  hosts: localhost\n  tasks:\n    - name: Water protection compliance note\n      debug:\n        msg: |\n          PE-15 requires physical water detection systems.\n          Integration: BMS/SNMP for sensor monitoring.\n          Physical: Leak detection cables, ASV, raised floors."
+      },
+      "windows": {
+        "powershell": "# PE-15: Water Damage Protection\n# Water/leak detection monitoring\n\nWrite-Host \"PE-15: Water Damage Protection Check\"\nWrite-Host \"=====================================\"\n\nWrite-Host \"Physical infrastructure control\"\nWrite-Host \"\"\nWrite-Host \"Water detection integration:\"\nWrite-Host \"  - Connect sensors to Building Management System\"\nWrite-Host \"  - Configure SNMP traps for leak alarms\"\nWrite-Host \"  - Integrate automatic shutoff valves\"\nWrite-Host \"\"\nWrite-Host \"Physical requirements:\"\nWrite-Host \"  - Under-floor leak detection cables\"\nWrite-Host \"  - Automatic shutoff valves (ASV) on water mains\"\nWrite-Host \"  - Raised floor system (18in minimum)\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2002,10 +2338,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Protect the information system from damage resulting from water leakage by providing master shutoff valves and detection mechanisms.",
+    "rationale": "Water damage protection prevents costly equipment destruction and service outages from plumbing failures, roof leaks, or flooding.",
+    "ai_guidance": "AI-enhanced water protection includes ML-based leak detection using sensor fusion from cable-based leak detection systems, humidity sensors, and thermal imaging to identify developing problems before major leaks occur. Deploy automatic shutoff valves (ASVs) on water mains entering IT spaces with integration to BMS for automated response. Implement raised floor systems (minimum 18 inches) with under-floor leak detection cables, waterproof barriers between IT spaces and potential water sources, and automated sump pump systems with redundancy. Consider water-free fire suppression to eliminate one water source. Configure alerting hierarchy with immediate notification for IT spaces and periodic summary for adjacent areas."
   },
   {
-    "control_id": "pe-16",
+    "control_id": "PE-16",
     "control_name": "Delivery and Removal",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2037,10 +2376,13 @@
       "last_analyzed": "2025-11-10T10:14:22.506399+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Authorize, monitor, and control information system components entering and exiting the facility.",
+    "rationale": "Equipment control prevents unauthorized introduction of compromised hardware and ensures proper tracking of organizational assets.",
+    "ai_guidance": "AI-enhanced asset control includes automated equipment identification using computer vision at loading docks, RFID/barcode tracking integration with asset management systems, and ML-based anomaly detection for unusual equipment movements. Implement formal authorization workflows for all equipment movements, chain-of-custody documentation, and integration with procurement/disposal systems. Configure shipping/receiving areas separate from production spaces, inspection procedures for incoming equipment (visual, weight, tamper seals), and secure staging areas. For classified environments, implement TSCM (Technical Surveillance Countermeasures) scanning of incoming equipment. Maintain detailed logs of all equipment movements with photographic documentation."
   },
   {
-    "control_id": "pe-17",
+    "control_id": "PE-17",
     "control_name": "Alternate Work Site",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2072,10 +2414,13 @@
       "last_analyzed": "2025-11-10T10:14:24.056359+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Apply controls at alternate work sites equivalent to those at the primary facility.",
+    "rationale": "Alternate work site controls ensure consistent security posture when personnel work from home or other remote locations.",
+    "ai_guidance": "AI can enhance alternate work site security through automated VPN posture assessment that verifies endpoint security before allowing connection, ML-based behavioral analytics to detect account compromise from unusual remote access patterns, and intelligent DLP that adjusts sensitivity based on network location. Implement encrypted VPN with MFA for all remote access, endpoint protection requirements (EDR, disk encryption, current patches), and secure home office guidelines. Consider ZTNA (Zero Trust Network Access) architecture that verifies device health and user identity for each resource access. Configure network segmentation between corporate resources and general internet access at remote sites, with logging of all remote access activity for security monitoring."
   },
   {
-    "control_id": "pe-18",
+    "control_id": "PE-18",
     "control_name": "Location of System Components",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2113,10 +2458,13 @@
       "last_analyzed": "2025-11-10T10:14:25.664368+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires manual implementation and verification. Automated scripts not applicable."
-    }
+    },
+    "intent": "Position information system components within the facility to minimize potential damage from physical and environmental hazards.",
+    "rationale": "Strategic component placement reduces risk from natural disasters, accidents, and environmental conditions.",
+    "ai_guidance": "AI-assisted facility planning uses digital twin modeling to optimize equipment placement considering cooling efficiency, cable management, accessibility for maintenance, and hazard avoidance. ML algorithms can analyze historical incident data to identify high-risk locations and recommend mitigation strategies. Position critical systems away from: exterior walls (blast/weather exposure), windows (sunlight/visibility), water sources (pipes, HVAC drains), high-traffic areas (accidental damage), and single points of failure. Implement raised floors for cable management and flood protection, overhead cable trays for accessibility, and sufficient clearance for maintenance access. Consider seismic bracing in earthquake-prone regions and hurricane strapping for coastal facilities."
   },
   {
-    "control_id": "pe-18.1",
+    "control_id": "PE-18.1",
     "control_name": "Facility Site",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2136,8 +2484,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-18: Location of System Components\n# Document and track system component locations\n\necho \"PE-18: System Component Location Check\"\necho \"=======================================\"\n\necho \"Gathering system identification...\"\necho \"\"\necho \"Hostname: $(hostname)\"\necho \"Serial: $(dmidecode -s system-serial-number 2>/dev/null || echo N/A)\"\necho \"UUID: $(cat /sys/class/dmi/id/product_uuid 2>/dev/null || echo N/A)\"\necho \"\"\necho \"Location requirements:\"\necho \"  - Away from exterior walls (blast/weather)\"\necho \"  - Away from windows (sunlight/visibility)\"\necho \"  - Clear of water sources (pipes, drains)\"\necho \"  - Seismic bracing if applicable\"",
+        "ansible": "---\n# PE-18: Location of System Components\n- name: Document system component locations\n  hosts: all\n  tasks:\n    - name: Gather system facts\n      setup:\n        gather_subset:\n          - hardware\n\n    - name: Display system identification\n      debug:\n        msg: |\n          Hostname: {{ ansible_hostname }}\n          Serial: {{ ansible_product_serial }}\n          Document physical location in CMDB."
+      },
+      "windows": {
+        "powershell": "# PE-18: Location of System Components\n# Document system component locations\n\nWrite-Host \"PE-18: System Component Location Check\"\nWrite-Host \"=======================================\"\n\n$System = Get-WmiObject Win32_ComputerSystemProduct\nWrite-Host \"Hostname: $env:COMPUTERNAME\"\nWrite-Host \"Serial: $($System.IdentifyingNumber)\"\nWrite-Host \"UUID: $($System.UUID)\"\nWrite-Host \"\"\nWrite-Host \"Location requirements:\"\nWrite-Host \"  - Document in CMDB with rack/row/cage\"\nWrite-Host \"  - Away from exterior walls and windows\"\nWrite-Host \"  - Clear of water sources\"\nWrite-Host \"  - Ensure adequate cooling clearance\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2151,10 +2504,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Position information system components within the facility to minimize potential damage from physical and environmental hazards.",
+    "rationale": "Strategic component placement reduces risk from natural disasters, accidents, and environmental conditions.",
+    "ai_guidance": "AI-assisted facility planning uses digital twin modeling to optimize equipment placement considering cooling efficiency, cable management, accessibility for maintenance, and hazard avoidance. ML algorithms can analyze historical incident data to identify high-risk locations and recommend mitigation strategies. Position critical systems away from: exterior walls (blast/weather exposure), windows (sunlight/visibility), water sources (pipes, HVAC drains), high-traffic areas (accidental damage), and single points of failure. Implement raised floors for cable management and flood protection, overhead cable trays for accessibility, and sufficient clearance for maintenance access. Consider seismic bracing in earthquake-prone regions and hurricane strapping for coastal facilities."
   },
   {
-    "control_id": "pe-19",
+    "control_id": "PE-19",
     "control_name": "Information Leakage",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2194,10 +2550,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Protect the information system from information leakage due to electromagnetic signals emanations (TEMPEST).",
+    "rationale": "Emanations security prevents adversaries from intercepting sensitive information through electromagnetic surveillance.",
+    "ai_guidance": "For environments requiring TEMPEST protection, AI can assist with emanations security through automated TSCM (Technical Surveillance Countermeasures) analysis using spectrum analyzers and ML pattern recognition to identify anomalous RF signatures, continuous monitoring of electromagnetic environment baseline with alerting on deviations, and optimization of shielding effectiveness using simulation modeling. Implement appropriate countermeasures based on threat level: Zone 0 (uncontrolled areas) requires TEMPEST-certified equipment, controlled zones use shielded facilities (copper mesh, conductive windows), and RED/BLACK separation prevents classified signal leakage. Consider white noise generators, fiber optic cabling (no emanations), and physical separation between systems processing different classification levels."
   },
   {
-    "control_id": "pe-19.1",
+    "control_id": "PE-19.1",
     "control_name": "National Emissions Policies and Procedures",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2217,8 +2576,13 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PE-19: Information Leakage (TEMPEST)\n# Emanations security requirements\n\necho \"PE-19: TEMPEST/Emanations Security Check\"\necho \"=========================================\"\n\necho \"For classified environments requiring TEMPEST protection:\"\necho \"\"\necho \"Technical countermeasures:\"\necho \"  - Use fiber optic cabling (no emanations)\"\necho \"  - TEMPEST-certified equipment for Zone 0\"\necho \"  - Shielded facility construction\"\necho \"  - RED/BLACK signal separation\"\necho \"\"\necho \"Testing requirements:\"\necho \"  - TSCM (Technical Surveillance Countermeasures)\"\necho \"  - RF spectrum analysis baseline\"\necho \"  - MIL-STD-461G emanations testing\"",
+        "ansible": "---\n# PE-19: Information Leakage (TEMPEST)\n- name: Document TEMPEST requirements\n  hosts: localhost\n  tasks:\n    - name: TEMPEST compliance note\n      debug:\n        msg: |\n          PE-19 TEMPEST protection for classified environments.\n          Use fiber optics, shielded facilities, TEMPEST equipment.\n          Conduct TSCM inspections per security classification."
+      },
+      "windows": {
+        "powershell": "# PE-19: Information Leakage (TEMPEST)\n# Emanations security documentation\n\nWrite-Host \"PE-19: TEMPEST/Emanations Security Check\"\nWrite-Host \"=========================================\"\n\nWrite-Host \"For classified environments requiring TEMPEST protection:\"\nWrite-Host \"\"\nWrite-Host \"Technical countermeasures:\"\nWrite-Host \"  - Fiber optic cabling (no emanations)\"\nWrite-Host \"  - TEMPEST-certified equipment\"\nWrite-Host \"  - Shielded facility (Faraday cage)\"\nWrite-Host \"  - RED/BLACK signal separation\"\nWrite-Host \"\"\nWrite-Host \"Testing requirements:\"\nWrite-Host \"  - TSCM inspections\"\nWrite-Host \"  - RF spectrum analysis\"\nWrite-Host \"  - Emanations testing per MIL-STD-461G\""
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2232,10 +2596,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Protect the information system from information leakage due to electromagnetic signals emanations (TEMPEST).",
+    "rationale": "Emanations security prevents adversaries from intercepting sensitive information through electromagnetic surveillance.",
+    "ai_guidance": "For environments requiring TEMPEST protection, AI can assist with emanations security through automated TSCM (Technical Surveillance Countermeasures) analysis using spectrum analyzers and ML pattern recognition to identify anomalous RF signatures, continuous monitoring of electromagnetic environment baseline with alerting on deviations, and optimization of shielding effectiveness using simulation modeling. Implement appropriate countermeasures based on threat level: Zone 0 (uncontrolled areas) requires TEMPEST-certified equipment, controlled zones use shielded facilities (copper mesh, conductive windows), and RED/BLACK separation prevents classified signal leakage. Consider white noise generators, fiber optic cabling (no emanations), and physical separation between systems processing different classification levels."
   },
   {
-    "control_id": "pe-20",
+    "control_id": "PE-20",
     "control_name": "Asset Monitoring and Tracking",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2269,10 +2636,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ automated mechanisms to support the tracking of information system components.",
+    "rationale": "Asset monitoring ensures accountability for equipment, enables rapid response to theft or loss, and supports audit requirements.",
+    "ai_guidance": "AI-powered asset tracking integrates RFID, BLE beacons, and GPS for real-time location tracking with ML-based anomaly detection for unauthorized movements. Implement comprehensive asset management with automated discovery scanning, reconciliation against purchase records, and integration with CMDB (Configuration Management Database). Configure geo-fencing alerts for sensitive equipment leaving authorized areas, automated inventory audits using mobile scanning devices, and chain-of-custody workflows for equipment transfers. Consider tamper-evident seals with NFC verification for high-value assets, and integration with PACS to correlate equipment movements with personnel access. Maintain asset lifecycle tracking from procurement through disposal."
   },
   {
-    "control_id": "pe-21",
+    "control_id": "PE-21",
     "control_name": "Electromagnetic Pulse Protection",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2306,10 +2676,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Employ electromagnetic pulse protection for the information system against damage from nuclear-generated electromagnetic pulse.",
+    "rationale": "EMP protection ensures system survivability and mission continuity following nuclear EMP events in high-threat environments.",
+    "ai_guidance": "EMP protection for critical infrastructure requires specialized engineering analysis and Faraday cage construction. AI can assist with vulnerability assessment using electromagnetic simulation modeling, optimization of shielding design for cost-effectiveness, and continuous monitoring of shielding integrity. Implement graded shielding approach: hardened facilities use welded steel enclosures meeting MIL-STD-188-125, operational equipment in nested shielded enclosures, and non-hardened backup systems in dispersed locations. Consider HEMP (High-altitude EMP) filters on all penetrations, surge protection on power and communications, and fiber optic external communications. Testing using MIL-STD-461G methods validates shielding effectiveness. For less critical systems, consider insurance-based risk transfer rather than hardening."
   },
   {
-    "control_id": "pe-22",
+    "control_id": "PE-22",
     "control_name": "Component Marking",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2343,10 +2716,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Mark information system components indicating the impact level or classification level of the information permitted to be processed or stored.",
+    "rationale": "Component marking ensures personnel handle equipment appropriately based on the sensitivity of information it may contain.",
+    "ai_guidance": "AI can enhance component marking programs through automated label generation based on system classification in asset management, computer vision inspection systems that verify marking presence and accuracy, and integration with DLP to enforce handling requirements based on component classification. Implement standardized marking formats per organizational policy (typically colored labels or tags indicating classification/impact level), tamper-evident labels that indicate if removed/replaced, and marking verification as part of routine security inspections. For classified environments, follow IC/DoD marking standards. Maintain marking accuracy through automated reconciliation with authoritative data sources and periodic physical audits. Consider RFID labels that encode classification information for automated verification."
   },
   {
-    "control_id": "pe-23",
+    "control_id": "PE-23",
     "control_name": "Facility Location",
     "family": "Physical and Environmental Protection",
     "family_id": "pe",
@@ -2380,6 +2756,9 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "intent": "Select and design the facility location to reduce the susceptibility of threats such as natural disasters and hostile attacks.",
+    "rationale": "Strategic facility location minimizes exposure to environmental hazards and security threats, improving overall system survivability.",
+    "ai_guidance": "AI-driven site selection uses ML analysis of historical threat data (natural disasters, crime statistics, infrastructure reliability) combined with geospatial modeling to optimize facility location. Consider: flood zone mapping (avoid 100/500-year floodplains), seismic hazard assessment, wildfire risk evaluation, proximity to hazardous facilities (chemical plants, airports), crime statistics and civil unrest patterns, infrastructure reliability (power grid, telecommunications), and response time for emergency services. Implement threat intelligence integration for ongoing risk monitoring and scenario-based planning tools for business continuity. For distributed organizations, consider geographic diversity to avoid correlated failures and proximity to disaster recovery sites for failover operations."
   }
 ]

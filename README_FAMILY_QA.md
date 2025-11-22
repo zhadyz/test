@@ -41,6 +41,55 @@ The CA (Security Assessment and Authorization) family is complete.
 ### AT Family Complete (15 controls)
 The AT (Awareness and Training) family is complete.
 
+### CP Family Complete (56 controls)
+The CP (Contingency Planning) family is complete with:
+- 56 total controls (13 base + 43 enhancements)
+- 38 technical controls with implementation scripts
+- 20 STIG ID mappings at top-level
+- 100% UPPERCASE control_id format
+- Key controls: CP-7 (Alternate Processing Site), CP-9 (System Backup), CP-10 (Recovery/Reconstitution)
+- Scripts in standard format (bash, powershell, ansible)
+
+### IR Family Complete (42 controls)
+The IR (Incident Response) family is complete with:
+- 42 total controls (10 base + 32 enhancements)
+- 16 technical controls with implementation scripts (Bash, PowerShell, Ansible)
+- 2 STIG ID mappings (most IR controls are organizational/procedural)
+- 100% AI guidance coverage (all 42 controls have 500+ char guidance)
+- 100% UPPERCASE control_id format
+- Key controls: IR-4 (Incident Handling), IR-5 (Incident Monitoring), IR-6 (Incident Reporting)
+- Scripts for: SIEM integration, log correlation, automated alerting, malware analysis, SOC operations
+- See: `IR_FAMILY_QA_REPORT.md`
+
+### MP Family Complete (30 controls)
+The MP (Media Protection) family is complete with:
+- 30 total controls (8 base + 22 enhancements)
+- 17 controls with implementation scripts (Bash, PowerShell, Ansible)
+- 4 STIG ID mappings from RHEL 8 STIG:
+  - MP-4.1: RHEL-08-010030 (LUKS encryption)
+  - MP-4.2: RHEL-08-030603 (Audit logging for media)
+  - MP-5.4: RHEL-08-010030 (Transport encryption)
+  - MP-7: RHEL-08-040080, RHEL-08-040139, RHEL-08-040141 (USB/media use restrictions)
+- 10 withdrawn controls properly documented (NIST Rev 5 compliance)
+- 100% UPPERCASE control_id format
+- 100% AI guidance coverage (500+ chars for all controls)
+- Key controls: MP-6 (Media Sanitization), MP-7 (Media Use), MP-6.8 (Remote Wipe)
+- Scripts for: USB device policies, disk encryption, media sanitization (shred/wipe), remote wipe, dual authorization
+
+### PE Family Complete (59 controls)
+The PE (Physical and Environmental Protection) family is complete with:
+- 59 total controls (23 base + 36 enhancements)
+- 36 technical controls with implementation scripts (Bash, PowerShell, Ansible)
+- 22 STIG ID mappings from Traditional Security Checklist:
+  - PE-2: 11 STIGs (V-245795 through V-245865) for physical access authorization
+  - PE-3: 7 STIGs (V-245807, V-245808, V-245809, V-245867-870) for access control
+  - PE-6: 4 STIGs for physical access monitoring
+  - PE-8: 2 STIGs for visitor access records
+- 100% UPPERCASE control_id format
+- 100% coverage with intent, rationale, ai_guidance (all 59 controls)
+- Key controls: PE-3 (Physical Access Control), PE-6 (Monitoring Physical Access), PE-11 (Emergency Power)
+- Scripts for: access control auditing, badge reader monitoring, environmental monitoring, power management
+
 ## 📋 For Next Family QA
 
 **Use this checklist:** `FAMILY_QA_STREAMLINED_CHECKLIST.md`
@@ -54,21 +103,17 @@ This checklist is production-ready and covers:
 - ✅ Commit process
 - ✅ Troubleshooting guide
 
-## 🎯 Priority Order (13 Remaining)
+## 🎯 Priority Order (9 Remaining)
 
 1. **SI** (System & Information Integrity) - 119 controls
 2. **SC** (System & Communications Protection) - 162 controls
-3. **PE** (Physical & Environmental Protection) - 59 controls
-4. **PS** (Personnel Security) - ~20 controls
-5. **PL** (Planning) - ~20 controls
-6. **MA** (Maintenance) - ~25 controls
-7. **MP** (Media Protection) - ~30 controls
-8. **CP** (Contingency Planning) - ~40 controls
-9. **IR** (Incident Response) - ~30 controls
-10. **RA** (Risk Assessment) - ~15 controls
-11. **SA** (System and Services Acquisition) - ~70 controls
-12. **PM** (Program Management) - ~30 controls
-13. **SR** (Supply Chain Risk Management) - ~15 controls
+3. **PS** (Personnel Security) - ~20 controls
+4. **PL** (Planning) - ~20 controls
+5. **MA** (Maintenance) - ~25 controls
+6. **RA** (Risk Assessment) - ~15 controls
+7. **SA** (System and Services Acquisition) - ~70 controls
+8. **PM** (Program Management) - ~30 controls
+9. **SR** (Supply Chain Risk Management) - ~15 controls
 
 ## 📚 Documentation
 
@@ -120,6 +165,16 @@ with open('file.json', 'r', encoding='utf-8') as f:
 - Reduces orchestration overhead
 - Agents can handle related controls together
 - 4 parallel agents for 66 controls = efficient
+
+### Issue #7: Script Key Format (CP Lesson)
+**Problem:** Agents may create scripts with descriptive keys (`site_readiness_check`, `failover_automation`) instead of standard keys.
+**Solution:** Frontend expects standard keys: `linux.bash`, `linux.ansible`, `windows.powershell`, `windows.ansible`
+**Fix Script:** Create a post-merge script to normalize keys:
+```python
+# Consolidate all linux scripts under 'bash' key
+# Consolidate all windows scripts under 'powershell' key
+```
+**Note:** Always verify script format matches working families (e.g., AC-2.4) before considering QA complete.
 
 ---
 
