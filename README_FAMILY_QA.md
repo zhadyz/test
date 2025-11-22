@@ -144,6 +144,24 @@ The SI (System and Information Integrity) family is complete with:
 - Key controls: SI-2 (Flaw Remediation), SI-3 (Malicious Code Protection), SI-4 (System Monitoring), SI-7 (Software Integrity), SI-16 (Memory Protection)
 - Scripts for: patch management (yum/dnf/apt, WSUS), ClamAV/Windows Defender, auditd/SIEM, AIDE/Tripwire, ASLR/DEP
 
+### PT Family Complete (21 controls)
+The PT (PII Processing and Transparency) family is complete with:
+- 21 total controls (8 base + 13 enhancements)
+- 9 technical controls with implementation scripts (Bash, PowerShell, Ansible):
+  - PT-2: Authority to Process (PII inventory scripts)
+  - PT-3: Purposes (consent management)
+  - PT-4: Consent (preference center automation)
+  - PT-5: Privacy Notice (notice deployment scripts)
+  - PT-6: System of Records Notice (SORN compliance)
+  - PT-7.1: Social Security Numbers (SSN masking/protection)
+  - PT-7.2: First Amendment Information (content classification)
+  - PT-8: Computer Matching Requirements (data matching validation)
+- No STIG mappings (privacy controls are organizational/policy-based)
+- 100% UPPERCASE control_id format
+- 100% AI guidance coverage (1000+ chars for all controls)
+- Key controls: PT-2 (Authority to Process), PT-4 (Consent), PT-7.1 (SSN Protection)
+- Scripts for: PII discovery, consent tracking, privacy notice deployment, SSN masking, data matching validation
+
 ## 📋 For Next Family QA
 
 **Use this checklist:** `FAMILY_QA_STREAMLINED_CHECKLIST.md`
@@ -226,6 +244,32 @@ with open('file.json', 'r', encoding='utf-8') as f:
 # Consolidate all windows scripts under 'powershell' key
 ```
 **Note:** Always verify script format matches working families (e.g., AC-2.4) before considering QA complete.
+
+### Issue #8: Agent Output Token Limits (SI Lesson)
+**Problem:** Agents hit Claude's 32k output token limit when generating large JSON outputs.
+**Symptoms:** `API Error: Claude's response exceeded the 32000 output token maximum`
+**Root Cause:** Large families like SI-4 have 25+ enhancements. Each control needs ~500-1000 tokens of JSON (scripts, guidance, metadata). A single agent trying to output SI-4 + all enhancements = 26,000+ tokens.
+
+**Solution:** For large families (50+ controls), use a **local Python enhancement script** instead of spawning agents:
+```python
+# enhance_{family}_controls.py
+# 1. Define control metadata, STIG mappings, scripts in code
+# 2. Generate JSON programmatically
+# 3. Write directly to {FAMILY}.json
+```
+
+**Benefits:**
+- No token limits on local file writes
+- Scripts are version-controlled
+- Repeatable and debuggable
+- Faster than waiting for agents to fail
+
+**Threshold:**
+- <50 controls: Agents work fine
+- 50-100 controls: Consider Python script
+- >100 controls (SI, SC, SA): **Always use Python script**
+
+**Reference:** See `enhance_si_controls.py` for template.
 
 ---
 
