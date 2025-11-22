@@ -104,6 +104,32 @@ The PL (Planning) family is complete with:
 - Scripts for: policy documentation, baseline selection, tailoring registers, defense-in-depth verification
 - See: `PL_FAMILY_QA_REPORT.md`
 
+### PM Family Complete (37 controls)
+The PM (Program Management) family is complete with:
+- 37 total controls (32 base + 5 enhancements)
+- 5 technical controls with implementation scripts (Bash, PowerShell, Ansible):
+  - PM-5.1: Inventory of Personally Identifiable Information (PII discovery scripts)
+  - PM-7.1: Offloading (architecture verification)
+  - PM-16.1: Automated Means for Sharing Threat Intelligence (STIX/TAXII integration)
+  - PM-20.1: Privacy Policies on Websites, Applications, and Digital Services
+  - PM-30.1: Suppliers of Critical or Mission-essential Items (SBOM analysis)
+- No STIG mappings (PM controls are organizational/programmatic)
+- 100% UPPERCASE control_id format
+- 100% coverage with intent, rationale, ai_guidance (all 37 controls)
+- Key controls: PM-1 (Security Program Plan), PM-9 (Risk Management Strategy), PM-12 (Insider Threat Program)
+- Scripts for: PII discovery, threat intelligence automation, privacy policy deployment, supplier risk assessment
+
+### PS Family Complete (18 controls)
+The PS (Personnel Security) family is complete with:
+- 18 total controls (9 base + 9 enhancements)
+- 12 controls with implementation scripts (Bash, PowerShell, Ansible)
+- 1 STIG ID mapping: PS-4.2 (SRG-OS-000002-GPOS-00002) - Automated Actions
+- 100% UPPERCASE control_id format
+- 100% AI guidance coverage (1300-1900 chars per control)
+- Key controls: PS-4 (Personnel Termination), PS-4.2 (Automated Termination Actions), PS-7 (External Personnel)
+- Technical control PS-4.2 with comprehensive AD/Linux account termination scripts
+- Scripts for: HR feed integration, account deprovisioning, contractor auditing, sanction tracking, position risk assessment
+
 ## 📋 For Next Family QA
 
 **Use this checklist:** `FAMILY_QA_STREAMLINED_CHECKLIST.md`
@@ -117,17 +143,15 @@ This checklist is production-ready and covers:
 - ✅ Commit process
 - ✅ Troubleshooting guide
 
-## 🎯 Priority Order (9 Remaining)
+## 🎯 Priority Order (7 Remaining)
 
 1. **SI** (System & Information Integrity) - 119 controls
 2. **SC** (System & Communications Protection) - 162 controls
-3. **PS** (Personnel Security) - ~20 controls
-4. **PL** (Planning) - ~20 controls
-5. **MA** (Maintenance) - ~25 controls
-6. **RA** (Risk Assessment) - ~15 controls
-7. **SA** (System and Services Acquisition) - ~70 controls
-8. **PM** (Program Management) - ~30 controls
-9. **SR** (Supply Chain Risk Management) - ~15 controls
+3. **MA** (Maintenance) - ~25 controls
+4. **RA** (Risk Assessment) - ~15 controls
+5. **SA** (System and Services Acquisition) - ~70 controls
+6. **SR** (Supply Chain Risk Management) - ~15 controls
+7. **PT** (Personally Identifiable Information Processing and Transparency) - ~10 controls
 
 ## 📚 Documentation
 
