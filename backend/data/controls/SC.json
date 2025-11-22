@@ -7717,7 +7717,8 @@
       "status": "implemented",
       "last_updated": "2025-11-22T00:00:00.000000Z",
       "has_scripts": true
-    }
+    },
+    "stig_id": "RHEL-08-030740, RHEL-08-030741"
   },
   {
     "control_id": "SC-45.1",
@@ -7766,7 +7767,8 @@
       "status": "implemented",
       "last_updated": "2025-11-22T00:00:00.000000Z",
       "has_scripts": true
-    }
+    },
+    "stig_id": "RHEL-08-030740"
   },
   {
     "control_id": "SC-45.2",
