@@ -41,7 +41,7 @@
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
     },
     "rationale": "Access control policy and procedures address the controls in the AC family that are implemented within systems and organizations. The risk management strategy is an important factor in establishing such policies and procedures. Policies and procedures contribute to security and privacy assurance. Therefore, it is important that security and privacy programs collaborate on the development of access control policy and procedures. Security and privacy program policies and procedures at the organization level are preferable, in general, and may obviate the need for mission- or system-specific policies and procedures. The policy can be included as part of the general security and privacy policy or be represented by multiple policies reflecting the complex nature of organizations.\n\nProcedures can be established for security and privacy programs, for mission or business processes, and for systems, if needed. Procedures describe how the policies or controls are implemented and can be directed at the individual or role that is the object of the procedure. Procedures can be documented in system security and privacy plans or in one or more separate documents. Events that may precipitate an update to access control policy and procedures include assessment or audit findings, security incidents or breaches, or changes in laws, executive orders, directives, regulations, policies, standards, and guidelines. Simply restating controls does not constitute an organizational policy or procedure.",
-    "ai_guidance": "Create a policy document that says who can access what, and update it whenever rules change.",
+    "ai_guidance": "AC-1 requires establishing and maintaining access control policies and procedures. Document policies for account management, access enforcement, information flow, separation of duties, least privilege, session controls, and remote/wireless access. Review annually and update based on security incidents. Ensure all personnel understand their access control responsibilities.",
     "stig_id": "GEN000001"
   },
   {
@@ -408,7 +408,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Provides accountability for account changes. Automatically audit account creation, modification, enabling, disabling, and removal actions.",
-    "ai_guidance": "Configure the system to automatically log whenever an account is created, changed, or deleted.",
+    "ai_guidance": "AC-2.4 requires automated audit actions for account creation, modification, disabling, and removal. Configure SIEM to alert on account lifecycle events. Use scripts to generate compliance reports on account activities. Log all privileged account actions with timestamps and responsible parties.",
     "stig_id": "RHEL-08-030360"
   },
   {
@@ -457,7 +457,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Prevents unauthorized access to unattended sessions. Require that users log out when a defined time period of expected inactivity is reached.",
-    "ai_guidance": "Force users to log out if they walk away from their computer for 15 minutes.",
+    "ai_guidance": "AC-2.5 requires automatic logout after organization-defined period of inactivity. Configure screen locks (15 minutes typical), session timeouts, and idle disconnection. Implement via Group Policy on Windows, PAM on Linux. Shorter timeouts for privileged and remote sessions.",
     "stig_id": "RHEL-08-020014"
   },
   {
@@ -502,7 +502,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Privilege management must be dynamic to adapt to changing roles and environments.",
-    "ai_guidance": "Give users permissions only when they need them, and take them away when they're done.",
+    "ai_guidance": "AC-2.6 Dynamic Privilege Management requires automatically adjusting user privileges based on defined conditions. Implement just-in-time (JIT) privileged access using PAM solutions. Elevate privileges only when needed and for limited duration. Log all privilege escalations.",
     "stig_id": "GEN000000-GEN00"
   },
   {
@@ -547,7 +547,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Privileged accounts are high-value targets and require strict role-based or attribute-based controls.",
-    "ai_guidance": "Watch 'superuser' (admin) accounts closely. They have the keys to the kingdom.",
+    "ai_guidance": "AC-2.7 requires establishing privileged user accounts as separate role-based accounts. Admins should have separate accounts for privileged and non-privileged activities. Implement privileged access workstations (PAWs). Monitor and audit all privileged account usage.",
     "stig_id": "RHEL-08-010370"
   },
   {
@@ -592,7 +592,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Dynamic account management allows for just-in-time access, reducing the window of exposure.",
-    "ai_guidance": "Turn on accounts only when needed, then turn them off. Don't leave them 'always on'.",
+    "ai_guidance": "AC-2.8 requires dynamic account management based on risk factors. Automatically disable accounts showing anomalous behavior. Integrate with UEBA solutions. Adjust access based on device posture, location, and time of access.",
     "stig_id": "GEN000000-GEN00"
   },
   {
@@ -637,7 +637,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Shared accounts eliminate individual accountability and should be strictly limited.",
-    "ai_guidance": "Avoid sharing accounts (like 'admin' or 'root'). Everyone should have their own login.",
+    "ai_guidance": "AC-2.9 restricts shared and group account usage to specific circumstances. Document justification for each shared account. Implement password vaulting for shared credentials. Maintain accountability through individual authentication before accessing shared accounts.",
     "stig_id": "RHEL-08-020015"
   },
   {
@@ -727,7 +727,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Usage conditions (e.g., time of day, location) add a layer of defense beyond simple authentication.",
-    "ai_guidance": "Restrict logins to specific times (9-5) or locations (office only) if possible.",
+    "ai_guidance": "AC-2.11 requires enforcing usage conditions for information system accounts. Define acceptable use based on time, location, device, and network. Implement conditional access policies. Alert on policy violations and maintain audit logs.",
     "stig_id": "RHEL-08-020017"
   },
   {
@@ -772,7 +772,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Atypical usage patterns often indicate compromise. Monitoring provides early detection.",
-    "ai_guidance": "Set up alerts for weird behavior, like a user logging in at 3 AM from another country.",
+    "ai_guidance": "AC-2.12 requires monitoring accounts for atypical usage. Implement User and Entity Behavior Analytics (UEBA). Establish baselines for normal activity patterns. Alert on deviations such as unusual login times, locations, or data access patterns.",
     "stig_id": "RHEL-08-020018"
   },
   {
@@ -1004,7 +1004,7 @@
       "rule_count": 2,
       "certification": "Government-certified"
     },
-    "ai_guidance": "Ensure the computer actually stops people from accessing files they shouldn't see.",
+    "ai_guidance": "AC-3 Access Enforcement requires enforcing approved authorizations for logical access. Implement role-based access control (RBAC), mandatory access control (MAC), or attribute-based access control (ABAC). Configure file system permissions, application access controls, and network segmentation. Deny by default.",
     "stig_id": "RHEL-08-010300"
   },
   {
@@ -1025,7 +1025,8 @@
         "status": "documented",
         "implementation_guidance": "Manual implementation using PAM and sudo configuration"
       }
-    }
+    },
+    "ai_guidance": "AC-3.1 Restricted Access to Privileged Functions requires limiting access to security-relevant functions. Implement least privilege for administrative actions. Use sudo with logging on Linux, separate admin accounts on Windows. Restrict access to security configuration, audit logs, and system utilities."
   },
   {
     "control_id": "AC-3.2",
@@ -1040,7 +1041,8 @@
       "plain_english_explanation": "Require two authorized people to approve critical actions (like two keys to launch nuclear missiles). For example, deploying to production or deleting critical data requires approval from two different administrators.",
       "example_implementation": "Configure sudo to require dual authorization for critical commands using sudoredit with approval workflow. Implement GPG dual-signing for sensitive configuration changes. Use approval gates in CI/CD pipelines requiring two reviewers for production deployments.",
       "non_technical_guidance": "To implement dual authorization:\n1. Identify privileged commands requiring dual authorization (system shutdown, data deletion, financial transactions)\n2. Implement technical approval workflows (sudo with approval plugins, GPG multi-signature)\n3. Document dual authorization procedures and train personnel\n4. Configure audit logging to capture both authorizers' identities\n5. Establish exception processes for emergencies with compensating controls\n6. Regularly review dual authorization logs and refine policies"
-    }
+    },
+    "ai_guidance": "AC-3.2 Dual Authorization requires two authorized individuals to execute critical functions. Implement separation of duties for sensitive operations. Use multi-person authorization workflows. Log all dual-authorization actions."
   },
   {
     "control_id": "AC-3.3",
@@ -1116,7 +1118,8 @@
         "cac_status": "available",
         "implementation_guidance": "CAC provides file_permissions template for automated DAC enforcement. Found 15+ file permission rules with AC-3 references."
       }
-    }
+    },
+    "ai_guidance": "AC-3.4 Discretionary Access Control requires confining user access based on identity and access control lists. Implement DAC through file system permissions (NTFS, ext4 ACLs). Enable users to transfer permissions on their objects. Maintain ownership and permission inheritance."
   },
   {
     "control_id": "AC-3.5",
@@ -1131,7 +1134,8 @@
       "plain_english_explanation": "Protect security labels and classifications from modification except when the system is in a secure maintenance mode (like single-user mode). Prevent users from changing SELinux labels or file classifications during normal operation.",
       "example_implementation": "Use immutable flags (chattr +i) on security attribute files. Restrict SELinux context changes to authorized administrators. Require single-user mode for modifying security label databases. Implement file integrity monitoring to detect unauthorized attribute changes.",
       "non_technical_guidance": "To protect security-relevant attributes:\n1. Identify files containing security attributes (SELinux contexts, classification labels)\n2. Set immutable flags to prevent modification during normal operation\n3. Require system downtime (single-user mode) for authorized attribute changes\n4. Implement integrity monitoring for attribute files\n5. Audit all attempts to modify security attributes\n6. Document procedures for authorized attribute modification\n7. Train administrators on secure attribute management"
-    }
+    },
+    "ai_guidance": "AC-3.5 Security-Relevant Information requires restricting access to security-relevant data. Protect audit logs, security configurations, and vulnerability data. Implement need-to-know access. Use encryption for sensitive security information at rest and in transit."
   },
   {
     "control_id": "AC-3.6",
@@ -1146,7 +1150,8 @@
       "plain_english_explanation": "Encrypt data at rest (disk encryption with LUKS) and in transit (TLS/SSH). This adds defense-in-depth so even if access controls fail, stolen data remains unreadable.",
       "example_implementation": "Enable LUKS full-disk encryption at installation. Configure mandatory TLS for web services. Use SSH key-based authentication with encrypted home directories. Implement SELinux or AppArmor for process isolation.",
       "non_technical_guidance": "To protect user and system information:\n1. Enable full-disk encryption using LUKS during OS installation\n2. Configure encrypted home directories for user data\n3. Mandate TLS 1.2+ for all network services\n4. Use SSH with key-based authentication, disable passwords\n5. Implement file integrity monitoring for critical system files\n6. Configure automated encrypted backups\n7. Deploy process isolation using MAC (SELinux/AppArmor)\n8. Regularly test encryption key recovery procedures"
-    }
+    },
+    "ai_guidance": "AC-3.6 Protection of User and System Information requires attribute-based access control. Implement security labels and clearances. Enforce access based on user attributes (role, clearance) and data attributes (classification, handling caveats)."
   },
   {
     "control_id": "AC-3.7",
@@ -1177,7 +1182,8 @@
         "cac_status": "available",
         "implementation_guidance": "SELinux provides RBAC via user-to-role mappings. CAC has selinux_confine_to_least_privilege rule with AC-3(4) and AC-6(10) references."
       }
-    }
+    },
+    "ai_guidance": "AC-3.7 Role-based Access Control requires access based on organizational roles. Define roles aligned with job functions. Assign permissions to roles, not individuals. Implement role hierarchies. Review role assignments regularly."
   },
   {
     "control_id": "AC-3.8",
@@ -1192,7 +1198,8 @@
       "plain_english_explanation": "Immediately revoke access when security attributes change. For example, if an employee moves from 'Finance' to 'Marketing' role, their access to financial systems must be revoked immediately (or within defined timeframe like 1 hour), not wait until next account review.",
       "example_implementation": "Implement automated access revocation using PAM session limits and sudo timestamp invalidation. Configure LDAP/IdM to push immediate role changes. Use kill-user-processes scripts to terminate active sessions when roles change. Deploy real-time access control list updates.",
       "non_technical_guidance": "To enforce timely access revocation:\n1. Define revocation timeframes for different security attribute changes (role change: immediate, clearance downgrade: 15 minutes)\n2. Implement automated revocation workflows triggered by HR system changes\n3. Configure session timeout policies aligned with revocation requirements\n4. Deploy tools to terminate active sessions when authorization changes\n5. Audit revocation timing to ensure compliance with policies\n6. Document exceptions requiring manual intervention\n7. Test revocation automation regularly with simulated role changes"
-    }
+    },
+    "ai_guidance": "AC-3.8 Revocation of Access Authorizations requires timely removal of access when no longer needed. Implement automated deprovisioning tied to HR systems. Revoke access immediately upon termination. Review and recertify access periodically."
   },
   {
     "control_id": "AC-3.9",
@@ -1207,7 +1214,8 @@
       "plain_english_explanation": "Before sending sensitive data to another system, verify that system has adequate security controls. Don't send classified data to an unclassified system. Ensure data labels and protections travel with the data.",
       "example_implementation": "Implement pre-transmission security validation checks. Use secure file transfer protocols (SFTP, SCP) with certificate validation. Embed security labels in transmitted data (XML security tokens, HTTP headers). Maintain cross-domain solution (CDS) gateways for classified-to-unclassified transfers.",
       "non_technical_guidance": "To implement controlled release:\n1. Classify information assets by sensitivity level\n2. Document security requirements for each sensitivity level\n3. Maintain registry of external systems with their security capabilities\n4. Implement automated validation before external data transmission\n5. Embed security labels that persist with transmitted data\n6. Log all external data releases with justification\n7. Regularly audit external system security postures\n8. Establish data sharing agreements with security requirements"
-    }
+    },
+    "ai_guidance": "AC-3.9 Controlled Release requires protection when releasing information outside the system. Implement data loss prevention (DLP). Apply encryption and rights management. Log all external data transfers. Require approval for sensitive data release."
   },
   {
     "control_id": "AC-3.10",
@@ -1222,7 +1230,8 @@
       "plain_english_explanation": "Provide 'break glass' emergency access that logs everything. For example, if the DBA is on vacation and a critical database issue occurs, an on-call engineer can override access controls but every action is heavily audited and reviewed.",
       "example_implementation": "Implement sudo break-glass accounts with comprehensive session recording using script or screen. Configure auditd to log all commands executed by emergency accounts. Deploy automated alerting when break-glass access is used. Require post-incident review of all override actions.",
       "non_technical_guidance": "To implement audited override:\n1. Identify scenarios requiring emergency access override\n2. Create break-glass accounts with elevated but audited privileges\n3. Configure comprehensive logging of all override actions\n4. Implement real-time alerting when override is invoked\n5. Require mandatory post-incident review of override usage\n6. Document override procedures and authorized personnel\n7. Test override mechanisms regularly\n8. Investigate any unexpected override invocations"
-    }
+    },
+    "ai_guidance": "AC-3.10 Audited Override of Access Control Mechanisms requires logging when access controls are bypassed. Implement break-glass procedures with full audit trails. Alert security team on override usage. Review overrides for legitimacy."
   },
   {
     "control_id": "AC-3.11",
@@ -1237,7 +1246,8 @@
       "plain_english_explanation": "Restrict access to repositories containing sensitive data types (like PII databases) to specific users/processes with defined access modes (e.g., read-only for analysts, read-write for DBAs). Most users get no access at all.",
       "example_implementation": "Use database role-based permissions to grant read-only access to sensitive tables. Mount filesystems containing PII as read-only for non-privileged processes. Implement SELinux type enforcement to restrict process access to sensitive directories. Deploy data classification tools to auto-restrict based on content.",
       "non_technical_guidance": "To restrict access to specific information types:\n1. Classify data repositories by information type (PII, financial, classified)\n2. Define access requirements for each information type\n3. Implement technical restrictions (database roles, file permissions, SELinux types)\n4. Grant minimum necessary access (read-only where possible)\n5. Regularly audit access to sensitive repositories\n6. Implement data discovery tools to identify uncontrolled sensitive data\n7. Document information type access matrix\n8. Review and update access lists quarterly"
-    }
+    },
+    "ai_guidance": "AC-3.11 Restrict Access to Specific Information Types requires access control based on data classification. Define data types requiring special protection (PII, PHI, financial). Implement classification-based access policies. Tag and label sensitive data."
   },
   {
     "control_id": "AC-3.12",
@@ -1252,7 +1262,8 @@
       "plain_english_explanation": "Applications must declare upfront what permissions they need during installation (like Android app permissions). This prevents 'permission creep' where apps gradually gain more access over time without review.",
       "example_implementation": "Use AppArmor or SELinux profiles that applications must declare during installation. Implement package metadata requiring permission declarations (RPM capabilities, Debian dependencies). Deploy application control solutions that enforce declared permission boundaries.",
       "non_technical_guidance": "To enforce application access assertion:\n1. Require all applications to declare needed permissions before installation\n2. Review permission requests against application function\n3. Deny installation if permissions are excessive or unexplained\n4. Implement mandatory access control (MAC) to enforce declared permissions\n5. Audit applications for unauthorized permission escalation\n6. Document approved permission sets for application types\n7. Regularly review installed application permissions\n8. Investigate applications attempting undeclared access"
-    }
+    },
+    "ai_guidance": "AC-3.12 Assert and Enforce Application Access requires applications to assert user identity. Implement identity propagation through application tiers. Enforce access at each layer. Use service accounts with least privilege."
   },
   {
     "control_id": "AC-3.13",
@@ -1276,7 +1287,8 @@
           "NIST SP 1800-3"
         ]
       }
-    }
+    },
+    "ai_guidance": "AC-3.13 Attribute-based Access Control requires access decisions based on user and resource attributes. Implement ABAC policies using XACML or similar. Consider attributes like clearance, role, time, location, and resource sensitivity."
   },
   {
     "control_id": "AC-3.14",
@@ -1291,7 +1303,8 @@
       "plain_english_explanation": "Allow individuals to access their own personally identifiable information (PII) stored in your systems, similar to GDPR 'right of access'. For example, employees can view their HR records, customers can download their account data, patients can access their medical records.",
       "example_implementation": "Implement self-service portals for PII access. Deploy identity verification (multi-factor authentication) before granting PII access. Create data export functionality allowing individuals to download their data. Log all PII access by data subjects. Respond to PII access requests within defined timeframes (30 days).",
       "non_technical_guidance": "To provide individual PII access:\n1. Identify all PII data elements stored about individuals\n2. Determine which elements individuals should access (exclude security/fraud data)\n3. Deploy authenticated self-service portal for PII access\n4. Implement strong identity verification before granting access\n5. Create data export functionality in machine-readable format\n6. Establish process for manual access requests if portal unavailable\n7. Log all individual PII access events\n8. Respond to access requests within 30 days\n9. Train staff on PII access request procedures"
-    }
+    },
+    "ai_guidance": "AC-3.14 Individual Access requires access traceable to individual users. Prohibit anonymous access to protected resources. Implement strong authentication. Maintain audit trails linking actions to individuals."
   },
   {
     "control_id": "AC-3.15",
@@ -1306,7 +1319,8 @@
       "plain_english_explanation": "Use both MAC and DAC together for defense-in-depth. SELinux (MAC) provides system-enforced security that users can't override, while Unix permissions (DAC) allow owners to manage access to their files. MAC always takes precedence.",
       "example_implementation": "Deploy SELinux in enforcing mode (MAC) alongside standard Unix file permissions (DAC). Configure SELinux policies to restrict process access regardless of file ownership. Maintain proper file permissions for owner-level access control. MAC policies override DAC when they conflict.",
       "non_technical_guidance": "To implement combined MAC and DAC:\n1. Enable SELinux or AppArmor (MAC) in enforcing mode\n2. Maintain standard Unix file permissions (DAC) for user-level access control\n3. Configure MAC policies for system-level security boundaries\n4. Train users that MAC policies override their file permissions when more restrictive\n5. Use DAC for collaboration and data sharing within security domains\n6. Use MAC to enforce security domain boundaries that users cannot violate\n7. Monitor both MAC and DAC audit logs\n8. Document the relationship and precedence between MAC and DAC policies"
-    }
+    },
+    "ai_guidance": "AC-3.15 Discretionary and Mandatory Access Control requires combining DAC and MAC mechanisms. Implement both user-controlled sharing (DAC) and system-enforced restrictions (MAC). Use SELinux, AppArmor, or Windows MIC."
   },
   {
     "control_id": "AC-4",
@@ -1746,7 +1760,7 @@
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
-    "ai_guidance": "Control where data is allowed to move (e.g., don't let Top Secret data move to a Public folder).",
+    "ai_guidance": "AC-4 Information Flow Enforcement requires controlling information flows between systems and within systems based on policy. Implement network segmentation, firewalls, and content filters. Prevent unauthorized data exfiltration. Control flows between classification levels.",
     "implementation_guidance": "This control is implemented via organizational policy and architectural design. Refer to the Policy Guidance tab.",
     "stig_id": "RHEL-08-040000"
   },
@@ -2118,7 +2132,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Security and privacy policy filters enforce granular rules on data content (e.g., blocking PII) rather than just connection metadata.",
-    "ai_guidance": "Use filters to stop specific types of data (like credit card numbers) from leaving the network.",
+    "ai_guidance": "AC-4.8 requires implementing security and privacy policy filters. Deploy content inspection at network boundaries. Filter based on data classification, keywords, patterns. Implement DLP to prevent sensitive data leakage.",
     "stig_id": "RHEL-08-040008"
   },
   {
@@ -2447,7 +2461,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Information flow enforcement must consider metadata (e.g., classification labels) to prevent data leakage across security domains.",
-    "ai_guidance": "Tag data with labels (like 'Confidential') and make sure the network respects those tags.",
+    "ai_guidance": "AC-4.16 requires controlling information transfers on interconnected systems. Implement cross-domain solutions for different security levels. Validate data crossing trust boundaries. Log all inter-system transfers.",
     "stig_id": "RHEL-08-040016"
   },
   {
@@ -2530,7 +2544,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Security attributes must be bound to information to ensure that access control decisions persist as data moves through the system.",
-    "ai_guidance": "Bind security tags to the data file itself so the protection travels with the file.",
+    "ai_guidance": "AC-4.18 requires binding security attributes to information during transfer. Maintain metadata integrity across system boundaries. Use digital signatures for attribute binding. Validate attributes upon receipt.",
     "stig_id": "RHEL-08-040018"
   },
   {
@@ -3361,7 +3375,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Restricting access to security functions (e.g., audit logs, account management) prevents unauthorized users from disabling defenses.",
-    "ai_guidance": "Don't let regular users touch security settings or audit logs. Only admins should do that.",
+    "ai_guidance": "AC-6.1 requires authorizing access to security functions. Restrict who can modify security configurations, access audit logs, and manage accounts. Implement separation of duties. Use privileged access management (PAM) solutions.",
     "stig_id": "RHEL-08-010371"
   },
   {
@@ -3608,7 +3622,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Regular privilege reviews prevent 'privilege creep,' where users accumulate access rights over time that they no longer need.",
-    "ai_guidance": "Review everyone's access rights once a year. Remove access they don't need anymore.",
+    "ai_guidance": "AC-6.7 requires periodic review of user privileges. Conduct access recertification quarterly or annually. Identify and remove excessive privileges. Use access governance tools. Document review decisions.",
     "stig_id": "RHEL-08-010377"
   },
   {
@@ -3696,7 +3710,7 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "rationale": "Logging privileged function execution provides a critical audit trail for detecting insider threats and misuse of administrative power.",
-    "ai_guidance": "Log every time someone uses a 'sudo' or admin command. You need to know who did what.",
+    "ai_guidance": "AC-6.9 requires logging privileged function usage. Capture all administrative actions with user identity, timestamp, and action details. Forward logs to SIEM. Alert on suspicious privileged activity.",
     "stig_id": "RHEL-08-030361"
   },
   {
@@ -5580,7 +5594,7 @@
       "rule_count": 12,
       "certification": "Government-certified"
     },
-    "ai_guidance": "Secure remote connections (VPN/SSH). Don't let people connect from just anywhere without protection.",
+    "ai_guidance": "AC-17 Remote Access requires establishing and documenting usage restrictions, configuration requirements, and implementation guidance for each type of remote access. Implement VPN with strong authentication, encrypt all remote sessions, and monitor remote connections. Use multi-factor authentication for all remote access. Log and audit remote sessions. Implement network access controls to limit remote access scope.",
     "stig_id": "RHEL-08-040160"
   },
   {
@@ -6007,7 +6021,7 @@
       "rule_count": 1,
       "certification": "Government-certified"
     },
-    "ai_guidance": "Secure your Wi-Fi. Don't use weak passwords or old encryption.",
+    "ai_guidance": "AC-18 Wireless Access requires establishing usage restrictions and implementation guidance for wireless access. Authenticate users and devices. Use WPA3 or WPA2-Enterprise. Implement wireless intrusion detection. Disable unused wireless interfaces.",
     "stig_id": "RHEL-08-040170"
   },
   {
@@ -7222,7 +7236,8 @@
       "moderate_baseline": true,
       "high_baseline": true,
       "parameter_guidance": "FedRAMP requires review frequency of at least quarterly for publicly accessible content."
-    }
+    },
+    "ai_guidance": "AC-22 Publicly Accessible Content requires designating individuals to post information to public systems. Implement content review workflows. Train content managers on sensitive data handling. Monitor public-facing content for inadvertent disclosure. Remove unauthorized content promptly."
   },
   {
     "control_id": "AC-23",

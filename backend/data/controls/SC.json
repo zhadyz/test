@@ -2803,7 +2803,8 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "status": "withdrawn",
-    "withdrawn_note": "Incorporated into SC-8"
+    "withdrawn_note": "Incorporated into SC-8",
+    "ai_guidance": "SC-9 Transmission Confidentiality addresses protecting transmitted information from unauthorized disclosure. While this control is WITHDRAWN in NIST SP 800-53 Rev 5 and incorporated into SC-8, organizations should ensure all network communications use encryption (TLS 1.2+), implement VPNs for sensitive traffic, and validate certificate chains. Use protocol analyzers to verify encryption is active."
   },
   {
     "control_id": "SC-10",
@@ -3605,7 +3606,8 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "status": "withdrawn",
-    "withdrawn_note": "Incorporated into SI-3, SI-4, SI-7"
+    "withdrawn_note": "Incorporated into SI-3, SI-4, SI-7",
+    "ai_guidance": "SC-14 Public Access Protections addresses safeguarding public-facing systems. This control is WITHDRAWN and incorporated into AC-2, AC-3, AC-4, SC-7. Organizations should implement DMZ architectures, use Web Application Firewalls (WAF), enforce strict input validation, rate limiting, and CAPTCHA for public interfaces. Separate public-facing services from internal networks."
   },
   {
     "control_id": "SC-15",
@@ -4456,7 +4458,8 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "status": "withdrawn",
-    "withdrawn_note": "Incorporated into SC-43"
+    "withdrawn_note": "Incorporated into SC-43",
+    "ai_guidance": "SC-19 Voice over Internet Protocol addresses securing VoIP communications. This control is WITHDRAWN and incorporated into SC-7. Organizations deploying VoIP should segment voice traffic on dedicated VLANs, implement SRTP for media encryption, use TLS for signaling, and protect against toll fraud and eavesdropping. Conduct regular security assessments of VoIP infrastructure."
   },
   {
     "control_id": "SC-20",
@@ -5197,7 +5200,8 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "status": "withdrawn",
-    "withdrawn_note": "Incorporated into SC-35"
+    "withdrawn_note": "Incorporated into SC-35",
+    "ai_guidance": "SC-26 Decoys (previously Plant, Trapdoor) addresses deploying honeypots and deception technology to detect adversary activities. Deploy honeypots, honeynets, and decoy systems to detect unauthorized access attempts. Use deception tokens and breadcrumbs in production systems. Monitor decoy interactions for threat intelligence. Integrate alerts with SIEM for incident response."
   },
   {
     "control_id": "SC-26.1",
@@ -6230,7 +6234,8 @@
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     },
     "status": "withdrawn",
-    "withdrawn_note": "Incorporated into SC-8"
+    "withdrawn_note": "Incorporated into SC-8",
+    "ai_guidance": "SC-33 Transmission Preparation Integrity addresses ensuring information integrity during transmission preparation. This control is WITHDRAWN and incorporated into SC-8. Organizations should implement integrity checks (checksums, HMACs) before transmission, validate data formats and structures, use secure staging areas for data preparation, and log all preparation activities for audit purposes."
   },
   {
     "control_id": "SC-34",

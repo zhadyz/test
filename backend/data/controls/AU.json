@@ -1,6 +1,6 @@
 [
   {
-    "control_id": "au-1",
+    "control_id": "AU-1",
     "control_name": "Policy and Procedures",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -46,7 +46,7 @@
     "ai_guidance": "This is a policy-level control requiring executive engagement. Focus on creating comprehensive policy documentation with clear approval chains. Ensure policies address organizational context, system types, and threat landscape. Use NIST-provided templates as starting points. Document how policies align with business objectives and regulatory requirements. Establish metrics to track policy comprehension and compliance across the organization."
   },
   {
-    "control_id": "au-2",
+    "control_id": "AU-2",
     "control_id_normalized": "AU-2",
     "control_name": "Event Logging",
     "family": "Audit and Accountability",
@@ -195,7 +195,7 @@
     }
   },
   {
-    "control_id": "au-3",
+    "control_id": "AU-3",
     "control_name": "Content of Audit Records",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -272,7 +272,7 @@
     }
   },
   {
-    "control_id": "au-3.1",
+    "control_id": "AU-3.1",
     "control_name": "Additional Audit Information",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -327,7 +327,7 @@
     }
   },
   {
-    "control_id": "au-3.2",
+    "control_id": "AU-3.2",
     "control_name": "Centralized Management of Planned Audit Record Content",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -378,7 +378,7 @@
     }
   },
   {
-    "control_id": "au-3.3",
+    "control_id": "AU-3.3",
     "control_name": "Limit Personally Identifiable Information Elements",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -430,7 +430,7 @@
     }
   },
   {
-    "control_id": "au-4",
+    "control_id": "AU-4",
     "control_name": "Audit Log Storage Capacity",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -512,7 +512,7 @@
     ]
   },
   {
-    "control_id": "au-4.1",
+    "control_id": "AU-4.1",
     "control_name": "Transfer to Alternate Storage",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -588,7 +588,7 @@
     ]
   },
   {
-    "control_id": "au-5",
+    "control_id": "AU-5",
     "control_name": "Response to Audit Logging Process Failures",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -671,7 +671,7 @@
     }
   },
   {
-    "control_id": "au-5.1",
+    "control_id": "AU-5.1",
     "control_name": "Storage Capacity Warning",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -724,7 +724,7 @@
     }
   },
   {
-    "control_id": "au-5.2",
+    "control_id": "AU-5.2",
     "control_name": "Real-time Alerts",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -777,7 +777,7 @@
     }
   },
   {
-    "control_id": "au-5.3",
+    "control_id": "AU-5.3",
     "control_name": "Configurable Traffic Volume Thresholds",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -824,7 +824,7 @@
     }
   },
   {
-    "control_id": "au-5.4",
+    "control_id": "AU-5.4",
     "control_name": "Shutdown on Failure",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -877,7 +877,7 @@
     }
   },
   {
-    "control_id": "au-5.5",
+    "control_id": "AU-5.5",
     "control_name": "Alternate Audit Logging Capability",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -930,7 +930,7 @@
     }
   },
   {
-    "control_id": "au-6",
+    "control_id": "AU-6",
     "control_name": "Audit Record Review, Analysis, and Reporting",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1025,7 +1025,7 @@
     "ai_guidance": "Implement systematic audit record review, analysis, and reporting processes to enable timely detection and response to security events and anomalies."
   },
   {
-    "control_id": "au-6(1)",
+    "control_id": "AU-6(1)",
     "control_name": "Automated Process Integration",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1070,7 +1070,7 @@
     "ai_guidance": "**AU-6(1): Automated Process Integration (SIEM Setup)**\n\nCRITICAL REQUIREMENT: Integrate audit record review, analysis, and reporting processes using automated mechanisms.\n\n**RECOMMENDED TOOLS:**\n- **Wazuh** (open-source SIEM): Comprehensive compliance focus\n- **ELK Stack** (Elasticsearch, Logstash, Kibana): Flexible analysis\n- **Splunk**: Enterprise commercial solution\n- **Graylog**: Mid-size deployments\n\n**WAZUH DEPLOYMENT:**\n\n1. **Install Wazuh Manager:**\n```bash\ncurl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | gpg --import\necho \"deb https://packages.wazuh.com/4.x/apt/ stable main\" > /etc/apt/sources.list.d/wazuh.list\napt update && apt install wazuh-manager wazuh-indexer wazuh-dashboard -y\n```\n\n2. **Deploy Wazuh Agents:**\n```bash\napt install wazuh-agent -y\necho \"WAZUH_MANAGER='10.0.1.100'\" >> /var/ossec/etc/ossec.conf\n/var/ossec/bin/agent-auth -m 10.0.1.100\nsystemctl start wazuh-agent\n```\n\n3. **Configure Audit Log Integration:**\nEdit /var/ossec/etc/ossec.conf:\n```xml\n<localfile>\n  <log_format>audit</log_format>\n  <location>/var/log/audit/audit.log</location>\n</localfile>\n```\n\n4. **Access Dashboard:** https://<wazuh-server>:443\n\n**ELK STACK ALTERNATIVE:**\nInstall Elasticsearch + Logstash + Kibana + Filebeat for flexible log analysis.\n\n**SPLUNK ALTERNATIVE:**\nCommercial solution with pre-built NIST compliance apps.\n\n**RELATED CONTROLS:** AU-2, AU-3, AU-6(2), AU-6(3), AU-6(4)"
   },
   {
-    "control_id": "au-6(2)",
+    "control_id": "AU-6(2)",
     "control_name": "Automated Security Alerts",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1115,7 +1115,7 @@
     "ai_guidance": "**AU-6(2): Automated Security Alerts**\n\nCRITICAL REQUIREMENT: Automatically alert security personnel when specific indicators of inappropriate or unusual activity occur.\n\n**PREREQUISITE:** AU-6(1) SIEM deployment\n\n**IMPLEMENTATION APPROACH:**\n\n**1. DEFINE ALERT CRITERIA**\n\n| Event | Threshold | Severity | Recipients |\n|-------|-----------|----------|------------|\n| Failed logins | 3 in 5 min | Medium | Security Team |\n| Privilege escalation | Any | High | Security + SOC |\n| Audit config change | Any | Critical | CISO + Security |\n\n**2. WAZUH ALERT RULES**\n\nEdit /var/ossec/etc/rules/local_rules.xml:\n```xml\n<!-- Multiple failed logins -->\n<rule id=\"100102\" level=\"10\" frequency=\"3\" timeframe=\"300\">\n  <if_matched_sid>5503</if_matched_sid>\n  <same_source_ip />\n  <description>Multiple failed login attempts (brute force)</description>\n</rule>\n\n<!-- Privilege escalation -->\n<rule id=\"100111\" level=\"8\">\n  <if_sid>100110</if_sid>\n  <match>root</match>\n  <description>Sudo escalation to root user</description>\n</rule>\n```\n\n**3. CONFIGURE ALERT RECIPIENTS**\n\nEdit /var/ossec/etc/ossec.conf:\n```xml\n<email_alerts>\n  <email_to>security@company.com</email_to>\n  <level>8</level>\n  <do_not_delay />\n</email_alerts>\n```\n\n**RELATED CONTROLS:** AU-6(1), AU-5.2, IR-4"
   },
   {
-    "control_id": "au-6(3)",
+    "control_id": "AU-6(3)",
     "control_name": "Correlate Audit Record Repositories",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1160,7 +1160,7 @@
     "ai_guidance": "**AU-6(3): Correlate Audit Record Repositories**\n\nCRITICAL REQUIREMENT: Analyze and correlate audit records across different repositories to gain organization-wide situational awareness.\n\n**PREREQUISITE:** AU-6(1) SIEM with multiple data sources\n\n**IMPLEMENTATION APPROACH:**\n\n**1. DATA SOURCE INTEGRATION**\n\nIntegrate logs from:\n- Linux systems (auditd, syslog, auth.log)\n- Windows systems (Security, System event logs)\n- Network devices (firewalls, switches, routers)\n- Applications (web servers, databases)\n- Security tools (antivirus, IDS/IPS)\n- Cloud services (AWS CloudTrail, Azure Activity Log)\n\n**2. WAZUH CORRELATION RULES**\n\nEdit /var/ossec/etc/rules/local_rules.xml:\n```xml\n<!-- Failed login from one IP, success from different IP -->\n<rule id=\"100302\" level=\"10\">\n  <if_sid>5501</if_sid>\n  <if_matched_sid>100301</if_matched_sid>\n  <same_user />\n  <different_source_ip />\n  <description>Successful login from different IP after failed attempt</description>\n</rule>\n\n<!-- Lateral movement detection -->\n<rule id=\"100321\" level=\"12\" frequency=\"3\" timeframe=\"600\">\n  <if_matched_sid>100320</if_matched_sid>\n  <same_user />\n  <different_hostname />\n  <description>Same user logged into multiple systems</description>\n</rule>\n```\n\n**3. ELK CORRELATION**\n\nLogstash aggregate filter for multi-event correlation and Kibana dashboards for visualization.\n\n**RELATED CONTROLS:** AU-6(1), AU-6(4), AU-12, SI-4"
   },
   {
-    "control_id": "au-6(4)",
+    "control_id": "AU-6(4)",
     "control_name": "Central Review and Analysis",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1205,7 +1205,7 @@
     "ai_guidance": "**AU-6(4): Central Review and Analysis**\n\nCRITICAL REQUIREMENT: Provide capability to centrally review and analyze audit records from multiple components within the system.\n\n**PREREQUISITE:** AU-6(1) SIEM deployment\n\n**IMPLEMENTATION APPROACH:**\n\n**1. CENTRALIZED DASHBOARD**\n\nWazuh Dashboard configuration:\n- Create security analyst roles with read-only access\n- Configure RBAC for different analyst levels\n- Access at https://<wazuh-server>:443\n\n**2. UNIFIED SEARCH INTERFACE**\n\nCreate /opt/wazuh/scripts/central_search.sh:\n```bash\n#!/bin/bash\nSEARCH_QUERY=$1\nTIME_RANGE=${2:-\"24h\"}\n\ncurl -k -X GET \"$WAZUH_API/alerts?q=$SEARCH_QUERY&range=$TIME_RANGE\"   -H \"Authorization: Bearer $TOKEN\" | jq -r '...'\n```\n\nUsage:\n```bash\n/opt/wazuh/scripts/central_search.sh \"authentication_failed\" \"7d\"\n/opt/wazuh/scripts/central_search.sh \"user:jsmith\" \"30d\"\n```\n\n**3. AUTOMATED REVIEW WORKFLOWS**\n\nCreate /opt/siem/scripts/daily_review.sh for automated daily audit review checklist covering failed logins, privilege escalations, file integrity violations, etc.\n\n**4. COMPLIANCE REPORTING**\n\nGenerate NIST 800-53 compliance reports from central audit data with /opt/siem/scripts/compliance_report.sh\n\n**RELATED CONTROLS:** AU-6(1), AU-6(3), AU-7, AC-2"
   },
   {
-    "control_id": "au-6(5)",
+    "control_id": "AU-6(5)",
     "control_name": "Integrated Analysis of Audit Records",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1250,7 +1250,7 @@
     "ai_guidance": "Integrate audit record analysis with vulnerability scanning, SIEM correlation, and threat intelligence feeds. Deploy Wazuh for automated analysis: correlates audit logs with CVE databases, MITRE ATT&CK framework, and custom threat indicators. Configure /var/ossec/etc/ossec.conf with multiple decoders: audit, syslog, firewall logs. Use Elasticsearch aggregations to correlate audit events with vulnerability scan results from OpenVAS, Nessus, or Qualys. Example: match failed login attempts (audit event) with known exploitable services (vuln scan). Implement SOAR platform (Cortex, Phantom) to automate response workflows. Create Logstash pipeline to enrich audit logs with threat intel from MISP, AlienVault OTX, Talos Intelligence. Use machine learning (Elastic SIEM ML jobs) to detect anomalies combining audit data with network flow, endpoint telemetry. Query example: `aureport -au | grep -f known_compromised_accounts.txt`. Integrates with AU-6(1) (automated processes), AU-6(3) (correlate repositories), RA-5 (vulnerability scanning)."
   },
   {
-    "control_id": "au-6(6)",
+    "control_id": "AU-6(6)",
     "control_name": "Correlation with Physical Monitoring",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1295,7 +1295,7 @@
     "ai_guidance": "Correlate and analyze audit records with physical security monitoring (badge access, environmental controls) to detect coordinated insider threats."
   },
   {
-    "control_id": "au-6(7)",
+    "control_id": "AU-6(7)",
     "control_name": "Permitted Actions",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1340,7 +1340,7 @@
     "ai_guidance": "Define and implement authorized response actions triggered by audit anomalies, with proper authorization controls and detailed logging of corrective measures."
   },
   {
-    "control_id": "au-6(8)",
+    "control_id": "AU-6(8)",
     "control_name": "Full Text Analysis of Privileged Commands",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1385,7 +1385,7 @@
     "ai_guidance": "Perform full text analysis of audit records including keyword searches, pattern matching, and natural language processing. Deploy Elasticsearch with audit log indexing for full-text search capabilities. On RHEL 8/9, configure Filebeat to ship audit logs: edit /etc/filebeat/filebeat.yml with input type auditd. Create Kibana dashboards with search queries: `event.action:executed AND process.name:bash`. Use Lucene query syntax for complex searches: `user.name:admin AND NOT event.outcome:success`. Implement regular expression searches in Splunk: `index=audit | regex _raw=\"FAILED.*SSH\"`. Deploy log analysis tools: grep, awk for quick CLI searches: `ausearch -ts today | grep -E 'SYSCALL.*execve.*passwd'`. Use natural language processing (NLP) with Python nltk or spaCy to extract entities from unstructured log messages. Create saved searches for common investigation patterns: privilege escalation, lateral movement, data exfiltration. Implement case-insensitive searches with normalization. Verify indexing: `curl -X GET \"localhost:9200/auditbeat-*/_search?q=user:root\"`. Integrates with AU-6(1) (automated processes), AU-7 (audit reduction)."
   },
   {
-    "control_id": "au-6(9)",
+    "control_id": "AU-6(9)",
     "control_name": "Correlation with Information from Nontechnical Sources",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1430,7 +1430,7 @@
     "ai_guidance": "Establish processes to correlate audit findings with non-technical sources (user reports, incident tickets, external threat intelligence) for comprehensive threat analysis."
   },
   {
-    "control_id": "au-6(10)",
+    "control_id": "AU-6(10)",
     "control_name": "Audit Level Adjustment",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1475,7 +1475,7 @@
     "ai_guidance": "Implement procedures to dynamically adjust audit logging levels based on risk assessment, operational events, and security incident response requirements."
   },
   {
-    "control_id": "au-7",
+    "control_id": "AU-7",
     "control_name": "Audit Record Reduction and Report Generation",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1546,7 +1546,7 @@
     "ai_guidance": "AU-7 is critical for organizations processing significant audit volumes. Prioritize implementing search and filter capabilities over manual log review. Use structured logging (JSON) for easier parsing and analysis. Integrate with SIEM platforms for real-time anomaly detection. Ensure audit log immutability during reduction by maintaining original records separately from processed summaries. Test audit report accuracy quarterly to maintain compliance evidence. Automate daily reports to reduce manual effort and ensure timely review of security events."
   },
   {
-    "control_id": "au-7.1",
+    "control_id": "AU-7.1",
     "control_name": "Automatic Processing",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1604,7 +1604,7 @@
     "ai_guidance": "**AU-7.1: Automatic Processing**\n\nCRITICAL REQUIREMENT: Provide capability to process audit records for events of interest based on organization-defined criteria.\n\n**PREREQUISITE:** AU-6(1) SIEM deployment\n\n**IMPLEMENTATION APPROACH:**\n\n**1. AUTOMATED LOG PROCESSING**\n\nLogstash pipelines for parsing, filtering, and enriching audit logs with GeoIP, threat intelligence, and field extraction.\n\n**2. WAZUH DECODERS**\n\nCustom decoders in /var/ossec/etc/decoders/local_decoder.xml to extract structured data from audit logs.\n\n**3. EVENT FILTERING**\n\nConfigure filters to process only events matching defined criteria (e.g., privilege escalations, authentication failures, sensitive file access).\n\n**4. AUTOMATED ENRICHMENT**\n\nAdd context to audit records: user department, asset criticality, threat intelligence matches, geographic location.\n\n**RELATED CONTROLS:** AU-6(1), AU-7, AU-7.2"
   },
   {
-    "control_id": "au-7.2",
+    "control_id": "AU-7.2",
     "control_name": "Automatic Sort and Search",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1663,7 +1663,7 @@
     "ai_guidance": "**AU-7.2: Automatic Sort and Search**\n\nCRITICAL REQUIREMENT: Provide capability to sort and search audit records for events of interest without altering the original audit records.\n\n**IMPLEMENTATION APPROACH:**\n\n**1. SIEM SEARCH CAPABILITIES**\n\n- **Wazuh:** Built-in search via dashboard and API\n- **ELK:** Kibana Discover with Lucene query syntax\n- **Splunk:** Search Processing Language (SPL)\n\n**2. INDEXED SEARCH**\n\nElasticsearch indexing for fast full-text search across millions of audit records.\n\n**3. SAVED SEARCHES**\n\nCreate saved searches for common queries:\n- Failed authentications by user\n- Privilege escalations in last 24h\n- File access to /etc/shadow\n- Commands executed as root\n\n**4. SEARCH API**\n\nREST API endpoints for programmatic search:\n```bash\ncurl -X POST \"http://localhost:9200/audit-logs-*/_search\"   -H 'Content-Type: application/json'   -d '{\"query\":{\"match\":{\"user\":\"jsmith\"}}}'\n```\n\n**RELATED CONTROLS:** AU-6(1), AU-7, AU-7.1"
   },
   {
-    "control_id": "au-8",
+    "control_id": "AU-8",
     "control_name": "Time Stamps",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1731,7 +1731,7 @@
     }
   },
   {
-    "control_id": "au-8.1",
+    "control_id": "AU-8.1",
     "control_name": "Synchronization with Authoritative Time Source",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1785,7 +1785,7 @@
     }
   },
   {
-    "control_id": "au-8.2",
+    "control_id": "AU-8.2",
     "control_name": "Secondary Authoritative Time Source",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1840,7 +1840,7 @@
     }
   },
   {
-    "control_id": "au-9",
+    "control_id": "AU-9",
     "control_name": "Protection of Audit Information",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1936,7 +1936,7 @@
     "ai_guidance": "**AU-9: Protection of Audit Information**\n\nCRITICAL REQUIREMENT: Protect audit information and audit logging tools from unauthorized access, modification, and deletion.\n\n**IMPLEMENTATION APPROACH:**\n\n**1. FILE SYSTEM PERMISSIONS**\n\n```bash\n# Audit log directory\nchmod 0750 /var/log/audit\nchown root:root /var/log/audit\n\n# Audit log files\nchmod 0600 /var/log/audit/audit.log*\nchown root:root /var/log/audit/audit.log*\n\n# Auditd configuration\nchmod 0640 /etc/audit/auditd.conf\nchown root:root /etc/audit/auditd.conf\n```\n\n**2. IMMUTABLE FLAG**\n\nPrevent deletion even by root:\n```bash\nchattr +a /var/log/audit/audit.log  # Append-only\nchattr +i /etc/audit/auditd.conf    # Immutable\n```\n\nRemove when needed:\n```bash\nchattr -a /var/log/audit/audit.log\n```\n\n**3. SELINUX / APPARMOR**\n\nEnforce mandatory access controls on audit files.\n\n**4. AUDIT LOG SIGNING**\n\nEnable log signing in /etc/audit/auditd.conf:\n```ini\nlog_format = ENRICHED\nlog_group = root\nenable_krb5 = yes\n```\n\n**5. SEPARATE PARTITION**\n\nMount /var/log/audit on separate partition:\n```bash\n# /etc/fstab\n/dev/sdb1  /var/log/audit  ext4  defaults,noexec,nosuid,nodev  0  2\n```\n\n**6. REMOTE LOG FORWARDING**\n\nForward logs to central SIEM immediately (see AU-6(1)) to prevent local tampering.\n\n**7. FILE INTEGRITY MONITORING**\n\nAdd auditd rules to detect tampering:\n```bash\nauditctl -w /var/log/audit/ -p wa -k audit_log_tampering\nauditctl -w /etc/audit/ -p wa -k audit_config_tampering\n```\n\n**8. WINDOWS AUDIT LOG PROTECTION**\n\n```powershell\n# Set SACL on Security event log\n$acl = Get-Acl \"C:\\Windows\\System32\\winevt\\Logs\\Security.evtx\"\n$acl.SetAccessRuleProtection($true, $false)\nSet-Acl \"C:\\Windows\\System32\\winevt\\Logs\\Security.evtx\" $acl\n```\n\n**RELATED CONTROLS:** AC-6, AU-11, MP-2, SI-7"
   },
   {
-    "control_id": "au-9.1",
+    "control_id": "AU-9.1",
     "control_name": "Hardware Write-once Media",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -1987,7 +1987,7 @@
     "ai_guidance": "Store audit records on hardware write-once media (WORM) to ensure immutability. Deploy WORM-compliant storage: tape libraries (LTO-9 with WORM cartridges), optical media (BD-R XL), or WORM-enabled disk arrays (NetApp SnapLock, Dell EMC Compliance Edition). On RHEL 8/9, use rsyslog to forward audit logs to WORM storage: configure /etc/rsyslog.conf with output module: `$ActionQueueType LinkedList` and `$ActionResumeInterval 30` for reliable delivery. For cloud environments, use S3 Object Lock (AWS) or Immutable Blob Storage (Azure) with compliance mode preventing deletion. Implement write-once file systems: configure ext4 with immutable attribute: `chattr +i /var/log/audit/archive/*.log`. Use hardware controllers that prevent overwrites (IBM LTO WORM mode). Verify immutability: attempt to modify archived logs, confirm denial. Maintain chain of custody documentation for legal admissibility. Retention: 1 year for most data, 3-7 years for financial/healthcare per regulations. Integrates with AU-9 (protection), AU-11 (retention), AU-10.3 (chain of custody)."
   },
   {
-    "control_id": "au-9.2",
+    "control_id": "AU-9.2",
     "control_name": "Store on Separate Physical Systems or Components",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2038,7 +2038,7 @@
     "ai_guidance": "Implement near real-time audit record backup to separate physical systems for redundancy and survivability. On RHEL 8/9, configure rsyslog remote forwarding with TCP/TLS: edit /etc/rsyslog.conf with `*.* @@(o)backup-server.example.com:6514`. Deploy Filebeat with multiple outputs to geographically separated Elasticsearch clusters. Use audisp-remote plugin: configure /etc/audit/plugins.d/au-remote.conf with `remote_server = backup.example.com`, `enable_krb5 = yes` for authenticated forwarding. For Windows, configure Windows Event Forwarding (WEF) to collector servers in different datacenter. Implement network segregation: backup system on separate VLAN, firewall rules allow only audit traffic. Use message queuing (RabbitMQ, Apache Kafka) for reliable delivery with persistence. Configure backup retention independent of primary: primary 90 days, backup 1 year. Verify continuous replication: `tail -f /var/log/audit/audit.log | nc backup-server 514`. Test recovery: simulate primary system loss, demonstrate log reconstruction from backup. Integrates with AU-4.1 (alternate storage), AU-9 (protection), AU-11 (retention)."
   },
   {
-    "control_id": "au-9.3",
+    "control_id": "AU-9.3",
     "control_name": "Cryptographic Protection",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2089,7 +2089,7 @@
     "ai_guidance": "Implement cryptographic protection for audit information to ensure integrity and detect tampering. On RHEL 8/9, configure auditd with crypto_disk=yes in /etc/audit/auditd.conf to enable disk encryption for audit logs. Use LUKS encryption for /var/log/audit partition: `cryptsetup luksFormat /dev/sdb1`, mount with /etc/crypttab. Deploy GPG signing for audit records: create audit signing key (`gpg --gen-key`), configure audisp plugin to sign rotated logs. Use OpenSSL for hash verification: `openssl dgst -sha256 audit.log > audit.log.sha256`. Implement HMAC-based authentication codes with shared secret. For Windows Event Logs, use Encrypting File System (EFS) for archive storage. Deploy file integrity monitoring (AIDE, Tripwire) to detect unauthorized changes: `aide --init`, `aide --check`. Use blockchain-based audit trails for immutable ledger (Hyperledger Fabric). Verify integrity: `gpg --verify audit.log.sig audit.log` or `sha256sum -c audit.log.sha256`. Store cryptographic keys in HSM or TPM. Document key rotation procedures. Integrates with AU-9 (protection), AU-10.5 (digital signatures), SC-13 (cryptographic protection)."
   },
   {
-    "control_id": "au-9.4",
+    "control_id": "AU-9.4",
     "control_name": "Access by Subset of Privileged Users",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2140,7 +2140,7 @@
     "ai_guidance": "Restrict access to audit records to subset of privileged users with legitimate need. On RHEL 8/9, configure /var/log/audit permissions: `chmod 0600 audit.log`, `chown root:root audit.log`. Create dedicated audit admin group: `groupadd auditadmin`, add authorized users: `usermod -aG auditadmin alice`. Use SELinux policies to enforce access: `semanage fcontext -a -t auditd_log_t \"/var/log/audit(/.*)?\"`. Configure auditd to log access attempts to audit logs: `-w /var/log/audit/ -p r -k audit_access`. For Elasticsearch/Kibana, implement role-based access control (RBAC): create read-only role for audit indices, assign to security analysts. Use Wazuh agent.conf to restrict API access with authentication tokens. On Windows, set ACLs on Event Log files: `wevtutil sl Security /ca:O:BAG:SYD:(A;;0x1;;;S-1-5-32-544)`. Implement multi-factor authentication for audit system access. Audit the auditors: log all access to audit infrastructure (AU-6). Review access quarterly: `ausearch -k audit_access -i`. Integrates with AU-9 (protection), AC-6 (least privilege), AC-3 (access enforcement)."
   },
   {
-    "control_id": "au-9.5",
+    "control_id": "AU-9.5",
     "control_name": "Dual Authorization",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2190,7 +2190,7 @@
     "ai_guidance": "Enforce dual authorization for movement or deletion of audit information to prevent single-person abuse. Implement cryptographic split-key systems: require two separate GPG keys to decrypt archived audit logs. On RHEL 8/9, create custom sudo rules requiring two approvers for audit operations: configure /etc/sudoers.d/audit_dual_auth with pam_exec module calling approval script. Deploy workflow systems (ServiceNow, Jira) for audit deletion requests requiring manager + security officer approval with documented justification. For cloud storage (S3, Azure Blob), enable MFA delete requiring two authentication factors. Use Hashicorp Vault with Shamir secret sharing: split audit encryption key into 5 shares, require 3 to reconstruct. Implement four-eyes principle for audit log exports: log access attempts, require secondary verification within 4 hours. Create approval chains in SIEM: Wazuh active response requiring second admin to acknowledge before executing deletion. Audit dual auth events: `-w /var/log/audit/ -p d -k audit_delete`. Test procedure annually: attempt single-person deletion, verify block. Integrates with AU-9 (protection), AC-3 (access enforcement), AC-5 (separation of duties)."
   },
   {
-    "control_id": "au-9.6",
+    "control_id": "AU-9.6",
     "control_name": "Read-only Access",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2241,7 +2241,7 @@
     "ai_guidance": "Authorize read-only access to audit records for designated personnel to prevent tampering while enabling analysis. On RHEL 8/9, create read-only audit view using mount bind with noexec,ro flags: `mount --bind -o ro,noexec /var/log/audit /mnt/audit_readonly`. Configure AppArmor/SELinux profiles enforcing read-only for security analyst accounts. Deploy Elasticsearch with read-only index patterns: create Kibana space with viewer role, restrict write operations via API. Use PostgreSQL views for audit database: `CREATE VIEW audit_readonly AS SELECT * FROM audit_log` with revoked UPDATE/DELETE privileges. On Windows, configure Event Log read-only subscriptions via Group Policy. Implement write-blocking hardware for forensic analysis: USB write blockers for audit log exports. Create read-only Samba shares: `[audit_logs] path=/var/log/audit read only=yes`. Use version control for audit rule changes: store in Git, read-only clone for analysts. Audit read access: `-w /var/log/audit/ -p r -k audit_read`. Monitor for privilege escalation attempts. Quarterly access reviews: validate read-only permissions persist. Integrates with AU-9 (protection), AU-6 (review/analysis), AC-3 (access enforcement)."
   },
   {
-    "control_id": "au-9.7",
+    "control_id": "AU-9.7",
     "control_name": "Store on Component with Different Operating System",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2292,7 +2292,7 @@
     "ai_guidance": "Store audit records on system component with different operating system to prevent OS-specific compromise from affecting audit integrity. Deploy dedicated audit logging appliance running hardened OS: Wazuh manager on Ubuntu Server 22.04 LTS (minimal installation) collecting from RHEL 8/9 endpoints. Use FreeBSD-based syslog server receiving logs from Linux/Windows production systems. Deploy commercial SIEM appliances (Splunk, LogRhythm) with proprietary OS distinct from monitored systems. For cloud environments, use managed logging services (AWS CloudWatch, Azure Monitor, GCP Cloud Logging) running on provider infrastructure separate from EC2/VMs. Configure rsyslog forwarding from RHEL to Windows Event Collector: `*.* @@windows-collector:515`. Use network-attached storage (NAS) appliances with embedded OS for audit archives. Implement air-gapped log collection: segregated network segment with unidirectional data diode. Ensure diversity across entire audit chain: endpoint OS ≠ collector OS ≠ storage OS ≠ analysis OS. Test cross-OS compatibility: verify log format preservation through pipeline. Integrates with AU-4.1 (alternate storage), AU-9.2 (separate systems), SC-29 (heterogeneity)."
   },
   {
-    "control_id": "au-10.1",
+    "control_id": "AU-10.1",
     "normalized_id": "AU-10.1",
     "control_name": "Association of Identities",
     "family": "Audit and Accountability",
@@ -2333,7 +2333,7 @@
     "ai_guidance": "Associate audit records with identities of individuals, processes, or devices that generated events to establish non-repudiation. On RHEL 8/9, configure auditd to capture UID, AUID (audit UID), EUID in all audit records: auditd automatically includes these in SYSCALL records. Enhance with session tracking: `-w /var/run/utmp -p wa -k session` and `-w /var/log/wtmp -p wa -k session`. Integrate with PKI: correlate audit events with X.509 certificate serial numbers for authenticated users. For service accounts, implement identity federation with OpenID Connect claims in audit logs. On Windows, enable Advanced Audit Policy for Account Logon Events to capture SID, username, domain. Deploy osquery to correlate process PIDs with parent processes and user contexts: `SELECT * FROM processes JOIN users USING (uid)`. Use auditd's ENRICHED log format to include comm (command name), exe (executable path), key (audit rule key). Implement source IP/MAC address logging for network-based authentication. Verify identity association: `ausearch -ua alice -i` shows all events by user alice. Integrates with IA-2 (identification/authentication), AU-3 (audit content), AU-10 (non-repudiation)."
   },
   {
-    "control_id": "au-10.2",
+    "control_id": "AU-10.2",
     "normalized_id": "AU-10.2",
     "control_name": "Validate Binding of Information Producer Identity",
     "family": "Audit and Accountability",
@@ -2374,7 +2374,7 @@
     "ai_guidance": "Validate binding between information producer identity and audit record to prevent spoofing. Implement cryptographic binding using digital signatures: configure auditd to sign records with private key, verify with public key. On RHEL 8/9, use audit-sign plugin: generate RSA key pair (`openssl genrsa -out audit_key.pem 4096`), configure /etc/audit/plugins.d/audit-sign.conf. Deploy IPsec or TLS mutual authentication for remote log forwarding: rsyslog with x509/name matching to verify sender identity. Use Kerberos authentication for audit trail: configure audisp-remote with `enable_krb5 = yes`, verify principal matches expected source. Implement message authentication codes (MAC) with HMAC-SHA256: shared secret between producer and collector. For application audit trails, use JSON Web Tokens (JWT) with signature verification. On Windows, enable EventLog channel encryption with certificate-based authentication. Deploy tamper-evident logging with Merkle trees: hash chaining where each record includes hash of previous record. Verify binding: `openssl dgst -sha256 -verify audit_pubkey.pem -signature audit.log.sig audit.log`. Test spoofing resistance: attempt to inject forged audit record, verify rejection. Integrates with AU-10.1 (identity association), AU-10.5 (digital signatures), SC-8 (transmission confidentiality/integrity)."
   },
   {
-    "control_id": "au-10.3",
+    "control_id": "AU-10.3",
     "normalized_id": "AU-10.3",
     "control_name": "Chain of Custody",
     "family": "Audit and Accountability",
@@ -2415,7 +2415,7 @@
     "ai_guidance": "Maintain reviewer-verifiable chain of custody for audit information from generation through analysis and disposal. Implement comprehensive custody documentation: timestamp, custodian name, action taken, hash of audit data. On RHEL 8/9, create custody log for audit transfers: `echo \"$(date -Iseconds),$(whoami),exported,$(sha256sum audit.log)\" >> custody_log.txt`. Use write-once storage (AU-9.1) to preserve original state. Deploy blockchain-based audit trails: Hyperledger Fabric with chaincode recording custody events immutably. For legal/forensic scenarios, use forensic tools (EnCase, FTK) with built-in chain of custody features. Create digital evidence bags: tar + GPG signature preserving metadata and custody info: `tar czf evidence.tar.gz audit/ && gpg --sign evidence.tar.gz`. Implement access logging for custody chain: `-w /mnt/audit_archive/ -p rwa -k custody_access`. Use barcode/RFID tracking for physical media (tapes, optical discs). Document procedures in incident response plan: who can access, under what authority, review requirements. Maintain custody forms: date/time, from whom, to whom, purpose, hash verification. Verify chain integrity: validate all hash values match from generation to current state. Integrates with AU-9 (protection), AU-10.1 (identity), AU-11 (retention)."
   },
   {
-    "control_id": "au-10.4",
+    "control_id": "AU-10.4",
     "normalized_id": "AU-10.4",
     "control_name": "Validate Binding of Information Reviewer Identity",
     "family": "Audit and Accountability",
@@ -2456,7 +2456,7 @@
     "ai_guidance": "Validate binding of information reviewer identity to audit analysis results to establish accountability. Implement code signing for audit reports: analysts sign findings with GPG key. On RHEL 8/9, create report signature workflow: `gpg --clearsign audit_analysis_report.txt`. Deploy audit analysis platform (Wazuh, Splunk) with user authentication and action logging: track who ran which queries, when, and what they viewed. Use Git for audit investigation notes: commit messages signed with `git commit -S`, verify with `git log --show-signature`. Implement SIEM dashboard access controls: log which analyst viewed which dashboard, time range queried. Create audit of audit analysis: `-a always,exit -F path=/usr/bin/ausearch -F perm=x -k audit_analysis`. For formal investigations, use digital signature on final reports: openssl smime -sign -in report.txt -out report.signed. Deploy Jupyter notebooks with kernel authentication for reproducible audit analysis. Maintain evidence documentation: analyst name, timestamp, search criteria, results hash. On Windows, use PowerShell transcript logging for audit analysis sessions: `Start-Transcript`. Verify reviewer binding: `gpg --verify report.signed` confirms analyst identity. Quarterly review: audit who analyzed what, validate against authorized personnel list. Integrates with AU-6 (review/analysis), AU-10.1 (identity association), AU-12 (audit generation)."
   },
   {
-    "control_id": "au-10.5",
+    "control_id": "AU-10.5",
     "normalized_id": "AU-10.5",
     "control_name": "Digital Signatures",
     "family": "Audit and Accountability",
@@ -2497,7 +2497,7 @@
     "ai_guidance": "Protect audit records with digital signatures to ensure non-repudiation and detect tampering. On RHEL 8/9, configure auditd GPG signing: install gnupg2 (`dnf install gnupg2`), generate 4096-bit RSA signing key (`gpg --gen-key`), configure /etc/audit/auditd.conf with `crypto_disk = yes`. Create audit log signing script triggered on rotation: `#!/bin/bash\nLOGFILE=$1\ngpg --detach-sign --armor $LOGFILE`. Use OpenSSL for hash-based signatures: `openssl dgst -sha512 -sign audit_privkey.pem -out audit.log.sig audit.log`. Deploy Hardware Security Module (HSM) or TPM 2.0 for private key storage preventing extraction. For Windows Event Logs, enable digital signatures via Group Policy: Computer Configuration → Policies → Windows Settings → Security Settings → Event Log → Digitally sign events. Implement timestamping authority (TSA) for signature timestamps proving when signing occurred. Use X.509 certificates from organizational PKI for signing keys. Create signature verification cron job: `0 * * * * find /var/log/audit/archive -name \"*.sig\" -exec gpg --verify {} \\;`. Document key management: generation, storage, rotation (annual), revocation procedures. Test signature: `gpg --verify audit.log.asc audit.log` returns \"Good signature\". Integrates with AU-9.3 (cryptographic protection), AU-10.2 (validate binding), SC-13 (cryptographic protection)."
   },
   {
-    "control_id": "au-11",
+    "control_id": "AU-11",
     "control_name": "Audit Record Retention",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2564,7 +2564,7 @@
     }
   },
   {
-    "control_id": "au-11.1",
+    "control_id": "AU-11.1",
     "control_name": "Long-term Retrieval Capability",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2623,7 +2623,7 @@
     }
   },
   {
-    "control_id": "au-12",
+    "control_id": "AU-12",
     "control_name": "Audit Record Generation",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2744,7 +2744,7 @@
     "ai_guidance": "AU-12 is a critical control that enables all downstream audit analysis and forensics capabilities. The primary implementation challenge is balancing comprehensive event capture with system performance. Modern systems should capture: (1) all authentication events (successful and failed logons), (2) all privileged action execution, (3) all system configuration changes, (4) all file system and object access for sensitive data, and (5) all account management actions. The auditd framework on Linux and Windows Event Log on Windows provide the necessary capabilities, but both require careful rule configuration to avoid performance degradation. For distributed environments, implement centralized logging (rsyslog, fluentd, or cloud-native solutions) to ensure audit records are collected and protected before local deletion. Ensure system clocks are synchronized (NTP) to maintain time-correlation of audit records across systems. Monitor audit log generation continuously to detect audit failures or tampering attempts."
   },
   {
-    "control_id": "au-12(1)",
+    "control_id": "AU-12(1)",
     "control_name": "System-wide and Time-correlated Audit Trail",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2829,7 +2829,7 @@
     "ai_guidance": "Compile system-wide time-correlated audit trail from individual component logs. Deploy centralized SIEM (Wazuh, Splunk, ELK Stack) ingesting logs from all endpoints, network devices, applications, databases. On RHEL 8/9, configure rsyslog to tag logs with hostname and forward to correlation engine: `$template CustomFormat,\"%TIMESTAMP% %HOSTNAME% %syslogtag%%msg%\n\"` in /etc/rsyslog.conf. Implement NTP synchronization (AU-8.1) ensuring all systems within 1 second of UTC. Use Logstash to normalize timestamps to ISO 8601 format regardless of source. Create correlation rules in Wazuh: detect multi-stage attacks spanning firewall (block), IDS (alert), endpoint (lateral movement). Deploy Stream processing (Apache Kafka + ksqlDB) for real-time correlation across distributed sources. Use Elasticsearch aggregations to reconstruct timelines: `GET /logs-*/_search { \"aggs\": { \"by_user\": { \"terms\": { \"field\": \"user.name\" }, \"aggs\": { \"timeline\": { \"date_histogram\": { \"field\": \"@timestamp\", \"interval\": \"1m\" } } } } } }`. Implement session tracking correlating authentication (UNIX utmp), process execution (auditd EXECVE), network connections (firewall logs). Create unified schema (Elastic Common Schema, OCSF) for cross-system correlation. Verify correlation: trace single user session across login, command execution, file access, network activity. Integrates with AU-8 (timestamps), AU-6(3) (correlate repositories), AU-12 (audit generation)."
   },
   {
-    "control_id": "au-12(2)",
+    "control_id": "AU-12(2)",
     "control_name": "Standardized Formats",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2911,7 +2911,7 @@
     "ai_guidance": "Provide standardized audit record formats across diverse systems for machine parsing. Adopt Common Event Format (CEF), Log Event Extended Format (LEEF), or Elastic Common Schema (ECS). On RHEL 8/9, configure rsyslog output template for RFC5424 structured data: `template(name=\"RFC5424\" type=\"string\" string=\"<%PRI%>1 %TIMESTAMP:::date-rfc3339% %HOSTNAME% %APP-NAME% %PROCID% %MSGID% [audit_info user=\"%usr%\" action=\"%action%\"] %msg%\n\")`. Deploy Filebeat with ECS formatting: edit /etc/filebeat/filebeat.yml with `fields_under_root: true` and custom field mappings. Use Logstash to transform logs into JSON schema: `filter { json { source => \"message\" } mutate { rename => { \"[host][name]\" => \"hostname\" } } }`. Implement STIX/TAXII for threat intelligence sharing with standardized indicators. Create organization-wide field naming convention: user.name, event.action, event.outcome, source.ip, destination.ip. Use OpenTelemetry for distributed tracing with standardized span format. Deploy log validation: JSON Schema or XML Schema checking all logs conform to standard. On Windows, export Event Logs to JSON or XML: `wevtutil qe Security /f:RenderedXml`. Create data dictionary documenting all field names, types, and allowed values. Test parsing: ingest sample logs into SIEM, verify automatic field extraction without custom parsers. Integrates with AU-6 (analysis), AU-12(1) (system-wide trail), SI-4 (information system monitoring)."
   },
   {
-    "control_id": "au-12(3)",
+    "control_id": "AU-12(3)",
     "control_name": "Changes by Authorized Individuals",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -2996,7 +2996,7 @@
     "ai_guidance": "Require audit trails to identify changes made by authorized individuals and processes. On RHEL 8/9, configure auditd to capture all file modifications by privileged users: `-a always,exit -F arch=b64 -S chmod,chown,setxattr,removexattr -F auid>=1000 -F auid!=unset -k perm_mod`. Track sudo usage: `-a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=unset -k privileged_commands`. Log database changes: enable PostgreSQL audit extension (pgaudit) logging DDL/DML with username, timestamp, affected tables. For application changes, implement change data capture (CDC) with Apache Kafka tracking all CRUD operations. Configure Git hooks for infrastructure-as-code: pre-commit hook logging who changed which Terraform/Ansible files. Deploy configuration management auditing: Puppet/Ansible logging all configuration drift corrections. Use auditd watch on critical files: `-w /etc/shadow -p wa -k identity_changes`, `-w /etc/sudoers -p wa -k sudoers_changes`. For Windows, enable Object Access auditing with SACL on critical files/registry keys. Create change approval workflow: ServiceNow change requests correlated with audit logs validating authorized changes occurred. Analyze changes: `ausearch -k perm_mod -i | aureport --file --summary`. Quarterly review: compare authorized change tickets vs. audit log changes, investigate discrepancies. Integrates with CM-3 (configuration change control), AC-6 (least privilege), AU-2 (event logging)."
   },
   {
-    "control_id": "au-12(4)",
+    "control_id": "AU-12(4)",
     "control_name": "Query Parameter Audits of Personally Identifiable Information",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3081,7 +3081,7 @@
     "ai_guidance": "Audit query parameters and database operations to detect SQL injection and data exfiltration. Enable database audit logging for all major DBMS platforms. PostgreSQL: install pgaudit extension (`CREATE EXTENSION pgaudit;`), configure postgresql.conf with `pgaudit.log = 'read, write, ddl, role'`. MySQL: enable audit plugin (`INSTALL PLUGIN audit_log SONAME 'audit_log.so';`), configure audit_log_policy=ALL. Microsoft SQL Server: enable SQL Server Audit via SSMS, create Database Audit Specification logging SELECT/INSERT/UPDATE/DELETE. Oracle: enable Unified Auditing with `AUDIT SELECT TABLE BY ACCESS`. MongoDB: enable auditLog in mongod.conf: `auditLog: {destination: file, path: /var/log/mongodb/audit.json}`. Log full query text including parameters: detect suspicious patterns (UNION SELECT, OR 1=1, xp_cmdshell). On RHEL 8/9, use auditd to monitor database file access: `-w /var/lib/pgsql/data -p rwa -k database_access`. Deploy database activity monitoring (DAM) tools: IBM Guardium, Imperva SecureSphere. Create SIEM correlation rules detecting anomalies: queries returning >10000 rows, queries from unusual source IPs, privilege escalation attempts. Alert on query parameter manipulation: bind variable changes, unusual LIKE clauses. Verify: `psql -c \"SELECT * FROM pg_stat_statements WHERE query LIKE '%password%';\"`. Integrates with SI-4 (monitoring), AU-2 (event logging), SC-7 (boundary protection)."
   },
   {
-    "control_id": "au-13",
+    "control_id": "AU-13",
     "control_name": "Monitoring for Information Disclosure",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3138,7 +3138,7 @@
     "ai_guidance": "Implement information disclosure monitoring as a continuous activity. Focus on: (1) Establishing a comprehensive list of relevant open-source platforms; (2) Automating searches for organizational identifiers, employee information, and technical data; (3) Integrating monitoring with incident response processes; (4) Regularly reviewing and updating monitoring targets based on emerging threats and new platforms; (5) Training personnel on identification and reporting of disclosed information. Consider implementing commercial threat intelligence services for dark web monitoring."
   },
   {
-    "control_id": "au-13.1",
+    "control_id": "AU-13.1",
     "control_name": "Use of Automated Tools",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3187,7 +3187,7 @@
     "ai_guidance": "Use automated tools for monitoring audit data to reduce analyst workload and improve detection speed. Deploy SIEM platforms with machine learning: Splunk Enterprise Security with ML Toolkit, Elastic SIEM with anomaly detection jobs, Wazuh with integrated anomaly detection. On RHEL 8/9, configure Wazuh agent to analyze local audit logs: edit /var/ossec/etc/ossec.conf enabling `<localfile><log_format>audit</log_format></localfile>`. Create automated correlation rules: detect brute-force (>5 failed logins in 1 minute), privilege escalation (sudo to root from non-admin user), data exfiltration (large outbound transfers). Use osquery scheduled queries for automated compliance checks: `SELECT * FROM users WHERE uid=0 AND username!='root';` detecting unauthorized root accounts. Deploy log analysis tools: Logwatch (daily summary emails), fail2ban (automated IP blocking), OSSEC active response. Implement anomaly detection with statistical baselines: detect logins from new countries, processes using excessive CPU, unusual command sequences. Use Python scripts with pandas/scikit-learn for custom analysis: time series analysis of login patterns, clustering of user behaviors. Configure automated reporting: weekly audit summary with key metrics (failed logins, privilege escalations, policy violations). Create dashboards in Grafana/Kibana with real-time visualizations. Reduce false positives through continuous tuning. Verify automation: inject test event, confirm automated alert within 5 minutes. Integrates with AU-6 (review/analysis), AU-6(1) (automated processes), IR-4 (incident handling)."
   },
   {
-    "control_id": "au-13.2",
+    "control_id": "AU-13.2",
     "control_name": "Review of Monitored Sites",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3236,7 +3236,7 @@
     "ai_guidance": "Establish a formal review cycle tied to organizational risk management. Create a monitoring sites master list with metadata including platform category, business justification, risk rating, and monitoring method. Schedule quarterly reviews (or upon major organizational changes) to: (1) Validate continued relevance of monitored sites; (2) Test monitoring coverage for accessibility; (3) Identify new platforms emerging in relevant communities; (4) Remove obsolete or lower-risk platforms. Document all reviews with approvals and store in a version-controlled system."
   },
   {
-    "control_id": "au-13.3",
+    "control_id": "AU-13.3",
     "control_name": "Unauthorized Replication of Information",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3288,7 +3288,7 @@
     "ai_guidance": "Block unauthorized replication of audit information to prevent data leakage. Implement data loss prevention (DLP) controls on audit systems. On RHEL 8/9, use SELinux to prevent unauthorized copying: create custom policy restricting /var/log/audit/ access to auditd process only. Configure file system permissions: `chmod 0600 /var/log/audit/audit.log`, use ACLs: `setfacl -m u:alice:--- /var/log/audit/`. Deploy USB device blocking: udev rules preventing unauthorized USB storage: create /etc/udev/rules.d/10-usb-deny.rules with `ACTION==\"add\", SUBSYSTEMS==\"usb\", RUN+=\"/bin/sh -c 'echo 0 >/sys$DEVPATH/authorized'\"`. Implement network DLP: configure firewall rules blocking rsyslog/syslog traffic except to authorized destinations. Use AppArmor profiles restricting process capabilities: prevent wget, curl, scp from accessing audit directories. For Elasticsearch, configure index access controls: read-only for analysts, no reindex/snapshot permissions. Deploy file integrity monitoring (AIDE) alerting on unauthorized audit log copies: `aide --check | grep \"/var/log/audit\"`. On Windows, use BitLocker with TPM preventing offline disk access, configure NTFS permissions denying non-admin reads. Create audit trail of access attempts: `-w /var/log/audit/ -p r -k unauthorized_audit_access`. Implement exfiltration detection: monitor for large data transfers from audit servers. Test controls: attempt to copy audit.log as non-privileged user, verify denial. Integrates with AU-9 (protection), AC-3 (access enforcement), SC-7 (boundary protection)."
   },
   {
-    "control_id": "au-14",
+    "control_id": "AU-14",
     "stig_id": "RHEL-08-030300",
     "control_name": "Session Audit",
     "family": "Audit and Accountability",
@@ -3364,7 +3364,7 @@
     "ai_guidance": "Implement session auditing to capture all user activities within interactive sessions. On RHEL 8/9, deploy screen recording using script command automatically on SSH login: add to /etc/profile: `if [ -n \"$SSH_CONNECTION\" ]; then script -qf /var/log/sessions/$(date +%Y%m%d_%H%M%S)_$USER.log; fi`. Configure sudosh2 for shell session recording: install and configure as default shell for privileged users. For privileged access management, deploy BeyondTrust, CyberArk Session Bridge capturing full RDP/SSH sessions with video replay. Use asciinema for terminal session recording with web-based playback: `asciinema rec /var/log/sessions/session.cast`. On Windows, enable PowerShell transcript logging: Group Policy → Administrative Templates → Windows PowerShell → Turn on PowerShell Transcription, output to `\\server\\share\\PSTranscripts`. Configure RDP session logging: enable Remote Desktop Session Host auditing capturing all actions. Deploy database session recording: Oracle Database Vault session capture, PostgreSQL log_statement=all with session correlation. Implement kernel-level session monitoring: auditd TTY auditing capturing all keystrokes: `-a always,exit -F arch=b64 -S write -F a0=1 -k tty_input`. Create automated analysis detecting suspicious session activities: unusual commands, off-hours access, rapid command sequences. Retain session logs per AU-11 retention policy. Verify: cat /var/log/sessions/*.log shows full command history. Integrates with AC-2 (account management), AU-3 (audit content), IA-4 (identifier management)."
   },
   {
-    "control_id": "au-14.1",
+    "control_id": "AU-14.1",
     "stig_id": "RHEL-08-030320",
     "control_name": "System Start-up",
     "family": "Audit and Accountability",
@@ -3421,7 +3421,7 @@
     "ai_guidance": "Initiate session auditing automatically at system start-up to capture all activities from boot. On RHEL 8/9, configure systemd to start session auditing early in boot sequence: create /etc/systemd/system/session-audit.service with `Before=multi-user.target`, `WantedBy=multi-user.target`. Enable auditd early boot logging: configure kernel command line in /etc/default/grub with `audit=1` parameter, regenerate grub config: `grub2-mkconfig -o /boot/grub2/grub.cfg`. This enables audit logging before auditd daemon starts. Configure rsyslog to start before user sessions: verify rsyslog.service has `Before=getty.target`. Implement systemd-journald persistent storage: create /var/log/journal/ directory, configure /etc/systemd/journald.conf with `Storage=persistent` capturing boot messages. For UEFI Secure Boot systems, enable UEFI event logging to TPM capturing firmware-level events. On Windows, configure Event Log service to auto-start: verify Windows Event Log service startup type is Automatic in services.msc. Enable Early Launch Antimalware (ELAM) logging capturing pre-boot drivers. Deploy measured boot with TPM logging all boot components. Configure BIOS/UEFI audit logging where available (Dell iDRAC, HP iLO). Create boot event analysis: `journalctl -b | grep audit` or `ausearch -m SYSTEM_BOOT -i`. Verify session auditing active before first user login: check timestamps in audit.log vs. system boot time. Integrates with AU-14 (session audit), SI-7 (integrity verification), SC-8 (transmission confidentiality/integrity)."
   },
   {
-    "control_id": "au-14.2",
+    "control_id": "AU-14.2",
     "stig_id": "RHEL-08-030330",
     "control_name": "Capture and Record Content",
     "family": "Audit and Accountability",
@@ -3481,7 +3481,7 @@
     "ai_guidance": "Capture and record content within sessions including screen output, keystrokes, mouse clicks, and accessed resources. Deploy comprehensive session recording solutions: Teleport for SSH/Kubernetes session recording with video playback, Apache Guacamole for RDP/VNC recording. On RHEL 8/9, implement screen recording with ttyrec: `ttyrec /var/log/sessions/session-$(date +%s).ttyrec`, playback with ttyplay. Configure X11 session recording using recordmydesktop or VNC server logging: `recordmydesktop --output=/var/log/sessions/x11-session.ogv`. For terminal sessions, use asciinema with automatic recording: add to ~/.bashrc: `asciinema rec --append /var/log/sessions/$(whoami).cast`. Deploy keylogger for privileged sessions (with user notice): configure kernel-level keystroke capture via loadable kernel module. On Windows, enable PowerShell script block logging: Group Policy → Administrative Templates → Windows PowerShell → Turn on PowerShell Script Block Logging capturing full command text. Configure RDP session shadowing: Enable \"Remote Desktop Session Host Configuration\" → Connections → RDP-Tcp → Properties → Remote Control for live monitoring. Use process accounting to log all commands: enable psacct: `systemctl enable psacct`, review with lastcomm. Capture file access events: `-w /home -p rwa -k file_access`. Implement DPI for web sessions: deploy SSL intercept proxy (Squid, Blue Coat) capturing HTTPS session content. Store recordings with encryption (AU-9.3). Document user notification requirements (privacy laws). Test: replay recorded session, verify completeness. Integrates with AU-14 (session audit), AU-14.3 (remote viewing), AC-17 (remote access)."
   },
   {
-    "control_id": "au-14.3",
+    "control_id": "AU-14.3",
     "stig_id": "RHEL-08-030360",
     "control_name": "Remote Viewing and Listening",
     "family": "Audit and Accountability",
@@ -3541,7 +3541,7 @@
     "ai_guidance": "Prohibit remote viewing or listening except for authorized monitoring. Implement technical controls preventing unauthorized screen sharing, audio capture, and remote control. On RHEL 8/9, disable VNC server by default: `systemctl disable vncserver@.service`, enable only for authorized remote support sessions. Configure X11 forwarding restrictions in /etc/ssh/sshd_config: `X11Forwarding no`, `AllowTcpForwarding no` for standard users. Use PAM to enforce remote access policies: configure /etc/security/access.conf with `-:ALL EXCEPT wheel:ALL` restricting remote login to wheel group. Deploy network access control (NAC) requiring pre-authorization for remote desktop connections. On Windows, disable Remote Desktop by default: Group Policy → Computer Configuration → Administrative Templates → Windows Components → Remote Desktop Services → Deny logons to Remote Desktop Session Host. Implement just-in-time (JIT) privileged access: require approval workflow before enabling RDP, auto-disable after session. Use firewall rules blocking VNC ports (5900-5999), RDP port (3389) except from jump hosts. Deploy endpoint detection and response (EDR) detecting unauthorized remote access tools (TeamViewer, AnyDesk): CrowdStrike, SentinelOne. Audit remote viewing attempts: `-w /usr/bin/vncserver -p x -k remote_viewing`, Windows Event ID 4624 (logon type 10 = Remote Interactive). Create authorized remote access roster: quarterly review of who can remote in, from where, to which systems. Test controls: attempt unauthorized VNC connection, verify block and alert. Integrates with AC-17 (remote access), AC-3 (access enforcement), AU-14.2 (session content capture)."
   },
   {
-    "control_id": "au-15",
+    "control_id": "AU-15",
     "stig_id": "V-230483",
     "control_name": "Alternate Audit Logging Capability",
     "family": "Audit and Accountability",
@@ -3635,7 +3635,7 @@
     }
   },
   {
-    "control_id": "au-16",
+    "control_id": "AU-16",
     "control_name": "Cross-Organizational Audit Logging",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3717,7 +3717,7 @@
     }
   },
   {
-    "control_id": "au-16.1",
+    "control_id": "AU-16.1",
     "control_name": "Identity Preservation",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3778,7 +3778,7 @@
     }
   },
   {
-    "control_id": "au-16.2",
+    "control_id": "AU-16.2",
     "control_name": "Sharing of Audit Information",
     "family": "Audit and Accountability",
     "family_id": "au",
@@ -3842,7 +3842,7 @@
     }
   },
   {
-    "control_id": "au-16.3",
+    "control_id": "AU-16.3",
     "control_name": "Disassociability",
     "family": "Audit and Accountability",
     "family_id": "au",

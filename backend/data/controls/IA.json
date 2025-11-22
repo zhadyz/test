@@ -221,7 +221,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.5 Individual Authentication with Group Authentication requires authenticating individuals when using group authenticators. Implement individual login before group account access. Maintain audit trails of individual actions under group accounts. Use PAM solutions for shared account access."
   },
   {
     "control_id": "IA-2.6",
@@ -255,7 +256,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.6 Access to Accounts - Separate Device requires separate authentication device for network access. Implement hardware tokens, smart cards, or mobile authenticators as second factor separate from the accessing device. Prevent single device compromise from enabling full access."
   },
   {
     "control_id": "IA-2.8",
@@ -289,7 +291,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.8 Access to Accounts - Replay Resistant requires replay-resistant authentication mechanisms. Implement challenge-response, time-based OTP, or cryptographic authentication. Prevent capture and reuse of authentication traffic. Use TLS for credential transmission."
   },
   {
     "control_id": "IA-2.10",
@@ -323,7 +326,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.10 Single Sign-on requires implementing SSO for organization-defined systems. Deploy enterprise SSO using SAML, OAuth, or OIDC. Centralize authentication while maintaining strong credentials. Implement session management and timeout policies."
   },
   {
     "control_id": "IA-2.12",
@@ -357,7 +361,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.12 Acceptance of PIV Credentials requires accepting Personal Identity Verification credentials. Implement PIV card readers and middleware. Validate certificates against government PKI. Support derived PIV credentials for mobile devices."
   },
   {
     "control_id": "IA-2.13",
@@ -391,7 +396,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-2.13 Out-of-Band Authentication requires authentication through separate communication channel. Implement SMS, voice call, or push notification as out-of-band factor. Verify channel independence from primary authentication. Consider SIM-swap risks for SMS."
   },
   {
     "control_id": "IA-3",
@@ -481,7 +487,8 @@
         "GEN000000-LNX00440",
         "SRG-OS-000480-GPOS-00227"
       ]
-    }
+    },
+    "ai_guidance": "IA-3 Device Identification and Authentication requires authenticating devices before establishing connections. Implement 802.1X for network access control. Use device certificates, MAC authentication, or device attestation. Maintain inventory of authorized devices."
   },
   {
     "control_id": "IA-4",
@@ -595,7 +602,8 @@
         "WN10-SO-000075",
         "WN10-SO-000080"
       ]
-    }
+    },
+    "ai_guidance": "IA-5 Authenticator Management requires managing authenticators (passwords, tokens, certificates) throughout their lifecycle. Implement password policies, token provisioning, and certificate management. Protect authenticators in storage and transmission. Refresh authenticators periodically."
   },
   {
     "control_id": "IA-5.1",
@@ -675,7 +683,8 @@
         "WN10-SO-000245"
       ],
       "implementation_guidance": "Comprehensive password management automation available. Includes PAM configuration, pwquality integration, password hashing (SHA-512), dictionary checking, and audit logging. For compromised password database integration, see supplemental documentation."
-    }
+    },
+    "ai_guidance": "IA-5.1 Password-based Authentication requires password complexity and management controls. Enforce minimum 12+ characters, complexity requirements, and password history. Implement secure password storage (bcrypt, PBKDF2). Prevent use of compromised passwords."
   },
   {
     "control_id": "IA-5.2",
@@ -733,7 +742,8 @@
         "WN10-SO-000095",
         "WN10-SO-000100"
       ]
-    }
+    },
+    "ai_guidance": "IA-5.2 Public Key-based Authentication requires managing PKI certificates and keys. Implement certificate lifecycle management. Validate certificate chains and revocation status. Protect private keys with HSMs or secure storage. Map certificates to authorized users."
   },
   {
     "control_id": "IA-5.3",
@@ -767,7 +777,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.3 In-Person or Trusted Third-Party Registration requires identity proofing before issuing authenticators. Verify identity through in-person appearance or trusted registration authority. Document identity evidence. Follow NIST SP 800-63 identity proofing guidelines."
   },
   {
     "control_id": "IA-5.4",
@@ -801,7 +812,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.4 Automated Support for Password Strength Determination requires automated password strength checking. Implement real-time password strength meters. Check against breached password databases. Reject weak or commonly-used passwords."
   },
   {
     "control_id": "IA-5.5",
@@ -835,7 +847,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.5 Change Authenticators Prior to Delivery requires changing default passwords before system deployment. Document and enforce default credential changes. Scan for default credentials. Prohibit deployment with factory defaults."
   },
   {
     "control_id": "IA-5.6",
@@ -878,7 +891,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.6 Protection of Authenticators requires protecting authenticators from unauthorized disclosure and modification. Encrypt stored passwords. Use secure transmission (TLS). Implement secure password reset. Protect token seeds and certificate private keys."
   },
   {
     "control_id": "IA-5.7",
@@ -920,7 +934,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.7 No Embedded Unencrypted Static Authenticators requires prohibiting unencrypted credentials in applications and scripts. Scan code for hardcoded credentials. Use secrets management (HashiCorp Vault, Azure Key Vault). Implement credential injection at runtime."
   },
   {
     "control_id": "IA-5.8",
@@ -954,7 +969,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.8 Multiple System Accounts requires unique authenticators for each system account. Prohibit password reuse across systems. Implement unique service account credentials. Use password managers for credential uniqueness."
   },
   {
     "control_id": "IA-5.9",
@@ -988,7 +1004,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.9 Federated Credential Management requires managing credentials across federated identity systems. Implement federation protocols (SAML, OIDC). Establish trust relationships with identity providers. Maintain attribute mappings. Handle credential synchronization."
   },
   {
     "control_id": "IA-5.10",
@@ -1022,7 +1039,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.10 Dynamic Credential Binding requires binding credentials to specific devices or sessions. Implement device binding using certificates or tokens. Prevent credential use from unauthorized devices. Detect and alert on binding violations."
   },
   {
     "control_id": "IA-5.11",
@@ -1056,7 +1074,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.11 Hardware Token-based Authentication requires hardware tokens for high-security authentication. Deploy FIDO2/WebAuthn security keys, smart cards, or hardware OTP tokens. Implement token lifecycle management. Maintain hardware token inventory."
   },
   {
     "control_id": "IA-5.12",
@@ -1090,7 +1109,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.12 Biometric Authentication requires implementing biometric authentication mechanisms. Deploy fingerprint, facial recognition, or iris scanning. Implement liveness detection. Protect biometric templates. Provide fallback authentication."
   },
   {
     "control_id": "IA-5.13",
@@ -1124,7 +1144,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.13 Expiration of Cached Authenticators requires limiting cached credential lifetime. Configure Kerberos ticket lifetimes, session token expiration, and credential cache timeouts. Force re-authentication after inactivity or time limit."
   },
   {
     "control_id": "IA-5.14",
@@ -1158,7 +1179,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.14 Managing Content of PKI Trust Stores requires controlling trusted certificate authorities. Maintain approved CA list. Remove untrusted CAs. Audit trust store changes. Implement certificate pinning where appropriate."
   },
   {
     "control_id": "IA-5.15",
@@ -1192,7 +1214,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.15 GSA-approved Products and Services requires using GSA-approved identity products. Reference GSA FIPS 201 Evaluation Program approved products list. Ensure PIV compliance for federal systems. Use approved identity services."
   },
   {
     "control_id": "IA-5.16",
@@ -1226,7 +1249,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.16 In-Person or Trusted Third-Party Issuance requires secure authenticator issuance processes. Issue high-assurance credentials in person or through verified trusted parties. Document issuance chain of custody. Verify recipient identity before issuance."
   },
   {
     "control_id": "IA-5.17",
@@ -1260,7 +1284,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.17 Presentation Attack Detection for Biometrics requires preventing biometric spoofing. Implement liveness detection for facial and fingerprint recognition. Test against presentation attacks. Use multi-modal biometrics for higher assurance."
   },
   {
     "control_id": "IA-5.18",
@@ -1294,7 +1319,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "IA-5.18 Password Managers requires providing approved password manager capabilities. Deploy enterprise password managers. Enable secure password generation. Implement secure sharing for team credentials. Sync across authorized devices."
   },
   {
     "control_id": "IA-6",
@@ -1386,7 +1412,8 @@
         "manual_steps_required": true,
         "verification_scripts_included": true
       }
-    }
+    },
+    "ai_guidance": "IA-6 Authenticator Feedback requires obscuring authentication feedback to protect credentials. Mask password entry, limit login attempt feedback, implement account lockout delays. Prevent enumeration of valid accounts through error messages."
   },
   {
     "control_id": "IA-7",
@@ -1472,7 +1499,8 @@
         "FIPS 140-3",
         "FedRAMP"
       ]
-    }
+    },
+    "ai_guidance": "IA-7 Cryptographic Module Authentication requires authenticating cryptographic modules. Implement FIPS 140 validated modules. Authenticate modules before cryptographic operations. Protect module authentication credentials."
   },
   {
     "control_id": "IA-8",
@@ -1550,7 +1578,8 @@
       "cac_status": "not_applicable",
       "cac_planned": false,
       "implementation_guidance": "IA-8 is primarily a policy and procedural control that requires organizational processes for managing non-organizational user identification and authentication. Automated technical implementation is not available in ComplianceAsCode as this control is enforced through identity management systems, federated authentication platforms, and access control policies rather than system-level configuration."
-    }
+    },
+    "ai_guidance": "IA-8 Identification and Authentication (Non-Organizational Users) requires identifying and authenticating non-organizational users. Implement guest access procedures. Verify external user identity. Apply appropriate authentication strength. Maintain non-org user audit trails."
   },
   {
     "control_id": "IA-9",
@@ -1645,7 +1674,8 @@
       "cac_status": "custom_implementation",
       "cac_planned": false,
       "implementation_guidance": "No direct ComplianceAsCode rules available for IA-9. Implementation requires organization-specific service authentication configuration using TLS/mTLS, OAuth 2.0, API key validation, or certificate-based authentication depending on service architecture. Custom scripts provided for common service authentication scenarios including web servers (Apache/Nginx), databases (PostgreSQL/SQL Server), and general certificate management."
-    }
+    },
+    "ai_guidance": "IA-9 Service Identification and Authentication requires authenticating services before information exchange. Implement mutual TLS for service-to-service communication. Use service mesh authentication. Verify service identity through certificates or tokens."
   },
   {
     "control_id": "IA-10",
@@ -1695,7 +1725,8 @@
       "cac_planned": false,
       "implementation_guidance": "IA-10 Adaptive Authentication is typically implemented at the Identity Provider (IDP) level rather than through system configuration tools. This control requires organizational policy decisions and integration with authentication infrastructure (SAML, OIDC, OAuth2). ComplianceAsCode does not provide automated configuration for adaptive authentication as it involves risk assessment algorithms, behavioral analytics, and supplemental authentication orchestration that must be configured within enterprise identity management platforms such as Okta, Auth0, Azure AD, Ping Identity, or similar solutions. The provided scripts offer monitoring and alerting capabilities to support adaptive authentication requirements but do not replace dedicated IDP-level implementations."
     },
-    "stig_mappings": []
+    "stig_mappings": [],
+    "ai_guidance": "IA-10 Adaptive Authentication requires dynamically adjusting authentication based on risk. Implement risk-based authentication that considers location, device, behavior. Step up authentication for high-risk transactions. Use continuous authentication for sensitive sessions."
   },
   {
     "control_id": "IA-11",
@@ -1794,7 +1825,8 @@
         "FedRAMP",
         "NIST CSF"
       ]
-    }
+    },
+    "ai_guidance": "IA-11 Re-authentication requires re-authenticating users under defined conditions. Force re-authentication for sensitive operations. Implement session timeout re-authentication. Require re-auth after privilege elevation."
   },
   {
     "control_id": "IA-12",
@@ -1812,7 +1844,7 @@
     "example_implementation": "Implement an identity proofing workflow using NIST SP 800-63A guidelines. For moderate-risk systems requiring IAL2, establish a registration process where users submit one piece of STRONG evidence (such as a passport or driver's license) and one piece of FAIR evidence (such as a utility bill or bank statement). Deploy identity verification software that performs document authentication checks including security feature validation, barcode scanning, and optical character recognition to confirm document authenticity. Integrate with third-party identity verification services to validate provided information against authoritative data sources such as DMV records, credit bureaus, or government databases. Implement biometric comparison using facial recognition technology to match submitted photos against photo identification documents. Maintain detailed audit logs of all identity proofing activities including evidence collected, validation methods applied, verification results, and the identity assurance level achieved. For high-risk systems requiring IAL3, mandate in-person identity proofing at designated registration authority locations where trained staff verify original physical documents and capture biometric data directly. Store identity proofing records securely with appropriate access controls and retention policies aligned with privacy requirements and organizational policy.",
     "non_technical_guidance": "To comply with control IA-12 (Identity Proofing), follow these comprehensive steps:\n1. Determine the appropriate identity assurance level (IAL) for your systems based on the sensitivity of data and operations, referencing NIST SP 800-63A which defines three levels: IAL1 requires no identity proofing with self-asserted attributes; IAL2 requires remote or in-person proofing with validated identity evidence; IAL3 requires in-person proofing with physical document verification and biometric comparison.\n2. Establish formal identity proofing procedures that specify what types of identity evidence are acceptable for each IAL level, how evidence will be collected and stored securely, what validation methods will be used to confirm evidence authenticity, and what verification processes will link the claimed identity to the actual individual.\n3. Designate trained registration authorities or identity proofing personnel who are responsible for conducting identity verification, checking document authenticity, comparing photographic evidence to the individual, and making final determinations on identity proofing success or failure.\n4. Implement technology solutions to support identity proofing such as document scanning and authentication tools, biometric capture and comparison systems, integration with authoritative data sources for identity validation, and secure identity management systems to store proofing records and manage user accounts.\n5. Ensure each user identity resolves to a unique individual by checking for duplicate accounts, implementing naming conventions that prevent confusion, maintaining authoritative identity records, and establishing procedures to handle situations where multiple individuals share similar names or attributes.\n6. Develop privacy protections for identity proofing processes including obtaining informed consent from users before collecting identity information, limiting collection to the minimum necessary evidence, securing identity data with encryption and access controls, establishing appropriate retention and disposal procedures, and providing transparency about how identity information will be used.\n7. Create audit and oversight mechanisms to monitor identity proofing quality including periodic reviews of identity proofing decisions, sampling of proofing records to verify compliance with procedures, tracking of proofing failure rates and reasons, and analysis of potential fraud indicators or suspicious patterns.\n8. Establish procedures for handling special cases such as non-citizens without standard government-issued identification, individuals with legal name changes or aliases, accommodation requests for individuals with disabilities, and emergency access situations where standard proofing may not be feasible.\n9. Provide training to all personnel involved in identity proofing on verification procedures, document authentication techniques, fraud detection, privacy requirements, and escalation procedures for suspicious cases or edge scenarios.\n10. Coordinate with legal counsel and privacy officials to ensure identity proofing practices comply with applicable laws and regulations such as the Privacy Act, E-Government Act, and agency-specific requirements regarding collection and use of personally identifiable information.",
     "implementation_guidance": "Identity proofing represents a critical organizational process that establishes the foundation for all subsequent authentication and access control decisions. Organizations should select identity assurance levels based on a risk assessment considering factors including the sensitivity of information accessed, potential impact of identity fraud, regulatory requirements, user population characteristics, and operational constraints. The identity proofing process should be designed to detect and prevent common fraud techniques such as synthetic identities created by combining real and fake information, stolen identities using authentic documents belonging to other individuals, counterfeit documents with fabricated information, and identity laundering where criminals establish seemingly legitimate identities over time. Implementation should leverage automated identity verification technologies while maintaining human oversight for exception handling and final decision-making. Organizations should establish clear criteria for what constitutes acceptable identity evidence, recognizing that different populations may have access to different types of documentation and that evidence standards should be inclusive while maintaining security. The identity proofing process should be documented in detail with standard operating procedures covering all scenarios including successful verification, failed verification requiring additional evidence, and suspected fraud requiring investigation. Quality assurance mechanisms should include supervisory review of identity proofing decisions, periodic audits of proofing records against procedures, analysis of fraud patterns and indicators, and continuous improvement based on lessons learned. Organizations should coordinate identity proofing practices across systems to avoid unnecessary re-proofing of the same individuals while ensuring appropriate assurance levels are maintained for each access context. Privacy considerations must be integrated throughout the identity proofing lifecycle including minimizing data collection to essential elements, providing transparency to users about how their information will be used, implementing strong security controls to protect identity data, and establishing retention limits to dispose of identity information when no longer needed. For organizations implementing federated identity arrangements, clear agreements should define acceptable identity proofing standards, mechanisms for communicating assurance levels across organizational boundaries, and procedures for accepting or rejecting externally-proofed identities.",
-    "ai_guidance": "When implementing IA-12 compliance, AI systems can significantly enhance identity proofing capabilities while introducing new considerations. AI-powered document verification can analyze identity documents for authenticity by detecting security features, validating document structure and formatting, checking for tampering or manipulation, comparing against known document templates, and identifying sophisticated forgeries that may evade human detection. Machine learning models trained on large datasets of legitimate and fraudulent documents can achieve high accuracy in document classification and fraud detection, but organizations must ensure models are validated across diverse document types and updated regularly as fraud techniques evolve. Facial recognition and biometric comparison using AI can match submitted photos against identity documents with high precision, but implementations must account for challenges including photo quality variations, aging effects, lighting conditions, and demographic fairness to avoid biased outcomes that may disproportionately reject certain populations. Natural language processing can extract and validate information from identity documents and supporting evidence, automatically populating identity management systems while flagging inconsistencies or anomalies for human review. AI-driven identity verification services can query multiple authoritative data sources simultaneously, correlating information across databases to establish identity validity and detect fraud patterns such as synthetic identities that lack genuine historical footprints. Anomaly detection algorithms can identify suspicious patterns in identity proofing attempts such as high volumes of applications from similar IP addresses, inconsistent biographical information across applications, or behavioral indicators associated with fraudulent activity. However, organizations must carefully manage AI risks including algorithmic bias that may produce discriminatory outcomes, privacy implications of using AI to analyze sensitive personal information, transparency challenges in explaining AI-driven identity proofing decisions to users and auditors, and security vulnerabilities where adversaries may attempt to poison training data or exploit model weaknesses. Human oversight remains essential for final identity proofing decisions, particularly for edge cases, conflicting evidence, accommodation requests, and suspected fraud requiring investigation. AI systems should be designed to augment human judgment rather than replace it, providing risk scores and recommendations while enabling human reviewers to access underlying evidence and reasoning. Organizations should establish governance processes for AI-based identity proofing including model validation and testing, fairness assessments across demographic groups, explainability mechanisms to understand decision factors, monitoring for drift or degradation, and procedures to handle challenges or disputes regarding AI-driven decisions. When implementing AI for identity proofing, organizations should consider that adversaries may use AI themselves to create sophisticated fraudulent documents or defeat verification systems, requiring continuous adaptation and improvement of defensive capabilities.",
+    "ai_guidance": "IA-12 Identity Proofing requires verifying user identity before account creation. Implement NIST SP 800-63A identity proofing. Collect and verify identity evidence. Perform address confirmation. Document proofing decisions.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [
@@ -1942,7 +1974,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "OAuth 2.0 and OpenID Connect implementation patterns available in ComplianceAsCode repository. Refer to identity provider remediation modules for automated deployment of Keycloak, Azure AD integration, and token lifecycle management configurations."
-    }
+    },
+    "ai_guidance": "IA-13 Identity Providers and Authorization Servers requires managing identity infrastructure. Operate or select authoritative identity providers. Implement authorization servers for access tokens. Maintain IdP availability and security."
   },
   {
     "control_id": "IA-13.1",
@@ -2015,7 +2048,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Cryptographic key management implementations available in ComplianceAsCode for HSM integration, key rotation automation, and secure key storage configurations aligned with NIST SP 800-57 requirements."
-    }
+    },
+    "ai_guidance": "IA-13.1 Protection of Cryptographic Keys requires implementing controls to protect cryptographic keys used by identity providers. Use HSMs for key storage, implement key rotation, establish secure key backup procedures, and protect keys from unauthorized access throughout their lifecycle."
   },
   {
     "control_id": "IA-13.2",
@@ -2085,7 +2119,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "JWT token validation implementations available in ComplianceAsCode for API gateway integration, signature verification, claims validation, and comprehensive token introspection workflows."
-    }
+    },
+    "ai_guidance": "IA-13.2 Verification of Identity Assertions and Access Tokens requires validating assertions and tokens from identity providers. Verify digital signatures on SAML assertions and JWTs, validate token expiration and claims, check revocation status, and ensure tokens are from trusted issuers."
   },
   {
     "control_id": "IA-3(1)",
@@ -2147,7 +2182,8 @@
       "general": [
         "SRG-OS-000480-GPOS-00229"
       ]
-    }
+    },
+    "ai_guidance": "IA-3(1) Cryptographic Bidirectional Authentication requires mutual authentication between devices using cryptographic mechanisms. Implement mutual TLS (mTLS), certificate-based device authentication, or cryptographic challenge-response protocols. Both parties verify each others identity before communication."
   },
   {
     "control_id": "IA-3(3)",
@@ -2194,7 +2230,8 @@
         "NET-DHCP-001",
         "NET-DHCP-002"
       ]
-    }
+    },
+    "ai_guidance": "IA-3(3) Dynamic Address Allocation requires authenticating devices before allocating network addresses. Implement 802.1X for network admission control, authenticate devices before DHCP lease assignment, and bind addresses to authenticated device identities."
   },
   {
     "control_id": "IA-3(4)",
@@ -2250,7 +2287,8 @@
       "general": [
         "SRG-OS-000480-GPOS-00230"
       ]
-    }
+    },
+    "ai_guidance": "IA-3(4) Device Attestation requires verifying device integrity through attestation mechanisms. Implement TPM-based attestation, secure boot verification, and device health checks. Validate device configuration against expected baselines before granting access."
   },
   {
     "control_id": "IA-4(1)",
@@ -2505,7 +2543,8 @@
       "cac_status": "not_available",
       "cac_planned": false,
       "implementation_guidance": "Technical implementation scripts provided for configuring PIV credential acceptance on Linux and Windows systems. Scripts install required middleware, configure PKI trust anchors, and enable smart card authentication mechanisms."
-    }
+    },
+    "ai_guidance": "IA-8(1) Acceptance of PIV Credentials from Other Agencies requires accepting federal PIV credentials from other government agencies. Implement Federal PKI bridge trust, validate agency-issued PIV certificates, and map external credentials to appropriate local authorizations."
   },
   {
     "control_id": "IA-8(2)",
@@ -2553,7 +2592,8 @@
       "cac_status": "not_applicable",
       "cac_planned": false,
       "implementation_guidance": "IA-8(2) is a policy and configuration control implemented at the identity management platform level rather than system configuration. Compliance requires organizational procedures for vetting and documenting external authenticators, along with identity provider configuration to restrict accepted authentication sources."
-    }
+    },
+    "ai_guidance": "IA-8(2) Acceptance of External Authenticators requires accepting third-party authenticators meeting defined assurance levels. Evaluate external authenticator strength against NIST SP 800-63B, implement standards-based federation (SAML, OIDC), and document accepted authenticator types."
   },
   {
     "control_id": "IA-8(4)",
@@ -2597,7 +2637,8 @@
       "cac_status": "not_applicable",
       "cac_planned": false,
       "implementation_guidance": "IA-8(4) requires organizational selection and documentation of identity management profiles with technical implementation at the identity platform level. Compliance is demonstrated through documented profile conformance specifications and identity system configurations that enforce profile requirements."
-    }
+    },
+    "ai_guidance": "IA-8(4) Use of Defined Profiles requires using organization-defined authentication profiles for non-organizational users. Implement FICAM-conformant profiles, define acceptable authentication methods for external parties, and enforce profile-based access decisions."
   },
   {
     "control_id": "IA-8(5)",
@@ -2645,7 +2686,8 @@
       "cac_status": "not_available",
       "cac_planned": false,
       "implementation_guidance": "IA-8(5) requires organizational policy definition and technical configuration of PKI trust relationships. Implementation involves identity management system configuration, PKI trust establishment, and access control system integration for PIV-I credential acceptance."
-    }
+    },
+    "ai_guidance": "IA-8(5) Acceptance of PIV-I Credentials requires accepting PIV-Interoperable credentials from non-federal issuers. Implement PIV-I certificate validation, verify NFI issuer trust, and map PIV-I credentials to appropriate access levels for non-federal users."
   },
   {
     "control_id": "IA-8(6)",
@@ -2691,6 +2733,7 @@
       "cac_status": "not_available",
       "cac_planned": false,
       "implementation_guidance": "IA-8(6) requires specialized privacy-enhancing technologies implemented at the identity management platform level. This control is application-specific and requires custom implementation based on organizational privacy requirements and threat model."
-    }
+    },
+    "ai_guidance": "IA-8(6) Disassociability requires preventing correlation of non-organizational user activities across interactions. Use pseudonymous identifiers, implement privacy-preserving authentication, and limit unnecessary collection of identifying information."
   }
 ]
