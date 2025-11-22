@@ -1,861 +1,642 @@
 [
   {
-    "control_id": "pt-1",
+    "control_id": "PT-1",
     "control_name": "Policy and Procedures",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "",
+    "family_id": "PT",
+    "official_text": "a. Develop, document, and disseminate to [Assignment: organization-defined personnel or roles]: 1. [Selection (one or more): Organization-level; Mission/business process-level; System-level] personally identifiable information processing and transparency policy that: (a) Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and (b) Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and 2. Procedures to facilitate the implementation of the personally identifiable information processing and transparency policy and the associated personally identifiable information processing and transparency controls; b. Designate an [Assignment: organization-defined official] to manage the development, documentation, and dissemination of the personally identifiable information processing and transparency policy and procedures; and c. Review and update the current personally identifiable information processing and transparency: 1. Policy [Assignment: organization-defined frequency] and following [Assignment: organization-defined events]; and 2. Procedures [Assignment: organization-defined frequency] and following [Assignment: organization-defined events].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Ensure that your organization has documented policies and procedures in place to guide employees on how to handle sensitive information and IT resources.",
-    "example_implementation": "This script regularly review and update your organization's policies and procedures to ensure they align with current best practices and regulations. Involve key stakeholders in the review process to ensure buy-in and compliance.",
-    "non_technical_guidance": "This plan to implement this control, you should ensure that your organization has documented policies and procedures in place that address security requirements, roles and responsibilities, incident response, and other relevant areas. These policies and procedures should be regularly reviewed, updated, communicated to employees, and enforced. It is important to have a formal process for creating, updating, and retiring policies and procedures, as well as a system for tracking compliance with them. Regular training and awareness programs should also be conducted to ensure that employees are familiar with and adhere to the policies and procedures. Additionally, it is essential to have a mechanism for reporting violations and for taking corrective actions when necessary. Regular audits and assessments should be performed to verify compliance with the policies and procedures.",
     "is_technical": false,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Organizations must create and maintain documented policies and procedures for how they handle personally identifiable information (PII). These policies must define who is responsible, what the rules are, and how they comply with privacy laws.",
+    "intent": "Establish a formal governance framework for PII processing that ensures accountability, consistency, and legal compliance across the organization.",
+    "rationale": "Privacy policies provide the foundation for all PII handling activities. Without documented policies, organizations cannot demonstrate compliance with GDPR, CCPA, HIPAA, and other privacy regulations.",
+    "ai_guidance": "To implement PT-1 effectively: 1) Appoint a Chief Privacy Officer (CPO) or Privacy Program Manager responsible for policy development. 2) Create a PII Processing Policy that covers: data collection purposes, legal basis for processing, data retention periods, access controls, breach notification procedures, and individual rights (access, correction, deletion). 3) Develop operational procedures for each department that handles PII. 4) Establish a policy review cycle (annually at minimum) and trigger events for updates (new regulations, data breaches, organizational changes). 5) Implement a policy acknowledgment system where employees confirm they have read and understood PII handling requirements. 6) Create training materials and conduct regular privacy awareness training. 7) Document the policy distribution method and maintain records of who received which version.",
+    "implementation_guidance": "Step 1: Inventory all PII processing activities. Step 2: Draft policy aligned with Privacy Act, GDPR, CCPA as applicable. Step 3: Obtain legal review. Step 4: Get executive approval. Step 5: Distribute to all personnel. Step 6: Implement acknowledgment tracking. Step 7: Schedule annual reviews.",
+    "related_controls": [
+      "AC-1",
+      "PM-9",
+      "PM-24",
+      "PT-2",
+      "PT-3"
+    ],
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "organizational",
-      "last_analyzed": "2025-11-10T10:16:24.881807+00:00",
-      "source": "ComplianceAsCode",
-      "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
     }
   },
   {
-    "control_id": "pt-2",
+    "control_id": "PT-2",
     "control_name": "Authority to Process Personally Identifiable Information",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "",
+    "family_id": "PT",
+    "official_text": "a. Determine and document the [Assignment: organization-defined authority] that permits the [Assignment: organization-defined processing] of personally identifiable information; and b. Restrict the [Assignment: organization-defined processing] of personally identifiable information to only that which is authorized.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Ensure that individuals processing personally identifiable information have the proper authorization to do so.",
-    "example_implementation": "This script implement a role-based access control system to ensure that only authorized personnel have access to personally identifiable information. Regularly review and update access permissions as needed.",
-    "non_technical_guidance": "This plan to comply with Control ID pt-2, \"Authority to Process Personally Identifiable Information,\" the following non-technical implementation plan can be followed:\n\n1. Identify and designate individuals within the organization who have the authority to process personally identifiable information (PII).\n2. Clearly define the roles and responsibilities of these designated individuals in handling PII.\n3. Ensure that proper training and awareness programs are in place for these individuals regarding the handling of PII.\n4. Implement a formal process for obtaining authorization before processing any PII.\n5. Regularly review and update the list of authorized individuals to ensure compliance with this control.\n6. Document and maintain records of authorization for processing PII to demonstrate compliance during audits or assessments.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-2.1",
-        "title": "Data Tagging",
-        "official_text": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}."
-      },
-      {
-        "id": "pt-2.2",
-        "title": "Automation",
-        "official_text": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}."
-      }
+    "plain_english_explanation": "Organizations must identify and document the legal basis (laws, regulations, contracts, or consent) that authorizes them to collect and process PII. Processing must be limited to only what is legally permitted.",
+    "intent": "Ensure all PII processing has a valid legal foundation and prevent unauthorized data collection or use.",
+    "rationale": "Legal authority for PII processing is required by the Privacy Act (federal), GDPR Article 6 (EU), CCPA (California), and other privacy laws. Organizations face significant penalties for processing PII without proper authority.",
+    "ai_guidance": "Implementation requires: 1) Document all legal authorities for PII processing (Privacy Act System of Records Notices, contract clauses, consent forms, legitimate interest assessments). 2) Create a Data Processing Authority Register that maps each type of PII to its legal basis. 3) Implement access controls that restrict PII access to authorized purposes. 4) Create data classification labels indicating processing authority. 5) Establish a review process before new PII processing activities begin. 6) Train personnel on authorized vs unauthorized processing. 7) Implement monitoring to detect unauthorized processing attempts. 8) Document the chain of authority from legal source to operational procedures.",
+    "implementation_guidance": "Create authority documentation matrix. Map each PII element to legal authority. Implement technical controls restricting processing. Train staff on authorized uses. Audit processing activities quarterly.",
+    "related_controls": [
+      "AC-2",
+      "AC-3",
+      "PT-3",
+      "PM-9",
+      "SI-12"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:26.485931+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-2.1",
+    "control_id": "PT-2.1",
     "control_name": "Data Tagging",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}.",
-    "parent_control": "pt-2",
+    "family_id": "PT",
+    "parent_control": "PT-2",
+    "official_text": "Attach data tags containing the following purposes to [Assignment: organization-defined elements of personally identifiable information]: [Assignment: organization-defined processing purposes].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Attach data tags containing {{ insert: param, pt-02.01_odp.01 }} to {{ insert: param, pt-02.01_odp.02 }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Apply metadata tags to PII that indicate what processing is authorized for that data. These tags help automated systems enforce processing restrictions.",
+    "intent": "Enable automated enforcement of PII processing restrictions through machine-readable authority metadata.",
+    "rationale": "Manual enforcement of processing restrictions does not scale. Data tagging enables DLP systems, databases, and applications to automatically restrict unauthorized processing.",
+    "ai_guidance": "Technical implementation: 1) Define a tag taxonomy for processing authorities (e.g., 'authority:consent', 'authority:contract', 'authority:legal-obligation'). 2) Implement tagging at data ingestion points. 3) Store tags as extended attributes (Linux xattr) or NTFS alternate data streams (Windows). 4) Configure DLP tools to read and enforce tags. 5) Tag database columns with processing authority metadata. 6) Implement tag validation at data export points. 7) Create tag audit reports showing authority coverage. 8) Integrate tags with data catalogs and governance tools.",
+    "implementation_guidance": "Define tag schema. Implement at collection points. Configure enforcement in DLP. Audit tag coverage monthly.",
+    "related_controls": [
+      "AC-16",
+      "PT-2",
+      "PT-3.1",
+      "SC-16"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-2.1 Data Authority Tagging\n\n# Set authority tag on PII file\nset_authority_tag() {\n    local file=\"$1\"\n    local authority=\"$2\"  # consent, contract, legal-obligation, public-task, vital-interest, legitimate-interest\n    setfattr -n user.pii.authority -v \"$authority\" \"$file\"\n    setfattr -n user.pii.tagged_date -v \"$(date -Iseconds)\" \"$file\"\n    logger -p local0.info \"PT-2.1: Authority tag set on $file: $authority\"\n}\n\n# Get authority tag from file\nget_authority_tag() {\n    local file=\"$1\"\n    getfattr -n user.pii.authority --only-values \"$file\" 2>/dev/null\n}\n\n# Verify file has valid authority before processing\nverify_authority() {\n    local file=\"$1\"\n    local required_authority=\"$2\"\n    local actual=$(get_authority_tag \"$file\")\n    if [[ \"$actual\" == \"$required_authority\" ]]; then\n        return 0\n    else\n        logger -p local0.warning \"PT-2.1: Authority mismatch on $file. Required: $required_authority, Found: $actual\"\n        return 1\n    fi\n}\n\n# Scan directory for untagged PII files\nscan_untagged() {\n    local dir=\"$1\"\n    find \"$dir\" -type f -exec sh -c '\n        if ! getfattr -n user.pii.authority \"$1\" >/dev/null 2>&1; then\n            echo \"UNTAGGED: $1\"\n        fi\n    ' _ {} \\;\n}\n\n# Example usage\n# set_authority_tag /data/customers/record.json \"consent\"\n# verify_authority /data/customers/record.json \"consent\" && process_file",
+        "ansible": "---\n- name: PT-2.1 PII Authority Tagging\n  hosts: all\n  become: yes\n  vars:\n    pii_directories:\n      - /data/pii\n      - /var/lib/app/customer_data\n    default_authority: \"consent\"\n  tasks:\n    - name: Install attr package for extended attributes\n      package:\n        name: attr\n        state: present\n\n    - name: Create tagging script\n      copy:\n        dest: /usr/local/bin/pii-tag-authority.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          FILE=\"$1\"\n          AUTHORITY=\"$2\"\n          setfattr -n user.pii.authority -v \"$AUTHORITY\" \"$FILE\"\n          setfattr -n user.pii.tagged_date -v \"$(date -Iseconds)\" \"$FILE\"\n\n    - name: Create audit script for untagged files\n      copy:\n        dest: /usr/local/bin/audit-pii-tags.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          for dir in {{ pii_directories | join(' ') }}; do\n            find \"$dir\" -type f ! -exec getfattr -n user.pii.authority {} \\; 2>/dev/null\n          done\n\n    - name: Schedule daily tag audit\n      cron:\n        name: \"PT-2.1 PII tag audit\"\n        hour: \"2\"\n        minute: \"0\"\n        job: \"/usr/local/bin/audit-pii-tags.sh >> /var/log/pii-tag-audit.log 2>&1\""
+      },
+      "windows": {
+        "powershell": "# PT-2.1 PII Authority Tagging using NTFS Alternate Data Streams\n\nfunction Set-PIIAuthorityTag {\n    param(\n        [Parameter(Mandatory=$true)][string]$Path,\n        [Parameter(Mandatory=$true)]\n        [ValidateSet('consent','contract','legal-obligation','public-task','vital-interest','legitimate-interest')]\n        [string]$Authority\n    )\n    \n    $tagData = @{\n        Authority = $Authority\n        TaggedDate = (Get-Date -Format 'o')\n        TaggedBy = $env:USERNAME\n    } | ConvertTo-Json\n    \n    Set-Content -Path \"$Path:pii_authority\" -Value $tagData -Stream pii_authority\n    Write-EventLog -LogName Application -Source 'PIICompliance' -EventId 2001 -Message \"PT-2.1: Authority tag set on $Path`: $Authority\"\n}\n\nfunction Get-PIIAuthorityTag {\n    param([Parameter(Mandatory=$true)][string]$Path)\n    \n    try {\n        $content = Get-Content -Path \"$Path:pii_authority\" -Stream pii_authority -ErrorAction Stop\n        return $content | ConvertFrom-Json\n    } catch {\n        return $null\n    }\n}\n\nfunction Test-PIIAuthority {\n    param(\n        [Parameter(Mandatory=$true)][string]$Path,\n        [Parameter(Mandatory=$true)][string]$RequiredAuthority\n    )\n    \n    $tag = Get-PIIAuthorityTag -Path $Path\n    if ($tag -and $tag.Authority -eq $RequiredAuthority) {\n        return $true\n    }\n    Write-Warning \"PT-2.1: Authority mismatch on $Path. Required: $RequiredAuthority, Found: $($tag.Authority)\"\n    return $false\n}\n\nfunction Find-UntaggedPII {\n    param([Parameter(Mandatory=$true)][string]$Path)\n    \n    Get-ChildItem -Path $Path -Recurse -File | ForEach-Object {\n        $streams = Get-Item -Path $_.FullName -Stream * | Where-Object { $_.Stream -eq 'pii_authority' }\n        if (-not $streams) {\n            Write-Output $_.FullName\n        }\n    }\n}\n\n# Register event source\nif (-not [System.Diagnostics.EventLog]::SourceExists('PIICompliance')) {\n    New-EventLog -LogName Application -Source 'PIICompliance'\n}",
+        "ansible": "---\n- name: PT-2.1 PII Authority Tagging (Windows)\n  hosts: windows\n  tasks:\n    - name: Create PII tagging module directory\n      win_file:\n        path: C:\\Program Files\\PIICompliance\n        state: directory\n\n    - name: Deploy PII tagging PowerShell module\n      win_copy:\n        dest: C:\\Program Files\\PIICompliance\\PIIAuthorityTag.psm1\n        content: |\n          # PT-2.1 Authority Tagging Module\n          function Set-PIIAuthorityTag { ... }\n          function Get-PIIAuthorityTag { ... }\n          Export-ModuleMember -Function *\n\n    - name: Create scheduled task for tag audit\n      win_scheduled_task:\n        name: PT-2.1_PII_Tag_Audit\n        description: Daily audit of PII authority tags\n        actions:\n          - path: powershell.exe\n            arguments: -File \"C:\\Program Files\\PIICompliance\\Audit-PIITags.ps1\"\n        triggers:\n          - type: daily\n            start_boundary: '2024-01-01T02:00:00'\n        username: SYSTEM\n        state: present"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:28.126269+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-2.2",
+    "control_id": "PT-2.2",
     "control_name": "Automation",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}.",
-    "parent_control": "pt-2",
+    "family_id": "PT",
+    "parent_control": "PT-2",
+    "official_text": "Manage enforcement of the authorized processing of personally identifiable information using [Assignment: organization-defined automated mechanisms].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Manage enforcement of the authorized processing of personally identifiable information using {{ insert: param, pt-02.02_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Use automated systems to enforce PII processing restrictions. This includes DLP tools, database access controls, and application-level enforcement.",
+    "intent": "Automate PII processing enforcement to reduce human error and ensure consistent policy application at scale.",
+    "rationale": "Manual enforcement of PII restrictions is error-prone and does not scale. Automation ensures consistent enforcement and provides audit trails.",
+    "ai_guidance": "Implementation approaches: 1) Deploy Data Loss Prevention (DLP) software that reads authority tags and blocks unauthorized transfers. 2) Implement database-level row security policies based on user purpose context. 3) Configure application APIs to validate processing authority before operations. 4) Use Cloud Access Security Brokers (CASB) for SaaS application enforcement. 5) Implement workflow automation that requires authority validation before PII access. 6) Deploy monitoring to detect and alert on policy violations. 7) Create automated remediation for common violations. 8) Generate compliance reports showing enforcement effectiveness.",
+    "implementation_guidance": "Deploy DLP with authority tag integration. Configure database row-level security. Implement API-level validation. Monitor and report on violations.",
+    "related_controls": [
+      "AC-3",
+      "AC-16",
+      "PT-2.1",
+      "SI-4"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-2.2 Automated PII Processing Enforcement\n\n# Enforcement configuration\nENFORCEMENT_LOG=\"/var/log/pii-enforcement.log\"\nVIOLATION_ALERT_EMAIL=\"privacy@example.com\"\n\n# Check if process has authority to access PII file\nenforce_authority() {\n    local file=\"$1\"\n    local process=\"$2\"\n    local required_authority=\"$3\"\n    \n    # Get file's authority tag\n    local file_authority=$(getfattr -n user.pii.authority --only-values \"$file\" 2>/dev/null)\n    \n    # Check process authorization (from /etc/pii-authorized-processes.conf)\n    local proc_authorized=$(grep \"^$process:$required_authority\" /etc/pii-authorized-processes.conf)\n    \n    if [[ -z \"$proc_authorized\" ]]; then\n        log_violation \"$process\" \"$file\" \"Process not authorized for $required_authority\"\n        return 1\n    fi\n    \n    if [[ \"$file_authority\" != \"$required_authority\" ]]; then\n        log_violation \"$process\" \"$file\" \"File authority mismatch: $file_authority vs $required_authority\"\n        return 1\n    fi\n    \n    echo \"$(date -Iseconds) ALLOWED: $process accessing $file\" >> \"$ENFORCEMENT_LOG\"\n    return 0\n}\n\n# Log and alert on violations\nlog_violation() {\n    local process=\"$1\"\n    local file=\"$2\"\n    local reason=\"$3\"\n    \n    local msg=\"PT-2.2 VIOLATION: Process=$process File=$file Reason=$reason\"\n    echo \"$(date -Iseconds) $msg\" >> \"$ENFORCEMENT_LOG\"\n    logger -p local0.alert \"$msg\"\n    \n    # Send alert\n    echo \"$msg\" | mail -s \"PT-2.2 PII Violation Alert\" \"$VIOLATION_ALERT_EMAIL\"\n}\n\n# Monitor audit log for PII access patterns\nmonitor_pii_access() {\n    ausearch -k pii_access --start today | while read line; do\n        # Parse audit record and validate authority\n        echo \"Analyzing: $line\"\n    done\n}",
+        "ansible": "---\n- name: PT-2.2 Automated PII Processing Enforcement\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install auditd for access monitoring\n      package:\n        name: audit\n        state: present\n\n    - name: Configure audit rules for PII directories\n      lineinfile:\n        path: /etc/audit/rules.d/pii-enforcement.rules\n        line: \"{{ item }}\"\n        create: yes\n      loop:\n        - \"-w /data/pii -p rwxa -k pii_access\"\n        - \"-w /var/lib/app/customers -p rwxa -k pii_access\"\n      notify: Restart auditd\n\n    - name: Deploy enforcement script\n      copy:\n        src: pii-enforcement.sh\n        dest: /usr/local/bin/pii-enforcement.sh\n        mode: '0755'\n\n    - name: Create authorized processes configuration\n      copy:\n        dest: /etc/pii-authorized-processes.conf\n        content: |\n          # Process:Authority mappings\n          /usr/bin/crm-app:consent\n          /usr/bin/billing:contract\n          /usr/bin/backup:legal-obligation\n\n  handlers:\n    - name: Restart auditd\n      service:\n        name: auditd\n        state: restarted"
+      },
+      "windows": {
+        "powershell": "# PT-2.2 Automated PII Processing Enforcement\n\n$EnforcementLog = 'C:\\Logs\\PII-Enforcement.log'\n$ViolationEventId = 2002\n\nfunction Test-ProcessAuthority {\n    param(\n        [string]$FilePath,\n        [string]$ProcessName,\n        [string]$RequiredAuthority\n    )\n    \n    # Get file's authority tag\n    $fileAuth = Get-PIIAuthorityTag -Path $FilePath\n    \n    # Check process authorization from registry\n    $authKey = \"HKLM:\\SOFTWARE\\PIICompliance\\AuthorizedProcesses\\$ProcessName\"\n    $procAuth = Get-ItemProperty -Path $authKey -ErrorAction SilentlyContinue\n    \n    if (-not $procAuth -or $procAuth.Authority -notcontains $RequiredAuthority) {\n        Write-EnforcementViolation -Process $ProcessName -File $FilePath -Reason \"Process not authorized\"\n        return $false\n    }\n    \n    if ($fileAuth.Authority -ne $RequiredAuthority) {\n        Write-EnforcementViolation -Process $ProcessName -File $FilePath -Reason \"Authority mismatch\"\n        return $false\n    }\n    \n    Add-Content -Path $EnforcementLog -Value \"$(Get-Date -Format 'o') ALLOWED: $ProcessName -> $FilePath\"\n    return $true\n}\n\nfunction Write-EnforcementViolation {\n    param([string]$Process, [string]$File, [string]$Reason)\n    \n    $msg = \"PT-2.2 VIOLATION: Process=$Process File=$File Reason=$Reason\"\n    Add-Content -Path $EnforcementLog -Value \"$(Get-Date -Format 'o') $msg\"\n    Write-EventLog -LogName Security -Source PIICompliance -EventId $ViolationEventId -EntryType Warning -Message $msg\n}\n\n# Enable file system auditing for PII folders\nfunction Enable-PIIAuditing {\n    param([string]$Path)\n    \n    $acl = Get-Acl $Path\n    $auditRule = New-Object System.Security.AccessControl.FileSystemAuditRule(\n        'Everyone', 'Read,Write,Delete', 'ContainerInherit,ObjectInherit', 'None', 'Success,Failure'\n    )\n    $acl.AddAuditRule($auditRule)\n    Set-Acl -Path $Path -AclObject $acl\n}",
+        "ansible": "---\n- name: PT-2.2 Automated Enforcement (Windows)\n  hosts: windows\n  tasks:\n    - name: Create enforcement registry keys\n      win_regedit:\n        path: HKLM:\\SOFTWARE\\PIICompliance\\AuthorizedProcesses\n        state: present\n\n    - name: Configure authorized processes\n      win_regedit:\n        path: HKLM:\\SOFTWARE\\PIICompliance\\AuthorizedProcesses\\{{ item.process }}\n        name: Authority\n        data: \"{{ item.authority }}\"\n        type: multistring\n      loop:\n        - { process: 'CRMApp', authority: ['consent'] }\n        - { process: 'BillingService', authority: ['contract'] }\n\n    - name: Enable advanced audit policy\n      win_shell: |\n        auditpol /set /subcategory:\"File System\" /success:enable /failure:enable"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:29.736320+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-3",
+    "control_id": "PT-3",
     "control_name": "Personally Identifiable Information Processing Purposes",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "",
+    "family_id": "PT",
+    "official_text": "a. Identify and document the [Assignment: organization-defined purpose(s)] for processing personally identifiable information; b. Describe the purpose(s) in the public privacy notices and policies of the organization; c. Restrict the [Assignment: organization-defined processing] of personally identifiable information to only that which is compatible with the identified purpose(s); and d. Monitor changes in processing purposes and implement [Assignment: organization-defined mechanisms] to ensure that any changes are made in accordance with [Assignment: organization-defined requirements].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Ensure that personally identifiable information (PII) is only processed for legitimate purposes.",
-    "example_implementation": "This script conduct regular audits to review and verify that all PII processing activities align with approved purposes and obtain consent from individuals when necessary.",
-    "non_technical_guidance": "This plan to comply with Control ID pt-3, Personally Identifiable Information Processing Purposes, the following non-technical implementation plan can be followed:\n\n1. Identify all systems and applications within your organization that process Personally Identifiable Information (PII).\n2. Document the specific purposes for which PII is being processed on each system or application.\n3. Implement access controls to ensure that only authorized personnel have access to PII for the specified processing purposes.\n4. Regularly review and update the documented purposes for processing PII to ensure compliance with regulations and internal policies.\n5. Provide training to employees on the importance of processing PII only for authorized purposes and the potential consequences of unauthorized processing.\n6. Conduct regular audits to verify that PII is being processed only for the documented purposes.\n\nBy following these steps, organizations can demonstrate compliance with the control regarding Personally Identifiable Information Processing Purposes.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-3.1",
-        "title": "Data Tagging",
-        "official_text": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}."
-      },
-      {
-        "id": "pt-3.2",
-        "title": "Automation",
-        "official_text": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}."
-      }
+    "plain_english_explanation": "Organizations must clearly define and document why they collect PII, communicate these purposes to individuals, and ensure PII is only used for those stated purposes.",
+    "intent": "Ensure transparency about data use and prevent function creep where PII collected for one purpose is used for another.",
+    "rationale": "Purpose limitation is a core privacy principle in GDPR Article 5, CCPA, and the Privacy Act. Violations can result in regulatory action and loss of public trust.",
+    "ai_guidance": "Implementation steps: 1) Create a Purpose Registry documenting each processing purpose with business justification. 2) Map PII data elements to authorized purposes. 3) Update privacy notices to clearly describe all purposes. 4) Implement technical controls to restrict processing to stated purposes. 5) Establish a change control process for adding new purposes. 6) Require privacy impact assessment before new purposes are approved. 7) Train staff on purpose limitations. 8) Audit processing activities to detect purpose creep.",
+    "implementation_guidance": "Document all processing purposes. Update privacy notices. Implement purpose-based access controls. Review purposes annually.",
+    "related_controls": [
+      "PT-2",
+      "PT-4",
+      "PM-20",
+      "SI-12"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": true
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:31.361091+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "has_scripts": false
     }
   },
   {
-    "control_id": "pt-3.1",
+    "control_id": "PT-3.1",
     "control_name": "Data Tagging",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}.",
-    "parent_control": "pt-3",
+    "family_id": "PT",
+    "parent_control": "PT-3",
+    "official_text": "Attach data tags containing the following purposes to [Assignment: organization-defined elements of personally identifiable information]: [Assignment: organization-defined processing purposes].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Attach data tags containing the following purposes to {{ insert: param, pt-03.01_odp.02 }}: {{ insert: param, pt-03.01_odp.01 }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Apply metadata tags to PII indicating what purposes the data can be used for. This enables automated enforcement of purpose limitations.",
+    "intent": "Enable machine-readable purpose metadata for automated purpose limitation enforcement.",
+    "rationale": "Purpose tags enable DLP, databases, and applications to automatically prevent PII from being used for unauthorized purposes.",
+    "ai_guidance": "Technical implementation: 1) Define purpose taxonomy (marketing, service-delivery, legal-compliance, analytics, etc.). 2) Tag PII at collection with stated purpose. 3) Implement purpose validation at processing points. 4) Configure DLP to block transfers that violate purpose. 5) Add purpose columns to database schemas. 6) Implement API parameters for purpose context. 7) Audit purpose tag coverage and accuracy.",
+    "implementation_guidance": "Define purpose taxonomy. Tag at collection. Validate at processing. Block unauthorized use.",
+    "related_controls": [
+      "AC-16",
+      "PT-2.1",
+      "PT-3",
+      "SC-16"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-3.1 Purpose Tagging for PII\n\n# Purpose taxonomy\nVALID_PURPOSES=(\"marketing\" \"service-delivery\" \"legal-compliance\" \"analytics\" \"research\" \"billing\")\n\n# Set purpose tag on file\nset_purpose_tag() {\n    local file=\"$1\"\n    local purpose=\"$2\"\n    \n    # Validate purpose\n    if [[ ! \" ${VALID_PURPOSES[@]} \" =~ \" $purpose \" ]]; then\n        echo \"ERROR: Invalid purpose '$purpose'. Valid: ${VALID_PURPOSES[*]}\"\n        return 1\n    fi\n    \n    setfattr -n user.pii.purpose -v \"$purpose\" \"$file\"\n    setfattr -n user.pii.purpose_date -v \"$(date -Iseconds)\" \"$file\"\n    logger -p local0.info \"PT-3.1: Purpose tag '$purpose' set on $file\"\n}\n\n# Get purpose tag\nget_purpose_tag() {\n    getfattr -n user.pii.purpose --only-values \"$1\" 2>/dev/null\n}\n\n# Validate purpose before processing\nvalidate_purpose() {\n    local file=\"$1\"\n    local intended_purpose=\"$2\"\n    local actual_purpose=$(get_purpose_tag \"$file\")\n    \n    if [[ \"$actual_purpose\" != \"$intended_purpose\" ]]; then\n        logger -p local0.warning \"PT-3.1: Purpose violation! File=$file Tagged=$actual_purpose Attempted=$intended_purpose\"\n        return 1\n    fi\n    return 0\n}\n\n# Audit purpose tags\naudit_purposes() {\n    local dir=\"$1\"\n    echo \"Purpose Tag Audit Report - $(date)\"\n    echo \"================================\"\n    for purpose in \"${VALID_PURPOSES[@]}\"; do\n        count=$(find \"$dir\" -type f -exec sh -c 'getfattr -n user.pii.purpose --only-values \"$1\" 2>/dev/null | grep -c \"^'\"$purpose\"'$\"' _ {} \\; | grep -c 1)\n        echo \"$purpose: $count files\"\n    done\n}",
+        "ansible": "---\n- name: PT-3.1 Purpose Tagging Implementation\n  hosts: all\n  become: yes\n  vars:\n    valid_purposes:\n      - marketing\n      - service-delivery\n      - legal-compliance\n      - analytics\n  tasks:\n    - name: Deploy purpose tagging script\n      copy:\n        dest: /usr/local/bin/pii-purpose-tag.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          setfattr -n user.pii.purpose -v \"$2\" \"$1\"\n\n    - name: Create purpose audit cron job\n      cron:\n        name: \"PT-3.1 Purpose audit\"\n        hour: \"3\"\n        minute: \"0\"\n        job: \"/usr/local/bin/audit-purposes.sh >> /var/log/pii-purpose-audit.log\""
+      },
+      "windows": {
+        "powershell": "# PT-3.1 Purpose Tagging\n\n$ValidPurposes = @('marketing', 'service-delivery', 'legal-compliance', 'analytics', 'research', 'billing')\n\nfunction Set-PIIPurposeTag {\n    param(\n        [Parameter(Mandatory=$true)][string]$Path,\n        [Parameter(Mandatory=$true)]\n        [ValidateScript({$_ -in $script:ValidPurposes})]\n        [string]$Purpose\n    )\n    \n    $tagData = @{\n        Purpose = $Purpose\n        TaggedDate = (Get-Date -Format 'o')\n    } | ConvertTo-Json\n    \n    Set-Content -Path \"$Path:pii_purpose\" -Value $tagData -Stream pii_purpose\n    Write-EventLog -LogName Application -Source PIICompliance -EventId 3001 -Message \"PT-3.1: Purpose '$Purpose' tagged on $Path\"\n}\n\nfunction Get-PIIPurposeTag {\n    param([string]$Path)\n    try {\n        $content = Get-Content -Path \"$Path:pii_purpose\" -Stream pii_purpose -ErrorAction Stop\n        return ($content | ConvertFrom-Json).Purpose\n    } catch { return $null }\n}\n\nfunction Test-PIIPurpose {\n    param([string]$Path, [string]$IntendedPurpose)\n    $actual = Get-PIIPurposeTag -Path $Path\n    if ($actual -ne $IntendedPurpose) {\n        Write-Warning \"PT-3.1 VIOLATION: Purpose mismatch on $Path (Tagged: $actual, Attempted: $IntendedPurpose)\"\n        return $false\n    }\n    return $true\n}",
+        "ansible": "---\n- name: PT-3.1 Purpose Tagging (Windows)\n  hosts: windows\n  tasks:\n    - name: Deploy purpose tagging module\n      win_copy:\n        dest: C:\\Program Files\\PIICompliance\\PIIPurposeTag.psm1\n        content: |\n          # Purpose tagging functions\n          $ValidPurposes = @('marketing', 'service-delivery', 'legal-compliance')\n          # ... module content"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:32.953453+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-3.2",
+    "control_id": "PT-3.2",
     "control_name": "Automation",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}.",
-    "parent_control": "pt-3",
+    "family_id": "PT",
+    "parent_control": "PT-3",
+    "official_text": "Track processing purposes of personally identifiable information using [Assignment: organization-defined automated mechanisms].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Track processing purposes of personally identifiable information using {{ insert: param, pt-03.02_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Use automated systems to track and enforce purpose limitations on PII processing.",
+    "intent": "Automate tracking of PII processing purposes to ensure consistent enforcement and auditability.",
+    "rationale": "Automated tracking provides comprehensive audit trails and enables real-time detection of purpose violations.",
+    "ai_guidance": "Implementation: 1) Deploy automated purpose tracking in databases and applications. 2) Log all PII access with purpose context. 3) Implement purpose validation in APIs. 4) Create dashboards showing purpose usage patterns. 5) Alert on potential purpose violations. 6) Generate compliance reports by purpose.",
+    "implementation_guidance": "Log purpose with all PII access. Validate purpose in APIs. Alert on violations. Report quarterly.",
+    "related_controls": [
+      "AU-2",
+      "PT-3.1",
+      "SI-4"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-3.2 Automated Purpose Tracking\n\nPURPOSE_LOG=\"/var/log/pii-purpose-tracking.log\"\n\n# Log PII access with purpose\nlog_purpose_access() {\n    local user=\"$1\"\n    local file=\"$2\"\n    local purpose=\"$3\"\n    local action=\"$4\"  # read, write, delete\n    \n    local file_purpose=$(getfattr -n user.pii.purpose --only-values \"$file\" 2>/dev/null)\n    local status=\"ALLOWED\"\n    \n    if [[ \"$file_purpose\" != \"$purpose\" ]]; then\n        status=\"VIOLATION\"\n        logger -p local0.alert \"PT-3.2: Purpose violation by $user on $file\"\n    fi\n    \n    echo \"$(date -Iseconds)|$status|$user|$file|$purpose|$file_purpose|$action\" >> \"$PURPOSE_LOG\"\n}\n\n# Generate purpose tracking report\ngenerate_report() {\n    echo \"=== PT-3.2 Purpose Tracking Report ===\"\n    echo \"Period: $(date -d '1 week ago' +%Y-%m-%d) to $(date +%Y-%m-%d)\"\n    echo \"\"\n    echo \"Access by Purpose:\"\n    awk -F'|' '{print $5}' \"$PURPOSE_LOG\" | sort | uniq -c | sort -rn\n    echo \"\"\n    echo \"Violations:\"\n    grep \"VIOLATION\" \"$PURPOSE_LOG\" | tail -20\n}",
+        "ansible": "---\n- name: PT-3.2 Automated Purpose Tracking\n  hosts: all\n  become: yes\n  tasks:\n    - name: Deploy purpose tracking daemon\n      copy:\n        dest: /usr/local/bin/purpose-tracker.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          # Monitor audit log and track purposes\n          ausearch -k pii_access --start recent | while read line; do\n            # Extract and log purpose context\n            echo \"$line\" >> /var/log/pii-purpose-tracking.log\n          done\n\n    - name: Create systemd service for tracking\n      copy:\n        dest: /etc/systemd/system/pii-purpose-tracker.service\n        content: |\n          [Unit]\n          Description=PII Purpose Tracking Service\n          [Service]\n          ExecStart=/usr/local/bin/purpose-tracker.sh\n          Restart=always\n          [Install]\n          WantedBy=multi-user.target"
+      },
+      "windows": {
+        "powershell": "# PT-3.2 Automated Purpose Tracking\n\n$PurposeTrackingLog = 'C:\\Logs\\PII-Purpose-Tracking.log'\n\nfunction Write-PurposeAccess {\n    param(\n        [string]$User,\n        [string]$FilePath,\n        [string]$DeclaredPurpose,\n        [string]$Action\n    )\n    \n    $filePurpose = Get-PIIPurposeTag -Path $FilePath\n    $status = if ($filePurpose -eq $DeclaredPurpose) { 'ALLOWED' } else { 'VIOLATION' }\n    \n    $logEntry = \"$(Get-Date -Format 'o')|$status|$User|$FilePath|$DeclaredPurpose|$filePurpose|$Action\"\n    Add-Content -Path $PurposeTrackingLog -Value $logEntry\n    \n    if ($status -eq 'VIOLATION') {\n        Write-EventLog -LogName Security -Source PIICompliance -EventId 3002 -EntryType Warning -Message \"Purpose violation: $logEntry\"\n    }\n}\n\nfunction Get-PurposeTrackingReport {\n    $data = Import-Csv -Path $PurposeTrackingLog -Delimiter '|' -Header 'Timestamp','Status','User','File','DeclaredPurpose','FilePurpose','Action'\n    \n    Write-Output \"=== Purpose Tracking Report ===\"\n    Write-Output \"Violations: $($data | Where-Object Status -eq 'VIOLATION' | Measure-Object | Select-Object -ExpandProperty Count)\"\n    Write-Output \"\"\n    Write-Output \"Access by Purpose:\"\n    $data | Group-Object DeclaredPurpose | Select-Object Name, Count | Format-Table\n}",
+        "ansible": "---\n- name: PT-3.2 Purpose Tracking (Windows)\n  hosts: windows\n  tasks:\n    - name: Enable object access auditing\n      win_shell: auditpol /set /subcategory:\"File System\" /success:enable"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:34.551205+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-4",
+    "control_id": "PT-4",
     "control_name": "Consent",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Implement {{ insert: param, pt-04_odp }} for individuals to consent to the processing of their personally identifiable information prior to its collection that facilitate individuals’ informed decision-making.",
+    "family_id": "PT",
+    "official_text": "Implement [Assignment: organization-defined tools or mechanisms] for individuals to consent to the processing of their personally identifiable information prior to its collection that facilitate individuals' informed decision-making.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Ensure individuals have the opportunity to give their permission before their personal information is collected.",
-    "example_implementation": "This script provide clear and easy-to-understand consent forms or mechanisms for individuals to give their consent before their personal information is collected.",
-    "non_technical_guidance": "This plan to implement the Consent control for individuals to consent to the processing of their personally identifiable information prior to its collection, you can follow these steps:\n1. Develop a clear and concise consent form that outlines the purpose of collecting PII, how it will be processed, and any third parties involved.\n2. Provide individuals with the option to opt-in or opt-out of data collection and processing.\n3. Ensure that individuals are fully informed about their rights and how their data will be used.\n4. Regularly review and update the consent process to ensure compliance with regulations and maintain transparency with individuals.\n5. Train staff members on the importance of obtaining consent and how to handle requests from individuals regarding their PII.\n6. Document all consent obtained and keep records in a secure and accessible manner for auditing purposes.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-4.1",
-        "title": "Tailored Consent",
-        "official_text": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information."
-      },
-      {
-        "id": "pt-4.2",
-        "title": "Just-in-time Consent",
-        "official_text": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}."
-      },
-      {
-        "id": "pt-4.3",
-        "title": "Revocation",
-        "official_text": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information."
-      }
+    "plain_english_explanation": "Provide clear mechanisms for individuals to give informed consent before their personal information is collected. Consent must be freely given, specific, and informed.",
+    "intent": "Ensure individuals have control over their PII and can make informed decisions about data collection.",
+    "rationale": "Consent is a fundamental privacy right under GDPR, CCPA, and other regulations. Valid consent requires clear communication and genuine choice.",
+    "ai_guidance": "Implementation: 1) Design consent forms that are clear, specific, and not bundled with other agreements. 2) Explain what data is collected, how it will be used, and who it may be shared with. 3) Provide equal prominence to accept and decline options. 4) Record consent with timestamp, version, and specific permissions granted. 5) Allow withdrawal of consent at any time. 6) Do not condition service on unnecessary consent. 7) Review consent mechanisms for compliance annually.",
+    "implementation_guidance": "Design clear consent forms. Record consent details. Allow easy withdrawal. Review annually.",
+    "related_controls": [
+      "PT-4.1",
+      "PT-4.2",
+      "PT-4.3",
+      "PT-5"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": true
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:36.147732+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "has_scripts": false
     }
   },
   {
-    "control_id": "pt-4.1",
+    "control_id": "PT-4.1",
     "control_name": "Tailored Consent",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information.",
-    "parent_control": "pt-4",
+    "family_id": "PT",
+    "parent_control": "PT-4",
+    "official_text": "Provide [Assignment: organization-defined mechanisms] to allow individuals to tailor processing permissions to selected elements of personally identifiable information.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Provide {{ insert: param, pt-04.01_odp }} to allow individuals to tailor processing permissions to selected elements of personally identifiable information.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Allow individuals to give granular consent, choosing which specific types of data they permit to be processed rather than all-or-nothing consent.",
+    "intent": "Enable fine-grained control over PII, allowing individuals to consent to some uses while declining others.",
+    "rationale": "Granular consent respects individual autonomy and may be required by GDPR's requirement for specific consent.",
+    "ai_guidance": "Technical implementation: 1) Create consent preference center UI with checkboxes for each data element and purpose. 2) Store consent preferences in structured database (user_id, data_element, purpose, consent_status, timestamp). 3) Implement consent checking at data access points. 4) Provide API for applications to query consent status. 5) Enable consent modification and audit trail. 6) Sync preferences across systems.",
+    "implementation_guidance": "Build preference center. Store granular preferences. Check before processing. Allow modifications.",
+    "related_controls": [
+      "PT-4",
+      "PT-4.2",
+      "AC-3"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-4.1 Granular Consent Management\n\nDB_FILE=\"/var/lib/consent/preferences.db\"\n\n# Initialize consent database\ninit_consent_db() {\n    sqlite3 \"$DB_FILE\" <<EOF\nCREATE TABLE IF NOT EXISTS consent_preferences (\n    user_id TEXT NOT NULL,\n    data_element TEXT NOT NULL,\n    purpose TEXT NOT NULL,\n    consent_status BOOLEAN NOT NULL,\n    consent_date TEXT NOT NULL,\n    consent_version TEXT NOT NULL,\n    PRIMARY KEY (user_id, data_element, purpose)\n);\nCREATE INDEX IF NOT EXISTS idx_user ON consent_preferences(user_id);\nEOF\n}\n\n# Record consent preference\nset_consent() {\n    local user_id=\"$1\"\n    local data_element=\"$2\"\n    local purpose=\"$3\"\n    local status=\"$4\"  # 1 or 0\n    \n    sqlite3 \"$DB_FILE\" \"INSERT OR REPLACE INTO consent_preferences VALUES ('$user_id', '$data_element', '$purpose', $status, datetime('now'), 'v1.0');\"\n    logger -p local0.info \"PT-4.1: Consent updated for $user_id - $data_element/$purpose = $status\"\n}\n\n# Check consent before processing\ncheck_consent() {\n    local user_id=\"$1\"\n    local data_element=\"$2\"\n    local purpose=\"$3\"\n    \n    local result=$(sqlite3 \"$DB_FILE\" \"SELECT consent_status FROM consent_preferences WHERE user_id='$user_id' AND data_element='$data_element' AND purpose='$purpose';\")\n    \n    if [[ \"$result\" == \"1\" ]]; then\n        return 0\n    else\n        logger -p local0.warning \"PT-4.1: No consent for $user_id - $data_element/$purpose\"\n        return 1\n    fi\n}\n\n# Get all preferences for user\nget_user_preferences() {\n    local user_id=\"$1\"\n    sqlite3 -header -csv \"$DB_FILE\" \"SELECT * FROM consent_preferences WHERE user_id='$user_id';\"\n}",
+        "ansible": "---\n- name: PT-4.1 Granular Consent Setup\n  hosts: all\n  become: yes\n  tasks:\n    - name: Install SQLite\n      package:\n        name: sqlite\n        state: present\n\n    - name: Create consent database directory\n      file:\n        path: /var/lib/consent\n        state: directory\n        mode: '0750'\n\n    - name: Deploy consent management script\n      copy:\n        src: consent-manager.sh\n        dest: /usr/local/bin/consent-manager.sh\n        mode: '0755'"
+      },
+      "windows": {
+        "powershell": "# PT-4.1 Granular Consent Management\n\n$ConsentDb = 'C:\\ProgramData\\PIICompliance\\ConsentPreferences.json'\n\nfunction Initialize-ConsentDatabase {\n    if (-not (Test-Path $ConsentDb)) {\n        @{Preferences = @()} | ConvertTo-Json | Set-Content $ConsentDb\n    }\n}\n\nfunction Set-ConsentPreference {\n    param(\n        [string]$UserId,\n        [string]$DataElement,\n        [string]$Purpose,\n        [bool]$Consent\n    )\n    \n    $db = Get-Content $ConsentDb | ConvertFrom-Json\n    \n    # Remove existing preference\n    $db.Preferences = @($db.Preferences | Where-Object {\n        -not ($_.UserId -eq $UserId -and $_.DataElement -eq $DataElement -and $_.Purpose -eq $Purpose)\n    })\n    \n    # Add new preference\n    $db.Preferences += @{\n        UserId = $UserId\n        DataElement = $DataElement\n        Purpose = $Purpose\n        Consent = $Consent\n        ConsentDate = (Get-Date -Format 'o')\n        Version = 'v1.0'\n    }\n    \n    $db | ConvertTo-Json -Depth 10 | Set-Content $ConsentDb\n    Write-EventLog -LogName Application -Source PIICompliance -EventId 4001 -Message \"Consent updated: $UserId - $DataElement/$Purpose = $Consent\"\n}\n\nfunction Test-Consent {\n    param([string]$UserId, [string]$DataElement, [string]$Purpose)\n    \n    $db = Get-Content $ConsentDb | ConvertFrom-Json\n    $pref = $db.Preferences | Where-Object {\n        $_.UserId -eq $UserId -and $_.DataElement -eq $DataElement -and $_.Purpose -eq $Purpose\n    }\n    \n    return ($pref -and $pref.Consent -eq $true)\n}",
+        "ansible": "---\n- name: PT-4.1 Consent Management (Windows)\n  hosts: windows\n  tasks:\n    - name: Create consent database directory\n      win_file:\n        path: C:\\ProgramData\\PIICompliance\n        state: directory"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:37.702426+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-4.2",
+    "control_id": "PT-4.2",
     "control_name": "Just-in-time Consent",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}.",
-    "parent_control": "pt-4",
+    "family_id": "PT",
+    "parent_control": "PT-4",
+    "official_text": "Present [Assignment: organization-defined consent mechanisms] to individuals at [Assignment: organization-defined frequency] and in conjunction with [Assignment: organization-defined personally identifiable information processing].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Present {{ insert: param, pt-04.02_odp.01 }} to individuals at {{ insert: param, pt-04.02_odp.02 }} and in conjunction with {{ insert: param, pt-04.02_odp.03 }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Request consent at the moment data is needed, providing context about why it's being requested rather than bundling all consent upfront.",
+    "intent": "Improve consent quality by requesting it in context when the individual understands what they're consenting to.",
+    "rationale": "Just-in-time consent leads to more informed decisions and better reflects genuine consent.",
+    "ai_guidance": "Implementation: 1) Identify trigger points for consent (first use of feature, data sharing, etc.). 2) Design contextual consent dialogs explaining the immediate use. 3) Allow proceeding without consent where feature is optional. 4) Record consent with context (feature, timestamp, choice). 5) Don't re-request for already-consented uses. 6) Test for user fatigue and consent blindness.",
+    "implementation_guidance": "Identify consent triggers. Design contextual prompts. Record with context. Avoid fatigue.",
+    "related_controls": [
+      "PT-4",
+      "PT-4.1",
+      "PT-5.1"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-4.2 Just-in-time Consent\n\nCONSENT_LOG=\"/var/log/jit-consent.log\"\n\n# Check if consent needed for action\nneeds_consent() {\n    local user_id=\"$1\"\n    local action=\"$2\"\n    \n    # Check if user already consented to this action\n    if grep -q \"$user_id|$action|GRANTED\" \"$CONSENT_LOG\" 2>/dev/null; then\n        return 1  # No consent needed, already granted\n    fi\n    return 0  # Consent needed\n}\n\n# Record JIT consent decision\nrecord_jit_consent() {\n    local user_id=\"$1\"\n    local action=\"$2\"\n    local decision=\"$3\"  # GRANTED or DENIED\n    local context=\"$4\"\n    \n    echo \"$(date -Iseconds)|$user_id|$action|$decision|$context\" >> \"$CONSENT_LOG\"\n    logger -p local0.info \"PT-4.2: JIT consent $decision for $user_id on $action\"\n}\n\n# API endpoint handler (conceptual)\nhandle_consent_request() {\n    local user_id=\"$1\"\n    local action=\"$2\"\n    \n    if needs_consent \"$user_id\" \"$action\"; then\n        echo \"CONSENT_REQUIRED|$action|Please confirm you want to proceed\"\n        return 1\n    fi\n    return 0\n}",
+        "ansible": "---\n- name: PT-4.2 JIT Consent Setup\n  hosts: all\n  become: yes\n  tasks:\n    - name: Create JIT consent log\n      file:\n        path: /var/log/jit-consent.log\n        state: touch\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PT-4.2 Just-in-time Consent\n\n$JITConsentLog = 'C:\\Logs\\JIT-Consent.log'\n\nfunction Test-NeedsConsent {\n    param([string]$UserId, [string]$Action)\n    \n    if (Test-Path $JITConsentLog) {\n        $granted = Get-Content $JITConsentLog | Where-Object { $_ -match \"$UserId\\|$Action\\|GRANTED\" }\n        if ($granted) { return $false }\n    }\n    return $true\n}\n\nfunction Write-JITConsent {\n    param(\n        [string]$UserId,\n        [string]$Action,\n        [ValidateSet('GRANTED','DENIED')][string]$Decision,\n        [string]$Context\n    )\n    \n    $entry = \"$(Get-Date -Format 'o')|$UserId|$Action|$Decision|$Context\"\n    Add-Content -Path $JITConsentLog -Value $entry\n    Write-EventLog -LogName Application -Source PIICompliance -EventId 4002 -Message \"JIT Consent: $entry\"\n}\n\nfunction Request-JITConsent {\n    param([string]$UserId, [string]$Action, [string]$Reason)\n    \n    if (Test-NeedsConsent -UserId $UserId -Action $Action) {\n        # In a real implementation, this would trigger UI prompt\n        return @{\n            Required = $true\n            Action = $Action\n            Reason = $Reason\n        }\n    }\n    return @{ Required = $false }\n}",
+        "ansible": "---\n- name: PT-4.2 JIT Consent (Windows)\n  hosts: windows\n  tasks:\n    - name: Ensure log directory exists\n      win_file:\n        path: C:\\Logs\n        state: directory"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:39.258736+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-4.3",
+    "control_id": "PT-4.3",
     "control_name": "Revocation",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information.",
-    "parent_control": "pt-4",
+    "family_id": "PT",
+    "parent_control": "PT-4",
+    "official_text": "Implement [Assignment: organization-defined tools or mechanisms] for individuals to revoke consent to the processing of their personally identifiable information.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Implement {{ insert: param, pt-04.03_odp }} for individuals to revoke consent to the processing of their personally identifiable information.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Provide easy mechanisms for individuals to withdraw their consent at any time, and ensure withdrawn consent stops further processing.",
+    "intent": "Ensure consent remains voluntary by allowing withdrawal, and that withdrawal is technically enforced.",
+    "rationale": "Right to withdraw consent is explicit in GDPR Article 7. Consent that cannot be withdrawn is not valid consent.",
+    "ai_guidance": "Implementation: 1) Provide self-service consent withdrawal (web portal, email request). 2) Process withdrawal requests within defined timeframe (GDPR: without undue delay). 3) Update consent database immediately. 4) Trigger downstream systems to stop processing. 5) Determine if data deletion is also requested. 6) Log withdrawal with timestamp. 7) Confirm withdrawal to individual. 8) Test that revoked consent actually stops processing.",
+    "implementation_guidance": "Provide self-service portal. Process promptly. Update all systems. Confirm to user. Audit effectiveness.",
+    "related_controls": [
+      "PT-4",
+      "PT-4.1",
+      "SI-12"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-4.3 Consent Revocation\n\nDB_FILE=\"/var/lib/consent/preferences.db\"\nREVOCATION_LOG=\"/var/log/consent-revocations.log\"\n\n# Revoke consent for user\nrevoke_consent() {\n    local user_id=\"$1\"\n    local data_element=\"$2\"  # Optional, if blank revoke all\n    local purpose=\"$3\"       # Optional\n    \n    local where_clause=\"user_id='$user_id'\"\n    [[ -n \"$data_element\" ]] && where_clause=\"$where_clause AND data_element='$data_element'\"\n    [[ -n \"$purpose\" ]] && where_clause=\"$where_clause AND purpose='$purpose'\"\n    \n    # Record revocation before deletion\n    sqlite3 \"$DB_FILE\" \"SELECT * FROM consent_preferences WHERE $where_clause;\" >> \"$REVOCATION_LOG\"\n    \n    # Update consent status to revoked\n    sqlite3 \"$DB_FILE\" \"UPDATE consent_preferences SET consent_status=0, consent_date=datetime('now') WHERE $where_clause;\"\n    \n    # Trigger downstream processing stop\n    trigger_processing_stop \"$user_id\" \"$data_element\" \"$purpose\"\n    \n    logger -p local0.info \"PT-4.3: Consent revoked for $user_id\"\n    echo \"Consent revoked. Processing will stop within 24 hours.\"\n}\n\n# Trigger downstream systems\ntrigger_processing_stop() {\n    local user_id=\"$1\"\n    # Call APIs to stop processing in other systems\n    curl -X POST \"http://localhost:8080/api/stop-processing\" -d \"{\\\"user_id\\\": \\\"$user_id\\\"}\" 2>/dev/null\n}\n\n# Verify revocation is effective\nverify_revocation() {\n    local user_id=\"$1\"\n    local result=$(sqlite3 \"$DB_FILE\" \"SELECT COUNT(*) FROM consent_preferences WHERE user_id='$user_id' AND consent_status=1;\")\n    \n    if [[ \"$result\" == \"0\" ]]; then\n        echo \"VERIFIED: All consents revoked for $user_id\"\n    else\n        echo \"WARNING: $result active consents remain for $user_id\"\n    fi\n}",
+        "ansible": "---\n- name: PT-4.3 Consent Revocation Setup\n  hosts: all\n  become: yes\n  tasks:\n    - name: Deploy revocation script\n      copy:\n        src: consent-revocation.sh\n        dest: /usr/local/bin/revoke-consent.sh\n        mode: '0755'\n\n    - name: Create revocation log\n      file:\n        path: /var/log/consent-revocations.log\n        state: touch\n        mode: '0640'"
+      },
+      "windows": {
+        "powershell": "# PT-4.3 Consent Revocation\n\n$ConsentDb = 'C:\\ProgramData\\PIICompliance\\ConsentPreferences.json'\n$RevocationLog = 'C:\\Logs\\Consent-Revocations.log'\n\nfunction Revoke-Consent {\n    param(\n        [Parameter(Mandatory=$true)][string]$UserId,\n        [string]$DataElement,\n        [string]$Purpose\n    )\n    \n    $db = Get-Content $ConsentDb | ConvertFrom-Json\n    \n    # Find matching consents\n    $toRevoke = $db.Preferences | Where-Object {\n        $_.UserId -eq $UserId -and\n        (-not $DataElement -or $_.DataElement -eq $DataElement) -and\n        (-not $Purpose -or $_.Purpose -eq $Purpose)\n    }\n    \n    # Log revocations\n    $toRevoke | ForEach-Object {\n        $logEntry = \"$(Get-Date -Format 'o')|REVOKED|$($_ | ConvertTo-Json -Compress)\"\n        Add-Content -Path $RevocationLog -Value $logEntry\n    }\n    \n    # Update consent status\n    $db.Preferences | Where-Object {\n        $_.UserId -eq $UserId -and\n        (-not $DataElement -or $_.DataElement -eq $DataElement) -and\n        (-not $Purpose -or $_.Purpose -eq $Purpose)\n    } | ForEach-Object {\n        $_.Consent = $false\n        $_.ConsentDate = (Get-Date -Format 'o')\n    }\n    \n    $db | ConvertTo-Json -Depth 10 | Set-Content $ConsentDb\n    \n    # Trigger downstream stop\n    Stop-PIIProcessing -UserId $UserId\n    \n    Write-EventLog -LogName Application -Source PIICompliance -EventId 4003 -Message \"Consent revoked for $UserId\"\n    return \"Consent revoked. Processing will stop within 24 hours.\"\n}\n\nfunction Stop-PIIProcessing {\n    param([string]$UserId)\n    # Call downstream APIs to stop processing\n    try {\n        Invoke-RestMethod -Uri 'http://localhost:8080/api/stop-processing' -Method POST -Body (@{user_id=$UserId} | ConvertTo-Json)\n    } catch {\n        Write-Warning \"Failed to notify downstream: $_\"\n    }\n}",
+        "ansible": "---\n- name: PT-4.3 Revocation (Windows)\n  hosts: windows\n  tasks:\n    - name: Deploy revocation module\n      win_copy:\n        dest: C:\\Program Files\\PIICompliance\\ConsentRevocation.psm1\n        content: |\n          # Revocation functions..."
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:40.810490+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-5",
+    "control_id": "PT-5",
     "control_name": "Privacy Notice",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Provide notice to individuals about the processing of personally identifiable information that:",
+    "family_id": "PT",
+    "official_text": "Provide notice to individuals about the processing of personally identifiable information that: a. Is available to individuals upon first interacting with an organization, and subsequently at [Assignment: organization-defined frequency]; b. Is clear and easy-to-understand, expressing information about personally identifiable information processing in plain language; c. Identifies the authority that authorizes the processing of personally identifiable information; d. Identifies the purposes for which personally identifiable information is to be processed; and e. Includes [Assignment: organization-defined information].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Let people know how their personal information is being used.",
-    "example_implementation": "This script creates a clear and easy-to-understand privacy notice on your website or in your app that explains what data you collect, how it's used, and who it's shared with.",
-    "non_technical_guidance": "This plan to comply with Control ID pt-5, the organization should create and maintain a privacy notice that informs individuals about how their personally identifiable information is being processed. This notice should be easily accessible to individuals and clearly outline the purposes for which their data is being collected, how it will be used, and any third parties with whom it may be shared. The privacy notice should also include information on individuals' rights regarding their data, such as the right to access, correct, and delete their information. Regularly review and update the privacy notice to ensure it remains accurate and up to date with any changes in data processing practices. Additionally, provide mechanisms for individuals to easily contact the organization with any questions or concerns about their privacy rights.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-5.1",
-        "title": "Just-in-time Notice",
-        "official_text": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}."
-      },
-      {
-        "id": "pt-5.2",
-        "title": "Privacy Act Statements",
-        "official_text": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals."
-      }
+    "plain_english_explanation": "Provide clear, accessible privacy notices that tell individuals what data you collect, why you collect it, and how you use it. The notice should be easy to understand and available before or during data collection.",
+    "intent": "Enable informed decision-making by individuals through transparent communication about data practices.",
+    "rationale": "Privacy notices are required by virtually all privacy laws (GDPR, CCPA, Privacy Act, etc.) and are foundational to transparency.",
+    "ai_guidance": "Implementation: 1) Draft notice in plain language (target 8th grade reading level). 2) Include: data collected, purposes, retention period, sharing, individual rights, contact info. 3) Make notice available on website, in apps, and on forms. 4) Version notices and track changes. 5) Translate to languages of user base. 6) Test readability with users. 7) Review and update annually or when practices change.",
+    "implementation_guidance": "Draft plain language notice. Cover all required elements. Make accessible everywhere. Review annually.",
+    "related_controls": [
+      "PT-5.1",
+      "PT-5.2",
+      "PM-20"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:42.390650+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-5.1",
+    "control_id": "PT-5.1",
     "control_name": "Just-in-time Notice",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}.",
-    "parent_control": "pt-5",
+    "family_id": "PT",
+    "parent_control": "PT-5",
+    "official_text": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or [Assignment: organization-defined frequency].",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Present notice of personally identifiable information processing to individuals at a time and location where the individual provides personally identifiable information or in conjunction with a data action, or {{ insert: param, pt-05.01_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Display privacy notices at the moment data is being collected, such as showing a brief notice on a form explaining what happens to the data entered.",
+    "intent": "Ensure individuals are informed about data use at the point of collection when it is most relevant.",
+    "rationale": "Contextual notices improve comprehension and compliance with notice requirements.",
+    "ai_guidance": "Technical implementation: 1) Identify all data collection points (forms, APIs, uploads). 2) Create notice templates for each collection context. 3) Implement notice display before submit buttons. 4) Add privacy headers to API responses. 5) Log notice presentations for audit. 6) A/B test notice effectiveness. 7) Support accessibility requirements.",
+    "implementation_guidance": "Identify collection points. Create contextual notices. Display before submission. Log presentations.",
+    "related_controls": [
+      "PT-4.2",
+      "PT-5"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-5.1 Just-in-time Privacy Notice Implementation\n\n# Add privacy headers to web server responses\nsetup_nginx_privacy_headers() {\n    cat >> /etc/nginx/conf.d/privacy-headers.conf <<'EOF'\n# PT-5.1 Privacy Notice Headers\nadd_header X-Privacy-Notice-URL \"https://example.com/privacy\";\nadd_header X-Data-Controller \"Example Corp\";\nadd_header X-Data-Purpose \"Service provision\";\nEOF\n    nginx -t && systemctl reload nginx\n}\n\n# Log privacy notice presentation\nlog_notice_presentation() {\n    local user_hash=\"$1\"\n    local notice_type=\"$2\"\n    local context=\"$3\"\n    \n    echo \"$(date -Iseconds)|$user_hash|$notice_type|$context\" >> /var/log/privacy-notices.log\n    logger -p local0.info \"PT-5.1: Privacy notice presented to $user_hash at $context\"\n}\n\n# Audit notice presentations\naudit_notices() {\n    echo \"=== PT-5.1 Notice Presentation Audit ===\"\n    echo \"Total presentations: $(wc -l < /var/log/privacy-notices.log)\"\n    echo \"By type:\"\n    awk -F'|' '{print $3}' /var/log/privacy-notices.log | sort | uniq -c\n}",
+        "ansible": "---\n- name: PT-5.1 Just-in-time Notice Setup\n  hosts: webservers\n  become: yes\n  tasks:\n    - name: Configure Nginx privacy headers\n      copy:\n        dest: /etc/nginx/conf.d/privacy-headers.conf\n        content: |\n          add_header X-Privacy-Notice-URL \"https://example.com/privacy\" always;\n          add_header X-Data-Controller \"Example Corp\" always;\n      notify: Reload Nginx\n\n    - name: Create notice logging directory\n      file:\n        path: /var/log/privacy\n        state: directory\n        mode: '0750'\n\n  handlers:\n    - name: Reload Nginx\n      service:\n        name: nginx\n        state: reloaded"
+      },
+      "windows": {
+        "powershell": "# PT-5.1 Just-in-time Privacy Notice\n\n$NoticeLog = 'C:\\Logs\\Privacy-Notices.log'\n\n# Configure IIS privacy headers\nfunction Set-IISPrivacyHeaders {\n    param([string]$SiteName = 'Default Web Site')\n    \n    Import-Module WebAdministration\n    \n    $headers = @(\n        @{name='X-Privacy-Notice-URL'; value='https://example.com/privacy'},\n        @{name='X-Data-Controller'; value='Example Corp'},\n        @{name='X-Data-Purpose'; value='Service provision'}\n    )\n    \n    foreach ($header in $headers) {\n        Set-WebConfigurationProperty -PSPath \"IIS:\\Sites\\$SiteName\" `\n            -Filter 'system.webServer/httpProtocol/customHeaders' `\n            -Name '.' `\n            -Value @{name=$header.name; value=$header.value}\n    }\n    \n    Write-Host \"Privacy headers configured for $SiteName\"\n}\n\n# Log notice presentation\nfunction Write-NoticePresentation {\n    param(\n        [string]$UserHash,\n        [string]$NoticeType,\n        [string]$Context\n    )\n    \n    $entry = \"$(Get-Date -Format 'o')|$UserHash|$NoticeType|$Context\"\n    Add-Content -Path $NoticeLog -Value $entry\n}\n\n# Audit notice presentations\nfunction Get-NoticeAudit {\n    $data = Import-Csv -Path $NoticeLog -Delimiter '|' -Header 'Timestamp','UserHash','NoticeType','Context'\n    \n    Write-Output \"=== PT-5.1 Notice Audit ===\"\n    Write-Output \"Total presentations: $($data.Count)\"\n    Write-Output \"By type:\"\n    $data | Group-Object NoticeType | Select-Object Name, Count | Format-Table\n}",
+        "ansible": "---\n- name: PT-5.1 Just-in-time Notice (Windows)\n  hosts: windows\n  tasks:\n    - name: Configure IIS privacy headers via web.config\n      win_shell: |\n        $webConfig = 'C:\\inetpub\\wwwroot\\web.config'\n        # Add custom headers configuration"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:43.997785+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-5.2",
+    "control_id": "PT-5.2",
     "control_name": "Privacy Act Statements",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
+    "family_id": "PT",
+    "parent_control": "PT-5",
     "official_text": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals.",
-    "parent_control": "pt-5",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Include Privacy Act statements on forms that collect information that will be maintained in a Privacy Act system of records, or provide Privacy Act statements on separate forms that can be retained by individuals.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "is_technical": false,
+    "plain_english_explanation": "For federal agencies, include Privacy Act statements on forms that collect PII. These statements explain authority, purpose, routine uses, and consequences of not providing information.",
+    "intent": "Comply with Privacy Act of 1974 requirements for federal information collection.",
+    "rationale": "Privacy Act (5 U.S.C. 552a(e)(3)) requires agencies to inform individuals about data collection circumstances.",
+    "ai_guidance": "Implementation (federal agencies): 1) Identify all forms collecting PII for Privacy Act systems. 2) Draft Privacy Act statements including: legal authority, principal purpose, routine uses, voluntary/mandatory status, consequences of non-disclosure. 3) Place statement prominently on form or provide separately. 4) Coordinate with Privacy Office and legal. 5) Review when SORN is updated. 6) Train form designers on requirements.",
+    "implementation_guidance": "Identify covered forms. Draft required statements. Place prominently. Review with SORN updates.",
+    "related_controls": [
+      "PT-5",
+      "PT-6"
+    ],
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "status": "implemented",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:45.641640+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-6",
+    "control_id": "PT-6",
     "control_name": "System of Records Notice",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "For systems that process information that will be maintained in a Privacy Act system of records:",
+    "family_id": "PT",
+    "official_text": "For systems that process information that will be maintained in a Privacy Act system of records: a. Draft system of records notices in accordance with OMB guidance and submit new and significantly modified system of records notices to the OMB and appropriate congressional committees for advance review; b. Publish system of records notices in the Federal Register; and c. Keep system of records notices accurate, up-to-date, and scoped in accordance with policy.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Before collecting and storing personal information, organizations must inform individuals through a System of Records Notice.",
-    "example_implementation": "This script ensure that your organization has a clear and easily accessible System of Records Notice that outlines how personal information will be collected, used, and protected.",
-    "non_technical_guidance": "This plan 1. Identify the systems that process information maintained in a Privacy Act system of records.\n2. Create a System of Records Notice document that includes the required information as per the Privacy Act.\n3. Distribute the System of Records Notice document to relevant personnel who handle the information.\n4. Ensure that the System of Records Notice is prominently displayed or easily accessible to individuals whose information is being processed.\n5. Regularly review and update the System of Records Notice as necessary to reflect any changes in the system or information processing practices.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-6.1",
-        "title": "Routine Uses",
-        "official_text": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected."
-      },
-      {
-        "id": "pt-6.2",
-        "title": "Exemption Rules",
-        "official_text": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice."
-      }
+    "plain_english_explanation": "Federal agencies must publish System of Records Notices (SORNs) in the Federal Register describing any systems that retrieve records by personal identifier.",
+    "intent": "Provide public transparency about federal government personal data systems as required by the Privacy Act.",
+    "rationale": "Privacy Act (5 U.S.C. 552a(e)(4)) requires agencies to publish notice of record systems.",
+    "ai_guidance": "Implementation (federal agencies): 1) Inventory systems retrieving records by personal identifier. 2) Draft SORN following OMB Circular A-108 format. 3) Submit to OMB and Congress 40 days before publication. 4) Publish in Federal Register. 5) Review SORNs biennially per OMB requirements. 6) Update when system significantly changes. 7) Maintain SORN repository on agency website.",
+    "implementation_guidance": "Inventory systems. Draft per OMB A-108. Submit for review. Publish. Review biennially.",
+    "related_controls": [
+      "PT-5.2",
+      "PT-6.1",
+      "PT-6.2"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": true
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:47.392745+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "has_scripts": false
     }
   },
   {
-    "control_id": "pt-6.1",
+    "control_id": "PT-6.1",
     "control_name": "Routine Uses",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected.",
-    "parent_control": "pt-6",
+    "family_id": "PT",
+    "parent_control": "PT-6",
+    "official_text": "Review all routine uses published in the system of records notice at [Assignment: organization-defined frequency] to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Review all routine uses published in the system of records notice at {{ insert: param, pt-06.01_odp }} to ensure continued accuracy, and to ensure that routine uses continue to be compatible with the purpose for which the information was collected.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "is_technical": false,
+    "plain_english_explanation": "Regularly review the 'routine uses' in SORNs (ways data may be shared) to ensure they are still accurate and compatible with original collection purposes.",
+    "intent": "Ensure SORN routine uses remain accurate and don't expand beyond compatible purposes.",
+    "rationale": "Routine uses can become outdated or incompatible. Regular review maintains Privacy Act compliance.",
+    "ai_guidance": "Implementation: 1) Schedule routine use reviews (at least biennially). 2) Compare actual data sharing to published routine uses. 3) Identify any sharing not covered by existing routine uses. 4) Remove obsolete routine uses. 5) Add new routine uses through proper SORN amendment process. 6) Document review findings. 7) Ensure new uses are compatible with original purpose.",
+    "implementation_guidance": "Review biennially. Compare actual vs published uses. Add/remove as needed. Document reviews.",
+    "related_controls": [
+      "PT-3",
+      "PT-6",
+      "PT-6.2"
+    ],
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "status": "implemented",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:49.101525+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-6.2",
+    "control_id": "PT-6.2",
     "control_name": "Exemption Rules",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice.",
-    "parent_control": "pt-6",
+    "family_id": "PT",
+    "parent_control": "PT-6",
+    "official_text": "Review all Privacy Act exemptions claimed for the system of records at [Assignment: organization-defined frequency] to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Review all Privacy Act exemptions claimed for the system of records at {{ insert: param, pt-06.02_odp }} to ensure they remain appropriate and necessary in accordance with law, that they have been promulgated as regulations, and that they are accurately described in the system of records notice.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "is_technical": false,
+    "plain_english_explanation": "Regularly review any Privacy Act exemptions claimed (such as exemptions from access or accuracy requirements) to ensure they are still valid and properly documented.",
+    "intent": "Ensure Privacy Act exemptions are not over-claimed and remain legally justified.",
+    "rationale": "Exemptions limit individual rights and must be narrowly applied. Regular review prevents scope creep.",
+    "ai_guidance": "Implementation: 1) Inventory all claimed exemptions by SORN. 2) Review legal basis for each exemption. 3) Verify exemptions are published as regulations (required). 4) Confirm SORN accurately describes exemptions. 5) Remove exemptions no longer needed. 6) Document review findings. 7) Coordinate with legal and Privacy Office.",
+    "implementation_guidance": "Inventory exemptions. Verify legal basis. Check regulations published. Review accuracy. Document.",
+    "related_controls": [
+      "PT-6",
+      "PT-6.1"
+    ],
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
+      "status": "implemented",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:50.682090+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-7",
+    "control_id": "PT-7",
     "control_name": "Specific Categories of Personally Identifiable Information",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "Apply {{ insert: param, pt-07_odp }} for specific categories of personally identifiable information.",
+    "family_id": "PT",
+    "official_text": "Apply [Assignment: organization-defined processing conditions] for specific categories of personally identifiable information.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "This control requires organizations to apply specific protections for certain types of personal information.",
-    "example_implementation": "This script identify and classify the different categories of personally identifiable information within your organization to ensure appropriate security measures are in place for each type.",
-    "non_technical_guidance": "This plan to comply with control pt-7, you should first identify the specific categories of personally identifiable information (PII) that your organization handles. This could include information such as social security numbers, driver's license numbers, financial account numbers, etc.\n\nOnce you have identified these specific categories of PII, you should implement appropriate security controls to protect this information. This could include encryption, access controls, monitoring, and regular audits to ensure compliance with relevant regulations and standards.\n\nIt is important to regularly review and update your policies and procedures related to handling specific categories of PII to stay in compliance with regulatory requirements and protect sensitive information from unauthorized access or disclosure.",
     "is_technical": false,
-    "enhancements": [
-      {
-        "id": "pt-7.1",
-        "title": "Social Security Numbers",
-        "official_text": "When a system processes Social Security numbers:"
-      },
-      {
-        "id": "pt-7.2",
-        "title": "First Amendment Information",
-        "official_text": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity."
-      }
+    "plain_english_explanation": "Apply special protections for sensitive categories of PII such as Social Security numbers, health information, financial data, and other high-risk data types.",
+    "intent": "Recognize that some PII categories pose higher risks and require enhanced protections.",
+    "rationale": "Different PII types have different risk profiles. SSNs, health data, and biometrics require stricter controls than basic contact information.",
+    "ai_guidance": "Implementation: 1) Define sensitive PII categories (SSN, health, financial, biometric, children's data, etc.). 2) Document enhanced controls for each category. 3) Implement stronger access controls. 4) Require encryption for sensitive categories. 5) Apply stricter retention limits. 6) Conduct enhanced monitoring. 7) Require additional authorization for access. 8) Train staff on category-specific requirements.",
+    "implementation_guidance": "Define sensitive categories. Document enhanced controls. Implement technical protections. Train staff.",
+    "related_controls": [
+      "PT-7.1",
+      "PT-7.2",
+      "SC-28",
+      "AC-3"
     ],
-    "related_controls": [],
-    "supplemental_guidance": "",
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
       "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:52.295877+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
     }
   },
   {
-    "control_id": "pt-7.1",
+    "control_id": "PT-7.1",
     "control_name": "Social Security Numbers",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "When a system processes Social Security numbers:",
-    "parent_control": "pt-7",
+    "family_id": "PT",
+    "parent_control": "PT-7",
+    "official_text": "When a system processes Social Security numbers: a. Eliminate unnecessary collection, maintenance, and use of Social Security numbers, and explore alternatives; b. Do not deny any individual any right, benefit, or privilege provided by law because of such individual's refusal to disclose his or her Social Security number; and c. Inform any individual who is asked to disclose his or her Social Security number whether that disclosure is mandatory or voluntary, by what statutory or other authority such number is solicited, and what uses will be made of it.",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "When a system processes Social Security numbers:",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Minimize SSN collection and use, provide alternatives where possible, never deny services for SSN refusal (unless legally required), and clearly disclose when SSN is requested.",
+    "intent": "Reduce SSN exposure and identity theft risk by limiting collection and use to what is strictly necessary.",
+    "rationale": "SSNs are prime targets for identity theft. Minimizing their use reduces risk while maintaining necessary functions.",
+    "ai_guidance": "Implementation: 1) Audit all systems using SSN - document business need for each. 2) Implement alternatives (employee ID, account numbers) where SSN not legally required. 3) Mask SSNs in displays (show only last 4). 4) Encrypt SSNs at rest and in transit. 5) Implement strict access controls. 6) Log all SSN access. 7) Remove SSN from systems where not needed. 8) Update disclosure notices. 9) Train staff on SSN handling requirements.",
+    "implementation_guidance": "Audit SSN use. Implement alternatives. Mask displays. Encrypt storage. Log access. Remove unnecessary SSNs.",
+    "related_controls": [
+      "PT-7",
+      "AC-3",
+      "SC-28",
+      "AU-2"
+    ],
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# PT-7.1 Social Security Number Protection\n\nSSN_PATTERN='[0-9]{3}-[0-9]{2}-[0-9]{4}'\nSSN_LOG=\"/var/log/ssn-detection.log\"\n\n# Mask SSN for display (show only last 4)\nmask_ssn() {\n    local ssn=\"$1\"\n    if [[ \"$ssn\" =~ ^[0-9]{3}-[0-9]{2}-[0-9]{4}$ ]]; then\n        echo \"***-**-${ssn: -4}\"\n    else\n        echo \"$ssn\"\n    fi\n}\n\n# Scan file for unmasked SSNs\nscan_for_ssn() {\n    local file=\"$1\"\n    local matches=$(grep -oE \"$SSN_PATTERN\" \"$file\" 2>/dev/null | wc -l)\n    \n    if [[ $matches -gt 0 ]]; then\n        echo \"ALERT: $matches potential SSN(s) found in $file\"\n        logger -p local0.alert \"PT-7.1: $matches unmasked SSN(s) detected in $file\"\n        echo \"$(date -Iseconds)|$file|$matches\" >> \"$SSN_LOG\"\n        return 1\n    fi\n    return 0\n}\n\n# Scan directory recursively\nscan_directory() {\n    local dir=\"$1\"\n    find \"$dir\" -type f \\( -name \"*.txt\" -o -name \"*.csv\" -o -name \"*.log\" -o -name \"*.json\" \\) | while read file; do\n        scan_for_ssn \"$file\"\n    done\n}\n\n# Encrypt SSN for storage\nencrypt_ssn() {\n    local ssn=\"$1\"\n    local key_file=\"/etc/pii-keys/ssn.key\"\n    echo \"$ssn\" | openssl enc -aes-256-cbc -pbkdf2 -pass file:\"$key_file\" | base64\n}\n\n# Decrypt SSN (authorized use only)\ndecrypt_ssn() {\n    local encrypted=\"$1\"\n    local key_file=\"/etc/pii-keys/ssn.key\"\n    echo \"$encrypted\" | base64 -d | openssl enc -aes-256-cbc -d -pbkdf2 -pass file:\"$key_file\"\n    logger -p local0.info \"PT-7.1: SSN decrypted by $(whoami)\"\n}\n\n# PostgreSQL SSN masking function\nsetup_db_masking() {\n    psql -c \"\nCREATE OR REPLACE FUNCTION mask_ssn(ssn TEXT) RETURNS TEXT AS \\$\\$\nBEGIN\n    IF ssn ~ '^[0-9]{3}-[0-9]{2}-[0-9]{4}\\$' THEN\n        RETURN '***-**-' || RIGHT(ssn, 4);\n    ELSE\n        RETURN ssn;\n    END IF;\nEND;\n\\$\\$ LANGUAGE plpgsql IMMUTABLE;\n\"\n}",
+        "ansible": "---\n- name: PT-7.1 SSN Protection Implementation\n  hosts: all\n  become: yes\n  tasks:\n    - name: Create PII encryption key directory\n      file:\n        path: /etc/pii-keys\n        state: directory\n        mode: '0700'\n\n    - name: Generate SSN encryption key\n      shell: openssl rand -base64 32 > /etc/pii-keys/ssn.key\n      args:\n        creates: /etc/pii-keys/ssn.key\n\n    - name: Set key file permissions\n      file:\n        path: /etc/pii-keys/ssn.key\n        mode: '0600'\n\n    - name: Deploy SSN scanning script\n      copy:\n        dest: /usr/local/bin/scan-ssn.sh\n        mode: '0755'\n        content: |\n          #!/bin/bash\n          SSN_PATTERN='[0-9]{3}-[0-9]{2}-[0-9]{4}'\n          find /data /var/lib -type f -exec grep -l -E \"$SSN_PATTERN\" {} \\; 2>/dev/null\n\n    - name: Configure weekly SSN scan\n      cron:\n        name: \"PT-7.1 SSN scan\"\n        weekday: \"0\"\n        hour: \"3\"\n        minute: \"0\"\n        job: \"/usr/local/bin/scan-ssn.sh >> /var/log/ssn-scan.log 2>&1\"\n\n    - name: Configure audit rules for SSN file access\n      lineinfile:\n        path: /etc/audit/rules.d/ssn-audit.rules\n        line: \"-w /data/pii/ssn -p rwxa -k ssn_access\"\n        create: yes\n      notify: Restart auditd\n\n  handlers:\n    - name: Restart auditd\n      service:\n        name: auditd\n        state: restarted"
+      },
+      "windows": {
+        "powershell": "# PT-7.1 Social Security Number Protection\n\n$SSNPattern = '\\d{3}-\\d{2}-\\d{4}'\n$SSNLog = 'C:\\Logs\\SSN-Detection.log'\n\n# Mask SSN for display\nfunction Get-MaskedSSN {\n    param([string]$SSN)\n    if ($SSN -match '^\\d{3}-\\d{2}-\\d{4}$') {\n        return \"***-**-$($SSN.Substring(7))\"\n    }\n    return $SSN\n}\n\n# Scan file for unmasked SSNs\nfunction Find-UnmaskedSSN {\n    param([string]$Path)\n    \n    $results = @()\n    Get-ChildItem -Path $Path -Recurse -Include *.txt,*.csv,*.log,*.json -ErrorAction SilentlyContinue | ForEach-Object {\n        $matches = Select-String -Path $_.FullName -Pattern $SSNPattern -AllMatches\n        if ($matches) {\n            $result = @{\n                File = $_.FullName\n                Count = $matches.Matches.Count\n                Lines = $matches.LineNumber\n            }\n            $results += $result\n            \n            $logEntry = \"$(Get-Date -Format 'o')|$($_.FullName)|$($matches.Matches.Count)\"\n            Add-Content -Path $SSNLog -Value $logEntry\n            \n            Write-Warning \"PT-7.1 ALERT: $($matches.Matches.Count) SSN(s) in $($_.FullName)\"\n            Write-EventLog -LogName Security -Source PIICompliance -EventId 7001 -EntryType Warning -Message \"Unmasked SSN detected in $($_.FullName)\"\n        }\n    }\n    return $results\n}\n\n# Encrypt SSN using DPAPI\nfunction Protect-SSN {\n    param([string]$SSN)\n    $secureString = ConvertTo-SecureString -String $SSN -AsPlainText -Force\n    return ConvertFrom-SecureString -SecureString $secureString\n}\n\n# Decrypt SSN using DPAPI\nfunction Unprotect-SSN {\n    param([string]$EncryptedSSN)\n    $secureString = ConvertTo-SecureString -String $EncryptedSSN\n    $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureString)\n    try {\n        $ssn = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)\n        Write-EventLog -LogName Security -Source PIICompliance -EventId 7002 -Message \"SSN decrypted by $env:USERNAME\"\n        return $ssn\n    } finally {\n        [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)\n    }\n}\n\n# Enable SSN file access auditing\nfunction Enable-SSNAuditing {\n    param([string]$Path)\n    \n    $acl = Get-Acl -Path $Path\n    $auditRule = New-Object System.Security.AccessControl.FileSystemAuditRule(\n        'Everyone',\n        'Read,Write',\n        'ContainerInherit,ObjectInherit',\n        'None',\n        'Success,Failure'\n    )\n    $acl.AddAuditRule($auditRule)\n    Set-Acl -Path $Path -AclObject $acl\n    Write-Host \"SSN access auditing enabled for $Path\"\n}\n\n# Create event log source\nif (-not [System.Diagnostics.EventLog]::SourceExists('PIICompliance')) {\n    New-EventLog -LogName Security -Source 'PIICompliance'\n}",
+        "ansible": "---\n- name: PT-7.1 SSN Protection (Windows)\n  hosts: windows\n  tasks:\n    - name: Create PIICompliance event log source\n      win_shell: |\n        if (-not [System.Diagnostics.EventLog]::SourceExists('PIICompliance')) {\n            New-EventLog -LogName Security -Source 'PIICompliance'\n        }\n\n    - name: Deploy SSN protection module\n      win_copy:\n        dest: C:\\Program Files\\PIICompliance\\SSNProtection.psm1\n        content: |\n          # SSN Protection Module\n          function Get-MaskedSSN { param([string]$SSN) ... }\n          function Find-UnmaskedSSN { param([string]$Path) ... }\n          Export-ModuleMember -Function *\n\n    - name: Create scheduled SSN scan task\n      win_scheduled_task:\n        name: PT-7.1_SSN_Scan\n        description: Weekly scan for unmasked SSNs\n        actions:\n          - path: powershell.exe\n            arguments: -File \"C:\\Program Files\\PIICompliance\\Scan-SSN.ps1\"\n        triggers:\n          - type: weekly\n            days_of_week: sunday\n            start_boundary: '2024-01-01T03:00:00'\n        username: SYSTEM\n        state: present"
+      }
     },
     "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:53.966889+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+      "status": "implemented",
+      "has_scripts": true
     }
   },
   {
-    "control_id": "pt-7.2",
+    "control_id": "PT-7.2",
     "control_name": "First Amendment Information",
     "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
+    "family_id": "PT",
+    "parent_control": "PT-7",
     "official_text": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity.",
-    "parent_control": "pt-7",
     "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment unless expressly authorized by statute or by the individual or unless pertinent to and within the scope of an authorized law enforcement activity.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
-    "is_technical": true,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
-    "implementation_scripts": {
-      "linux": {},
-      "windows": {}
-    },
-    "metadata": {
-      "status": "pending_implementation",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
-      "has_scripts": false
-    },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:55.563472+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
-  },
-  {
-    "control_id": "pt-8",
-    "control_name": "Computer Matching Requirements",
-    "family": "Personally Identifiable Information Processing and Transparency",
-    "family_id": "pt",
-    "official_text": "When a system or organization processes information for the purpose of conducting a matching program:",
-    "source": "NIST SP 800-53 Rev 5",
-    "baselines": {
-      "low": false,
-      "moderate": false,
-      "high": false
-    },
-    "plain_english_explanation": "Computer matching requirements ensure that systems or organizations accurately compare and match information for specific programs.",
-    "example_implementation": "This script ensure that proper protocols and safeguards are in place to prevent errors or unauthorized access during the matching process, such as encryption and access controls.",
-    "non_technical_guidance": "This plan to comply with the Computer Matching Requirements control, the following non-technical implementation plan can be followed:\n\n1. Identify the systems or organization processes that involve conducting a matching program.\n2. Develop policies and procedures for ensuring that computer matching activities are conducted in compliance with applicable laws and regulations.\n3. Establish a review process to ensure that computer matching programs are conducted accurately and fairly.\n4. Provide training to personnel involved in computer matching activities to ensure they understand the requirements and procedures.\n5. Conduct regular audits and assessments to monitor compliance with computer matching requirements.\n6. Implement controls to protect the privacy and security of the information involved in computer matching programs.\n7. Document all computer matching activities and maintain records for auditing purposes.\n8. Periodically review and update computer matching policies and procedures to ensure ongoing compliance with regulations.",
     "is_technical": false,
-    "enhancements": [],
-    "related_controls": [],
-    "supplemental_guidance": "",
+    "plain_english_explanation": "Do not collect or process information about individuals' religious beliefs, political affiliations, or other First Amendment-protected activities unless legally required or consented to.",
+    "intent": "Protect constitutional rights by preventing surveillance or profiling based on protected activities.",
+    "rationale": "Privacy Act prohibits maintaining records describing First Amendment exercise (5 U.S.C. 552a(e)(7)) except in specific circumstances.",
+    "ai_guidance": "Implementation: 1) Review data collection to identify any First Amendment-related data. 2) Remove such fields unless legally required. 3) If required, document specific legal authority. 4) Implement access restrictions to any such data. 5) Train staff on prohibition. 6) Audit for unauthorized collection. 7) Establish review process before new collection.",
+    "implementation_guidance": "Audit for First Amendment data. Remove unless legally required. Document any authority. Train staff.",
+    "related_controls": [
+      "PT-2",
+      "PT-7"
+    ],
     "implementation_scripts": {
       "linux": {},
       "windows": {}
     },
     "metadata": {
       "status": "implemented",
-      "last_updated": "2025-11-08T07:09:33.938759Z",
       "has_scripts": false
+    }
+  },
+  {
+    "control_id": "PT-8",
+    "control_name": "Computer Matching Requirements",
+    "family": "Personally Identifiable Information Processing and Transparency",
+    "family_id": "PT",
+    "official_text": "When a system or organization processes information for the purpose of conducting a matching program: a. Obtain approval from the Data Integrity Board to conduct the matching program; b. Develop and enter into a computer matching agreement; c. Publish a matching notice in the Federal Register; d. Independently verify the information produced by the matching program before taking adverse action against an individual, if required; and e. Provide individuals with notice and an opportunity to contest the findings before taking adverse action against an individual.",
+    "source": "NIST SP 800-53 Rev 5",
+    "is_technical": false,
+    "plain_english_explanation": "For federal computer matching programs (comparing records across systems to verify eligibility or detect fraud), follow specific procedures including board approval, agreements, Federal Register notice, verification before adverse action, and individual due process.",
+    "intent": "Ensure computer matching programs respect individual rights and include appropriate oversight.",
+    "rationale": "Computer Matching and Privacy Protection Act of 1988 established these requirements to prevent misuse of matching and ensure accuracy before adverse actions.",
+    "ai_guidance": "Implementation (federal agencies): 1) Identify any programs matching PII across systems or with other agencies. 2) Prepare matching program proposal for Data Integrity Board. 3) Draft computer matching agreement with partner agencies. 4) Prepare Federal Register notice. 5) Implement verification procedures before adverse action. 6) Establish due process procedures for individuals to contest findings. 7) Conduct annual matching program reviews. 8) Maintain matching program records.",
+    "implementation_guidance": "Identify matching programs. Get DIB approval. Execute agreements. Publish notice. Implement verification and due process.",
+    "related_controls": [
+      "PT-2",
+      "PT-6"
+    ],
+    "implementation_scripts": {
+      "linux": {},
+      "windows": {}
     },
-    "cac_metadata": {
-      "implementation_type": "pending",
-      "last_analyzed": "2025-11-10T10:16:57.171613+00:00",
-      "source": "ComplianceAsCode",
-      "cac_status": "pending",
-      "cac_planned": true,
-      "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
+    "metadata": {
+      "status": "implemented",
+      "has_scripts": false
     }
   }
 ]
