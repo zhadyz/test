@@ -1,8 +1,8 @@
 [
   {
-    "control_id": "cm-1",
+    "control_id": "CM-1",
     "control_name": "Policy and Procedures",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -11,7 +11,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "This control ensures that organizations have documented policies and procedures in place to guide their cybersecurity practices.",
+    "plain_english_explanation": "Configuration Management Policy and Procedures establish foundational organizational policies and procedures guiding configuration management practices across the information system. This control requires documented policies covering configuration identification, baseline establishment, change control processes, and configuration monitoring.",
     "example_implementation": "This script develop a comprehensive set of cybersecurity policies and procedures that cover key areas such as access control, incident response, and data protection, and regularly review and update them as needed.",
     "non_technical_guidance": "This plan to comply with Control ID cm-1, Policy and Procedures, the following non-technical implementation plan can be followed:\n1. Develop a comprehensive set of policies and procedures that outline the organization's security requirements, guidelines, and best practices.\n2. Ensure that all employees are trained on these policies and procedures regularly.\n3. Establish a process for reviewing and updating policies and procedures as needed to reflect changes in technology, regulations, or business practices.\n4. Designate a responsible individual or team to oversee the implementation and enforcement of these policies and procedures.\n5. Conduct regular audits and assessments to ensure compliance with the established policies and procedures.\n6. Document any deviations from the policies and procedures and implement corrective actions as necessary.\nBy following these steps, the organization can demonstrate compliance with Control ID cm-1.",
     "is_technical": false,
@@ -32,12 +32,13 @@
       "last_analyzed": "2025-11-10T10:05:52.406640+00:00",
       "source": "ComplianceAsCode",
       "implementation_guidance": "This control requires organizational policy documentation and procedures. No technical automation available."
-    }
+    },
+    "ai_guidance": "Develop comprehensive CM policies addressing roles/responsibilities, processes, baseline requirements, change workflows, audit schedules, and tool standards. Review annually and update for organizational changes."
   },
   {
-    "control_id": "cm-2",
+    "control_id": "CM-2",
     "control_name": "Baseline Configuration",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -46,10 +47,10 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Baseline Configuration ensures that all IT systems are set up with a standard configuration to reduce security risks.",
+    "plain_english_explanation": "Baseline Configuration requires establishing and maintaining documented baseline configurations of the information system as the approved standard configuration all systems must maintain, serving as the reference point for configuration management activities.",
     "example_implementation": "This script use automated tools to regularly scan and compare system configurations against a predefined baseline to quickly identify any deviations that may pose security risks.",
     "non_technical_guidance": "This plan to ensure compliance with the baseline configuration control (cm-2), follow these steps:\n1. Identify the required baseline configuration settings for your operating system.\n2. Document the specific configurations that need to be in place, such as password policies, firewall settings, and software configurations.\n3. Implement the baseline configurations manually on each system following the documented settings.\n4. Regularly review and update the baseline configuration to ensure ongoing compliance with the control requirements.\n5. Document any deviations from the baseline configuration and implement corrective actions as needed.\n6. Periodically audit systems to verify compliance with the baseline configuration and address any discrepancies promptly.",
-    "is_technical": false,
+    "is_technical": true,
     "enhancements": [
       {
         "id": "cm-2.1",
@@ -90,8 +91,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\nset -euo pipefail\necho \"[Fri, Nov 21, 2025 10:49:09 PM] Starting CM-2 Baseline Configuration\"\nsudo mkdir -p /etc/config-baseline/{current,previous,archive,standards}\ncat > /tmp/baseline.txt << 'EOF'\nBASELINE CONFIGURATION STANDARD\nOS: RHEL 8.x / CentOS 8.x\nKernel: 4.18.x LTS\nSELinux: Enforcing mode\nSSH: PasswordAuthentication=no, PermitRootLogin=no\nFirewall: FirewallD enabled\nCompliance: CIS RHEL 8 Level 2, STIG RHEL-08-010000, RHEL-08-010010\nReview: Quarterly\nEOF\nsudo mv /tmp/baseline.txt /etc/config-baseline/standards/\necho \"Baseline configuration established\"\n",
+        "ansible": "---\n- name: CM-2 Baseline Configuration Implementation\n  hosts: all\n  become: yes\n  gather_facts: yes\n  tasks:\n    - name: Create baseline directories\n      file:\n        path: /etc/config-baseline/{{ item }}\n        state: directory\n        owner: root\n        group: root\n        mode: '0700'\n      loop:\n        - current\n        - previous\n        - archive\n        - standards\n        - reports\n\n    - name: Deploy baseline standard document\n      copy:\n        dest: /etc/config-baseline/standards/baseline_standard.txt\n        owner: root\n        group: root\n        mode: '0600'\n        content: |\n          BASELINE CONFIGURATION STANDARD\n          OS: RHEL 8.x / CentOS 8.x\n          Kernel: 4.18.x LTS\n          SELinux: Enforcing mode\n          Compliance: CIS RHEL 8 Level 2\n          STIG-ID: RHEL-08-010000, RHEL-08-010010\n          Review Frequency: Quarterly\n          Baseline Deviation: CAB approval required\n\n    - name: Capture baseline snapshot\n      shell: |\n        {\n          echo \"=== BASELINE SNAPSHOT: $(date) ===\"\n          uname -a\n          getenforce\n          rpm -qa | grep -E \"kernel|openssl|openssh\" | sort\n          grep -E \"^PermitRootLogin|^PasswordAuthentication\" /etc/ssh/sshd_config || true\n        } > /etc/config-baseline/current/baseline_$(date +%Y%m%d).snap\n\n    - name: Install baseline tools\n      package:\n        name: \"{{ item }}\"\n        state: present\n      loop:\n        - aide\n        - aide-libs\n        - git\n        - audit\n      when: ansible_os_family == 'RedHat'\n\n    - name: Initialize AIDE database\n      shell: /usr/sbin/aideinit 2>/dev/null || /usr/sbin/aide --init 2>/dev/null || true\n"
+      },
+      "windows": {
+        "powershell": "$ErrorActionPreference = 'Stop'\n$baselinePath = \"C:\\ConfigManagement\\Baselines\"\n@(\"Current\", \"Previous\", \"Archive\", \"Standards\", \"Reports\") | % {\n    $fullPath = Join-Path $baselinePath $_\n    if (-not (Test-Path $fullPath)) { New-Item -ItemType Directory -Path $fullPath -Force | Out-Null }\n}\n$standard = @\"\nBASELINE CONFIGURATION STANDARD (Windows equivalent to RHEL-08-010000/010010)\nOS: Windows Server 2019/2022\nBuild: Latest security patches\nUpdate: Automatic Windows Update enabled\nSecurity: Windows Defender enabled, Windows Firewall enabled (all profiles)\nUAC: Enabled with prompt for administrators\nAccount Policy: Min 12 chars, complexity required, 5 attempt lockout\nAudit: Security log enabled, 90-day retention\n\"@\nSet-Content -Path \"$baselinePath\\Standards\\Baseline.txt\" -Value $standard\nWrite-Host \"Baseline configuration established\"\n",
+        "ansible": "---\n- name: CM-2 Baseline Configuration Windows\n  hosts: all\n  gather_facts: yes\n  tasks:\n    - name: Create baseline directories\n      win_file:\n        path: \"C:\\ConfigManagement\\Baselines\\{{ item }}\"\n        state: directory\n      loop:\n        - Current\n        - Previous\n        - Archive\n        - Standards\n\n    - name: Deploy baseline standard\n      win_copy:\n        dest: \"C:\\ConfigManagement\\Baselines\\Standards\\Baseline.txt\"\n        content: |\n          BASELINE CONFIGURATION STANDARD\n          OS: Windows Server 2019/2022\n          Build: Latest security patches\n          Compliance: CIS Microsoft Windows Benchmarks\n          STIG-ID: RHEL-08-010000, RHEL-08-010010 (Windows equivalent)\n          Review: Quarterly\n"
+      }
     },
     "metadata": {
       "status": "implemented",
@@ -105,12 +112,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010000, RHEL-08-010010",
+    "ai_guidance": "Implement baseline management using automated tools (Ansible, Puppet) to scan and compare configurations against baseline. Maintain version control, establish approval workflows, document deviations, and perform quarterly reviews. Incorporate STIG/CIS standards."
   },
   {
-    "control_id": "cm-2.1",
+    "control_id": "CM-2.1",
     "control_name": "Reviews and Updates",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-2",
@@ -120,9 +129,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Reviews and Updates ensures baseline configurations are reviewed on a regular schedule and updated to address identified discrepancies, system changes, and newly discovered vulnerabilities.",
+    "example_implementation": "Implement CM-2.1 using configuration management and monitoring tools",
+    "non_technical_guidance": "Establish quarterly baseline review cycles. Evaluate security patches, hardware changes, software updates, and vulnerability disclosures. Document review results and maintain version control of baseline changes.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -143,12 +152,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Establish quarterly baseline review cycles. Evaluate security patches, hardware changes, software updates, and vulnerability disclosures. Document review results and maintain version control of baseline changes."
   },
   {
-    "control_id": "cm-2.2",
+    "control_id": "CM-2.2",
     "control_name": "Automation Support for Accuracy and Currency",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Maintain the currency, completeness, accuracy, and availability of the baseline configuration of the system using {{ insert: param, cm-02.02_odp }}.",
     "parent_control": "cm-2",
@@ -158,9 +168,9 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Maintain the currency, completeness, accuracy, and availability of the baseline configuration of the system using {{ insert: param, cm-02.02_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Automation Support for Accuracy and Currency maintains baseline configuration currency through automated scanning, comparison, and reporting tools to quickly identify and alert on deviations from approved configurations.",
+    "example_implementation": "Implement CM-2.2 using configuration management and monitoring tools",
+    "non_technical_guidance": "Deploy automated configuration management tools (Puppet, Ansible, Chef) to enforce baseline configurations across all systems. Implement continuous monitoring and automated alerts for configuration drift.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -181,12 +191,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy automated configuration management tools (Puppet, Ansible, Chef) to enforce baseline configurations across all systems. Implement continuous monitoring and automated alerts for configuration drift."
   },
   {
-    "control_id": "cm-2.3",
+    "control_id": "CM-2.3",
     "control_name": "Retention of Previous Configurations",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Retain {{ insert: param, cm-02.03_odp }} of previous versions of baseline configurations of the system to support rollback.",
     "parent_control": "cm-2",
@@ -196,9 +207,9 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Retain {{ insert: param, cm-02.03_odp }} of previous versions of baseline configurations of the system to support rollback.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Retention of Previous Configurations maintains historical versions of baseline configurations to support system rollback in the event of failed updates or security incidents.",
+    "example_implementation": "Implement CM-2.3 using configuration management and monitoring tools",
+    "non_technical_guidance": "Implement version control (Git) for all baseline configurations with timestamped snapshots. Maintain at least 2-3 previous versions with clear rollback documentation and tested procedures.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -219,12 +230,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement version control (Git) for all baseline configurations with timestamped snapshots. Maintain at least 2-3 previous versions with clear rollback documentation and tested procedures."
   },
   {
-    "control_id": "cm-2.4",
+    "control_id": "CM-2.4",
     "control_name": "Unauthorized Software",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-2",
@@ -234,9 +246,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Unauthorized Software defines and enforces policies prohibiting the installation and execution of unauthorized software on systems to prevent malware and security compromises.",
+    "example_implementation": "Implement CM-2.4 using configuration management and monitoring tools",
+    "non_technical_guidance": "Maintain an approved software whitelist. Use application whitelisting tools (AppLocker, SELinux) to prevent unapproved software execution. Conduct monthly software inventory audits.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -257,12 +269,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Maintain an approved software whitelist. Use application whitelisting tools (AppLocker, SELinux) to prevent unapproved software execution. Conduct monthly software inventory audits."
   },
   {
-    "control_id": "cm-2.5",
+    "control_id": "CM-2.5",
     "control_name": "Authorized Software",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-2",
@@ -272,9 +285,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Authorized Software establishes and maintains an inventory of authorized software components with version tracking, usage rights, and licensing compliance verification.",
+    "example_implementation": "Implement CM-2.5 using configuration management and monitoring tools",
+    "non_technical_guidance": "Create comprehensive software inventory with approval dates, licensing terms, and dependencies. Use asset management tools to track installations and enforce license compliance.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -295,12 +308,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Create comprehensive software inventory with approval dates, licensing terms, and dependencies. Use asset management tools to track installations and enforce license compliance."
   },
   {
-    "control_id": "cm-2.6",
+    "control_id": "CM-2.6",
     "control_name": "Development and Test Environments",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Maintain a baseline configuration for system development and test environments that is managed separately from the operational baseline configuration.",
     "parent_control": "cm-2",
@@ -310,9 +324,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Maintain a baseline configuration for system development and test environments that is managed separately from the operational baseline configuration.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Development and Test Environments maintains separate baseline configurations for non-production systems to prevent test changes from affecting operational systems.",
+    "example_implementation": "Implement CM-2.6 using configuration management and monitoring tools",
+    "non_technical_guidance": "Establish isolated development/test environments with similar but distinct baseline configurations from production. Implement strict promotion controls before moving code to production.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -333,12 +347,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Establish isolated development/test environments with similar but distinct baseline configurations from production. Implement strict promotion controls before moving code to production."
   },
   {
-    "control_id": "cm-2.7",
+    "control_id": "CM-2.7",
     "control_name": "Configure Systems and Components for High-risk Areas",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-2",
@@ -348,9 +363,9 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Configure Systems for High-risk Areas establishes enhanced configuration baselines for systems in high-risk areas (DMZ, critical infrastructure) with stricter security controls.",
+    "example_implementation": "Implement CM-2.7 using configuration management and monitoring tools",
+    "non_technical_guidance": "Define enhanced baseline configurations for high-risk systems with additional hardening: disabled unnecessary services, restrictive firewall rules, enhanced logging, multi-factor authentication.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -371,12 +386,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Define enhanced baseline configurations for high-risk systems with additional hardening: disabled unnecessary services, restrictive firewall rules, enhanced logging, multi-factor authentication."
   },
   {
-    "control_id": "cm-3",
+    "control_id": "CM-3",
     "control_name": "Configuration Change Control",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -385,7 +401,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Configuration Change Control ensures that changes to the IT system are managed and approved to prevent unauthorized alterations.",
+    "plain_english_explanation": "Configuration Change Control establishes a formal process for evaluating, approving, implementing, and monitoring changes to system configurations. This control ensures all modifications are authorized, tested, documented, and tracked to prevent unauthorized alterations.",
     "example_implementation": "This script implement a formal change management process that includes documenting proposed changes, obtaining approval from stakeholders, and testing changes before deployment.",
     "non_technical_guidance": "This plan to ensure compliance with Configuration Change Control (CM-3), implement a process for documenting and controlling changes to configuration settings on systems. This process should include:\n1. Establishing a configuration change log to record details of each change made, including the date, time, and nature of the change.\n2. Implementing a review and approval process for proposed configuration changes before they are implemented.\n3. Maintaining documentation of configuration settings and changes for auditing purposes.\n4. Training staff on the importance of adhering to the configuration change control process.\n5. Regularly reviewing and updating the configuration change control process to ensure its effectiveness and relevance.",
     "is_technical": false,
@@ -434,8 +450,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "ansible": "---\n- name: CM-3 Configuration Change Control Implementation\n  hosts: all\n  become: yes\n  gather_facts: yes\n  tasks:\n    - name: Create change control directories\n      file:\n        path: /etc/change-control/{{ item }}\n        state: directory\n        owner: root\n        group: root\n        mode: '0750'\n      loop:\n        - active\n        - approved\n        - rejected\n        - tested\n        - archive\n\n    - name: Deploy change request template\n      copy:\n        dest: /etc/change-control/change_request.template\n        owner: root\n        group: root\n        mode: '0640'\n        content: |\n          CHANGE REQUEST TEMPLATE\n          Request ID: [AUTO-GENERATED]\n          Priority: [CRITICAL/HIGH/MEDIUM/LOW]\n          Description: [Change description and business justification]\n          Impact Analysis: [Systems affected, security risk, availability impact]\n          Testing Plan: [Test environment, test cases, success criteria]\n          Approvals: [Technical review, security review, CAB approval]\n          Implementation: [Date/window, monitoring plan, communication]\n          Rollback Plan: [Reversion steps and timeline]\n          STIG-ID: RHEL-08-010360\n\n    - name: Initialize git repository for configurations\n      shell: |\n        cd /var/config-repo || mkdir -p /var/config-repo && cd /var/config-repo\n        git init\n        git config user.email 'admin@company.com'\n        git config user.name 'ConfigManagement'\n        echo 'Change Control Repository' > README.md\n        git add README.md\n        git commit -m 'Initial: Configuration Change Control Repository'\n\n    - name: Install version control tools\n      package:\n        name: \"{{ item }}\"\n        state: present\n      loop:\n        - git\n        - git-core\n      when: ansible_os_family == 'RedHat'\n\n    - name: Configure audit rules for change detection\n      copy:\n        dest: /etc/audit/rules.d/change-control.rules\n        owner: root\n        group: root\n        mode: '0640'\n        content: |\n          -w /etc/ -p wa -k config_changes\n          -w /var/config-repo/ -p wa -k repo_changes\n",
+        "bash": "#!/bin/bash\n# CM-3: Configuration Change Control Implementation (RHEL-08-010360)\nset -euo pipefail\n\necho \"[$(date)] Starting CM-3 Configuration Change Control Implementation\"\n\n# Create change control directory structure\nsudo mkdir -p /etc/change-control/{active,approved,rejected,tested,archive}\n\n# Create change request template\ncat > /tmp/change_request.template << 'TEMPLATE'\nCHANGE REQUEST TEMPLATE\n======================\nRequest ID: [AUTO-GENERATED]\nDate Submitted: [DATE]\nSubmitter: [NAME]\nPriority: [CRITICAL/HIGH/MEDIUM/LOW]\n\nDESCRIPTION:\n- Detailed change description\n- Business justification\n- Expected outcomes\n\nIMPACT ANALYSIS:\n- Systems affected\n- Security impact assessment\n- Availability risk assessment\n- Rollback complexity rating\n\nTESTING PLAN:\n- Test environment description\n- Test cases and procedures\n- Success criteria\n- Planned test date\n\nAPPROVAL CHAIN:\n- Technical review: [REVIEWER NAME]\n- Security review: [SECURITY OFFICER]\n- CAB approval: [CAB CHAIR]\n- Approval date: [DATE]\n\nIMPLEMENTATION:\n- Implementation date/window\n- Rollback procedure steps\n- Communication plan\n- Monitoring strategy\n\nPOST-IMPLEMENTATION:\n- Verification date\n- Compliance check method\n- Baseline update status\n- Lessons learned documentation\nTEMPLATE\n\nsudo mv /tmp/change_request.template /etc/change-control/\nsudo chmod 640 /etc/change-control/change_request.template\n\n# Create change control log file\nsudo touch /etc/change-control/change_control.log\nsudo chmod 640 /etc/change-control/change_control.log\n\n# Initialize git repository for configuration version control\nsudo mkdir -p /var/config-repo\ncd /var/config-repo\nsudo git init 2>/dev/null || true\nsudo git config user.email 'admin@company.com' || true\nsudo git config user.name 'ConfigManagement' || true\n\n# Create initial commit\ncat > /tmp/README.md << 'README'\n# Configuration Change Control Repository\n\nThis repository maintains all approved configuration changes and baselines.\n\n## Structure\n- active/: Current change requests under review\n- approved/: Approved changes awaiting implementation\n- rejected/: Rejected change requests\n- tested/: Changes that passed testing\n- archive/: Historical changes\n\n## Compliance\nSTIG-ID: RHEL-08-010360\nREADME\n\nsudo mv /tmp/README.md /var/config-repo/\nsudo git add README.md 2>/dev/null || true\nsudo git commit -m \"Initial: Configuration Change Control Repository\" 2>/dev/null || true\n\n# Install version control and audit tools\nsudo yum install -y git audit audit-libs 2>/dev/null || true\n\n# Configure audit rules for change monitoring\nif [ -f /etc/audit/rules.d/change-control.rules ]; then\n    sudo rm /etc/audit/rules.d/change-control.rules\nfi\n\ncat > /tmp/change_control.rules << 'AUDIT'\n-w /etc/change-control/ -p wa -k change_control_modifications\n-w /var/config-repo/ -p wa -k configuration_repo_changes\n-a always,exit -F arch=b64 -S adjtimex,settimeofday -k time-change\nAUDIT\n\nsudo mv /tmp/change_control.rules /etc/audit/rules.d/\nsudo chmod 640 /etc/audit/rules.d/change-control.rules\n\n# Reload audit rules\nsudo augenrules --load 2>/dev/null || sudo service auditd restart 2>/dev/null || true\n\necho \"[$(date)] CM-3 Configuration Change Control Implementation Complete\"\necho \"Change Control Framework: /etc/change-control/\"\necho \"Configuration Repository: /var/config-repo/\"\necho \"STIG Compliance: RHEL-08-010360\"\n"
+      },
+      "windows": {
+        "powershell": "$ErrorActionPreference = 'Stop'\n$ccPath = \"C:\\ChangeControl\"\n@(\"Active\", \"Approved\", \"Rejected\", \"Tested\", \"Archive\") | % {\n    $fullPath = Join-Path $ccPath $_\n    if (-not (Test-Path $fullPath)) { New-Item -ItemType Directory -Path $fullPath -Force | Out-Null }\n}\n$template = @\"\nCHANGE REQUEST TEMPLATE\nRequest ID: [AUTO-GENERATED]\nPriority: [CRITICAL/HIGH/MEDIUM/LOW]\nDescription: [Change description and business justification]\nImpact: [Systems affected, security risk assessment, rollback complexity]\nTesting: [Test environment, test cases, success criteria]\nApprovals: [Technical review, security review, CAB approval]\nRollback: [Rollback procedure and timeline]\n\"@\nSet-Content -Path \"$ccPath\\ChangeTemplate.txt\" -Value $template\nWrite-Host \"Change Control framework established (STIG: RHEL-08-010360)\"\n",
+        "ansible": "---\n- name: CM-3 Configuration Change Control Windows\n  hosts: all\n  gather_facts: yes\n  tasks:\n    - name: Create change control directories\n      win_file:\n        path: \"C:\\ChangeControl\\{{ item }}\"\n        state: directory\n      loop:\n        - Active\n        - Approved\n        - Rejected\n        - Tested\n        - Archive\n\n    - name: Deploy change template\n      win_copy:\n        dest: \"C:\\ChangeControl\\ChangeTemplate.txt\"\n        content: |\n          CHANGE REQUEST TEMPLATE\n          Request ID: [AUTO-GENERATED]\n          Priority: [CRITICAL/HIGH/MEDIUM/LOW]\n          Description: [Change description]\n          Impact: [Risk assessment]\n          Testing: [Test plan]\n          Approvals: [Approval chain]\n          Rollback: [Reversion procedure]\n          STIG-ID: RHEL-08-010360\n"
+      }
     },
     "metadata": {
       "status": "implemented",
@@ -450,12 +472,14 @@
       "platform": "rhcos4",
       "rule_count": 3,
       "certification": "Government-certified"
-    }
+    },
+    "stig_id": "RHEL-08-010360",
+    "ai_guidance": "Establish a Configuration Control Board (CCB) requiring formal change requests with impact analysis and rollback plans. Maintain detailed change logs, test in isolated environments, and use automated tools to detect unauthorized deviations. Reference STIG RHEL-08-010360."
   },
   {
-    "control_id": "cm-3.1",
+    "control_id": "CM-3.1",
     "control_name": "Automated Documentation, Notification, and Prohibition of Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Use {{ insert: param, cm-03.01_odp.01 }} to:",
     "parent_control": "cm-3",
@@ -465,9 +489,9 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Use {{ insert: param, cm-03.01_odp.01 }} to:",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Automated Documentation, Notification, and Prohibition of Changes uses automated tools to document, notify stakeholders, and automatically reject prohibited configuration changes.",
+    "example_implementation": "Implement CM-3.1 using configuration management and monitoring tools",
+    "non_technical_guidance": "Deploy change automation tools with approval workflows. Configure automated notifications to stakeholders. Implement automated rejection of changes outside maintenance windows or without approval.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -488,12 +512,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy change automation tools with approval workflows. Configure automated notifications to stakeholders. Implement automated rejection of changes outside maintenance windows or without approval."
   },
   {
-    "control_id": "cm-3.2",
+    "control_id": "CM-3.2",
     "control_name": "Testing, Validation, and Documentation of Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Test, validate, and document changes to the system before finalizing the implementation of the changes.",
     "parent_control": "cm-3",
@@ -503,9 +528,9 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Test, validate, and document changes to the system before finalizing the implementation of the changes.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Testing, Validation, and Documentation of Changes requires all configuration changes to be tested in isolated environments with results documented before production deployment.",
+    "example_implementation": "Implement CM-3.2 using configuration management and monitoring tools",
+    "non_technical_guidance": "Establish mandatory change testing procedures in staging environments. Document test results including pass/fail status and any issues discovered. Maintain audit trail of all testing.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -526,12 +551,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Establish mandatory change testing procedures in staging environments. Document test results including pass/fail status and any issues discovered. Maintain audit trail of all testing."
   },
   {
-    "control_id": "cm-3.3",
+    "control_id": "CM-3.3",
     "control_name": "Automated Change Implementation",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Implement changes to the current system baseline and deploy the updated baseline across the installed base using {{ insert: param, cm-03.03_odp }}.",
     "parent_control": "cm-3",
@@ -541,9 +567,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Implement changes to the current system baseline and deploy the updated baseline across the installed base using {{ insert: param, cm-03.03_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Automated Change Implementation uses automated tools to deploy approved configuration changes across the installed base while maintaining configuration integrity.",
+    "example_implementation": "Implement CM-3.3 using configuration management and monitoring tools",
+    "non_technical_guidance": "Use configuration management tools (Ansible, Puppet) for automated change deployment. Implement automated verification that changes were successfully applied. Maintain detailed deployment logs.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -564,12 +590,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Use configuration management tools (Ansible, Puppet) for automated change deployment. Implement automated verification that changes were successfully applied. Maintain detailed deployment logs."
   },
   {
-    "control_id": "cm-3.4",
+    "control_id": "CM-3.4",
     "control_name": "Security and Privacy Representatives",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Require {{ insert: param, cm-3.4_prm_1 }} to be members of the {{ insert: param, cm-03.04_odp.03 }}.",
     "parent_control": "cm-3",
@@ -579,9 +606,9 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Require {{ insert: param, cm-3.4_prm_1 }} to be members of the {{ insert: param, cm-03.04_odp.03 }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Security and Privacy Representatives requires security and privacy professionals to be members of the change control board to evaluate security impacts of proposed changes.",
+    "example_implementation": "Implement CM-3.4 using configuration management and monitoring tools",
+    "non_technical_guidance": "Establish Configuration Control Board with mandatory participation from security, privacy, and technical leads. Define roles, responsibilities, and approval authority for different change categories.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -602,12 +629,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Establish Configuration Control Board with mandatory participation from security, privacy, and technical leads. Define roles, responsibilities, and approval authority for different change categories."
   },
   {
-    "control_id": "cm-3.5",
+    "control_id": "CM-3.5",
     "control_name": "Automated Security Response",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Implement the following security responses automatically if baseline configurations are changed in an unauthorized manner: {{ insert: param, cm-03.05_odp }}.",
     "parent_control": "cm-3",
@@ -617,9 +645,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Implement the following security responses automatically if baseline configurations are changed in an unauthorized manner: {{ insert: param, cm-03.05_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Automated Security Response implements automatic remediation when unauthorized baseline configuration changes are detected, including alerting, isolation, or rollback.",
+    "example_implementation": "Implement CM-3.5 using configuration management and monitoring tools",
+    "non_technical_guidance": "Deploy File Integrity Monitoring (AIDE, Tripwire) with automated alerting. Implement automated rollback procedures for critical changes. Configure system isolation if critical changes detected.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -640,12 +668,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010360",
+    "ai_guidance": "Deploy File Integrity Monitoring (AIDE, Tripwire) with automated alerting. Implement automated rollback procedures for critical changes. Configure system isolation if critical changes detected."
   },
   {
-    "control_id": "cm-3.6",
+    "control_id": "CM-3.6",
     "control_name": "Cryptography Management",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Ensure that cryptographic mechanisms used to provide the following controls are under configuration management: {{ insert: param, cm-03.06_odp }}.",
     "parent_control": "cm-3",
@@ -655,9 +685,9 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Ensure that cryptographic mechanisms used to provide the following controls are under configuration management: {{ insert: param, cm-03.06_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Cryptography Management ensures cryptographic mechanisms used for security controls are under configuration management with version control and change tracking.",
+    "example_implementation": "Implement CM-3.6 using configuration management and monitoring tools",
+    "non_technical_guidance": "Implement configuration management for all cryptographic keys, certificates, and algorithms. Use Key Management Services (KMS) with audit logging. Track all cryptography-related changes.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -678,12 +708,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010020",
+    "ai_guidance": "Implement configuration management for all cryptographic keys, certificates, and algorithms. Use Key Management Services (KMS) with audit logging. Track all cryptography-related changes."
   },
   {
-    "control_id": "cm-3.7",
+    "control_id": "CM-3.7",
     "control_name": "Review System Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Review changes to the system {{ insert: param, cm-03.07_odp.01 }} or when {{ insert: param, cm-03.07_odp.02 }} to determine whether unauthorized changes have occurred.",
     "parent_control": "cm-3",
@@ -693,9 +725,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Review changes to the system {{ insert: param, cm-03.07_odp.01 }} or when {{ insert: param, cm-03.07_odp.02 }} to determine whether unauthorized changes have occurred.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Review System Changes establishes periodic and event-triggered reviews of system configuration changes to detect and investigate unauthorized modifications.",
+    "example_implementation": "Implement CM-3.7 using configuration management and monitoring tools",
+    "non_technical_guidance": "Conduct monthly reviews of change logs comparing current to approved baselines. Implement real-time monitoring and alerting for unauthorized changes. Document all findings and remediations.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -716,12 +748,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Conduct monthly reviews of change logs comparing current to approved baselines. Implement real-time monitoring and alerting for unauthorized changes. Document all findings and remediations."
   },
   {
-    "control_id": "cm-3.8",
+    "control_id": "CM-3.8",
     "control_name": "Prevent or Restrict Configuration Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Prevent or restrict changes to the configuration of the system under the following circumstances: {{ insert: param, cm-03.08_odp }}.",
     "parent_control": "cm-3",
@@ -731,9 +764,9 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Prevent or restrict changes to the configuration of the system under the following circumstances: {{ insert: param, cm-03.08_odp }}.",
-    "example_implementation": "Community contribution needed",
-    "non_technical_guidance": "Awaiting implementation guidance",
+    "plain_english_explanation": "Prevent or Restrict Configuration Changes restricts changes to configurations under specific circumstances (security incidents, emergency situations, lockdown periods) through configuration controls.",
+    "example_implementation": "Implement CM-3.8 using configuration management and monitoring tools",
+    "non_technical_guidance": "Implement change freezes during critical incidents or security lockdowns. Use read-only file systems or immutable configurations for critical components. Require additional approval for emergency changes.",
     "is_technical": true,
     "enhancements": [],
     "related_controls": [],
@@ -754,12 +787,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement change freezes during critical incidents or security lockdowns. Use read-only file systems or immutable configurations for critical components. Require additional approval for emergency changes."
   },
   {
-    "control_id": "cm-4",
+    "control_id": "CM-4",
     "control_name": "Impact Analyses",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Analyze changes to the system to determine potential security and privacy impacts prior to change implementation.",
     "source": "NIST SP 800-53 Rev 5",
@@ -768,7 +802,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Before making any changes to the system, it's important to analyze how those changes could affect security and privacy.",
+    "plain_english_explanation": "Before making changes to systems, analyze potential impacts on security and performance. All changes must be reviewed and approved before implementation to minimize disruption.",
     "example_implementation": "This script creates a checklist or template to use for conducting impact analyses before implementing any changes to the system. This will ensure that all potential security and privacy impacts are considered and addressed.",
     "non_technical_guidance": "This plan to implement this control, create a process within your organization that requires conducting impact analyses before making any changes to the system. This process should involve identifying potential security and privacy impacts of proposed changes, evaluating the risks associated with these impacts, and determining appropriate mitigation strategies. Additionally, ensure that all stakeholders are involved in the impact analysis process to provide a comprehensive assessment of the potential impacts. Regularly review and update this process to adapt to changing security requirements and technologies.",
     "is_technical": false,
@@ -802,12 +836,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy dependency mapping with ServiceNow or BMC Remedy. Establish change advisory boards with mandatory peer review. Create standard change templates."
   },
   {
-    "control_id": "cm-4.1",
+    "control_id": "CM-4.1",
     "control_name": "Separate Test Environments",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Analyze changes to the system in a separate test environment before implementation in an operational environment, looking for security and privacy impacts due to flaws, weaknesses, incompatibility, or intentional malice.",
     "parent_control": "cm-4",
@@ -817,7 +852,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Analyze changes to the system in a separate test environment before implementation in an operational environment, looking for security and privacy impacts due to flaws, weaknesses, incompatibility, or intentional malice.",
+    "plain_english_explanation": "Document all system components and relationships in a centralized inventory to enable identification of systems affected by changes.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -840,12 +875,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement CMDB integrated with Git version control. Maintain documented system dependencies for impact analysis."
   },
   {
-    "control_id": "cm-4.2",
+    "control_id": "CM-4.2",
     "control_name": "Verification of Controls",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "After system changes, verify that the impacted controls are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security and privacy requirements for the system.",
     "parent_control": "cm-4",
@@ -855,7 +891,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "After system changes, verify that the impacted controls are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security and privacy requirements for the system.",
+    "plain_english_explanation": "Test changes in controlled environments that mirror production to identify problems before they impact actual users.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -878,12 +914,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Create dev/test/staging environments mirroring production. Require progressive testing before production."
   },
   {
-    "control_id": "cm-5",
+    "control_id": "CM-5",
     "control_name": "Access Restrictions for Change",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Define, document, approve, and enforce physical and logical access restrictions associated with changes to the system.",
     "source": "NIST SP 800-53 Rev 5",
@@ -892,10 +929,10 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Make sure only authorized personnel can make changes to the system.",
+    "plain_english_explanation": "Restrict configuration changes to authorized personnel and maintain audit trails tracking what changed, when, and who made changes.",
     "example_implementation": "This script utilize role-based access control to restrict access to change functions based on job responsibilities. Regularly review and update access permissions to ensure only necessary personnel have the ability to make changes.",
     "non_technical_guidance": "This plan 1. Define and document access restrictions for changes to the system:\n   - Clearly outline who is authorized to make changes to the system.\n   - Document the process for requesting and approving changes.\n   - Define the roles and responsibilities of individuals involved in the change process.\n\n2. Enforce physical and logical access restrictions:\n   - Implement role-based access control to restrict access to system components based on job function.\n   - Utilize multi-factor authentication to ensure only authorized individuals can make changes.\n   - Regularly review and update access controls to reflect changes in personnel or responsibilities.\n\n3. Regularly review and enforce access restrictions:\n   - Conduct periodic audits to ensure that access restrictions are being followed.\n   - Implement automated alerts for unauthorized access attempts.\n   - Enforce disciplinary actions for individuals who violate access restrictions.\n\nBy following these guidelines, you can ensure that access restrictions for changes to the system are defined, documented, approved, and enforced effectively.",
-    "is_technical": false,
+    "is_technical": true,
     "enhancements": [
       {
         "id": "cm-5.1",
@@ -952,12 +989,21 @@
       "platform": "rhcos4",
       "rule_count": 1,
       "certification": "Government-certified"
-    }
+    },
+    "stig_id": [
+      "RHEL-08-010300",
+      "RHEL-08-010310",
+      "RHEL-08-010320",
+      "RHEL-08-010330",
+      "RHEL-08-010340",
+      "RHEL-08-010350"
+    ],
+    "ai_guidance": "Implement RBAC with least privilege. Deploy privileged access management solutions. Enable comprehensive audit logging."
   },
   {
-    "control_id": "cm-5.1",
+    "control_id": "CM-5.1",
     "control_name": "Automated Access Enforcement and Audit Records",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-5",
@@ -967,7 +1013,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Grant users only necessary permissions using least privilege. Conduct periodic reviews to remove access when no longer needed.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -990,12 +1036,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy IAM enforcing separation of duties. Implement quarterly access reviews with automatic revocation."
   },
   {
-    "control_id": "cm-5.2",
+    "control_id": "CM-5.2",
     "control_name": "Review System Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-5",
@@ -1005,7 +1052,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Verify configuration changes originate from legitimate sources using cryptographic verification and file integrity monitoring.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1028,12 +1075,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement cryptographic signing for all configuration files using GPG or similar tools. Deploy file integrity monitoring (FIM) solutions like AIDE, Samhain, or Tripwire. Configure automated alerts for unauthorized modifications. Maintain SHA256 checksums."
   },
   {
-    "control_id": "cm-5.3",
+    "control_id": "CM-5.3",
     "control_name": "Signed Components",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-5",
@@ -1043,7 +1091,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Restrict system changes to authorized administrators with granular controls on executable commands.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1066,12 +1114,17 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": [
+      "RHEL-08-010019",
+      "RHEL-08-010370"
+    ],
+    "ai_guidance": "Deploy privileged access management (PAM) solutions to enforce command restrictions and context-based access. Configure sudo with specific command limits and parameter restrictions. Enable session recording and keystroke logging for all privileged sessions."
   },
   {
-    "control_id": "cm-5.4",
+    "control_id": "CM-5.4",
     "control_name": "Dual Authorization",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Enforce dual authorization for implementing changes to {{ insert: param, cm-5.4_prm_1 }}.",
     "parent_control": "cm-5",
@@ -1081,7 +1134,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Enforce dual authorization for implementing changes to {{ insert: param, cm-5.4_prm_1 }}.",
+    "plain_english_explanation": "Establish formal change control requiring review, approval, and documentation of all configuration changes.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1104,12 +1157,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Automate change workflows using Jenkins or ServiceNow. Require business justification and formal approvals."
   },
   {
-    "control_id": "cm-5.5",
+    "control_id": "CM-5.5",
     "control_name": "Privilege Limitation for Production and Operation",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-5",
@@ -1119,7 +1173,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Compare actual configuration to approved baselines and either authorize changes or restore to approved state.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1142,12 +1196,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy configuration compliance tools like Tenable.io, Qualys, or OpenSCAP for automated scanning. Implement continuous drift detection capabilities. Use automated remediation where safe, with manual review for critical systems. Generate daily compliance reports."
   },
   {
-    "control_id": "cm-5.6",
+    "control_id": "CM-5.6",
     "control_name": "Limit Library Privileges",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Limit privileges to change software resident within software libraries.",
     "parent_control": "cm-5",
@@ -1157,7 +1212,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Limit privileges to change software resident within software libraries.",
+    "plain_english_explanation": "Protect sensitive configuration data like passwords and keys in encrypted repositories accessible only to authorized administrators.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1180,12 +1235,18 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": [
+      "RHEL-08-010330",
+      "RHEL-08-010340",
+      "RHEL-08-010350"
+    ],
+    "ai_guidance": "Implement encrypted storage for sensitive configuration data using transparent disk encryption or file-level encryption. Deploy secrets management solutions (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault). Rotate secrets regularly with automated tracking."
   },
   {
-    "control_id": "cm-5.7",
+    "control_id": "CM-5.7",
     "control_name": "Automatic Implementation of Security Safeguards",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-5",
@@ -1195,7 +1256,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Ensure configurations follow security best practices and identify common mistakes before deployment.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1218,12 +1279,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Establish secure configuration development practices using infrastructure-as-code (IaC) frameworks and version control. Implement static analysis tools like Checkov or TerraformLint in CI/CD pipelines. Conduct automated security scanning of configurations."
   },
   {
-    "control_id": "cm-6",
+    "control_id": "CM-6",
     "control_name": "Configuration Settings",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -1232,7 +1294,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Configuration settings must be established and maintained for information systems to ensure their security and functionality.",
+    "plain_english_explanation": "Establish documented configuration baselines defining approved configurations for each system type.",
     "example_implementation": "This script regularly review and update configuration settings for all devices and systems to prevent security vulnerabilities and ensure optimal performance.",
     "non_technical_guidance": "This plan to ensure compliance with control CM-6 (Configuration Settings), follow these steps:\n1. Review the organization's security policies and standards to determine the required configuration settings.\n2. Document the configuration settings that need to be applied to systems.\n3. Develop a process for regularly reviewing and updating configuration settings as needed.\n4. Implement a configuration management tool to automate the enforcement of configuration settings across systems.\n5. Conduct regular audits and assessments to verify that configuration settings are being properly applied and maintained.\n6. Document any exceptions or deviations from the standard configuration settings and obtain approval from the appropriate stakeholders.\n7. Continuously monitor and track changes to configuration settings to ensure ongoing compliance.\n8. Provide training and awareness to system administrators and users on the importance of maintaining secure configuration settings.\n```",
     "is_technical": true,
@@ -1277,12 +1339,19 @@
       "platform": "rhcos4",
       "rule_count": 76,
       "certification": "Government-certified"
-    }
+    },
+    "stig_id": [
+      "RHEL-08-010000",
+      "RHEL-08-010010",
+      "RHEL-08-010121",
+      "RHEL-08-010130"
+    ],
+    "ai_guidance": "Develop comprehensive configuration baselines for each system type, fully documented in infrastructure-as-code format. Use configuration management tools (Ansible, Puppet, Chef, Terraform) to enforce baselines. Implement automated compliance checking and reporting."
   },
   {
-    "control_id": "cm-6.1",
+    "control_id": "CM-6.1",
     "control_name": "Automated Management, Application, and Verification",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Manage, apply, and verify configuration settings for {{ insert: param, cm-06.01_odp.01 }} using {{ insert: param, cm-6.1_prm_2 }}.",
     "parent_control": "cm-6",
@@ -1292,7 +1361,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Manage, apply, and verify configuration settings for {{ insert: param, cm-06.01_odp.01 }} using {{ insert: param, cm-6.1_prm_2 }}.",
+    "plain_english_explanation": "Develop detailed security configuration guides documenting software, settings, and required configurations.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1315,12 +1384,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Create detailed security baseline configuration guides for each operating system and application type. Document authorized software inventory with approved versions. Create and maintain master images for servers, desktops, and network devices."
   },
   {
-    "control_id": "cm-6.2",
+    "control_id": "CM-6.2",
     "control_name": "Respond to Unauthorized Changes",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Take the following actions in response to unauthorized changes to {{ insert: param, cm-06.02_odp.02 }}: {{ insert: param, cm-06.02_odp.01 }}.",
     "parent_control": "cm-6",
@@ -1330,7 +1400,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Take the following actions in response to unauthorized changes to {{ insert: param, cm-06.02_odp.02 }}: {{ insert: param, cm-06.02_odp.01 }}.",
+    "plain_english_explanation": "Use automated tools to apply consistent configurations across systems reducing errors and ensuring compliance.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1353,12 +1423,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement centralized configuration management using Ansible, Puppet, Chef, or Terraform for consistency. Version control all configurations in Git repositories with change history. Use GitOps principles for deployment with automatic validation."
   },
   {
-    "control_id": "cm-6.3",
+    "control_id": "CM-6.3",
     "control_name": "Unauthorized Change Detection",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-6",
@@ -1368,7 +1439,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Monitor configurations in real-time ensuring compliance with baselines and alert on unauthorized changes.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1391,12 +1462,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Deploy real-time configuration monitoring using tools like Tenable.io, Qualys, or native cloud tools (AWS Config, Azure Policy). Implement automated alerting for deviations. Configure safe automated remediation for low-risk deviations."
   },
   {
-    "control_id": "cm-6.4",
+    "control_id": "CM-6.4",
     "control_name": "Conformance Demonstration",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-6",
@@ -1406,7 +1478,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Periodically review baselines ensuring they meet current security requirements and update based on new threats.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1429,12 +1501,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Schedule quarterly baseline reviews with security and operations teams. Compare baselines against latest NIST guidelines, CIS benchmarks, and vendor hardening guides. Document security rationale for all baseline settings. Update based on threats."
   },
   {
-    "control_id": "cm-7",
+    "control_id": "CM-7",
     "control_name": "Least Functionality",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -1443,7 +1516,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Limiting the functions and capabilities of your IT systems to only what is necessary for them to perform their intended tasks.",
+    "plain_english_explanation": "The Least Functionality control ensures that information systems have only the minimum set of functions, ports, protocols, and services necessary to perform their designated business functions, reducing the attack surface and security risk.",
     "example_implementation": "This script conduct regular reviews of your IT systems to identify and remove any unnecessary functions or features that could potentially introduce security risks.",
     "non_technical_guidance": "This plan to ensure compliance with the Least Functionality control (cm-7), follow these steps:\n1. Identify all services running on the system.\n2. Determine which services are not necessary for the system to function properly.\n3. Disable and stop any unnecessary services.\n4. Set the startup type of these services to disabled to prevent them from starting automatically.\n5. Regularly review and update the list of necessary services to maintain least functionality.",
     "is_technical": false,
@@ -1465,12 +1538,12 @@
       },
       {
         "id": "cm-7.4",
-        "title": "Unauthorized Software — Deny-by-exception",
+        "title": "Unauthorized Software \u00e2\u20ac\u201d Deny-by-exception",
         "official_text": ""
       },
       {
         "id": "cm-7.5",
-        "title": "Authorized Software — Allow-by-exception",
+        "title": "Authorized Software \u00e2\u20ac\u201d Allow-by-exception",
         "official_text": ""
       },
       {
@@ -1497,8 +1570,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-7: Least Functionality - Linux Implementation\n# Disable non-essential services and ports to minimize attack surface\n# Supports: RHEL/CentOS/Ubuntu\n\nset -euo pipefail\n\nLOG_FILE=\"/var/log/cm7_remediation.log\"\nBASELINE_FILE=\"/etc/cm7_baseline.conf\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"$LOG_FILE\"\n}\n\n# Essential services that should remain enabled\nESSENTIAL_SERVICES=(\n    \"systemd-journald\"\n    \"systemd-logind\"\n    \"NetworkManager\"\n    \"dbus\"\n    \"sshd\"\n)\n\nlog_message \"[*] Starting CM-7 Least Functionality implementation\"\n\n# Create baseline before changes\nlog_message \"[*] Capturing current service state...\"\nsystemctl list-units --type=service --all > \"$BASELINE_FILE\"\n\n# Identify and disable unnecessary services\nlog_message \"[*] Auditing unnecessary services...\"\nUNNECESSARY_SERVICES=(\n    \"avahi-daemon\"\n    \"bluetooth\"\n    \"cups\"\n    \"isc-dhcp-server\"\n    \"isc-dhcp-server6\"\n    \"slapd\"\n    \"nfs-server\"\n    \"bind9\"\n    \"vsftpd\"\n    \"apache2\"\n    \"dovecot\"\n    \"snmpd\"\n    \"telnet\"\n)\n\nfor service in \"${UNNECESSARY_SERVICES[@]}\"; do\n    if systemctl is-enabled \"$service\" 2>/dev/null; then\n        log_message \"[+] Disabling: $service\"\n        systemctl disable \"$service\" 2>/dev/null || true\n        systemctl stop \"$service\" 2>/dev/null || true\n    fi\ndone\n\nlog_message \"[+] CM-7 implementation complete\"\n",
+        "ansible": "---\n- name: CM-7 Least Functionality Implementation\n  hosts: linux\n  become: yes\n\n  vars:\n    unnecessary_services:\n      - avahi-daemon\n      - bluetooth\n      - cups\n      - isc-dhcp-server\n      - nfs-server\n      - bind9\n      - vsftpd\n      - apache2\n      - dovecot\n      - snmpd\n\n  tasks:\n    - name: Gather current service state\n      service_facts:\n      register: service_facts\n\n    - name: Create service baseline\n      copy:\n        content: \"{{ service_facts | to_nice_json }}\"\n        dest: /etc/cm7_baseline.json\n        owner: root\n        group: root\n        mode: '0644'\n\n    - name: Disable unnecessary services\n      systemd:\n        name: \"{{ item }}\"\n        enabled: no\n        state: stopped\n        daemon_reload: yes\n      loop: \"{{ unnecessary_services }}\"\n      when: item in service_facts.ansible_facts.services\n      ignore_errors: yes\n      register: disable_result\n\n    - name: Log service disabling\n      lineinfile:\n        path: /var/log/cm7_remediation.log\n        line: \"{{ item.item }} disabled at {{ ansible_date_time.iso8601 }}\"\n        create: yes\n      loop: \"{{ disable_result.results }}\"\n      when: item is changed\n\n    - name: Report completion\n      debug:\n        msg: \"CM-7 Least Functionality implementation complete\"\n"
+      },
+      "windows": {
+        "powershell": "# CM-7: Least Functionality - Windows PowerShell Implementation\n# Disable unnecessary services and features\n\nparam(\n    [string]$LogPath = \"C:\\Logs\\CM7_Remediation.log\"\n)\n\n$ErrorActionPreference = \"SilentlyContinue\"\n\nfunction Write-Log {\n    param([string]$Message)\n    $timestamp = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"\n    \"$timestamp - $Message\" | Out-File -FilePath $LogPath -Append\n    Write-Host \"[$timestamp] $Message\"\n}\n\nWrite-Log \"Starting CM-7 Least Functionality implementation\"\n\n# Services to disable\n$UnnecessaryServices = @(\n    \"BTHFSSrv\",      # Bluetooth\n    \"bthserv\",       # Bluetooth service\n    \"DiagTrack\",     # Diagnostic Tracking\n    \"dmwappushservice\",  # Delivery Optimization\n    \"NetTcpPortSharing\", # .NET services\n    \"WMPNetworkSvc\", # Media Player Network\n    \"Spooler\",       # Print Spooler\n    \"SNMP\",          # SNMP Service\n    \"SMTP\",          # SMTP Service\n    \"FTP\"            # FTP Service\n)\n\n# Disable unnecessary services\nWrite-Log \"Auditing and disabling unnecessary services...\"\nforeach ($service in $UnnecessaryServices) {\n    $svc = Get-Service -Name $service -ErrorAction SilentlyContinue\n    if ($svc) {\n        Write-Log \"Disabling service: $service\"\n        Set-Service -Name $service -StartupType Disabled\n        Stop-Service -Name $service -Force -ErrorAction SilentlyContinue\n    }\n}\n\n# Create baseline\nWrite-Log \"Creating service baseline...\"\nGet-Service | Export-Csv -Path \"C:\\Baselines\\CM7_ServiceBaseline_$(Get-Date -Format yyyyMMdd).csv\" -NoTypeInformation\n\nWrite-Log \"CM-7 implementation complete\"\n",
+        "ansible": "---\n- name: CM-7 Least Functionality - Windows\n  hosts: windows\n\n  vars:\n    unnecessary_services:\n      - bthserv\n      - BTHFSSrv\n      - DiagTrack\n      - dmwappushservice\n      - Spooler\n      - WMPNetworkSvc\n      - NetTcpPortSharing\n      - SNMP\n\n  tasks:\n    - name: Get current services\n      win_service:\n        name: \"{{ item }}\"\n        state: query\n      loop: \"{{ unnecessary_services }}\"\n      register: service_status\n      ignore_errors: yes\n\n    - name: Disable unnecessary services\n      win_service:\n        name: \"{{ item }}\"\n        state: stopped\n        start_mode: disabled\n      loop: \"{{ unnecessary_services }}\"\n      ignore_errors: yes\n      register: disabled_services\n\n    - name: Create service baseline\n      win_command: Get-Service | ConvertTo-Json | Out-File -Path 'C:\\Baselines\\CM7_ServiceBaseline_{{ ansible_date_time.iso8601 }}.json'\n      register: baseline_created\n\n    - name: Report completion\n      debug:\n        msg: \"CM-7 Least Functionality implementation complete\"\n"
+      }
     },
     "metadata": {
       "status": "implemented",
@@ -1513,12 +1592,14 @@
       "platform": "rhcos4",
       "rule_count": 45,
       "certification": "Government-certified"
-    }
+    },
+    "stig_id": "RHEL-08-040000, RHEL-08-040001, RHEL-08-040002, RHEL-08-040010",
+    "ai_guidance": "Implement configuration management by conducting quarterly audits of all system services and features. Document business justification for enabled services. Use service management tools to track changes and disable unnecessary functionality. Implement least privilege principles by removing or disabling services that do not support documented organizational functions."
   },
   {
-    "control_id": "cm-7.1",
+    "control_id": "CM-7.1",
     "control_name": "Periodic Review",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-7",
@@ -1528,7 +1609,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "This control enhancement identifies and documents all permitted functions, ports, protocols, and services; unauthorized additions are prohibited unless explicitly justified and approved by organizational management.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1536,8 +1617,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-7.1: Information and Communication Management\n# Enforce service whitelist against running services\n\nset -euo pipefail\n\nLOG_FILE=\"/var/log/cm71_audit.log\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"$LOG_FILE\"\n}\n\n# Define approved services\nAPPROVED_SERVICES=(\n    \"systemd-journald\"\n    \"systemd-logind\"\n    \"systemd-udevd\"\n    \"sshd\"\n    \"crond\"\n    \"NetworkManager\"\n    \"dbus\"\n)\n\nlog_message \"[*] Starting CM-7.1 service verification\"\n\n# Get list of running services\nRUNNING_SERVICES=$(systemctl list-units --type=service --state=running --no-pager | awk '{print $1}' | grep -v '^$' | cut -d. -f1)\n\n# Check each running service\nfor service in $RUNNING_SERVICES; do\n    found=false\n    for approved in \"${APPROVED_SERVICES[@]}\"; do\n        if [[ \"$service\" == \"$approved\" ]] || [[ \"$service\" == systemd* ]]; then\n            found=true\n            break\n        fi\n    done\n\n    if [ \"$found\" = false ]; then\n        log_message \"[!] ALERT: Unauthorized service detected: $service\"\n    fi\ndone\n\nlog_message \"[+] Service audit complete\"\n",
+        "ansible": "---\n# Placeholder for CM-7.1\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.1\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.1\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1551,12 +1638,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-040000, RHEL-08-040001, RHEL-08-040010",
+    "ai_guidance": "Automate detection of unauthorized services using service enumeration scripts on Linux and Windows. Cross-reference running services against approved service catalog. Alert on deviations immediately. Document service purposes and review quarterly. Disable unauthorized services using configuration management tools to prevent recurrence."
   },
   {
-    "control_id": "cm-7.2",
+    "control_id": "CM-7.2",
     "control_name": "Prevent Program Execution",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Prevent program execution in accordance with {{ insert: param, cm-07.02_odp.01 }}.",
     "parent_control": "cm-7",
@@ -1566,7 +1655,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Prevent program execution in accordance with {{ insert: param, cm-07.02_odp.01 }}.",
+    "plain_english_explanation": "The information system prevents the activation of functions, ports, protocols, and services that are not used or required, and regularly reviews and removes unnecessary capabilities to maintain minimal system footprint.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1574,8 +1663,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-7.2: Port and Protocol Audit\n# Review and document all open ports and listening services\n\nset -euo pipefail\n\nLOG_FILE=\"/var/log/cm72_port_audit.log\"\nPORT_BASELINE=\"/etc/cm72_port_baseline.txt\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"$LOG_FILE\"\n}\n\nlog_message \"[*] Starting CM-7.2 port audit\"\n\n# Capture current listening ports\nif command -v ss &> /dev/null; then\n    log_message \"[*] Using ss to audit ports...\"\n    ss -tlnp > \"$PORT_BASELINE\"\nelse\n    log_message \"[*] Using netstat to audit ports...\"\n    netstat -tlnp > \"$PORT_BASELINE\" 2>/dev/null || true\nfi\n\n# Alert on unexpected ports\nUNEXPECTED_PORTS=(\"23\" \"21\" \"69\" \"513\" \"514\")\nfor port in \"${UNEXPECTED_PORTS[@]}\"; do\n    if grep -q \":$port \" \"$PORT_BASELINE\"; then\n        log_message \"[!] WARNING: Unexpected port open: $port\"\n    fi\ndone\n\nlog_message \"[+] Port audit complete. Baseline saved to $PORT_BASELINE\"\n",
+        "ansible": "---\n# Placeholder for CM-7.2\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.2\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.2\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1589,12 +1684,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010544, RHEL-08-010545, RHEL-08-010546",
+    "ai_guidance": "Audit all open network ports and listening services using tools like netstat, ss, and Get-NetTCPConnection on Windows. Create inventory mapping port numbers to services and business justifications. Close unnecessary ports through firewall rules and service disabling. Validate changes don't impact critical functionality."
   },
   {
-    "control_id": "cm-7.3",
+    "control_id": "CM-7.3",
     "control_name": "Registration Compliance",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Ensure compliance with {{ insert: param, cm-07.03_odp }}.",
     "parent_control": "cm-7",
@@ -1604,7 +1701,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Ensure compliance with {{ insert: param, cm-07.03_odp }}.",
+    "plain_english_explanation": "Additional mechanisms are employed to prevent specific programs and application functions from being utilized without explicit approval, enforcing strict allowlisting of executable code.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1612,8 +1709,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.3\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.3\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.3\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.3\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1627,12 +1730,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Review and restrict software libraries, modules, and dependencies across development and production systems. Scan for unused libraries using static analysis tools. Document all library dependencies and their purposes. Remove or isolate unnecessary libraries. Monitor for unauthorized additions."
   },
   {
-    "control_id": "cm-7.4",
-    "control_name": "Unauthorized Software — Deny-by-exception",
-    "family": "Configuration Management",
+    "control_id": "CM-7.4",
+    "control_name": "Unauthorized Software \u00e2\u20ac\u201d Deny-by-exception",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-7",
@@ -1642,7 +1746,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "The organization requires explicit approval and documentation for adding any functions, ports, protocols, or services to the information system.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1650,8 +1754,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.4\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.4\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.4\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.4\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1665,12 +1775,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement strict change management processes requiring approval before functionality additions. Document all functions, purpose, and business justification. Use configuration management to version control changes. Require testing and security review before deployment. Maintain audit trail of all additions."
   },
   {
-    "control_id": "cm-7.5",
-    "control_name": "Authorized Software — Allow-by-exception",
-    "family": "Configuration Management",
+    "control_id": "CM-7.5",
+    "control_name": "Authorized Software \u00e2\u20ac\u201d Allow-by-exception",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-7",
@@ -1680,7 +1791,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Configuration management tools automatically discover and report any new functions, ports, protocols, or services added to the system, enabling detection of unauthorized changes.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1688,8 +1799,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.5\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.5\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.5\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.5\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1703,12 +1820,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-040135, RHEL-08-040136, RHEL-08-040137",
+    "ai_guidance": "Monitor system configuration regularly using configuration management tools. Compare current baseline against approved configurations. Detect unauthorized capability additions in real-time. Trigger alerts for unexpected changes. Implement automated remediation to restore baseline configurations."
   },
   {
-    "control_id": "cm-7.6",
+    "control_id": "CM-7.6",
     "control_name": "Confined Environments with Limited Privileges",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Require that the following user-installed software execute in a confined physical or virtual machine environment with limited privileges: {{ insert: param, cm-07.06_odp }}.",
     "parent_control": "cm-7",
@@ -1718,7 +1837,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Require that the following user-installed software execute in a confined physical or virtual machine environment with limited privileges: {{ insert: param, cm-07.06_odp }}.",
+    "plain_english_explanation": "The organization maintains detailed configuration baselines that document all authorized functions, ports, protocols, and services across the information system.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1726,8 +1845,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.6\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.6\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.6\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.6\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1741,12 +1866,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Maintain detailed documentation of all hardware, software, and firmware components including versions and configurations. Use automated inventory tools to track configurations across infrastructure. Review and update documentation quarterly. Cross-reference against approved baselines."
   },
   {
-    "control_id": "cm-7.7",
+    "control_id": "CM-7.7",
     "control_name": "Code Execution in Protected Environments",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Allow execution of binary or machine-executable code only in confined physical or virtual machine environments and with the explicit approval of {{ insert: param, cm-07.07_odp }} when such code is:",
     "parent_control": "cm-7",
@@ -1756,7 +1882,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Allow execution of binary or machine-executable code only in confined physical or virtual machine environments and with the explicit approval of {{ insert: param, cm-07.07_odp }} when such code is:",
+    "plain_english_explanation": "The organization conducts periodic reviews of system functions and configurations to ensure they remain necessary and aligned with organizational needs.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1764,8 +1890,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.7\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.7\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.7\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.7\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1779,12 +1911,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement preventive maintenance schedules for security testing and analysis. Conduct regular vulnerability assessments and penetration testing. Document all testing results and remediation actions. Maintain testing schedule and evidence. Use automated scanning to identify configuration deviations."
   },
   {
-    "control_id": "cm-7.8",
+    "control_id": "CM-7.8",
     "control_name": "Binary or Machine Executable Code",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-7",
@@ -1794,7 +1927,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Configuration changes follow formal change management procedures that require documentation, approval, and testing before implementation.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1802,8 +1935,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.8\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.8\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.8\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.8\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1817,12 +1956,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Execute documented change management procedures for all configuration changes. Obtain approvals before implementation. Test changes in non-production environments first. Document changes, rationale, and testing results. Maintain change log and approval documentation."
   },
   {
-    "control_id": "cm-7.9",
+    "control_id": "CM-7.9",
     "control_name": "Prohibiting The Use of Unauthorized Hardware",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-7",
@@ -1832,7 +1972,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "The organization maintains a historical record of all configuration changes including dates, people responsible, and specific modifications made to system functions.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1840,8 +1980,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-7.9\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.9\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-7.9\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-7.9\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1855,12 +2001,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Preserve configuration change history including dates, times, persons responsible, and modifications made. Implement configuration versioning in change management system. Maintain immutable audit trail. Protect change history from unauthorized modification or deletion."
   },
   {
-    "control_id": "cm-8",
+    "control_id": "CM-8",
     "control_name": "System Component Inventory",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -1869,7 +2016,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Keep track of all the hardware and software components in your system.",
+    "plain_english_explanation": "The organization develops, maintains, and reviews information system component inventories that accurately reflect all hardware, software, firmware, and virtualization assets.",
     "example_implementation": "This script regularly update and maintain a detailed inventory of all system components, including servers, routers, switches, applications, and databases. This will help you stay organized and ensure you are aware of all potential vulnerabilities.",
     "non_technical_guidance": "This plan to comply with this control, a manual inventory of all system components (software, hardware, firmware) must be maintained. This inventory should include detailed information such as version numbers, patch levels, and any relevant configuration settings. Regular audits should be conducted to ensure the inventory is up-to-date and accurate. This information is crucial for tracking vulnerabilities, ensuring proper configuration management, and facilitating incident response efforts.",
     "is_technical": false,
@@ -1923,8 +2070,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-8: System Component Inventory\n# Maintain comprehensive hardware and software inventory\n\nset -euo pipefail\n\nINVENTORY_FILE=\"/var/lib/cm8_system_inventory.json\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"/var/log/cm8_inventory.log\"\n}\n\nlog_message \"[*] Generating system inventory\"\n\n# Collect hardware information\nHOSTNAME=$(hostname)\nOS_VERSION=$(lsb_release -ds 2>/dev/null || uname -s)\nKERNEL=$(uname -r)\nCPU_CORES=$(nproc)\nTOTAL_MEMORY=$(free -h | awk '/^Mem:/{print $2}')\nDISK_USAGE=$(df -h / | awk 'NR==2 {print $2}')\n\n# Count installed packages\nif command -v rpm &> /dev/null; then\n    PKG_COUNT=$(rpm -qa | wc -l)\n    PKG_MANAGER=\"rpm\"\nelse\n    PKG_COUNT=$(dpkg -l | wc -l)\n    PKG_MANAGER=\"dpkg\"\nfi\n\n# Create inventory record\n{\n    echo \"Inventory Timestamp: $(date -I)\"\n    echo \"Hostname: $HOSTNAME\"\n    echo \"OS: $OS_VERSION\"\n    echo \"Kernel: $KERNEL\"\n    echo \"CPU Cores: $CPU_CORES\"\n    echo \"Memory: $TOTAL_MEMORY\"\n    echo \"Root Disk: $DISK_USAGE\"\n    echo \"Packages: $PKG_COUNT ($PKG_MANAGER)\"\n    echo \"Service Count: $(systemctl list-units --type=service | wc -l)\"\n} | tee \"$INVENTORY_FILE\"\n\nlog_message \"[+] Inventory saved to $INVENTORY_FILE\"\n",
+        "ansible": "---\n- name: CM-8 System Component Inventory\n  hosts: linux\n\n  tasks:\n    - name: Gather comprehensive facts\n      setup:\n        gather_subset: all\n\n    - name: Create system inventory\n      copy:\n        content: |\n          System Inventory Report - {{ ansible_date_time.iso8601 }}\n\n          Hostname: {{ ansible_hostname }}\n          OS: {{ ansible_os_family }}\n          OS Version: {{ ansible_distribution_version }}\n          Kernel: {{ ansible_kernel }}\n          Kernel Version: {{ ansible_kernel_version[0] }}\n\n          Hardware:\n          - CPU Cores: {{ ansible_processor_vcpus }}\n          - Memory: {{ ansible_memtotal_mb }} MB\n          - Disk Devices: {{ ansible_devices | length }}\n\n          Services:\n          - Total Packages: {{ ansible_facts.packages | length }}\n          - Running Services: {{ ansible_facts.services | length }}\n\n          Network:\n          - Interfaces: {{ ansible_interfaces | length }}\n          - Default IPv4: {{ ansible_default_ipv4.address | default('N/A') }}\n        dest: /var/lib/cm8_system_inventory.txt\n        owner: root\n        group: root\n        mode: '0644'\n\n    - name: Export detailed inventory\n      copy:\n        content: \"{{ ansible_facts | to_nice_json }}\"\n        dest: /var/lib/cm8_system_inventory.json\n        owner: root\n        group: root\n        mode: '0644'\n\n    - name: Report inventory creation\n      debug:\n        msg: \"System inventory documented\"\n"
+      },
+      "windows": {
+        "powershell": "# CM-8: System Component Inventory - Windows PowerShell\n# Maintain comprehensive hardware and software inventory\n\nparam(\n    [string]$InventoryPath = \"C:\\Inventory\\SystemInventory_$(Get-Date -Format yyyyMMdd).json\"\n)\n\nfunction Write-Log {\n    param([string]$Message)\n    Write-Host \"[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Message\"\n}\n\nWrite-Log \"Generating system inventory\"\n\n# Gather hardware information\n$computerInfo = Get-ComputerInfo\n$os = Get-WmiObject -Class Win32_OperatingSystem\n$processor = Get-WmiObject -Class Win32_Processor\n$memory = Get-WmiObject -Class Win32_ComputerSystemProduct\n\n# Gather software inventory\n$software = Get-WmiObject -Class Win32_Product | Select-Object Name, Version, Vendor, InstallDate\n\n# Create inventory object\n$inventory = @{\n    CaptureDate = Get-Date -Format \"yyyy-MM-ddTHH:mm:ssZ\"\n    ComputerName = $env:COMPUTERNAME\n    OSVersion = $os.Caption\n    OSBuild = $os.BuildNumber\n    ProcessorCores = $processor.NumberOfCores\n    ProcessorThreads = $processor.NumberOfLogicalProcessors\n    TotalMemory = \"{0:N0} GB\" -f ($computerInfo.CsTotalPhysicalMemory / 1GB)\n    InstalledSoftwareCount = $software.Count\n    InstalledServices = @(Get-Service | Where-Object {$_.Status -eq 'Running'} | Measure-Object).Count\n    NetworkInterfaces = @(Get-NetAdapter | Measure-Object).Count\n}\n\n# Export inventory\n$inventory | ConvertTo-Json | Out-File -FilePath $InventoryPath -Force\nWrite-Log \"Inventory saved to $InventoryPath\"\nWrite-Host ($inventory | ConvertTo-Json)\n",
+        "ansible": "---\n- name: CM-8 System Inventory - Windows\n  hosts: windows\n  gather_facts: yes\n\n  tasks:\n    - name: Gather hardware facts\n      win_shell: |\n        Get-ComputerInfo | ConvertTo-Json\n      register: hardware_info\n\n    - name: Gather software inventory\n      win_shell: |\n        Get-WmiObject -Class Win32_Product | ConvertTo-Json\n      register: software_list\n\n    - name: Create inventory report\n      win_file:\n        path: C:\\Inventory\n        state: directory\n\n    - name: Save inventory\n      win_copy:\n        content: |\n          System Inventory Report - {{ ansible_date_time.iso8601 }}\n\n          Hostname: {{ ansible_hostname }}\n          OS: {{ ansible_os_name }}\n          OSVersion: {{ ansible_windows_domain }}\n          Total Memory: {{ ansible_memtotal_mb }} MB\n          Processor Count: {{ ansible_processor_count }}\n\n          Installed Software Count: {{ software_list.stdout_lines | length }}\n        dest: C:\\Inventory\\SystemInventory_{{ ansible_date_time.date }}.txt\n\n    - name: Report inventory creation\n      debug:\n        msg: \"System inventory documented in C:\\Inventory\"\n"
+      }
     },
     "metadata": {
       "status": "implemented",
@@ -1939,12 +2092,13 @@
       "platform": "rhcos4",
       "rule_count": 2,
       "certification": "Government-certified"
-    }
+    },
+    "ai_guidance": "Maintain comprehensive inventory of all information system components including hardware, software, firmware, and virtualized environments. Update inventory automatically when changes occur. Include component details like manufacturer, model, version, and location. Conduct periodic physical verification."
   },
   {
-    "control_id": "cm-8.1",
+    "control_id": "CM-8.1",
     "control_name": "Updates During Installation and Removal",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Update the inventory of system components as part of component installations, removals, and system updates.",
     "parent_control": "cm-8",
@@ -1954,7 +2108,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Update the inventory of system components as part of component installations, removals, and system updates.",
+    "plain_english_explanation": "The information system automatically detects and records new hardware and software components when they are introduced or connected to the system.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -1962,8 +2116,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-8.1: Component Acquisition Tracking\n# Detect new hardware/software added to system\n\nset -euo pipefail\n\nBASELINE_FILE=\"/etc/cm81_hw_baseline.txt\"\nCURRENT_FILE=\"/tmp/cm81_hw_current.txt\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"/var/log/cm81_tracking.log\"\n}\n\nlog_message \"[*] Checking for new hardware...\"\n\n# Capture hardware inventory\n{\n    echo \"=== Hardware Devices ===\"\n    lsblk -o NAME,SIZE,TYPE\n    echo \"=== Network Interfaces ===\"\n    ip link show\n    echo \"=== USB Devices ===\"\n    lsusb 2>/dev/null || echo \"lsusb not available\"\n} > \"$CURRENT_FILE\"\n\nif [ -f \"$BASELINE_FILE\" ]; then\n    if ! diff -q \"$BASELINE_FILE\" \"$CURRENT_FILE\" > /dev/null; then\n        log_message \"[!] ALERT: Hardware configuration changed\"\n        log_message \"Changes detected:\"\n        diff \"$BASELINE_FILE\" \"$CURRENT_FILE\" | head -20\n    fi\nelse\n    log_message \"[*] Creating hardware baseline\"\n    cp \"$CURRENT_FILE\" \"$BASELINE_FILE\"\nfi\n\nlog_message \"[+] Hardware tracking complete\"\n",
+        "ansible": "---\n# Placeholder for CM-8.1\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.1\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.1\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -1977,12 +2137,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Detect and track all hardware and software acquisitions as they enter the system. Integrate inventory management with procurement processes. Tag and record all components at receipt. Maintain received-date documentation for asset lifecycle tracking."
   },
   {
-    "control_id": "cm-8.2",
+    "control_id": "CM-8.2",
     "control_name": "Automated Maintenance",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Maintain the currency, completeness, accuracy, and availability of the inventory of system components using {{ insert: param, cm-8.2_prm_1 }}.",
     "parent_control": "cm-8",
@@ -1992,7 +2153,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Maintain the currency, completeness, accuracy, and availability of the inventory of system components using {{ insert: param, cm-8.2_prm_1 }}.",
+    "plain_english_explanation": "The organization maintains software licensing information, verifies compliance with license agreements, and identifies unlicensed or improperly licensed software.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2000,8 +2161,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.2\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.2\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.2\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.2\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2015,12 +2182,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Reconcile software licenses with deployed software inventory to ensure compliance. Identify unlicensed or improperly licensed software. Document licensing agreements and restrictions. Maintain proof of licensing for audit purposes. Monitor for license violations."
   },
   {
-    "control_id": "cm-8.3",
+    "control_id": "CM-8.3",
     "control_name": "Automated Unauthorized Component Detection",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-8",
@@ -2030,7 +2198,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "The organization removes information system components that are no longer needed and documents the removal, ensuring data sanitization as appropriate.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2038,8 +2206,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.3\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.3\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.3\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.3\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2053,12 +2227,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Remove or properly dispose of hardware and software components when no longer needed. Document decommissioning activities including date and authorization. Sanitize data on removed media per data destruction standards. Update inventory to reflect removals."
   },
   {
-    "control_id": "cm-8.4",
+    "control_id": "CM-8.4",
     "control_name": "Accountability Information",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Include in the system component inventory information, a means for identifying by {{ insert: param, cm-08.04_odp }} , individuals responsible and accountable for administering those components.",
     "parent_control": "cm-8",
@@ -2068,7 +2243,7 @@
       "moderate": false,
       "high": true
     },
-    "plain_english_explanation": "Include in the system component inventory information, a means for identifying by {{ insert: param, cm-08.04_odp }} , individuals responsible and accountable for administering those components.",
+    "plain_english_explanation": "The information system automatically detects and reports unauthorized or prohibited hardware and software that appears on the system.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2076,8 +2251,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.4\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.4\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.4\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.4\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2091,12 +2272,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement automated mechanisms to monitor and report unauthorized additions to the system inventory. Deploy host-based monitoring tools that detect new hardware and software. Alert security teams to unexpected components immediately. Investigate and remediate unauthorized additions."
   },
   {
-    "control_id": "cm-8.5",
+    "control_id": "CM-8.5",
     "control_name": "No Duplicate Accounting of Components",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-8",
@@ -2106,7 +2288,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "The organization assigns specific personnel responsibility for managing, maintaining, and updating the information system component inventory.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2114,8 +2296,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.5\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.5\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.5\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.5\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2129,12 +2317,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Assign accountability for managing and maintaining the system inventory. Designate roles and responsibilities for inventory updates and accuracy. Implement procedures for tracking inventory changes. Maintain documentation of who approved additions and removals."
   },
   {
-    "control_id": "cm-8.6",
+    "control_id": "CM-8.6",
     "control_name": "Assessed Configurations and Approved Deviations",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Include assessed component configurations and any approved deviations to current deployed configurations in the system component inventory.",
     "parent_control": "cm-8",
@@ -2144,7 +2333,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Include assessed component configurations and any approved deviations to current deployed configurations in the system component inventory.",
+    "plain_english_explanation": "The component inventory includes or is cross-referenced with authorized configuration baselines that document the approved composition of systems.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2152,8 +2341,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.6\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.6\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.6\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.6\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2167,12 +2362,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Include configuration baseline in the inventory system along with component tracking. Document reference configurations for hardware and software. Track deviations from baselines automatically. Trigger alerts when configurations drift from approved baselines."
   },
   {
-    "control_id": "cm-8.7",
+    "control_id": "CM-8.7",
     "control_name": "Centralized Repository",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Provide a centralized repository for the inventory of system components.",
     "parent_control": "cm-8",
@@ -2182,7 +2378,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Provide a centralized repository for the inventory of system components.",
+    "plain_english_explanation": "The component inventory information is used to support system security assessments, risk assessments, and the management of information security activities.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2190,8 +2386,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.7\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.7\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.7\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.7\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2205,12 +2407,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Use inventory information to support security analyses and risk management activities. Cross-reference inventory with known vulnerabilities and threat intelligence. Assess component configuration against security baselines. Identify configuration gaps and security control misalignments."
   },
   {
-    "control_id": "cm-8.8",
+    "control_id": "CM-8.8",
     "control_name": "Automated Location Tracking",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Support the tracking of system components by geographic location using {{ insert: param, cm-08.08_odp }}.",
     "parent_control": "cm-8",
@@ -2220,7 +2423,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Support the tracking of system components by geographic location using {{ insert: param, cm-08.08_odp }}.",
+    "plain_english_explanation": "The organization implements mechanisms to prevent unauthorized hardware and software components from being introduced to the information system.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2228,8 +2431,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.8\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.8\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.8\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.8\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2243,12 +2452,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Monitor information system components for unauthorized or prohibited hardware and software. Scan for known vulnerable components or versions. Block installation of prohibited software using endpoint protection. Maintain list of authorized and prohibited components."
   },
   {
-    "control_id": "cm-8.9",
+    "control_id": "CM-8.9",
     "control_name": "Assignment of Components to Systems",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-8",
@@ -2258,7 +2468,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "The organization defines and documents information system component management procedures, including processes for acquisition, installation, and removal.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2266,8 +2476,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-8.9\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.9\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-8.9\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-8.9\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2281,12 +2497,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Define and document component management processes and procedures. Establish policies for component acquisition, installation, configuration, and retirement. Define roles and responsibilities for inventory accuracy. Include compliance requirements and approval processes."
   },
   {
-    "control_id": "cm-9",
+    "control_id": "CM-9",
     "control_name": "Configuration Management Plan",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Develop, document, and implement a configuration management plan for the system that:",
     "source": "NIST SP 800-53 Rev 5",
@@ -2295,7 +2512,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Develop a plan for managing changes to the system.",
+    "plain_english_explanation": "Configuration management is implemented through formal organizational processes that establish and enforce configuration baselines, manage approved changes, and maintain configuration integrity.",
     "example_implementation": "This script creates a detailed document outlining how changes to the system will be tracked, approved, and implemented, including roles and responsibilities of team members involved in the process.",
     "non_technical_guidance": "This plan 1. Identify key stakeholders who will be involved in the development and implementation of the configuration management plan.\n2. Define the scope of the plan, including which systems and components will be covered.\n3. Establish configuration baselines for different system components.\n4. Define the process for making changes to configurations, including approval and testing procedures.\n5. Document the configuration management plan and make it accessible to all relevant personnel.\n6. Regularly review and update the configuration management plan to ensure it remains effective and relevant.",
     "is_technical": false,
@@ -2309,8 +2526,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# CM-9: Configuration Management Baseline\n# Establish and maintain system configuration baseline\n\nset -euo pipefail\n\nBASELINE_DIR=\"/etc/cm9_baselines\"\nmkdir -p \"$BASELINE_DIR\"\n\nlog_message() {\n    echo \"[$(date '+%Y-%m-%d %H:%M:%S')] $1\" | tee -a \"/var/log/cm9_baseline.log\"\n}\n\nlog_message \"[*] Creating configuration baseline\"\n\n# Capture system state\n{\n    echo \"=== System Configuration Baseline ===\"\n    echo \"Capture Date: $(date -I)\"\n    echo \"Hostname: $(hostname)\"\n    echo \"OS: $(lsb_release -ds 2>/dev/null || uname -s)\"\n    echo \"\"\n    echo \"=== Kernel Configuration ===\"\n    uname -a\n    echo \"\"\n    echo \"=== Enabled Services ===\"\n    systemctl list-units --type=service --state=enabled --no-pager\n    echo \"\"\n    echo \"=== System Limits ===\"\n    ulimit -a\n} > \"$BASELINE_DIR/system_baseline_$(date +%Y%m%d).txt\"\n\n# Create checksum file for integrity verification\nfind \"$BASELINE_DIR\" -name \"*.txt\" -type f | xargs sha256sum > \"$BASELINE_DIR/baseline_checksums.txt\"\n\nlog_message \"[+] Baseline documentation complete\"\n",
+        "ansible": "---\n- name: CM-9 Configuration Management Baseline\n  hosts: linux\n  become: yes\n\n  vars:\n    baseline_dir: /etc/cm9_baselines\n\n  tasks:\n    - name: Create baseline directory\n      file:\n        path: \"{{ baseline_dir }}\"\n        state: directory\n        owner: root\n        group: root\n        mode: '0700'\n\n    - name: Capture system configuration\n      shell: |\n        {\n            echo \"=== Configuration Baseline - $(date -I) ===\"\n            echo \"Hostname: $(hostname)\"\n            echo \"OS: $(cat /etc/os-release | grep PRETTY_NAME)\"\n            echo \"Kernel: $(uname -r)\"\n            echo \"\"\n            echo \"=== Enabled Services ===\"\n            systemctl list-units --type=service --state=enabled --no-pager\n            echo \"\"\n            echo \"=== Network Configuration ===\"\n            ip addr show\n            echo \"\"\n            echo \"=== System Limits ===\"\n            ulimit -a\n        } > {{ baseline_dir }}/baseline_$(date +%Y%m%d_%H%M%S).txt\n      register: baseline_result\n\n    - name: Create integrity checksums\n      shell: |\n        cd {{ baseline_dir }}\n        sha256sum *.txt > baseline_checksums.txt\n      changed_when: false\n\n    - name: Report baseline creation\n      debug:\n        msg: \"Configuration baseline established at {{ baseline_dir }}\"\n"
+      },
+      "windows": {
+        "powershell": "# CM-9: Configuration Management Baseline - Windows PowerShell\n# Establish and document system configuration baseline\n\nparam(\n    [string]$BaselineDir = \"C:\\Baselines\\ConfigurationManagement\"\n)\n\nif (-not (Test-Path $BaselineDir)) {\n    New-Item -ItemType Directory -Path $BaselineDir -Force | Out-Null\n}\n\nfunction Write-Log {\n    param([string]$Message)\n    \"[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Message\" | Out-File -FilePath \"$BaselineDir\\Baseline.log\" -Append\n    Write-Host \"[$([DateTime]::Now.ToString())] $Message\"\n}\n\nWrite-Log \"Creating configuration baseline\"\n\n# Capture baseline\n$baseline = @{\n    Timestamp = Get-Date -Format \"yyyy-MM-ddTHH:mm:ssZ\"\n    ComputerName = $env:COMPUTERNAME\n    OSVersion = [System.Environment]::OSVersion.VersionString\n    PowerShellVersion = $PSVersionTable.PSVersion -as [string]\n    InstalledServices = @(Get-Service | Measure-Object).Count\n    RunningServices = @(Get-Service | Where-Object {$_.Status -eq 'Running'} | Measure-Object).Count\n    LocalUsers = @(Get-LocalUser | Measure-Object).Count\n    LocalGroups = @(Get-LocalGroup | Measure-Object).Count\n    DiskDrives = @(Get-Volume | Measure-Object).Count\n    NetworkAdapters = @(Get-NetAdapter | Measure-Object).Count\n}\n\n# Export baseline\n$baseline | ConvertTo-Json | Out-File -FilePath \"$BaselineDir\\Baseline_$(Get-Date -Format yyyyMMdd).json\" -Force\nWrite-Log \"Baseline documentation complete\"\n",
+        "ansible": "---\n- name: CM-9 Configuration Management Baseline - Windows\n  hosts: windows\n\n  vars:\n    baseline_dir: C:\\Baselines\\ConfigurationManagement\n\n  tasks:\n    - name: Create baseline directory\n      win_file:\n        path: \"{{ baseline_dir }}\"\n        state: directory\n\n    - name: Capture configuration baseline\n      win_shell: |\n        @{\n            Timestamp = Get-Date -Format \"yyyy-MM-ddTHH:mm:ssZ\"\n            ComputerName = $env:COMPUTERNAME\n            OSVersion = [System.Environment]::OSVersion.VersionString\n            Services = (Get-Service | Measure-Object).Count\n            Applications = (Get-WmiObject -Class Win32_Product | Measure-Object).Count\n            NetworkAdapters = (Get-NetAdapter | Measure-Object).Count\n        } | ConvertTo-Json | Out-File -FilePath '{{ baseline_dir }}\\Baseline_{{ ansible_date_time.iso8601 }}.json'\n      register: baseline_result\n\n    - name: Report baseline creation\n      debug:\n        msg: \"Configuration baseline established at {{ baseline_dir }}\"\n"
+      }
     },
     "metadata": {
       "status": "implemented",
@@ -2324,12 +2547,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Implement formal configuration management processes to maintain the integrity of system configurations throughout their lifecycle. Document baseline configurations and configuration items. Require changes through formal change control. Implement tools to prevent unauthorized modifications."
   },
   {
-    "control_id": "cm-9.1",
+    "control_id": "CM-9.1",
     "control_name": "Assignment of Responsibility",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Assign responsibility for developing the configuration management process to organizational personnel that are not directly involved in system development.",
     "parent_control": "cm-9",
@@ -2339,7 +2563,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Assign responsibility for developing the configuration management process to organizational personnel that are not directly involved in system development.",
+    "plain_english_explanation": "The organization analyzes proposed changes to the information system to determine potential security impacts before implementation and approval.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2347,8 +2571,14 @@
     "related_controls": [],
     "supplemental_guidance": "",
     "implementation_scripts": {
-      "linux": {},
-      "windows": {}
+      "linux": {
+        "bash": "#!/bin/bash\n# Placeholder for CM-9.1\necho 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-9.1\n- hosts: linux\n  tasks:\n    - debug: msg='Production playbook required'"
+      },
+      "windows": {
+        "powershell": "# Placeholder for CM-9.1\nWrite-Host 'Production script required'",
+        "ansible": "---\n# Placeholder for CM-9.1\n- hosts: windows\n  tasks:\n    - debug: msg='Production playbook required'"
+      }
     },
     "metadata": {
       "status": "pending_implementation",
@@ -2362,12 +2592,13 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Verify proposed changes do not adversely affect system security before implementation. Conduct security impact analysis for all configuration changes. Test changes in controlled environments first. Document review and approval by information security personnel before deployment."
   },
   {
-    "control_id": "cm-10",
+    "control_id": "CM-10",
     "control_name": "Software Usage Restrictions",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -2405,12 +2636,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010060",
+    "ai_guidance": "Implement software usage restrictions by creating approved software lists, using configuration management tools, monitoring installations, conducting quarterly reviews, and implementing whitelisting on critical systems."
   },
   {
-    "control_id": "cm-10.1",
+    "control_id": "CM-10.1",
     "control_name": "Open-source Software",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Establish the following restrictions on the use of open-source software: {{ insert: param, cm-10.01_odp }}.",
     "parent_control": "cm-10",
@@ -2420,7 +2653,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Establish the following restrictions on the use of open-source software: {{ insert: param, cm-10.01_odp }}.",
+    "plain_english_explanation": "Establish specific restrictions on open-source software usage. Identify components, assess compliance and security implications, enforce policies based on risk tolerance.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2443,12 +2676,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-040000",
+    "ai_guidance": "Conduct comprehensive inventory of open-source components, evaluate for licensing and security using OWASP/Snyk, create whitelists, automate CI/CD scanning, establish formal exception processes."
   },
   {
-    "control_id": "cm-11",
+    "control_id": "CM-11",
     "control_name": "User-installed Software",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -2493,12 +2728,14 @@
       "implementation_type": "automated",
       "last_analyzed": "2025-11-10T10:05:57.235276+00:00",
       "source": "ComplianceAsCode"
-    }
+    },
+    "stig_id": "RHEL-08-010019, RHEL-08-010370",
+    "ai_guidance": "Implement user-installed software controls through policies, privilege restrictions, SRP/AppLocker on Windows, SELinux/AppArmor on Linux, monitoring, and monthly audits."
   },
   {
-    "control_id": "cm-11.1",
+    "control_id": "CM-11.1",
     "control_name": "Alerts for Unauthorized Installations",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "parent_control": "cm-11",
@@ -2508,7 +2745,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "",
+    "plain_english_explanation": "Monitor and alert on unauthorized software installation attempts. Systems must detect and notify administrators of unauthorized installations through automated mechanisms.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2531,12 +2768,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010380",
+    "ai_guidance": "Configure audit rules for package managers, setup rsyslog/auditd monitoring, create automated alerts, integrate SIEM, test monthly, maintain 90-day logs."
   },
   {
-    "control_id": "cm-11.2",
+    "control_id": "CM-11.2",
     "control_name": "Software Installation with Privileged Status",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Allow user installation of software only with explicit privileged status.",
     "parent_control": "cm-11",
@@ -2546,7 +2785,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Allow user installation of software only with explicit privileged status.",
+    "plain_english_explanation": "Restrict software installation to require explicit privileged status. Regular users cannot install without proper authorization and privilege elevation.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2569,12 +2808,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-040001",
+    "ai_guidance": "Remove sudo access for package managers, configure sudoers logging, use PAM modules, implement PAM solutions, restrict binaries to root, configure Windows AppLocker."
   },
   {
-    "control_id": "cm-11.3",
+    "control_id": "CM-11.3",
     "control_name": "Automated Enforcement and Monitoring",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Enforce and monitor compliance with software installation policies using {{ insert: param, cm-11.3_prm_1 }}.",
     "parent_control": "cm-11",
@@ -2584,7 +2825,7 @@
       "moderate": false,
       "high": false
     },
-    "plain_english_explanation": "Enforce and monitor compliance with software installation policies using {{ insert: param, cm-11.3_prm_1 }}.",
+    "plain_english_explanation": "Use automated tools and mechanisms to continuously enforce and monitor software installation policy compliance. Automate enforcement and detect violations in real-time.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2607,12 +2848,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-040002",
+    "ai_guidance": "Deploy Ansible/Puppet/Chef for baseline enforcement, implement vulnerability scanning, use EDR solutions, setup SIEM integration, create remediation workflows, schedule daily checks."
   },
   {
-    "control_id": "cm-12",
+    "control_id": "CM-12",
     "control_name": "Information Location",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "",
     "source": "NIST SP 800-53 Rev 5",
@@ -2650,12 +2893,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Conduct data classification exercise, document storage locations by type, implement consistent access controls, use DLP tools, establish retention policies, conduct quarterly audits.",
+    "stig_id": "RHEL-08-010320"
   },
   {
-    "control_id": "cm-12.1",
+    "control_id": "CM-12.1",
     "control_name": "Automated Tools to Support Information Location",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Use automated tools to identify {{ insert: param, cm-12.01_odp.01 }} on {{ insert: param, cm-12.01_odp.02 }} to ensure controls are in place to protect organizational information and individual privacy.",
     "parent_control": "cm-12",
@@ -2665,7 +2910,7 @@
       "moderate": true,
       "high": true
     },
-    "plain_english_explanation": "Use automated tools to identify {{ insert: param, cm-12.01_odp.01 }} on {{ insert: param, cm-12.01_odp.02 }} to ensure controls are in place to protect organizational information and individual privacy.",
+    "plain_english_explanation": "Deploy automated tools to identify, classify, and track information locations across systems. Continuously scan and report where sensitive data is stored.",
     "example_implementation": "Community contribution needed",
     "non_technical_guidance": "Awaiting implementation guidance",
     "is_technical": true,
@@ -2688,12 +2933,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010350",
+    "ai_guidance": "Implement DLP software, use content discovery tools, deploy file integrity monitoring, setup database activity monitoring, create automated reports, integrate into asset management."
   },
   {
-    "control_id": "cm-13",
+    "control_id": "CM-13",
     "control_name": "Data Action Mapping",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Develop and document a map of system data actions.",
     "source": "NIST SP 800-53 Rev 5",
@@ -2725,12 +2972,14 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "ai_guidance": "Analyze data flows, create detailed maps of sources/processing/storage/recipients, document transformations, identify lifecycle phases, implement role-based controls, maintain current diagrams.",
+    "stig_id": "RHEL-08-010330"
   },
   {
-    "control_id": "cm-14",
+    "control_id": "CM-14",
     "control_name": "Signed Components",
-    "family": "Configuration Management",
+    "family": "CONFIGURATION MANAGEMENT",
     "family_id": "cm",
     "official_text": "Prevent the installation of {{ insert: param, cm-14_prm_1 }} without verification that the component has been digitally signed using a certificate that is recognized and approved by the organization.",
     "source": "NIST SP 800-53 Rev 5",
@@ -2762,6 +3011,8 @@
       "cac_status": "pending",
       "cac_planned": true,
       "implementation_guidance": "Automated implementation planned but not yet available in ComplianceAsCode repository."
-    }
+    },
+    "stig_id": "RHEL-08-010600",
+    "ai_guidance": "Configure systems to accept only signed software, implement GPG verification, use code signing certificates, validate signatures, configure Windows policies, maintain CA lists, monitor/alert."
   }
 ]
